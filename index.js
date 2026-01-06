@@ -115,5 +115,11 @@ sections.forEach((sec) => {
 
 })
 
-
-
+window.addEventListener('scroll', function() {
+    const header = document.getElementById('main-header');
+    if (window.scrollY > 50) {
+        header.classList.add('tw-shadow-md');
+    } else {
+        header.classList.remove('tw-shadow-md');
+    }
+});

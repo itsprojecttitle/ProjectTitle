@@ -39,19 +39,19 @@
         class="tw-flex tw-min-h-[100vh] tw-flex-col tw-bg-[] tw-font-mono"
     >
         <header
-            class="tw-absolute tw-top-0 tw-z-20 tw-flex tw-h-[60px] tw-w-full !tw-bg-primary tw-bg-opacity-0 tw-px-[5%] tw-text-white max-lg:tw-px-2 tw-justify-between lg:tw-justify-around"
+            class="tw-absolute tw-top-0 tw-z-20 tw-flex tw-h-[60px] tw-w-full !tw-bg-primary tw-bg-opacity-0 tw-px-[5%] tw-text-white max-lg:tw-px-2 tw-justify-between lg:tw-justify-around tw-items-center"
         >
             <img
                 src="./assets/logo.png"
                 alt="logo"
-                class="tw-h-[40px] tw-object-contain max-lg:tw-absolute max-lg:tw-right-12 max-lg:tw-top-3"
+                class="tw-h-[40px] tw-object-contain"
             />
 
+            <!-- Desktop Menu -->
             <div
-                class="collapsible-header animated-collapse max-lg:tw-shadow-md"
+                class="collapsible-header animated-collapse max-lg:tw-shadow-md lg:tw-flex lg:tw-items-center"
                 id="collapsed-header-items"
             >
-
                 <div
                     class="tw-flex tw-h-full tw-w-max tw-gap-5 tw-text-base max-lg:tw-mt-[30px] max-lg:tw-flex-col max-lg:tw-place-items-end max-lg:tw-gap-5 lg:tw-mx-auto lg:tw-place-items-center"
                 >
@@ -72,12 +72,23 @@
                     </a>
                 </div>
             </div>
-            <button
-                class="bi bi-list tw-absolute tw-right-3 tw-top-3 tw-z-50 tw-text-3xl tw-text-white lg:tw-hidden"
-                onclick="toggleHeader()"
-                aria-label="menu"
-                id="collapse-btn"
-            ></button>
+
+            <!-- Mobile Buttons -->
+            <div class="lg:tw-hidden tw-flex tw-items-center tw-gap-4">
+                <a
+                    href="https://tally.so/r/woO0Kx"
+                    aria-label="signup"
+                    class="tw-flex tw-h-[40px] tw-place-items-center tw-gap-2 tw-bg-secondary tw-p-1 tw-px-4 tw-text-black"
+                >
+                    <span>Book Now</span>
+                </a>
+                <button
+                    class="bi bi-list tw-z-50 tw-text-3xl tw-text-white"
+                    onclick="toggleHeader()"
+                    aria-label="menu"
+                    id="collapse-btn"
+                ></button>
+            </div>
         </header>
 
         <section
@@ -120,11 +131,11 @@
                         class="reveal-hero-text tw-mt-4 tw-flex tw-place-items-center tw-gap-4 tw-overflow-hidden tw-p-2"
                     >
                         <a
-                            href=""
+                            href="#upcoming-events"
                             aria-label="signup"
                             class="tw-flex tw-h-[40px] tw-place-items-center tw-gap-2 tw-bg-secondary tw-p-1 tw-p-2 tw-px-4 tw-pl-4 tw-text-black tw-transition-colors tw-duration-[0.5s] hover:tw-bg-black hover:tw-text-white"
                         >
-                            <span>Explore causes</span>
+                            <span>Upcoming</span>
 
                             <i class="bi bi-arrow-up-right"></i>
                         </a>
@@ -340,6 +351,7 @@
         </section>
 
         <section
+            id="upcoming-events"
             class="tw-relative tw-mt-10 tw-flex tw-min-h-[100vh] tw-w-full tw-max-w-[100vw] tw-flex-col tw-place-content-center tw-place-items-center lg:tw-p-6"
         >
             <div

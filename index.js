@@ -79,8 +79,14 @@ window.addEventListener("load", () => {
         // ease: "power3.out",
         stagger: 0.5, // Delay between each word's reveal,
         // delay: 3
-    })
-    
+    });
+
+    gsap.to(".reveal-up", {
+        opacity: 1,
+        y: "0%",
+        duration: 0.8,
+        stagger: 0.2,
+    });
 })
 
 

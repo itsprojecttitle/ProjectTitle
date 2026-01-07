@@ -47,6 +47,11 @@ header{
     color: #fff;
 }
 
+#portfolio{
+    background: #fff;
+    color: #000;
+}
+
 .reveal-hero-text,
 .reveal-up{
     opacity: 0;

@@ -106,6 +106,13 @@ window.addEventListener("DOMContentLoaded", () => {
 window.addEventListener("load", () => {
     window.scrollTo(0, 0);
 
+    const heroVideoFrame = document.querySelector(".hero-video-frame");
+    if (heroVideoFrame) {
+        requestAnimationFrame(() => {
+            heroVideoFrame.classList.add("is-visible");
+        });
+    }
+
     if (window.gsap) {
         // animate from initial state
         gsap.to(".reveal-hero-text", {

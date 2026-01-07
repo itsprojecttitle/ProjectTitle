@@ -115,24 +115,20 @@ sections.forEach((sec) => {
 
 })
 
-window.addEventListener('scroll', function() {
-    const header = document.getElementById('main-header');
-    if (window.scrollY > 20) {
-        header.style.backgroundColor = 'rgba(255, 255, 255, 0.1)'; // Semi-transparent white
-        header.style.backdropFilter = 'blur(10px)'; // Blur effect
-        header.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)'; // Subtle shadow
-    } else {
-        header.style.backgroundColor = 'transparent';
-        header.style.backdropFilter = 'none';
-        header.style.boxShadow = 'none';
-    }
-});
+  (function () {
+    const header = document.getElementById("main-header");
+    let lastY = window.scrollY;
 
-window.addEventListener('DOMContentLoaded', (event) => {
-    const headerElements = document.querySelectorAll('#main-header');
-    if (headerElements.length === 1) {
-        console.log('Verification: id="main-header" is unique and exists once.');
-    } else {
-        console.error(`Verification: Found ${headerElements.length} elements with id="main-header". Expected 1.`);
-    }
-});
+    window.addEventListener("scroll", () => {
+      const y = window.scrollY;
+
+      // glass after a small scroll
+      header.classList.toggle("is-scrolled", y > 20);
+
+      // hide on down, show on up (don’t hide near very top)
+      if (y > lastY && y > 80) header.classList.add("is-hidden");
+      else header.classList.remove("is-hidden");
+
+      lastY = y;
+    }, { passive: true });
+  })();

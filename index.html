@@ -36,16 +36,9 @@
         />
     </head>
     <body>
-        <div id="build-marker" style="position: fixed; bottom: 10px; left: 10px; background-color: yellow; color: black; padding: 5px; z-index: 9999;">Build: 2026-01-07 12:34:56</div>
-        <script>
-            if (window.location.hash) {
-                window.location.hash = '';
-            }
-        </script>
-        <header
-            id="main-header"
-            class="tw-fixed tw-top-0 tw-z-20 tw-flex tw-h-[60px] tw-w-full !tw-bg-primary tw-bg-opacity-0 tw-px-[5%] tw-text-white max-lg:tw-px-2 tw-justify-between lg:tw-justify-around tw-items-center"
-            style="position: fixed; top: 0; width: 100%; z-index: 100; background-color: black;"
+        <header id="main-header"
+            class="tw-fixed tw-top-0 tw-z-20 tw-flex tw-h-[60px] tw-w-full tw-px-[5%] tw-text-white max-lg:tw-px-2 tw-justify-between lg:tw-justify-around tw-items-center transition-transform duration-300"
+            style="top:0;width:100%;z-index:100;"
         >
             <img
                 src="./assets/logo.png"

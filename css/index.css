@@ -496,8 +496,8 @@ body{ padding-top: 0; }
 }
 
 :root{
-  --bm-menu-width: 33vw;
-  --bm-menu-width-mobile: 72vw;
+  --bm-menu-width: 25vw;
+  --bm-menu-width-mobile: 60vw;
 }
 
 .ember-burger-menu{
@@ -512,6 +512,7 @@ body{ padding-top: 0; }
   right: 0;
   height: 100%;
   width: var(--bm-menu-width);
+  box-sizing: border-box;
   z-index: 120;
   pointer-events: none;
 }
@@ -521,7 +522,8 @@ body{ padding-top: 0; }
   width: 100%;
   background: #000;
   color: #fff;
-  padding: 90px 24px 24px;
+  padding: 90px 32px 24px;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -605,5 +607,15 @@ body.bm-open{
 
   .ember-burger-menu.is-open > .bm-outlet{
     transform: translate3d(calc(-1 * var(--bm-menu-width-mobile)), 0, 0);
+  }
+}
+
+@media (min-width: 1025px){
+  .ember-burger-menu .bm-menu-container{
+    width: 25vw;
+  }
+
+  .ember-burger-menu.is-open > .bm-outlet{
+    transform: translate3d(-25vw, 0, 0);
   }
 }

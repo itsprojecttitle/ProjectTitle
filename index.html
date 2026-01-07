@@ -21,7 +21,6 @@
 
         <!-- <link rel="stylesheet" href="../../tailwind-css/tailwind-runtime.css" /> -->
         <link rel="stylesheet" href="tailwind-runtime.css" />
-        <link rel="stylesheet" href="skdcarousel.css" />
         <link rel="stylesheet" href="css/index.css" />
 
         <link
@@ -130,7 +129,7 @@
             class="tw-relative tw-flex tw-min-h-[100vh] tw-w-full tw-max-w-[100vw] tw-flex-col tw-bg-primary tw-text-white max-lg:tw-p-4 pt-[60px]"
         >
             <div
-                class="tw-flex tw-h-full tw-min-h-[100vh] tw-w-full tw-place-content-center tw-gap-6 tw-p-[5%] max-xl:tw-place-items-center max-lg:tw-flex-col"
+                class="tw-flex tw-h-full tw-min-h-[100vh] tw-w-full tw-justify-between tw-gap-6 tw-p-[5%] max-xl:tw-place-items-center max-lg:tw-flex-col"
             >
                 <div class="tw-flex tw-flex-col tw-place-content-center">
                     <div
@@ -181,40 +180,26 @@
                 >
                     <div class="tw-flex tw-w-full tw-flex-col tw-gap-3">
                         <div
-                            class="hero-carousel-frame tw-relative tw-flex tw-min-w-[350px] tw-max-w-[650px] tw-overflow-hidden tw-border-2 tw-border-solid tw-border-secondary tw-p-0 max-lg:tw-w-[320px] max-lg:tw-min-w-[320px]"
+                            class="hero-carousel-frame hero-video-frame is-ready tw-relative tw-flex tw-min-w-[350px] tw-max-w-[650px] tw-overflow-hidden tw-border-2 tw-border-solid tw-border-secondary tw-p-0 max-lg:tw-w-[320px] max-lg:tw-min-w-[320px]"
                         >
-                            <div id="hero-carousel" class="skd-carousel">
-                                <img src="./assets/images/home/africa.jpg" alt="hero" />
-                                <img src="./assets/images/home/children.jpg" alt="hero" />
-                                <img src="./assets/images/home/hospital.jpg" alt="hero" />
-                                <img src="./assets/images/home/london.jpg" alt="hero" />
-                                <img src="./assets/images/home/newyork.jpg" alt="hero" />
-                                <img src="./assets/images/home/paris.jpg" alt="hero" />
-                                <img src="./assets/images/home/schools.jpg" alt="hero" />
-                                <img src="./assets/images/home/solar.jpg" alt="hero" />
-                                <img src="./assets/images/home/vaccination.jpg" alt="hero" />
-                                <img src="./assets/images/home/wildlife.jpg" alt="hero" />
-                                <img src="./assets/images/home/women.jpg" alt="hero" />
+                            <div class="hero-video-embed">
+                                <iframe
+                                    src="https://www.youtube.com/embed/tSm_peUgQ1o?autoplay=1&mute=1&playsinline=1&rel=0"
+                                    title="ProjectTitle video"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    allowfullscreen
+                                ></iframe>
                             </div>
-                            <button
-                                type="button"
-                                class="hero-carousel-control hero-carousel-prev"
-                                aria-label="Previous image"
-                            >
-                                <i class="bi bi-arrow-left-short"></i>
-                            </button>
-                            <button
-                                type="button"
-                                class="hero-carousel-control hero-carousel-next"
-                                aria-label="Next image"
-                            >
-                                <i class="bi bi-arrow-right-short"></i>
-                            </button>
                         </div>
-                        <div class="hero-caption">
-                            <div class="hero-caption-date"></div>
-                            <div class="hero-caption-text"></div>
-                        </div>
+                        <a
+                            href="https://www.youtube.com/watch?v=tSm_peUgQ1o"
+                            target="_blank"
+                            rel="noopener"
+                            class="hero-watch-button tw-mt-4 tw-flex tw-h-[40px] tw-place-items-center tw-gap-2 tw-bg-secondary tw-p-2 tw-px-5 tw-text-black tw-transition-colors tw-duration-[0.5s] hover:tw-bg-black hover:tw-text-white"
+                        >
+                            <span>Watch Me</span>
+                            <i class="bi bi-play-circle"></i>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -917,6 +902,5 @@
         referrerpolicy="no-referrer"
     ></script>
 
-    <script src="skdcarousel.min.js"></script>
     <script src="./index.js"></script>
 </html>

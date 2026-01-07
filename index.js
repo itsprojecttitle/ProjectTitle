@@ -56,18 +56,19 @@ window.addEventListener("resize", responsive)
  * Animations
  */
 
-gsap.registerPlugin(ScrollTrigger)
+if (window.gsap && window.ScrollTrigger) {
+    gsap.registerPlugin(ScrollTrigger)
 
-gsap.to(".reveal-hero-text", {
-    opacity: 0,
-    y: "100%",
-})
+    gsap.to(".reveal-hero-text", {
+        opacity: 0,
+        y: "100%",
+    })
 
-
-gsap.to(".reveal-up", {
-    opacity: 0,
-    y: "100%",
-})
+    gsap.to(".reveal-up", {
+        opacity: 0,
+        y: "100%",
+    })
+}
 
 
 window.addEventListener("load", () => {
@@ -119,49 +120,50 @@ window.addEventListener("load", () => {
         }
     }
 
-    // animate from initial position
-    gsap.to(".reveal-hero-text", {
-        opacity: 1,
-        y: "0%",
-        duration: 0.8,
-        // ease: "power3.out",
-        stagger: 0.5, // Delay between each word's reveal,
-        // delay: 3
-    });
+    if (window.gsap) {
+        // animate from initial position
+        gsap.to(".reveal-hero-text", {
+            opacity: 1,
+            y: "0%",
+            duration: 0.8,
+            // ease: "power3.out",
+            stagger: 0.5, // Delay between each word's reveal,
+            // delay: 3
+        });
 
-    gsap.to(".reveal-up", {
-        opacity: 1,
-        y: "0%",
-        duration: 0.8,
-        stagger: 0.2,
-    });
+        gsap.to(".reveal-up", {
+            opacity: 1,
+            y: "0%",
+            duration: 0.8,
+            stagger: 0.2,
+        });
+    }
 })
 
 
 // ------------- reveal section animations ---------------
 
-const sections = gsap.utils.toArray("section")
+if (window.gsap && window.ScrollTrigger) {
+    const sections = gsap.utils.toArray("section")
 
-sections.forEach((sec) => {
+    sections.forEach((sec) => {
+        const revealUptimeline = gsap.timeline({paused: true, 
+                                                scrollTrigger: {
+                                                                trigger: sec,
+                                                                start: "10% 80%", // top of trigger hits the top of viewport
+                                                                end: "20% 90%",
+                                                                // markers: true,
+                                                                // scrub: 1,
+                                                            }})
 
-    const revealUptimeline = gsap.timeline({paused: true, 
-                                            scrollTrigger: {
-                                                            trigger: sec,
-                                                            start: "10% 80%", // top of trigger hits the top of viewport
-                                                            end: "20% 90%",
-                                                            // markers: true,
-                                                            // scrub: 1,
-                                                        }})
-
-    revealUptimeline.to(sec.querySelectorAll(".reveal-up"), {
-        opacity: 1,
-        duration: 0.8,
-        y: "0%",
-        stagger: 0.2,
+        revealUptimeline.to(sec.querySelectorAll(".reveal-up"), {
+            opacity: 1,
+            duration: 0.8,
+            y: "0%",
+            stagger: 0.2,
+        })
     })
-
-
-})
+}
 
 (() => {
   const header = document.getElementById("main-header");

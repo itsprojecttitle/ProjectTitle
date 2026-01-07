@@ -117,9 +117,13 @@ sections.forEach((sec) => {
 
 window.addEventListener('scroll', function() {
     const header = document.getElementById('main-header');
-    if (window.scrollY > 50) {
-        header.classList.add('tw-shadow-md');
+    if (window.scrollY > 20) {
+        header.style.backgroundColor = 'rgba(255, 255, 255, 0.1)'; // Semi-transparent white
+        header.style.backdropFilter = 'blur(10px)'; // Blur effect
+        header.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)'; // Subtle shadow
     } else {
-        header.classList.remove('tw-shadow-md');
+        header.style.backgroundColor = 'transparent';
+        header.style.backdropFilter = 'none';
+        header.style.boxShadow = 'none';
     }
 });

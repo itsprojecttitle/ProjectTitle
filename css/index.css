@@ -87,15 +87,15 @@ header{
     font-size: 0.78rem;
     font-weight: 300;
     letter-spacing: 0.02em;
+    display: block;
 }
 
 .hero-caption-text{
-    margin-top: 4px;
+    margin-top: 0;
     font-size: 0.8rem;
     color: #ffffff;
     line-height: 1.35;
-    display: block;
-    width: fit-content;
+    display: inline-block;
     padding: 6px 8px;
     background: rgba(0,0,0,0.35);
 }

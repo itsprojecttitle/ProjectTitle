@@ -452,7 +452,7 @@ header > .collapsible-header{
   transform: translateY(-110%);
 }
 
-body{ padding-top: 60px; }
+body{ padding-top: 0; }
 
 @media (min-width: 1024px){
   #upcoming-events .events-title{
@@ -571,6 +571,7 @@ body{ padding-top: 60px; }
 
 .ember-burger-menu .bm-content{
   min-height: 100vh;
+  padding-top: 60px;
 }
 
 .ember-burger-menu.is-open > .bm-outlet{

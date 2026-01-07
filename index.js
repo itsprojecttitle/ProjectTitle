@@ -148,6 +148,19 @@ window.addEventListener("load", () => {
             },
         ];
 
+        const updateCaption = (index) => {
+            if (!heroCaption || !heroCaptionDate || !heroCaptionText) return;
+            const item = heroItems[index] || heroItems[0];
+            heroCaption.classList.add("is-fading");
+            window.setTimeout(() => {
+                heroCaptionDate.textContent = item.date;
+                heroCaptionText.textContent = item.text;
+                heroCaption.classList.remove("is-fading");
+            }, 200);
+        };
+
+        updateCaption(currentIndex);
+
         if (width && height) {
             const carousel = new SKDCarousel({
                 selector: "hero-carousel",
@@ -161,19 +174,6 @@ window.addEventListener("load", () => {
                 const heroFrame = heroCarousel.closest(".hero-carousel-frame");
                 if (heroFrame) heroFrame.classList.add("is-ready");
             }, 0);
-
-            const updateCaption = (index) => {
-                if (!heroCaption || !heroCaptionDate || !heroCaptionText) return;
-                const item = heroItems[index] || heroItems[0];
-                heroCaption.classList.add("is-fading");
-                window.setTimeout(() => {
-                    heroCaptionDate.textContent = item.date;
-                    heroCaptionText.textContent = item.text;
-                    heroCaption.classList.remove("is-fading");
-                }, 200);
-            };
-
-            updateCaption(currentIndex);
 
             const rotate = () => {
                 if (!images.length) return;
@@ -221,6 +221,7 @@ window.addEventListener("load", () => {
 
         gsap.to(".hero-caption", {
             opacity: 1,
+            y: 0,
             duration: 1.2,
             ease: "power2.out",
         });

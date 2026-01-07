@@ -76,6 +76,19 @@ header{
     .hero-carousel-column{
         flex-basis: 100%;
         max-width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px){
+    .hero-carousel-frame{
+        margin-left: auto;
+        margin-right: auto;
+        align-self: center;
+    }
+
+    .hero-caption{
+        max-width: 320px;
     }
 }
 

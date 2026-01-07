@@ -2,6 +2,10 @@
 
 const RESPONSIVE_WIDTH = 1024
 
+if ("scrollRestoration" in history) {
+    history.scrollRestoration = "manual"
+}
+
 let headerWhiteBg = false
 const collapseBtn = document.getElementById("collapse-btn")
 const collapseHeaderItems = document.getElementById("collapsed-header-items")
@@ -62,6 +66,10 @@ if (window.gsap && window.ScrollTrigger) {
         y: "100%",
     })
 
+    gsap.to(".hero-caption", {
+        opacity: 0,
+    })
+
     gsap.to(".reveal-up", {
         opacity: 0,
         y: "100%",
@@ -69,7 +77,16 @@ if (window.gsap && window.ScrollTrigger) {
 }
 
 
+window.addEventListener("DOMContentLoaded", () => {
+    if (window.location.hash) {
+        history.replaceState(null, "", window.location.pathname + window.location.search);
+    }
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+});
+
 window.addEventListener("load", () => {
+    window.scrollTo(0, 0);
+
     const heroCarousel = document.getElementById("hero-carousel");
     const heroPrev = document.querySelector(".hero-carousel-prev");
     const heroNext = document.querySelector(".hero-carousel-next");
@@ -209,6 +226,11 @@ window.addEventListener("load", () => {
             // ease: "power3.out",
             stagger: 0.5, // Delay between each word's reveal,
             // delay: 3
+        });
+
+        gsap.to(".hero-caption", {
+            opacity: 1,
+            duration: 0.8,
         });
 
         gsap.to(".reveal-up", {

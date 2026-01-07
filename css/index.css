@@ -63,12 +63,14 @@ header{
     visibility: visible !important;
     position: relative;
     opacity: 0;
-    transition: opacity 10000ms ease;
+    transition: opacity 3000ms ease;
+    will-change: opacity;
 }
 
 #hero-carousel.is-ready{
     opacity: 1;
 }
+
 
 @media (max-width: 1024px){
     .hero-carousel-column{

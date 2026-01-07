@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Project Title</title>
+        <title>ProjectTitle</title>
         <meta name="description" content="" />
         <link
             rel="shortcut icon"
@@ -35,6 +35,17 @@
             crossorigin="anonymous"
             referrerpolicy="no-referrer"
         />
+        <script>
+            if ("scrollRestoration" in history) {
+                history.scrollRestoration = "manual";
+            }
+            if (location.hash) {
+                history.replaceState(null, "", location.pathname + location.search);
+            }
+            window.addEventListener("pageshow", () => {
+                window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+            });
+        </script>
     </head>
     <body>
         <header
@@ -105,9 +116,8 @@
                     <div
                         class="tw-flex tw-flex-wrap tw-text-7xl tw-font-semibold tw-uppercase tw-leading-[85px] max-lg:tw-text-4xl max-md:tw-leading-snug"
                     >
-                        <span class="reveal-hero-text"> Project </span>
-                        <br />
-                        <span class="reveal-hero-text"> Title </span>
+                        <span class="reveal-hero-text">Project</span>
+                        <span class="reveal-hero-text"> Title</span>
                     </div>
                     <div
                         class="reveal-hero-text tw-mt-2 tw-max-w-[450px] tw-p-2 tw-text-justify max-lg:tw-max-w-full"
@@ -123,10 +133,10 @@
                         <a href="https://www.instagram.com/projecttitle/">
                             <i class="bi bi-instagram"></i>
                         </a>
-                        <a href="">
-                            <i class="bi bi-twitter"></i>
+                        <a href="https://x.com/ItsProjectTitle" aria-label="X">
+                            <i class="bi bi-twitter-x"></i>
                         </a>
-                        <a href="">
+                        <a href="https://www.tiktok.com/@projecttitle">
                             <i class="bi bi-tiktok"></i>
                         </a>
                     </div>
@@ -849,10 +859,10 @@
                         <i class="bi bi-facebook"></i>
                     </a>
                     <a
-                        href="https://twitter.com/pauls_freeman"
-                        aria-label="Twitter"
+                        href="https://x.com/ItsProjectTitle"
+                        aria-label="X"
                     >
-                        <i class="bi bi-twitter"></i>
+                        <i class="bi bi-twitter-x"></i>
                     </a>
                     <a
                         href="https://instagram.com/"

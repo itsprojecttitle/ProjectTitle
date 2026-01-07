@@ -205,7 +205,7 @@ header > .collapsible-header{
 
 /* base: transparent */
 #main-header{
-  background: transparent;
+  background: black; /* Changed from transparent to black */
   transition: transform 220ms ease, background 200ms ease, box-shadow 200ms ease, backdrop-filter 200ms ease;
   -webkit-backdrop-filter: none;
   backdrop-filter: none;

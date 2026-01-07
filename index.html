@@ -21,6 +21,7 @@
 
         <!-- <link rel="stylesheet" href="../../tailwind-css/tailwind-runtime.css" /> -->
         <link rel="stylesheet" href="tailwind-runtime.css" />
+        <link rel="stylesheet" href="skdcarousel.css" />
         <link rel="stylesheet" href="css/index.css" />
 
         <link
@@ -145,13 +146,35 @@
                     class="tw-flex tw-w-full tw-max-w-[50%] tw-place-content-center tw-place-items-center tw-overflow-hidden max-lg:tw-max-w-[unset]"
                 >
                     <div
-                        class="tw-flex tw-max-h-[80%] tw-min-w-[350px] tw-max-w-[650px] tw-overflow-hidden tw-border-2 tw-border-solid tw-border-secondary tw-p-2 max-lg:tw-h-fit max-lg:tw-max-h-[320px] max-lg:tw-w-[320px] max-lg:tw-min-w-[320px]"
+                        class="hero-carousel-frame tw-relative tw-flex tw-min-w-[350px] tw-max-w-[650px] tw-overflow-hidden tw-border-2 tw-border-solid tw-border-secondary tw-p-0 max-lg:tw-w-[320px] max-lg:tw-min-w-[320px]"
                     >
-                        <img
-                            src="./assets/images/home/africa.jpg"
-                            alt="app"
-                            class="reveal-up tw-h-full tw-w-full tw-object-contain"
-                        />
+                        <div id="hero-carousel" class="skd-carousel reveal-up">
+                            <img src="./assets/images/home/africa.jpg" alt="hero" />
+                            <img src="./assets/images/home/children.jpg" alt="hero" />
+                            <img src="./assets/images/home/hospital.jpg" alt="hero" />
+                            <img src="./assets/images/home/london.jpg" alt="hero" />
+                            <img src="./assets/images/home/newyork.jpg" alt="hero" />
+                            <img src="./assets/images/home/paris.jpg" alt="hero" />
+                            <img src="./assets/images/home/schools.jpg" alt="hero" />
+                            <img src="./assets/images/home/solar.jpg" alt="hero" />
+                            <img src="./assets/images/home/vaccination.jpg" alt="hero" />
+                            <img src="./assets/images/home/wildlife.jpg" alt="hero" />
+                            <img src="./assets/images/home/women.jpg" alt="hero" />
+                        </div>
+                        <button
+                            type="button"
+                            class="hero-carousel-control hero-carousel-prev"
+                            aria-label="Previous image"
+                        >
+                            <i class="bi bi-chevron-left"></i>
+                        </button>
+                        <button
+                            type="button"
+                            class="hero-carousel-control hero-carousel-next"
+                            aria-label="Next image"
+                        >
+                            <i class="bi bi-chevron-right"></i>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -668,5 +691,6 @@
         referrerpolicy="no-referrer"
     ></script>
 
+    <script src="skdcarousel.min.js"></script>
     <script src="./index.js"></script>
 </html>

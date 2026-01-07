@@ -71,6 +71,50 @@ gsap.to(".reveal-up", {
 
 
 window.addEventListener("load", () => {
+    const heroCarousel = document.getElementById("hero-carousel");
+    const heroPrev = document.querySelector(".hero-carousel-prev");
+    const heroNext = document.querySelector(".hero-carousel-next");
+
+    if (heroCarousel && window.SKDCarousel) {
+        const parent = heroCarousel.parentElement;
+        const width = Math.round(heroCarousel.clientWidth || (parent && parent.clientWidth) || 0);
+        const height = Math.round(heroCarousel.clientHeight || (parent && parent.clientHeight) || 0);
+        const images = Array.from(heroCarousel.querySelectorAll("img"));
+        let currentIndex = 0;
+
+        if (width && height) {
+            const carousel = new SKDCarousel({
+                selector: "hero-carousel",
+                width,
+                height,
+                auto: true,
+                delay: 4,
+            });
+
+            carousel.onCenter((idx) => {
+                currentIndex = idx;
+            });
+
+            if (heroPrev) {
+                heroPrev.addEventListener("click", () => {
+                    if (!images.length) return;
+                    const nextIndex = (currentIndex - 1 + images.length) % images.length;
+                    const target = carousel.findMappedItem(nextIndex);
+                    if (target) carousel.play(target);
+                });
+            }
+
+            if (heroNext) {
+                heroNext.addEventListener("click", () => {
+                    if (!images.length) return;
+                    const nextIndex = (currentIndex + 1) % images.length;
+                    const target = carousel.findMappedItem(nextIndex);
+                    if (target) carousel.play(target);
+                });
+            }
+        }
+    }
+
     // animate from initial position
     gsap.to(".reveal-hero-text", {
         opacity: 1,

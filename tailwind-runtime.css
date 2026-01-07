@@ -670,10 +670,6 @@ video {
   height: 100%;
 }
 
-.tw-max-h-\[80\%\] {
-  max-height: 80%;
-}
-
 .tw-min-h-\[100vh\] {
   min-height: 100vh;
 }
@@ -895,6 +891,10 @@ video {
      object-fit: cover;
 }
 
+.tw-p-0 {
+  padding: 0px;
+}
+
 .tw-p-1 {
   padding: 0.25rem;
 }
@@ -1084,15 +1084,6 @@ video {
 
   .max-lg\:tw-mt-\[30px\] {
     margin-top: 30px;
-  }
-
-  .max-lg\:tw-h-fit {
-    height: -moz-fit-content;
-    height: fit-content;
-  }
-
-  .max-lg\:tw-max-h-\[320px\] {
-    max-height: 320px;
   }
 
   .max-lg\:tw-w-\[300px\] {

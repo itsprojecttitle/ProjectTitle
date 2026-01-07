@@ -1144,10 +1144,6 @@ video {
 }
 
 @media not all and (min-width: 768px) {
-  .max-md\:tw-mt-\[50px\] {
-    margin-top: 50px;
-  }
-
   .max-md\:tw-w-full {
     width: 100%;
   }

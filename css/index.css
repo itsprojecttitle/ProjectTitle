@@ -69,15 +69,14 @@ header{
 }
 
 .hero-caption{
-    position: absolute;
-    left: 12px;
-    bottom: 12px;
-    max-width: 60%;
+    margin-top: 8px;
+    width: 100%;
+    max-width: 650px;
     text-align: left;
     color: #ffffff;
     opacity: 1;
     transition: opacity 400ms ease;
-    z-index: 4;
+    align-self: flex-start;
 }
 
 .hero-caption.is-fading{
@@ -95,7 +94,8 @@ header{
     font-size: 0.8rem;
     color: #ffffff;
     line-height: 1.35;
-    display: inline-block;
+    display: block;
+    width: fit-content;
     padding: 6px 8px;
     background: rgba(0,0,0,0.35);
 }

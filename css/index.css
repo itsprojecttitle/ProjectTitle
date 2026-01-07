@@ -64,6 +64,14 @@ header{
     width: 100%;
     opacity: 1;
 }
+
+@media (max-width: 1024px){
+    .hero-layout{
+        justify-content: flex-start;
+        gap: 1rem;
+        min-height: auto;
+    }
+}
 .hero-video-frame{
     background: #ffe353;
     border-color: #ffe353;

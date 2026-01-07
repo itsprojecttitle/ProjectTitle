@@ -21,6 +21,28 @@ header{
     color: #fff;
 }
 
+.portfolio-inverse{
+    background: #000;
+    color: #fff;
+}
+
+.portfolio-inverse-divider{
+    background: #fff;
+}
+
+.portfolio-card-inverse{
+    background: #0b0b0b;
+    border: 1px solid #1f1f1f;
+}
+
+.portfolio-card-inverse p{
+    color: #cfcfcf;
+}
+
+.portfolio-card-inverse a{
+    color: #fff;
+}
+
 .hero-carousel-frame{
     aspect-ratio: 3 / 2;
     width: 100%;

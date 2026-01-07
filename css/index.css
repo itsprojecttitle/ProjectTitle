@@ -47,12 +47,20 @@ header{
 .reveal-up,
 .hero-caption{
     opacity: 0;
+    transform: translateY(18px);
     will-change: opacity;
 }
 
 .hero-carousel-frame{
     aspect-ratio: 3 / 2;
     width: 100%;
+    opacity: 0;
+    transition: opacity 5200ms ease;
+    will-change: opacity;
+}
+
+.hero-carousel-frame.is-ready{
+    opacity: 1;
 }
 
 .hero-carousel-column{
@@ -121,7 +129,6 @@ header{
     width: 100%;
     max-width: 650px;
     color: #ffffff;
-    opacity: 1;
     transition: opacity 400ms ease;
     align-self: flex-start;
     display: flex;

@@ -62,6 +62,7 @@ if (window.gsap && window.ScrollTrigger) {
     gsap.registerPlugin(ScrollTrigger)
     gsap.set(".reveal-hero-text, .hero-caption, .reveal-up", {
         opacity: 0,
+        y: 18,
     })
 }
 
@@ -157,6 +158,8 @@ window.addEventListener("load", () => {
 
             window.setTimeout(() => {
                 heroCarousel.classList.add("is-ready");
+                const heroFrame = heroCarousel.closest(".hero-carousel-frame");
+                if (heroFrame) heroFrame.classList.add("is-ready");
             }, 0);
 
             const updateCaption = (index) => {
@@ -210,6 +213,7 @@ window.addEventListener("load", () => {
         // animate from initial state
         gsap.to(".reveal-hero-text", {
             opacity: 1,
+            y: 0,
             duration: 1.2,
             ease: "power2.out",
             stagger: 0.4,
@@ -223,6 +227,7 @@ window.addEventListener("load", () => {
 
         gsap.to(".reveal-up", {
             opacity: 1,
+            y: 0,
             duration: 1.2,
             ease: "power2.out",
             stagger: 0.2,
@@ -249,6 +254,7 @@ if (window.gsap && window.ScrollTrigger) {
         revealUptimeline.to(sec.querySelectorAll(".reveal-up"), {
             opacity: 1,
             duration: 0.8,
+            y: 0,
             stagger: 0.2,
         })
     })

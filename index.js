@@ -3,10 +3,10 @@
 const RESPONSIVE_WIDTH = 1024
 
 let headerWhiteBg = false
-let isHeaderCollapsed = window.innerWidth < RESPONSIVE_WIDTH
 const collapseBtn = document.getElementById("collapse-btn")
 const collapseHeaderItems = document.getElementById("collapsed-header-items")
 
+let isHeaderCollapsed = window.innerWidth < RESPONSIVE_WIDTH
 
 
 function onHeaderClickOutside(e) {
@@ -115,20 +115,20 @@ sections.forEach((sec) => {
 
 })
 
-  (function () {
-    const header = document.getElementById("main-header");
-    let lastY = window.scrollY;
+(() => {
+  const header = document.getElementById("main-header");
+  if (!header) return;
 
-    window.addEventListener("scroll", () => {
-      const y = window.scrollY;
+  let lastY = window.scrollY;
 
-      // glass after a small scroll
-      header.classList.toggle("is-scrolled", y > 20);
+  window.addEventListener("scroll", () => {
+    const y = window.scrollY;
 
-      // hide on down, show on up (don’t hide near very top)
-      if (y > lastY && y > 80) header.classList.add("is-hidden");
-      else header.classList.remove("is-hidden");
+    header.classList.toggle("is-scrolled", y > 20);
 
-      lastY = y;
-    }, { passive: true });
-  })();
+    if (y > lastY && y > 80) header.classList.add("is-hidden");
+    else header.classList.remove("is-hidden");
+
+    lastY = y;
+  }, { passive: true });
+})();

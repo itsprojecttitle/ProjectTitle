@@ -127,3 +127,12 @@ window.addEventListener('scroll', function() {
         header.style.boxShadow = 'none';
     }
 });
+
+window.addEventListener('DOMContentLoaded', (event) => {
+    const headerElements = document.querySelectorAll('#main-header');
+    if (headerElements.length === 1) {
+        console.log('Verification: id="main-header" is unique and exists once.');
+    } else {
+        console.error(`Verification: Found ${headerElements.length} elements with id="main-header". Expected 1.`);
+    }
+});

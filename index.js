@@ -95,6 +95,10 @@ window.addEventListener("load", () => {
                 currentIndex = idx;
             });
 
+            window.setTimeout(() => {
+                heroCarousel.classList.add("is-ready");
+            }, 0);
+
             if (heroPrev) {
                 heroPrev.addEventListener("click", () => {
                     if (!images.length) return;

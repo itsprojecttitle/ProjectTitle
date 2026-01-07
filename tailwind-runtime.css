@@ -731,10 +731,6 @@ video {
   max-width: 450px;
 }
 
-.tw-max-w-\[50\%\] {
-  max-width: 50%;
-}
-
 .tw-max-w-\[650px\] {
   max-width: 650px;
 }

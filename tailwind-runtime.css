@@ -570,10 +570,6 @@ video {
   z-index: 20;
 }
 
-.tw-z-50 {
-  z-index: 50;
-}
-
 .tw-mx-4 {
   margin-left: 1rem;
   margin-right: 1rem;
@@ -958,11 +954,6 @@ video {
 .tw-text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
-}
-
-.tw-text-3xl {
-  font-size: 1.875rem;
-  line-height: 2.25rem;
 }
 
 .tw-text-4xl {

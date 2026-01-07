@@ -23,8 +23,7 @@ function toggleHeader() {
         // collapseHeaderItems.classList.remove("max-md:tw-opacity-0")
         collapseHeaderItems.classList.add("opacity-100",)
         collapseHeaderItems.style.width = "60vw"
-        collapseBtn.classList.remove("bi-list")
-        collapseBtn.classList.add("bi-x", "max-lg:tw-fixed")
+        collapseBtn.classList.add("is-open", "max-lg:tw-fixed")
         isHeaderCollapsed = false
 
         setTimeout(() => window.addEventListener("click", onHeaderClickOutside), 1)
@@ -32,8 +31,7 @@ function toggleHeader() {
     } else {
         collapseHeaderItems.classList.remove("opacity-100")
         collapseHeaderItems.style.width = "0vw"
-        collapseBtn.classList.remove("bi-x", "max-lg:tw-fixed")
-        collapseBtn.classList.add("bi-list")
+        collapseBtn.classList.remove("is-open", "max-lg:tw-fixed")
         isHeaderCollapsed = true
         window.removeEventListener("click", onHeaderClickOutside)
 
@@ -77,35 +75,115 @@ window.addEventListener("load", () => {
     const heroNext = document.querySelector(".hero-carousel-next");
 
     if (heroCarousel && window.SKDCarousel) {
+        const heroCaption = document.querySelector(".hero-caption");
+        const heroCaptionDate = document.querySelector(".hero-caption-date");
+        const heroCaptionText = document.querySelector(".hero-caption-text");
         const parent = heroCarousel.parentElement;
         const width = Math.round(heroCarousel.clientWidth || (parent && parent.clientWidth) || 0);
         const height = Math.round(heroCarousel.clientHeight || (parent && parent.clientHeight) || 0);
         const images = Array.from(heroCarousel.querySelectorAll("img"));
         let currentIndex = 0;
+        const heroItems = [
+            {
+                src: "./assets/images/home/africa.jpg",
+                date: "Mar 14, 2024",
+                text: "Golden light over the savannah brings the horizon to life.",
+            },
+            {
+                src: "./assets/images/home/children.jpg",
+                date: "Apr 02, 2024",
+                text: "A candid moment of joy captured in a quiet neighborhood.",
+            },
+            {
+                src: "./assets/images/home/hospital.jpg",
+                date: "May 19, 2024",
+                text: "Clean lines and calm spaces designed for healing.",
+            },
+            {
+                src: "./assets/images/home/london.jpg",
+                date: "Jun 08, 2024",
+                text: "City light meets timeless architecture in motion.",
+            },
+            {
+                src: "./assets/images/home/newyork.jpg",
+                date: "Jul 21, 2024",
+                text: "A skyline that never stops telling new stories.",
+            },
+            {
+                src: "./assets/images/home/paris.jpg",
+                date: "Aug 03, 2024",
+                text: "Soft tones and historic facades framed in summer haze.",
+            },
+            {
+                src: "./assets/images/home/schools.jpg",
+                date: "Sep 10, 2024",
+                text: "A quiet classroom with a bright future ahead.",
+            },
+            {
+                src: "./assets/images/home/solar.jpg",
+                date: "Oct 06, 2024",
+                text: "Clean energy fields stretching to the edge of the day.",
+            },
+            {
+                src: "./assets/images/home/vaccination.jpg",
+                date: "Nov 17, 2024",
+                text: "Small acts of care that shape healthier communities.",
+            },
+            {
+                src: "./assets/images/home/wildlife.jpg",
+                date: "Dec 04, 2024",
+                text: "Wildlife framed in its natural rhythm and pace.",
+            },
+            {
+                src: "./assets/images/home/women.jpg",
+                date: "Jan 09, 2025",
+                text: "Portraits that reflect strength and quiet focus.",
+            },
+        ];
 
         if (width && height) {
             const carousel = new SKDCarousel({
                 selector: "hero-carousel",
                 width,
                 height,
-                auto: true,
-                delay: 4,
-            });
-
-            carousel.onCenter((idx) => {
-                currentIndex = idx;
+                auto: false,
             });
 
             window.setTimeout(() => {
                 heroCarousel.classList.add("is-ready");
             }, 0);
 
+            const updateCaption = (index) => {
+                if (!heroCaption || !heroCaptionDate || !heroCaptionText) return;
+                const item = heroItems[index] || heroItems[0];
+                heroCaption.classList.add("is-fading");
+                window.setTimeout(() => {
+                    heroCaptionDate.textContent = item.date;
+                    heroCaptionText.textContent = item.text;
+                    heroCaption.classList.remove("is-fading");
+                }, 200);
+            };
+
+            updateCaption(currentIndex);
+
+            const rotate = () => {
+                if (!images.length) return;
+                currentIndex = (currentIndex + 1) % images.length;
+                const target = images[currentIndex];
+                if (target) carousel.play(target);
+                updateCaption(currentIndex);
+            };
+
+            window.setInterval(rotate, 4000);
+
             if (heroPrev) {
                 heroPrev.addEventListener("click", () => {
                     if (!images.length) return;
                     const nextIndex = (currentIndex - 1 + images.length) % images.length;
-                    const target = carousel.findMappedItem(nextIndex);
+                    const target = images[nextIndex];
                     if (target) carousel.play(target);
+                    currentIndex = nextIndex;
+                    updateCaption(currentIndex);
                 });
             }
 
@@ -113,8 +191,10 @@ window.addEventListener("load", () => {
                 heroNext.addEventListener("click", () => {
                     if (!images.length) return;
                     const nextIndex = (currentIndex + 1) % images.length;
-                    const target = carousel.findMappedItem(nextIndex);
+                    const target = images[nextIndex];
                     if (target) carousel.play(target);
+                    currentIndex = nextIndex;
+                    updateCaption(currentIndex);
                 });
             }
         }

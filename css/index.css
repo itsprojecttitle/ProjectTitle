@@ -36,6 +36,12 @@ header{
     height: 100%;
     visibility: visible !important;
     position: relative;
+    opacity: 0;
+    transition: opacity 10000ms ease;
+}
+
+#hero-carousel.is-ready{
+    opacity: 1;
 }
 
 @media (max-width: 1024px){
@@ -55,43 +61,78 @@ header{
     transition: opacity 400ms ease;
     object-fit: cover;
     filter: none !important;
+    z-index: 1;
 }
 
 #hero-carousel img.active{
     opacity: 1 !important;
 }
 
-#hero-carousel.is-ready img{
-    transition: opacity 10000ms ease;
+.hero-caption{
+    position: absolute;
+    left: 12px;
+    bottom: 12px;
+    max-width: 60%;
+    text-align: left;
+    color: #ffffff;
+    opacity: 1;
+    transition: opacity 400ms ease;
+    z-index: 4;
+}
+
+.hero-caption.is-fading{
+    opacity: 0;
+}
+
+.hero-caption-date{
+    font-size: 0.78rem;
+    font-weight: 300;
+    letter-spacing: 0.02em;
+}
+
+.hero-caption-text{
+    margin-top: 4px;
+    font-size: 0.8rem;
+    color: #ffffff;
+    line-height: 1.35;
+    display: inline-block;
+    padding: 6px 8px;
+    background: rgba(0,0,0,0.35);
 }
 
 .hero-carousel-control{
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 2;
+    z-index: 5;
     height: 36px;
     width: 36px;
     border: none;
     background: transparent;
-    color: #9b9b9b;
+    color: #e2e2e2;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: color 200ms ease, transform 200ms ease;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.35);
+}
+
+.hero-carousel-control i{
+    font-size: 28px;
+    line-height: 1;
 }
 
 .hero-carousel-control:hover{
-    color: #6f6f6f;
+    color: #ffffff;
     transform: translateY(-50%) scale(1.08);
 }
 
 .hero-carousel-prev{
-    left: -28px;
+    left: 12px;
 }
 
 .hero-carousel-next{
-    right: -28px;
+    right: 12px;
 }
 
 
@@ -131,6 +172,43 @@ header > .collapsible-header{
 
 .material-icons.md-40 { 
     font-size: 40px; 
+}
+
+.hamburger-button{
+    position: relative;
+    width: 22px;
+    height: 16px;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    z-index: 50;
+}
+
+.hamburger-button span{
+    display: block;
+    height: 1.5px;
+    width: 100%;
+    background: #fff;
+    border-radius: 2px;
+    transition: transform 220ms ease, opacity 180ms ease, width 220ms ease;
+}
+
+.hamburger-button.is-open span:nth-child(1){
+    transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger-button.is-open span:nth-child(2){
+    opacity: 0;
+    width: 0;
+}
+
+.hamburger-button.is-open span:nth-child(3){
+    transform: translateY(-7px) rotate(-45deg);
 }
 
 .primary-text-color{

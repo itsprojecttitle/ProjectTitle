@@ -43,6 +43,13 @@ header{
     color: #fff;
 }
 
+.reveal-hero-text,
+.reveal-up,
+.hero-caption{
+    opacity: 0;
+    will-change: opacity;
+}
+
 .hero-carousel-frame{
     aspect-ratio: 3 / 2;
     width: 100%;
@@ -439,3 +446,44 @@ header > .collapsible-header{
 }
 
 body{ padding-top: 60px; }
+
+@media (min-width: 1024px){
+  #upcoming-events .events-title{
+    flex: 0 0 30%;
+  }
+
+  #upcoming-events .events-list{
+    flex: 1 1 auto;
+    width: auto;
+    max-width: 100%;
+    max-height: calc(100vh - 160px);
+    overflow-y: auto;
+    align-items: stretch;
+    padding-right: 12px;
+  }
+
+  #upcoming-events .event-card{
+    flex-direction: row;
+    align-items: stretch;
+    gap: 24px;
+    padding: 24px;
+    min-height: 220px;
+  }
+
+  #upcoming-events .event-card-media{
+    flex: 0 0 40%;
+    height: auto;
+    max-height: 240px;
+  }
+
+  #upcoming-events .event-card-media img{
+    height: 100%;
+  }
+
+  #upcoming-events .event-card-content{
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+}

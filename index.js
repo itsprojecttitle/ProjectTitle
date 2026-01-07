@@ -60,19 +60,8 @@ window.addEventListener("resize", responsive)
 
 if (window.gsap && window.ScrollTrigger) {
     gsap.registerPlugin(ScrollTrigger)
-
-    gsap.to(".reveal-hero-text", {
+    gsap.set(".reveal-hero-text, .hero-caption, .reveal-up", {
         opacity: 0,
-        y: "100%",
-    })
-
-    gsap.to(".hero-caption", {
-        opacity: 0,
-    })
-
-    gsap.to(".reveal-up", {
-        opacity: 0,
-        y: "100%",
     })
 }
 
@@ -218,25 +207,24 @@ window.addEventListener("load", () => {
     }
 
     if (window.gsap) {
-        // animate from initial position
+        // animate from initial state
         gsap.to(".reveal-hero-text", {
             opacity: 1,
-            y: "0%",
-            duration: 0.8,
-            // ease: "power3.out",
-            stagger: 0.5, // Delay between each word's reveal,
-            // delay: 3
+            duration: 1.2,
+            ease: "power2.out",
+            stagger: 0.4,
         });
 
         gsap.to(".hero-caption", {
             opacity: 1,
-            duration: 0.8,
+            duration: 1.2,
+            ease: "power2.out",
         });
 
         gsap.to(".reveal-up", {
             opacity: 1,
-            y: "0%",
-            duration: 0.8,
+            duration: 1.2,
+            ease: "power2.out",
             stagger: 0.2,
         });
     }
@@ -261,7 +249,6 @@ if (window.gsap && window.ScrollTrigger) {
         revealUptimeline.to(sec.querySelectorAll(".reveal-up"), {
             opacity: 1,
             duration: 0.8,
-            y: "0%",
             stagger: 0.2,
         })
     })

@@ -4,6 +4,9 @@
     "description": "beautiful landing pages",
     "main": "index.js",
     "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "preview": "vite preview",
         "start:tailwind": "cross-env NODE_ENV=development tailwindcss --postcss -i css/tailwind.css -o tailwind-runtime.css -w",
         "build:tailwind": "cross-env NODE_ENV=production tailwindcss --postcss -i css/tailwind.css -o tailwind-build.css --minify",
         "test": "echo \"Error: no test specified\" && exit 1"
@@ -20,7 +23,9 @@
     "devDependencies": {
         "autoprefixer": "^10.4.17",
         "cross-env": "^10.1.0",
-        "tailwindcss": "^3.4.1"
+        "tailwindcss": "^3.4.1",
+        "@vitejs/plugin-react": "^4.3.1",
+        "vite": "^5.4.8"
     },
     "dependencies": {
         "postcss": "^8.4.33",

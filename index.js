@@ -1,57 +1,86 @@
 // initialization
 
-const RESPONSIVE_WIDTH = 1024
-
 if ("scrollRestoration" in history) {
     history.scrollRestoration = "manual"
 }
 
-let headerWhiteBg = false
-const collapseBtn = document.getElementById("collapse-btn")
-const collapseHeaderItems = document.getElementById("collapsed-header-items")
+const burgerRoot = document.getElementById("burger-root")
+const burgerToggle = document.getElementById("burger-toggle")
+const burgerOutlet = burgerRoot ? burgerRoot.querySelector(".bm-outlet") : null
+const burgerMenu = burgerRoot ? burgerRoot.querySelector(".bm-menu") : null
+let burgerOpen = false
 
-let isHeaderCollapsed = window.innerWidth < RESPONSIVE_WIDTH
-
-
-function onHeaderClickOutside(e) {
-
-    if (!collapseHeaderItems.contains(e.target)) {
-        toggleHeader()
-    }
-
-}
-
-
-function toggleHeader() {
-    if (isHeaderCollapsed) {
-        // collapseHeaderItems.classList.remove("max-md:tw-opacity-0")
-        collapseHeaderItems.classList.add("opacity-100",)
-        collapseHeaderItems.style.width = "60vw"
-        collapseBtn.classList.add("is-open", "max-lg:tw-fixed")
-        isHeaderCollapsed = false
-
-        setTimeout(() => window.addEventListener("click", onHeaderClickOutside), 1)
-
-    } else {
-        collapseHeaderItems.classList.remove("opacity-100")
-        collapseHeaderItems.style.width = "0vw"
-        collapseBtn.classList.remove("is-open", "max-lg:tw-fixed")
-        isHeaderCollapsed = true
-        window.removeEventListener("click", onHeaderClickOutside)
-
+const setBurgerOpen = (open) => {
+    if (!burgerRoot) return
+    burgerOpen = open
+    burgerRoot.classList.toggle("is-open", open)
+    document.body.classList.toggle("bm-open", open)
+    if (burgerToggle) {
+        burgerToggle.classList.toggle("is-open", open)
+        burgerToggle.setAttribute("aria-expanded", open ? "true" : "false")
     }
 }
 
-function responsive() {
-    if (window.innerWidth > RESPONSIVE_WIDTH) {
-        collapseHeaderItems.style.width = ""
-
-    } else {
-        isHeaderCollapsed = true
-    }
+if (burgerToggle) {
+    burgerToggle.addEventListener("click", (event) => {
+        event.stopPropagation()
+        setBurgerOpen(!burgerOpen)
+    })
 }
 
-window.addEventListener("resize", responsive)
+if (burgerMenu) {
+    burgerMenu.addEventListener("click", (event) => {
+        if (event.target.closest(".bm-menu-item")) {
+            setBurgerOpen(false)
+        }
+    })
+}
+
+if (burgerOutlet) {
+    burgerOutlet.addEventListener("click", () => {
+        if (burgerOpen) {
+            setBurgerOpen(false)
+        }
+    })
+}
+
+document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+        setBurgerOpen(false)
+    }
+})
+
+let touchStartX = null
+let touchStartY = null
+let touchActive = false
+
+document.addEventListener("touchstart", (event) => {
+    if (event.touches.length !== 1) return
+    touchStartX = event.touches[0].clientX
+    touchStartY = event.touches[0].clientY
+    touchActive = true
+})
+
+document.addEventListener("touchend", (event) => {
+    if (!touchActive) return
+    const touch = event.changedTouches[0]
+    const deltaX = touch.clientX - touchStartX
+    const deltaY = touch.clientY - touchStartY
+
+    if (Math.abs(deltaX) > 50 && Math.abs(deltaX) > Math.abs(deltaY)) {
+        const startedNearRightEdge = touchStartX > window.innerWidth - 40
+        if (!burgerOpen && startedNearRightEdge && deltaX < -50) {
+            setBurgerOpen(true)
+        }
+        if (burgerOpen && deltaX > 50) {
+            setBurgerOpen(false)
+        }
+    }
+
+    touchActive = false
+    touchStartX = null
+    touchStartY = null
+})
 
 
 /**

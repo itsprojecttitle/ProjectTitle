@@ -48,7 +48,27 @@
         </script>
     </head>
     <body>
-        <header
+        <div
+            id="burger-root"
+            class="ember-burger-menu right bm--push bm-item--stack translucent-overlay"
+        >
+            <div class="bm-menu-container">
+                <nav class="bm-menu" aria-label="Mobile menu">
+                    <a class="bm-menu-item" href="">Home</a>
+                    <a class="bm-menu-item" href="#portfolio">Portfolio</a>
+                    <a class="bm-menu-item" href="">Donate</a>
+                    <a class="bm-menu-item" href="">Contact</a>
+                    <a
+                        class="bm-menu-item bm-menu-cta tw-bg-secondary tw-text-black"
+                        href="https://tally.so/r/woO0Kx"
+                    >
+                        Book Now
+                    </a>
+                </nav>
+            </div>
+            <div class="bm-outlet">
+                <div class="bm-content">
+                    <header
   id="main-header"
   class="tw-fixed tw-top-0 tw-z-20 tw-flex tw-h-[60px] tw-w-full tw-px-[5%] tw-text-white max-lg:tw-px-2 tw-justify-between lg:tw-justify-around tw-items-center tw-transition-transform tw-duration-300"
   style="top:0;width:100%;z-index:100;"
@@ -67,7 +87,7 @@
 
             <!-- Desktop Menu -->
             <div
-                class="collapsible-header animated-collapse max-lg:tw-shadow-md lg:tw-flex lg:tw-items-center"
+                class="collapsible-header animated-collapse max-lg:tw-hidden lg:tw-flex lg:tw-items-center"
                 id="collapsed-header-items"
             >
                 <div
@@ -101,9 +121,9 @@
                 </a>
                 <button
                     class="hamburger-button"
-                    onclick="toggleHeader()"
                     aria-label="menu"
-                    id="collapse-btn"
+                    id="burger-toggle"
+                    aria-expanded="false"
                 >
                     <span></span>
                     <span></span>
@@ -264,7 +284,7 @@
                     </div>
                     <div class="tw-flex tw-flex-col tw-gap-2">
                         <h3 class="tw-text-xl tw-font-medium">
-                            Marketing & Branding Campaign
+                            Entertainment
                         </h3>
                         <p class="tw-text-gray-600">
                             Lorem, ipsum dolor sit amet consectetur adipisicing
@@ -294,7 +314,7 @@
                     </div>
                     <div class="tw-flex tw-flex-col tw-gap-2">
                         <h3 class="tw-text-xl tw-font-medium">
-                            Entertainment
+                            Photos
                         </h3>
                         <p class="tw-text-gray-600">
                             Lorem ipsum dolor sit amet consectetur adipisicing
@@ -355,7 +375,7 @@
                     </div>
                     <div class="tw-flex tw-flex-col tw-gap-2">
                         <h3 class="tw-text-xl tw-font-medium">
-                            Photos
+                            Marketing & Branding Campaign
                         </h3>
                         <p class="tw-text-gray-600">
                             Lorem ipsum dolor, sit amet consectetur adipisicing
@@ -885,6 +905,9 @@
                 </div>
             </div>
         </footer>
+                </div>
+            </div>
+        </div>
     </body>
 
     <script

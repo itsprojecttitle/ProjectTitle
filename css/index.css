@@ -494,3 +494,115 @@ body{ padding-top: 60px; }
     gap: 12px;
   }
 }
+
+:root{
+  --bm-menu-width: 33vw;
+  --bm-menu-width-mobile: 72vw;
+}
+
+.ember-burger-menu{
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.ember-burger-menu .bm-menu-container{
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: var(--bm-menu-width);
+  z-index: 120;
+  pointer-events: none;
+}
+
+.ember-burger-menu .bm-menu{
+  height: 100%;
+  width: 100%;
+  background: #000;
+  color: #fff;
+  padding: 90px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transform: translate3d(100%, 0, 0);
+  transition: transform 0.5s ease;
+  pointer-events: auto;
+}
+
+.ember-burger-menu.is-open .bm-menu{
+  transform: translate3d(0, 0, 0);
+}
+
+.ember-burger-menu .bm-menu-item{
+  color: inherit;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  font-size: 0.95rem;
+  opacity: 0;
+  transform: translateX(20px);
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.ember-burger-menu .bm-menu-cta{
+  padding: 10px 14px;
+  border-radius: 4px;
+  width: fit-content;
+}
+
+.ember-burger-menu.is-open .bm-menu-item{
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.ember-burger-menu.is-open .bm-menu-item:nth-child(1){ transition-delay: 0.05s; }
+.ember-burger-menu.is-open .bm-menu-item:nth-child(2){ transition-delay: 0.1s; }
+.ember-burger-menu.is-open .bm-menu-item:nth-child(3){ transition-delay: 0.15s; }
+.ember-burger-menu.is-open .bm-menu-item:nth-child(4){ transition-delay: 0.2s; }
+.ember-burger-menu.is-open .bm-menu-item:nth-child(5){ transition-delay: 0.25s; }
+
+.ember-burger-menu .bm-outlet{
+  position: relative;
+  z-index: 99;
+  min-height: 100vh;
+  transition: transform 0.5s ease;
+}
+
+.ember-burger-menu .bm-content{
+  min-height: 100vh;
+}
+
+.ember-burger-menu.is-open > .bm-outlet{
+  transform: translate3d(calc(-1 * var(--bm-menu-width)), 0, 0);
+}
+
+.ember-burger-menu.translucent-overlay .bm-outlet::after{
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+  z-index: 110;
+}
+
+.ember-burger-menu.translucent-overlay.is-open .bm-outlet::after{
+  opacity: 1;
+  pointer-events: auto;
+}
+
+body.bm-open{
+  overflow: hidden;
+}
+
+@media (max-width: 1024px){
+  .ember-burger-menu .bm-menu-container{
+    width: var(--bm-menu-width-mobile);
+  }
+
+  .ember-burger-menu.is-open > .bm-outlet{
+    transform: translate3d(calc(-1 * var(--bm-menu-width-mobile)), 0, 0);
+  }
+}

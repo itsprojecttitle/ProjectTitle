@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 const Header = ({
     isMenuOpen,
@@ -7,6 +7,7 @@ const Header = ({
     homeHref = "/#hero",
     portfolioHref = "/#portfolio",
 }) => {
+    const [isPeek, setIsPeek] = useState(false);
     const triggerHeaderHide = () => {
         const header = document.getElementById("main-header");
         if (!header) return;
@@ -46,11 +47,22 @@ const Header = ({
     }, []);
 
     return (
-        <header
-            id="main-header"
-            className="tw-fixed tw-top-0 tw-z-20 tw-flex tw-h-[60px] tw-w-full tw-px-[5%] tw-text-white max-lg:tw-px-2 tw-justify-between lg:tw-justify-around tw-items-center tw-transition-transform tw-duration-300"
-            style={{ top: 0, width: "100%", zIndex: 100 }}
-        >
+        <>
+            <div
+                className="header-hover-zone"
+                onMouseEnter={() => setIsPeek(true)}
+                onMouseLeave={() => setIsPeek(false)}
+                aria-hidden="true"
+            />
+            <header
+                id="main-header"
+                className={`tw-fixed tw-top-0 tw-z-20 tw-flex tw-h-[60px] tw-w-full tw-px-[5%] tw-text-white max-lg:tw-px-2 tw-justify-between lg:tw-justify-around tw-items-center tw-transition-transform tw-duration-300 ${
+                    isPeek ? "is-peek" : ""
+                }`}
+                style={{ top: 0, width: "100%", zIndex: 100 }}
+                onMouseEnter={() => setIsPeek(true)}
+                onMouseLeave={() => setIsPeek(false)}
+            >
             <a href={homeHref} aria-label="Project Title home" onClick={handleLogoClick}>
                 <img
                     src="/assets/logo.png"
@@ -87,19 +99,6 @@ const Header = ({
                 </a>
                 <a className="header-links" href="/media.html" onClick={triggerHeaderHide}>
                     Media
-                </a>
-                <a className="header-links" href="" onClick={triggerHeaderHide}>
-                    Donate
-                </a>
-                <a className="header-links" href="" onClick={triggerHeaderHide}>
-                    Contact
-                </a>
-                <a
-                    className="header-links"
-                    href="https://www.youtube.com/@ProjectTitle"
-                    onClick={triggerHeaderHide}
-                >
-                    YouTube
                 </a>
             </nav>
 
@@ -138,7 +137,8 @@ const Header = ({
                     <span></span>
                 </button>
             </div>
-        </header>
+            </header>
+        </>
     );
 };
 

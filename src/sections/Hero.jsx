@@ -27,7 +27,7 @@ const Hero = () => {
                         <br />
                         Lets find yours.
                     </div>
-                    <div className="reveal-hero-text tw-mt-2 tw-flex tw-max-w-[450px] tw-gap-3 tw-p-2 tw-text-xl max-lg:tw-max-w-full">
+                    <div className="reveal-hero-text social-float tw-mt-2 tw-flex tw-max-w-[450px] tw-gap-3 tw-p-2 tw-text-xl max-lg:tw-max-w-full">
                         <a href="">
                             <i className="bi bi-facebook"></i>
                         </a>

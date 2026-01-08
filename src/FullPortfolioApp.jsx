@@ -3,6 +3,7 @@ import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
 import FullPortfolio from "./pages/FullPortfolio.jsx";
 import { initScrollAnimations } from "./utils/scrollAnimations.js";
+import { initLinkTargets } from "./utils/linkTargets.js";
 
 const FullPortfolioApp = () => {
     const [burgerOpen, setBurgerOpen] = useState(false);
@@ -21,6 +22,7 @@ const FullPortfolioApp = () => {
     }, []);
 
     useEffect(() => initScrollAnimations(), []);
+    useEffect(() => initLinkTargets(), []);
 
     useEffect(() => {
         if (!window.gsap || !window.ScrollTrigger) return;
@@ -138,19 +140,6 @@ const FullPortfolioApp = () => {
                     </a>
                     <a className="bm-menu-item" href="/media.html" onClick={triggerHeaderHide}>
                         Media
-                    </a>
-                    <a className="bm-menu-item" href="" onClick={triggerHeaderHide}>
-                        Donate
-                    </a>
-                    <a className="bm-menu-item" href="" onClick={triggerHeaderHide}>
-                        Contact
-                    </a>
-                    <a
-                        className="bm-menu-item bm-menu-cta"
-                        href="https://www.youtube.com/@ProjectTitle"
-                        onClick={triggerHeaderHide}
-                    >
-                        YouTube
                     </a>
                 </nav>
             </div>

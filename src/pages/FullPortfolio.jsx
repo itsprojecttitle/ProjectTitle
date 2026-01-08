@@ -66,7 +66,7 @@ const FullPortfolio = ({ titleText = "Gallary" }) => {
                         <br />
                         Lets find yours.
                     </div>
-                    <div className="full-portfolio-socials full-portfolio-socials--title">
+                    <div className="full-portfolio-socials full-portfolio-socials--title social-float">
                         <a href="" aria-label="Facebook">
                             <i className="bi bi-facebook"></i>
                         </a>
@@ -78,6 +78,9 @@ const FullPortfolio = ({ titleText = "Gallary" }) => {
                         </a>
                         <a href="https://www.tiktok.com/@projecttitle">
                             <i className="bi bi-tiktok"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@ProjectTitle" aria-label="YouTube">
+                            <i className="bi bi-youtube"></i>
                         </a>
                     </div>
                 </div>

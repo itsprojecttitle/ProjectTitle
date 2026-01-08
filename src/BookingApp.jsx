@@ -4,6 +4,7 @@ import Footer from "./components/Footer.jsx";
 import Services from "./sections/Services.jsx";
 import Mission from "./sections/Mission.jsx";
 import { initScrollAnimations } from "./utils/scrollAnimations.js";
+import { initLinkTargets } from "./utils/linkTargets.js";
 
 const BookingApp = () => {
     const [burgerOpen, setBurgerOpen] = useState(false);
@@ -22,6 +23,7 @@ const BookingApp = () => {
     }, []);
 
     useEffect(() => initScrollAnimations(), []);
+    useEffect(() => initLinkTargets(), []);
 
     return (
         <div

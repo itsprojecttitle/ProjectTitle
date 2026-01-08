@@ -3,6 +3,7 @@ import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
 import Media from "./pages/Media.jsx";
 import { initScrollAnimations } from "./utils/scrollAnimations.js";
+import { initLinkTargets } from "./utils/linkTargets.js";
 
 const MediaApp = () => {
     const [burgerOpen, setBurgerOpen] = useState(false);
@@ -26,6 +27,7 @@ const MediaApp = () => {
     }, []);
 
     useEffect(() => initScrollAnimations(), []);
+    useEffect(() => initLinkTargets(), []);
 
     useEffect(() => {
         if (!window.gsap || !window.ScrollTrigger) return;
@@ -121,15 +123,6 @@ const MediaApp = () => {
                     </a>
                     <a className="bm-menu-item" href="/media.html">
                         Media
-                    </a>
-                    <a className="bm-menu-item" href="">
-                        Donate
-                    </a>
-                    <a className="bm-menu-item" href="">
-                        Contact
-                    </a>
-                    <a className="bm-menu-item bm-menu-cta" href="https://www.youtube.com/@ProjectTitle">
-                        YouTube
                     </a>
                 </nav>
             </div>

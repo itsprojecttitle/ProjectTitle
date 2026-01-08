@@ -46,6 +46,8 @@ const Header = ({
         return () => window.removeEventListener("scroll", onScroll);
     }, []);
 
+    const isBookNowPage = window.location.pathname.endsWith("/BookNow.html");
+
     return (
         <>
             <div
@@ -96,7 +98,7 @@ const Header = ({
                         Portfolio
                     </a>
                     <div className="header-dropdown-menu">
-                        <a className="header-dropdown-link" href="/full-portfolio.html">
+                        <a className="header-dropdown-link" href="/Gallery.Html">
                             Gallery
                         </a>
                         <a className="header-dropdown-link" href="/media.html">
@@ -108,23 +110,23 @@ const Header = ({
 
             <div className="tw-flex tw-place-items-center tw-gap-4 max-lg:tw-hidden desktop-only">
                 <a
-                    href="/booking.html"
+                    href={isBookNowPage ? "/" : "/BookNow.html"}
                     aria-label="signup"
                     className="header-cta tw-flex tw-h-[40px] tw-place-items-center tw-gap-2 tw-bg-secondary tw-p-1 tw-px-4 tw-text-black tw-mt-1 tw-transition-colors tw-duration-[0.5s] hover:tw-bg-black hover:tw-text-white"
                     onClick={triggerHeaderHide}
                 >
-                    <span>Book Now</span>
+                    <span>{isBookNowPage ? "Home" : "Book Now"}</span>
                 </a>
             </div>
 
             <div className="tw-flex tw-items-center tw-gap-4 lg:tw-hidden mobile-only">
                 <a
-                    href="/booking.html"
+                    href={isBookNowPage ? "/" : "/BookNow.html"}
                     aria-label="signup"
                     className="header-cta tw-flex tw-h-[40px] tw-place-items-center tw-gap-2 tw-bg-secondary tw-p-1 tw-px-4 tw-text-black tw-mt-1 tw-transition-colors tw-duration-[0.5s] hover:tw-bg-black hover:tw-text-white"
                     onClick={triggerHeaderHide}
                 >
-                    <span>Book Now</span>
+                    <span>{isBookNowPage ? "Home" : "Book Now"}</span>
                 </a>
                 <button
                     id="burger-toggle"

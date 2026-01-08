@@ -764,16 +764,17 @@ header > .collapsible-header{
 
 .header-dropdown-menu{
   position: absolute;
-  top: calc(100% + 10px);
+  top: 100%;
   left: 50%;
   transform: translateX(-50%);
   background: #000;
   border: 1px solid rgba(255,255,255,0.2);
-  padding: 10px 12px;
+  padding: 14px 12px 12px;
   display: flex;
   flex-direction: column;
   gap: 6px;
   min-width: 160px;
+  margin-top: 10px;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -793,7 +794,9 @@ header > .collapsible-header{
 }
 
 @media (min-width: 1025px){
-  .header-dropdown:hover .header-dropdown-menu{
+  .header-dropdown:hover .header-dropdown-menu,
+  .header-dropdown-menu:hover,
+  #main-header:hover .header-dropdown-menu{
     opacity: 1;
     visibility: visible;
     pointer-events: auto;

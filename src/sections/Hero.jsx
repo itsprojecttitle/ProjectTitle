@@ -14,7 +14,7 @@ const Hero = () => {
     return (
         <section
             id="hero"
-            className="tw-relative tw-flex tw-min-h-[100vh] tw-w-full tw-max-w-[100vw] tw-flex-col tw-bg-primary tw-text-white max-lg:tw-p-4 pt-[60px]"
+            className="hero-section tw-relative tw-flex tw-min-h-[100vh] tw-w-full tw-max-w-[100vw] tw-flex-col tw-bg-primary tw-text-white max-lg:tw-p-4 pt-[60px]"
         >
             <div className="hero-layout tw-flex tw-h-full tw-min-h-[100vh] tw-w-full tw-justify-between tw-gap-6 tw-p-[5%] max-xl:tw-place-items-center max-lg:tw-flex-col max-lg:tw-items-start">
                 <div className="tw-flex tw-flex-col tw-place-content-center max-lg:tw-items-start max-lg:tw-text-left">

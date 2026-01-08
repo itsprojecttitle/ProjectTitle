@@ -149,12 +149,14 @@ const App = () => {
                     >
                         Portfolio
                     </a>
-                    <a className="bm-menu-item" href="/media.html" onClick={triggerHeaderHide}>
-                        Media
-                    </a>
-                    <a className="bm-menu-item" href="/full-portfolio.html" onClick={triggerHeaderHide}>
-                        Gallery
-                    </a>
+                    <div className="bm-menu-sub">
+                        <a className="bm-menu-item" href="/media.html" onClick={triggerHeaderHide}>
+                            Media
+                        </a>
+                        <a className="bm-menu-item" href="/full-portfolio.html" onClick={triggerHeaderHide}>
+                            Gallery
+                        </a>
+                    </div>
                     <a className="bm-menu-item" href="" onClick={triggerHeaderHide}>
                         Donate
                     </a>

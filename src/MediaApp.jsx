@@ -113,12 +113,14 @@ const MediaApp = () => {
                     <a className="bm-menu-item" href="/#portfolio">
                         Portfolio
                     </a>
-                    <a className="bm-menu-item" href="/media.html">
-                        Media
-                    </a>
-                    <a className="bm-menu-item" href="/full-portfolio.html">
-                        Gallery
-                    </a>
+                    <div className="bm-menu-sub">
+                        <a className="bm-menu-item" href="/media.html">
+                            Media
+                        </a>
+                        <a className="bm-menu-item" href="/full-portfolio.html">
+                            Gallery
+                        </a>
+                    </div>
                     <a className="bm-menu-item" href="">
                         Donate
                     </a>

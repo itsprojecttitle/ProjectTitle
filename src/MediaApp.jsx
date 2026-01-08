@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
-import FullPortfolio from "./pages/FullPortfolio.jsx";
+import Media from "./pages/Media.jsx";
 
 const MediaApp = () => {
     const [burgerOpen, setBurgerOpen] = useState(false);
@@ -113,19 +113,20 @@ const MediaApp = () => {
                     <a className="bm-menu-item" href="/#portfolio">
                         Portfolio
                     </a>
-                    <div className="bm-menu-sub">
-                        <a className="bm-menu-item" href="/media.html">
-                            Media
-                        </a>
-                        <a className="bm-menu-item" href="/full-portfolio.html">
-                            Gallery
-                        </a>
-                    </div>
+                    <a className="bm-menu-item" href="/full-portfolio.html">
+                        Gallery
+                    </a>
+                    <a className="bm-menu-item" href="/media.html">
+                        Media
+                    </a>
                     <a className="bm-menu-item" href="">
                         Donate
                     </a>
                     <a className="bm-menu-item" href="">
                         Contact
+                    </a>
+                    <a className="bm-menu-item bm-menu-cta" href="https://tally.so/r/woO0Kx">
+                        Book Now
                     </a>
                 </nav>
             </div>
@@ -144,7 +145,7 @@ const MediaApp = () => {
                         portfolioHref="/#portfolio"
                     />
                     <main>
-                        <FullPortfolio titleText="Media" />
+                        <Media />
                     </main>
                     <button
                         type="button"

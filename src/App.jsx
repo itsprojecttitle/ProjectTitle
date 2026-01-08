@@ -149,19 +149,24 @@ const App = () => {
                     >
                         Portfolio
                     </a>
-                    <div className="bm-menu-sub">
-                        <a className="bm-menu-item" href="/media.html" onClick={triggerHeaderHide}>
-                            Media
-                        </a>
-                        <a className="bm-menu-item" href="/full-portfolio.html" onClick={triggerHeaderHide}>
-                            Gallery
-                        </a>
-                    </div>
+                    <a className="bm-menu-item" href="/full-portfolio.html" onClick={triggerHeaderHide}>
+                        Gallery
+                    </a>
+                    <a className="bm-menu-item" href="/media.html" onClick={triggerHeaderHide}>
+                        Media
+                    </a>
                     <a className="bm-menu-item" href="" onClick={triggerHeaderHide}>
                         Donate
                     </a>
                     <a className="bm-menu-item" href="" onClick={triggerHeaderHide}>
                         Contact
+                    </a>
+                    <a
+                        className="bm-menu-item bm-menu-cta"
+                        href="https://tally.so/r/woO0Kx"
+                        onClick={triggerHeaderHide}
+                    >
+                        Book Now
                     </a>
                 </nav>
             </div>

@@ -19,6 +19,21 @@ const FullPortfolioApp = () => {
         return () => window.removeEventListener("keydown", onKeyDown);
     }, []);
 
+    useEffect(() => {
+        const scrollToHash = () => {
+            const hash = window.location.hash;
+            if (!hash) return;
+            const target = document.querySelector(hash);
+            if (target) {
+                target.scrollIntoView({ behavior: "smooth" });
+            }
+        };
+        const onHashChange = () => scrollToHash();
+        window.addEventListener("hashchange", onHashChange);
+        requestAnimationFrame(scrollToHash);
+        return () => window.removeEventListener("hashchange", onHashChange);
+    }, []);
+
     const handleNavigate = (event, id) => {
         if (!id) return;
         const target = document.getElementById(id);

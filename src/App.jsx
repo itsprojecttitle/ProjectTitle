@@ -25,6 +25,21 @@ const App = () => {
     }, []);
 
     useEffect(() => {
+        const scrollToHash = () => {
+            const hash = window.location.hash;
+            if (!hash) return;
+            const target = document.querySelector(hash);
+            if (target) {
+                target.scrollIntoView({ behavior: "smooth" });
+            }
+        };
+        const onHashChange = () => scrollToHash();
+        window.addEventListener("hashchange", onHashChange);
+        requestAnimationFrame(scrollToHash);
+        return () => window.removeEventListener("hashchange", onHashChange);
+    }, []);
+
+    useEffect(() => {
         if (!window.gsap || !window.ScrollTrigger) return;
 
         const { gsap, ScrollTrigger } = window;

@@ -148,6 +148,29 @@ header{
   display: block;
 }
 
+.full-portfolio-nav{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 0;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.full-portfolio-nav--prev{
+  left: 16px;
+}
+
+.full-portfolio-nav--next{
+  right: 16px;
+}
+
 .full-portfolio-tile--a{
   grid-column: span 5;
   grid-row: span 2;

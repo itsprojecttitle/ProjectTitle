@@ -24,7 +24,6 @@ const Header = ({ isMenuOpen, onToggleMenu, onNavigate }) => {
             className="tw-fixed tw-top-0 tw-z-20 tw-flex tw-h-[60px] tw-w-full tw-px-[5%] tw-text-white max-lg:tw-px-2 tw-justify-between lg:tw-justify-around tw-items-center tw-transition-transform tw-duration-300"
             style={{ top: 0, width: "100%", zIndex: 100 }}
         >
-            <div className="mobile-header-bar" aria-hidden="true"></div>
             <a href="/" aria-label="Project Title home">
                 <img
                     src="/assets/logo.png"

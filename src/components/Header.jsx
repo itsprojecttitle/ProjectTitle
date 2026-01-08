@@ -14,9 +14,29 @@ const Header = ({
         header.classList.add("is-transitioning");
         window.setTimeout(() => header.classList.remove("is-transitioning"), 700);
     };
+    const isHomePath = () => {
+        const path = window.location.pathname;
+        return path === "/" || path.endsWith("/index.html") || path.endsWith("/Home.html");
+    };
+
     const handleNavClick = (event, id, href) => {
-        if (href && href.startsWith("#") && onNavigate) {
+        if (!href) return;
+        if (href.startsWith("#") && onNavigate) {
             onNavigate(event, id);
+            return;
+        }
+        if (href.startsWith("/#")) {
+            event.preventDefault();
+            if (isHomePath()) {
+                onNavigate?.(event, id);
+            } else {
+                try {
+                    if (id) sessionStorage.setItem("scrollTarget", id);
+                } catch (error) {
+                    // ignore storage failures
+                }
+                window.location.assign(href);
+            }
         }
     };
     const handleLogoClick = (event) => {
@@ -79,6 +99,7 @@ const Header = ({
                     href={homeHref}
                     onClick={(event) => {
                         triggerHeaderHide();
+                        handleLogoClick(event);
                         handleNavClick(event, "hero", homeHref);
                     }}
                 >
@@ -116,6 +137,17 @@ const Header = ({
             </div>
 
             <div className="tw-flex tw-items-center tw-gap-4 lg:tw-hidden mobile-only">
+                <a
+                    className="header-links"
+                    href={homeHref}
+                    onClick={(event) => {
+                        triggerHeaderHide();
+                        handleLogoClick(event);
+                        handleNavClick(event, "hero", homeHref);
+                    }}
+                >
+                    Home
+                </a>
                 <a
                     href={isBookNowPage ? "/" : "/BookNow.html"}
                     aria-label="signup"

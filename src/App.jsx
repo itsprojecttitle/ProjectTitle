@@ -27,16 +27,36 @@ const App = () => {
     useEffect(() => {
         const scrollToHash = () => {
             const hash = window.location.hash;
-            if (!hash) return;
-            const target = document.querySelector(hash);
+            const target = hash ? document.querySelector(hash) : null;
             if (target) {
                 target.scrollIntoView({ behavior: "smooth" });
+                try {
+                    sessionStorage.removeItem("scrollTarget");
+                } catch (error) {
+                    // ignore storage failures
+                }
+                return;
+            }
+            try {
+                const fallbackId = sessionStorage.getItem("scrollTarget");
+                if (!fallbackId) return;
+                const fallbackTarget = document.getElementById(fallbackId);
+                if (fallbackTarget) {
+                    fallbackTarget.scrollIntoView({ behavior: "smooth" });
+                    sessionStorage.removeItem("scrollTarget");
+                }
+            } catch (error) {
+                // ignore storage failures
             }
         };
         const onHashChange = () => scrollToHash();
         window.addEventListener("hashchange", onHashChange);
         requestAnimationFrame(scrollToHash);
-        return () => window.removeEventListener("hashchange", onHashChange);
+        window.addEventListener("load", scrollToHash);
+        return () => {
+            window.removeEventListener("hashchange", onHashChange);
+            window.removeEventListener("load", scrollToHash);
+        };
     }, []);
 
     useEffect(() => initScrollAnimations(), []);

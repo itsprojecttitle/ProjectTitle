@@ -443,12 +443,12 @@ body{ padding-top: 0; }
   grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.6fr);
   gap: 24px;
   align-items: stretch;
-  max-height: 78vh;
+  height: clamp(520px, 76vh, 760px);
 }
 
 .portfolio-mosaic-left{
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: 1fr 0.45fr;
   gap: 18px;
   width: 100%;
   height: 100%;
@@ -476,16 +476,17 @@ body{ padding-top: 0; }
 
 .portfolio-mosaic-card--plain{
   padding: 0;
-  flex: 1;
-  justify-content: center;
+  display: block;
+  min-height: 0;
+  position: relative;
+  height: 100%;
 }
 
 .portfolio-mosaic-plain-media{
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  inset: 0 0 -3px 0;
   overflow: hidden;
   display: block;
-  margin: -2px;
 }
 
 .portfolio-mosaic-plain-media img{
@@ -497,7 +498,7 @@ body{ padding-top: 0; }
 }
 
 .portfolio-mosaic-card--summary{
-  flex: 0.45;
+  min-height: 0;
   background: #ffe353;
 }
 
@@ -521,7 +522,7 @@ body{ padding-top: 0; }
 
 .portfolio-mosaic-card--hero{
   min-height: clamp(460px, 68vh, 700px);
-  max-height: 78vh;
+  height: 100%;
   background: #ffe353;
   padding: 0;
   position: relative;
@@ -530,9 +531,9 @@ body{ padding-top: 0; }
 }
 
 .portfolio-mosaic-hero-frame{
-  width: calc(100% - 72px);
-  height: calc(100% - 140px);
-  margin: 32px 36px 0;
+  width: calc(100% - 48px);
+  height: calc(100% - 120px);
+  margin: 24px 24px 0;
   background: #0b0b0b;
   display: flex;
   align-items: center;
@@ -562,20 +563,29 @@ body{ padding-top: 0; }
 
 @media (max-width: 900px){
   .portfolio-mosaic{
-    grid-template-columns: 1fr;
-    max-height: none;
+    display: flex;
+    flex-direction: column;
+    height: auto;
   }
 
   .portfolio-mosaic-card--hero{
     order: 1;
   }
 
-  .portfolio-mosaic-card--plain{
+  .portfolio-mosaic-left{
     order: 2;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
+
+  .portfolio-mosaic-card--plain{
+    order: 1;
+    min-height: 240px;
   }
 
   .portfolio-mosaic-card--summary{
-    order: 3;
+    order: 2;
   }
 
   .portfolio-mosaic-card--hero{
@@ -588,7 +598,7 @@ body{ padding-top: 0; }
   }
 
   .portfolio-mosaic-card--plain{
-    min-height: 220px;
+    min-height: 240px;
   }
 
   .portfolio-mosaic-card--summary{

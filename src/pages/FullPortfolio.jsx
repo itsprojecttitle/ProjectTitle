@@ -5,10 +5,8 @@ const tiles = [
     { image: portfolioItems[0]?.image, className: "full-portfolio-tile--a" },
     { image: portfolioItems[2]?.image, className: "full-portfolio-tile--b" },
     { image: portfolioItems[1]?.image, className: "full-portfolio-tile--c" },
-    { image: portfolioItems[0]?.image, className: "full-portfolio-tile--d" },
-    { image: portfolioItems[1]?.image, className: "full-portfolio-tile--e" },
+    { image: portfolioItems[1]?.image, className: "full-portfolio-tile--h" },
     { image: portfolioItems[2]?.image, className: "full-portfolio-tile--f" },
-    { image: portfolioItems[0]?.image, className: "full-portfolio-tile--g" },
 ].filter((item) => item.image);
 
 const FullPortfolio = () => {

@@ -8,6 +8,8 @@ export default defineConfig({
             input: {
                 main: "index.html",
                 fullPortfolio: "full-portfolio.html",
+                media: "media.html",
+                booking: "booking.html",
             },
         },
     },

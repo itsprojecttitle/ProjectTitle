@@ -40,6 +40,9 @@ const Hero = () => {
                         <a href="https://www.tiktok.com/@projecttitle">
                             <i className="bi bi-tiktok"></i>
                         </a>
+                        <a href="https://www.youtube.com/@ProjectTitle" aria-label="YouTube">
+                            <i className="bi bi-youtube"></i>
+                        </a>
                     </div>
 
                     <div className="reveal-hero-text tw-mt-4 tw-flex tw-place-items-center tw-gap-4 tw-overflow-hidden tw-p-2">

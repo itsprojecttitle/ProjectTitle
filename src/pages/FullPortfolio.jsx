@@ -9,7 +9,7 @@ const tiles = [
     { image: portfolioItems[2]?.image, className: "full-portfolio-tile--f" },
 ].filter((item) => item.image);
 
-const FullPortfolio = () => {
+const FullPortfolio = ({ titleText = "Gallary" }) => {
     const [activeIndex, setActiveIndex] = useState(null);
     const touchStart = useRef(null);
 
@@ -57,8 +57,30 @@ const FullPortfolio = () => {
     return (
         <section className="full-portfolio">
             <div className="full-portfolio-panel">
-                <div className="full-portfolio-header">Header</div>
-                <div className="full-portfolio-divider"></div>
+                <div className="full-portfolio-intro">
+                    <h3 className="full-portfolio-title reveal-up tw-text-7xl tw-font-semibold tw-uppercase tw-leading-[85px] max-lg:tw-text-4xl max-md:tw-leading-snug">
+                    {titleText}
+                </h3>
+                    <div className="full-portfolio-subtitle">
+                        Every story starts with a "ProjectTitle"
+                        <br />
+                        Lets find yours.
+                    </div>
+                    <div className="full-portfolio-socials full-portfolio-socials--title">
+                        <a href="" aria-label="Facebook">
+                            <i className="bi bi-facebook"></i>
+                        </a>
+                        <a href="https://www.instagram.com/projecttitle/">
+                            <i className="bi bi-instagram"></i>
+                        </a>
+                        <a href="https://x.com/ItsProjectTitle" aria-label="X">
+                            <i className="bi bi-twitter-x"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@projecttitle">
+                            <i className="bi bi-tiktok"></i>
+                        </a>
+                    </div>
+                </div>
                 <div className="full-portfolio-main">
                 {portfolioItems[0] ? (
                     <button
@@ -76,7 +98,6 @@ const FullPortfolio = () => {
                         </button>
                     ) : null}
                 </div>
-                <div className="full-portfolio-divider"></div>
                 <div className="full-portfolio-grid">
                     {tiles.map((item, index) => (
                         <article
@@ -95,6 +116,12 @@ const FullPortfolio = () => {
                             </button>
                         </article>
                     ))}
+                </div>
+                <div className="full-portfolio-footer-text reveal-up">
+                    <p>
+                        Text here text hereText here text hereText here text hereText
+                        here text hereText here text hereText here text here.
+                    </p>
                 </div>
             </div>
             {activeImage ? (
@@ -117,7 +144,9 @@ const FullPortfolio = () => {
                     >
                         ‹
                     </button>
-                    <img src={activeImage} alt="Full screen" />
+                    <div className="full-portfolio-lightbox-frame">
+                        <img src={activeImage} alt="Full screen" />
+                    </div>
                     <button
                         type="button"
                         className="full-portfolio-nav full-portfolio-nav--next"

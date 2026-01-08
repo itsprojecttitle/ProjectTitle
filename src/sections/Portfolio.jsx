@@ -49,7 +49,7 @@ const Portfolio = () => {
                                 href="/full-portfolio.html"
                                 className="portfolio-mosaic-plain-cta"
                             >
-                                More Photos <i className="bi bi-arrow-right"></i>
+                                Gallery <i className="bi bi-arrow-right"></i>
                             </a>
                         </div>
                         </article>
@@ -90,8 +90,8 @@ const Portfolio = () => {
                         </video>
                     </div>
                         <div className="portfolio-mosaic-hero-caption portfolio-mosaic-hero-caption--left">
-                            <a href="" className="portfolio-mosaic-link portfolio-mosaic-hero-cta">
-                                More Videos <i className="bi bi-arrow-right"></i>
+                            <a href="/media.html" className="portfolio-mosaic-link portfolio-mosaic-hero-cta">
+                                Media <i className="bi bi-arrow-right"></i>
                             </a>
                         </div>
                     </article>

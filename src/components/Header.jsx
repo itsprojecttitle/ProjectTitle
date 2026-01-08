@@ -84,28 +84,24 @@ const Header = ({
                 >
                     Home
                 </a>
-                <div className="header-dropdown">
-                    <a
-                        className="header-links"
-                        href={portfolioHref}
-                        onClick={(event) =>
-                            (() => {
-                                triggerHeaderHide();
-                                handleNavClick(event, "portfolio", portfolioHref);
-                            })()
-                        }
-                    >
-                        Portfolio
-                    </a>
-                    <div className="header-dropdown-menu">
-                        <a className="header-dropdown-link" href="/Gallery.Html">
-                            Gallery
-                        </a>
-                        <a className="header-dropdown-link" href="/media.html">
-                            Media
-                        </a>
-                    </div>
-                </div>
+                <a
+                    className="header-links"
+                    href={portfolioHref}
+                    onClick={(event) =>
+                        (() => {
+                            triggerHeaderHide();
+                            handleNavClick(event, "portfolio", portfolioHref);
+                        })()
+                    }
+                >
+                    Portfolio
+                </a>
+                <a className="header-links" href="/Gallery.html" onClick={triggerHeaderHide}>
+                    Gallery
+                </a>
+                <a className="header-links" href="/media.html" onClick={triggerHeaderHide}>
+                    Media
+                </a>
             </nav>
 
             <div className="tw-flex tw-place-items-center tw-gap-4 max-lg:tw-hidden desktop-only">

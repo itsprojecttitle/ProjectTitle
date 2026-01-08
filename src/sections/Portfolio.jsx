@@ -46,7 +46,7 @@ const Portfolio = () => {
                             </div>
                         <div className="portfolio-mosaic-plain-overlay">
                             <a
-                                href="/full-portfolio.html"
+                                href="/Gallery.html"
                                 className="portfolio-mosaic-plain-cta"
                             >
                                 Gallery <i className="bi bi-arrow-right"></i>

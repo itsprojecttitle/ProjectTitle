@@ -7,9 +7,10 @@ export default defineConfig({
         rollupOptions: {
             input: {
                 main: "index.html",
-                fullPortfolio: "full-portfolio.html",
+                fullPortfolio: "Gallery.html",
                 media: "media.html",
-                booking: "booking.html",
+                booking: "BookNow.html",
+                newsEvents: "newsandevenrts.html",
             },
         },
     },

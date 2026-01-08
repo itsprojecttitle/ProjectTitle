@@ -135,7 +135,7 @@ const FullPortfolioApp = () => {
                     <a className="bm-menu-item" href="/#portfolio" onClick={triggerHeaderHide}>
                         Portfolio
                     </a>
-                    <a className="bm-menu-item" href="/full-portfolio.html" onClick={triggerHeaderHide}>
+                    <a className="bm-menu-item" href="/Gallery.html" onClick={triggerHeaderHide}>
                         Gallery
                     </a>
                     <a className="bm-menu-item" href="/media.html" onClick={triggerHeaderHide}>

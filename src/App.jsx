@@ -86,7 +86,7 @@ const App = () => {
                     >
                         Portfolio
                     </a>
-                    <a className="bm-menu-item" href="/full-portfolio.html" onClick={triggerHeaderHide}>
+                    <a className="bm-menu-item" href="/Gallery.html" onClick={triggerHeaderHide}>
                         Gallery
                     </a>
                     <a className="bm-menu-item" href="/media.html" onClick={triggerHeaderHide}>

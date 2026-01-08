@@ -44,7 +44,7 @@ const BookingApp = () => {
                     <a className="bm-menu-item" href="/#portfolio">
                         Portfolio
                     </a>
-                    <a className="bm-menu-item" href="/full-portfolio.html">
+                    <a className="bm-menu-item" href="/Gallery.html">
                         Gallery
                     </a>
                     <a className="bm-menu-item" href="/media.html">

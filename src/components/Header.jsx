@@ -85,7 +85,12 @@ const Header = ({
                 onMouseEnter={() => setIsPeek(true)}
                 onMouseLeave={() => setIsPeek(false)}
             >
-            <a href={homeHref} aria-label="Project Title home" onClick={handleLogoClick}>
+            <a
+                href={homeHref}
+                aria-label="Project Title home"
+                onClick={handleLogoClick}
+                className="header-logo"
+            >
                 <img
                     src="/assets/logo.png"
                     alt="logo"
@@ -93,39 +98,38 @@ const Header = ({
                 />
             </a>
 
-            <nav className="tw-flex tw-gap-6 max-lg:tw-hidden desktop-only">
-                <a
-                    className="header-links"
-                    href={homeHref}
-                    onClick={(event) => {
-                        triggerHeaderHide();
-                        handleLogoClick(event);
-                        handleNavClick(event, "hero", homeHref);
-                    }}
-                >
-                    Home
-                </a>
-                <a
-                    className="header-links"
-                    href={portfolioHref}
-                    onClick={(event) =>
-                        (() => {
+            <div className="header-cta-wrap tw-flex tw-place-items-center tw-gap-6 max-lg:tw-hidden desktop-only">
+                <nav className="header-nav-center tw-flex tw-gap-6">
+                    <a
+                        className="header-links"
+                        href={homeHref}
+                        onClick={(event) => {
                             triggerHeaderHide();
-                            handleNavClick(event, "portfolio", portfolioHref);
-                        })()
-                    }
-                >
-                    Portfolio
-                </a>
-                <a className="header-links" href="/Gallery.html" onClick={triggerHeaderHide}>
-                    Gallery
-                </a>
-                <a className="header-links" href="/media.html" onClick={triggerHeaderHide}>
-                    Media
-                </a>
-            </nav>
-
-            <div className="tw-flex tw-place-items-center tw-gap-4 max-lg:tw-hidden desktop-only">
+                            handleLogoClick(event);
+                            handleNavClick(event, "hero", homeHref);
+                        }}
+                    >
+                        Home
+                    </a>
+                    <a
+                        className="header-links"
+                        href={portfolioHref}
+                        onClick={(event) =>
+                            (() => {
+                                triggerHeaderHide();
+                                handleNavClick(event, "portfolio", portfolioHref);
+                            })()
+                        }
+                    >
+                        Portfolio
+                    </a>
+                    <a className="header-links" href="/Gallery.html" onClick={triggerHeaderHide}>
+                        Gallery
+                    </a>
+                    <a className="header-links" href="/media.html" onClick={triggerHeaderHide}>
+                        Media
+                    </a>
+                </nav>
                 <a
                     href={isBookNowPage ? "/" : "/BookNow.html"}
                     aria-label="signup"

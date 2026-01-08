@@ -11,6 +11,7 @@ export default defineConfig({
                 media: "media.html",
                 booking: "BookNow.html",
                 newsEvents: "newsandevenrts.html",
+                facebook: "facebook.html",
             },
         },
     },

@@ -14,7 +14,7 @@ const Media = () => (
                 </p>
             </header>
             <div className="social-float">
-                <a href="" aria-label="Facebook">
+                <a href="/facebook.html" aria-label="Facebook">
                     <i className="bi bi-facebook"></i>
                 </a>
                 <a href="https://www.instagram.com/projecttitle/">

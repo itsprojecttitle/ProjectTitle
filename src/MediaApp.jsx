@@ -3,13 +3,18 @@ import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
 import FullPortfolio from "./pages/FullPortfolio.jsx";
 
-const FullPortfolioApp = () => {
+const MediaApp = () => {
     const [burgerOpen, setBurgerOpen] = useState(false);
 
     useEffect(() => {
         document.body.classList.toggle("bm-open", burgerOpen);
         return () => document.body.classList.remove("bm-open");
     }, [burgerOpen]);
+
+    useEffect(() => {
+        document.body.classList.add("media-page");
+        return () => document.body.classList.remove("media-page");
+    }, []);
 
     useEffect(() => {
         const onKeyDown = (event) => {
@@ -80,21 +85,6 @@ const FullPortfolioApp = () => {
         };
     }, []);
 
-    useEffect(() => {
-        const scrollToHash = () => {
-            const hash = window.location.hash;
-            if (!hash) return;
-            const target = document.querySelector(hash);
-            if (target) {
-                target.scrollIntoView({ behavior: "smooth" });
-            }
-        };
-        const onHashChange = () => scrollToHash();
-        window.addEventListener("hashchange", onHashChange);
-        requestAnimationFrame(scrollToHash);
-        return () => window.removeEventListener("hashchange", onHashChange);
-    }, []);
-
     const handleNavigate = (event, id) => {
         if (!id) return;
         const target = document.getElementById(id);
@@ -102,13 +92,6 @@ const FullPortfolioApp = () => {
             event.preventDefault();
             target.scrollIntoView({ behavior: "smooth" });
         }
-    };
-
-    const triggerHeaderHide = () => {
-        const header = document.getElementById("main-header");
-        if (!header) return;
-        header.classList.add("is-transitioning");
-        window.setTimeout(() => header.classList.remove("is-transitioning"), 700);
     };
 
     return (
@@ -124,22 +107,22 @@ const FullPortfolioApp = () => {
                     aria-label="Mobile menu"
                     onClick={() => setBurgerOpen(false)}
                 >
-                    <a className="bm-menu-item" href="/#hero" onClick={triggerHeaderHide}>
+                    <a className="bm-menu-item" href="/#hero">
                         Home
                     </a>
-                    <a className="bm-menu-item" href="/#portfolio" onClick={triggerHeaderHide}>
+                    <a className="bm-menu-item" href="/#portfolio">
                         Portfolio
                     </a>
-                    <a className="bm-menu-item" href="/media.html" onClick={triggerHeaderHide}>
+                    <a className="bm-menu-item" href="/media.html">
                         Media
                     </a>
-                    <a className="bm-menu-item" href="/full-portfolio.html" onClick={triggerHeaderHide}>
+                    <a className="bm-menu-item" href="/full-portfolio.html">
                         Gallery
                     </a>
-                    <a className="bm-menu-item" href="" onClick={triggerHeaderHide}>
+                    <a className="bm-menu-item" href="">
                         Donate
                     </a>
-                    <a className="bm-menu-item" href="" onClick={triggerHeaderHide}>
+                    <a className="bm-menu-item" href="">
                         Contact
                     </a>
                 </nav>
@@ -159,7 +142,7 @@ const FullPortfolioApp = () => {
                         portfolioHref="/#portfolio"
                     />
                     <main>
-                        <FullPortfolio />
+                        <FullPortfolio titleText="Media" />
                     </main>
                     <button
                         type="button"
@@ -178,4 +161,4 @@ const FullPortfolioApp = () => {
     );
 };
 
-export default FullPortfolioApp;
+export default MediaApp;

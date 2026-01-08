@@ -42,7 +42,7 @@ const Hero = () => {
                         <a
                             href="#upcoming-events"
                             aria-label="signup"
-                            className="tw-flex tw-h-[40px] tw-place-items-center tw-gap-2 tw-bg-secondary tw-p-1 tw-p-2 tw-px-4 tw-pl-4 tw-text-black tw-transition-colors tw-duration-[0.5s] hover:tw-bg-black hover:tw-text-white"
+                            className="hero-cta-button tw-flex tw-h-[40px] tw-place-items-center tw-gap-2 tw-p-1 tw-p-2 tw-px-4 tw-pl-4"
                         >
                             <span>Upcoming Events</span>
                             <i className="bi bi-arrow-up-right"></i>
@@ -65,15 +65,6 @@ const Hero = () => {
                                 ></iframe>
                             </div>
                         </div>
-                        <a
-                            href="https://www.youtube.com/watch?v=tSm_peUgQ1o"
-                            target="_blank"
-                            rel="noopener"
-                            className="hero-watch-button tw-mt-4 tw-flex tw-h-[40px] tw-place-items-center tw-self-start tw-gap-2 tw-bg-secondary tw-p-2 tw-px-5 tw-text-black tw-transition-colors tw-duration-[0.5s] hover:tw-bg-black hover:tw-text-white"
-                        >
-                            <span>Latest Video</span>
-                            <i className="bi bi-play-circle"></i>
-                        </a>
                     </div>
                 </div>
             </div>

@@ -2,9 +2,18 @@ import React, { useEffect, useState } from "react";
 import { portfolioItems } from "../data/portfolio.js";
 
 const testimonials = [
-    "ProjectTitle delivered a clean, cinematic brand refresh that feels premium.",
-    "Every detail was handled with care. The rollout was smooth and fast.",
-    "They understood the brief immediately and elevated the visuals.",
+    {
+        text: "ProjectTitle delivered a clean, cinematic brand refresh that feels premium.",
+        name: "Oliver Grant",
+    },
+    {
+        text: "Every detail was handled with care. The rollout was smooth and fast.",
+        name: "Amelia Clarke",
+    },
+    {
+        text: "They understood the brief immediately and elevated the visuals.",
+        name: "Harriet Bennett",
+    },
 ];
 
 const Portfolio = () => {
@@ -22,7 +31,7 @@ const Portfolio = () => {
             id="portfolio"
             className="tw-relative tw-flex tw-min-h-[100vh] tw-w-full tw-max-w-[100vw] tw-flex-col tw-place-items-start tw-overflow-hidden tw-p-6 tw-py-5"
         >
-            <h3 className="reveal-up tw-text-8xl tw-font-medium max-lg:tw-text-6xl max-sm:tw-text-5xl max-sm:tw-tracking-tight">
+            <h3 className="reveal-up tw-text-7xl tw-font-semibold tw-uppercase tw-leading-[85px] max-lg:tw-text-4xl max-md:tw-leading-snug">
                 Portfolio
             </h3>
             <div className="portfolio-mosaic tw-mt-8 tw-w-full tw-max-w-[1100px]">
@@ -48,7 +57,10 @@ const Portfolio = () => {
                             className="portfolio-testimonial"
                             key={`testimonial-${testimonialIndex}`}
                         >
-                            {testimonials[testimonialIndex]}
+                            “{testimonials[testimonialIndex].text}”
+                            <span className="portfolio-testimonial-name">
+                                - {testimonials[testimonialIndex].name}
+                            </span>
                         </p>
                     </article>
                 </div>

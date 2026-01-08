@@ -1,16 +1,16 @@
 import React from "react";
 
 const Footer = () => (
-    <footer className="tw-relative tw-flex tw-w-full tw-place-content-around tw-gap-3 tw-bg-primary tw-px-[10%] tw-pb-4 tw-pt-[5%] tw-text-white">
+    <footer className="tw-relative tw-flex tw-w-full tw-place-content-around tw-gap-3 tw-bg-primary tw-px-[6%] tw-pb-3 tw-pt-6 tw-text-white">
         <div className="tw-relative tw-flex tw-h-full tw-w-full tw-flex-col tw-gap-2">
-            <div className="tw-my-2 tw-flex tw-w-full tw-place-content-around tw-gap-3 max-md:tw-flex-col">
-                <div className="tw-flex tw-h-full tw-w-[250px] tw-flex-col tw-place-items-center tw-gap-6 max-md:tw-w-full">
+            <div className="tw-my-1 tw-flex tw-w-full tw-place-content-around tw-gap-3 max-md:tw-flex-col">
+                <div className="tw-flex tw-h-full tw-w-[220px] tw-flex-col tw-place-items-center tw-gap-3 max-md:tw-w-full">
                     <img
                         src="/assets/logo.png"
                         alt="logo"
-                        className="tw-w-[150px]"
+                        className="tw-w-[110px]"
                     />
-                    <div>
+                    <div className="tw-text-sm">
                         London,
                         <br />
                         Great Britain,
@@ -18,8 +18,8 @@ const Footer = () => (
                         United Kingdom
                     </div>
                 </div>
-                <div className="tw-flex tw-h-full tw-w-[250px] tw-flex-col tw-gap-4">
-                    <div className="tw-flex tw-flex-col tw-gap-3 max-md:tw-text-sm">
+                <div className="tw-flex tw-h-full tw-w-[220px] tw-flex-col tw-gap-3">
+                    <div className="tw-flex tw-flex-col tw-gap-2 tw-text-sm">
                         <a href="" className="footer-link">
                             About us
                         </a>
@@ -43,7 +43,7 @@ const Footer = () => (
             </div>
             <div className="tw-h-[1px] tw-w-[100%] tw-bg-white"></div>
 
-            <div className="tw-mt-3 tw-flex tw-gap-4 tw-text-xl">
+            <div className="tw-mt-2 tw-flex tw-gap-3 tw-text-lg">
                 <a href="" aria-label="Facebook">
                     <i className="bi bi-facebook"></i>
                 </a>

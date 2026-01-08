@@ -26,8 +26,13 @@ const App = () => {
 
     useEffect(() => {
         const scrollToHash = () => {
+            const navEntry = performance.getEntriesByType("navigation")[0];
+            const isReload = navEntry && navEntry.type === "reload";
             const hash = window.location.hash;
-            const target = hash ? document.querySelector(hash) : null;
+            if (isReload && hash) {
+                window.history.replaceState(null, "", window.location.pathname);
+            }
+            const target = !isReload && hash ? document.querySelector(hash) : null;
             if (target) {
                 target.scrollIntoView({ behavior: "smooth" });
                 try {
@@ -48,6 +53,8 @@ const App = () => {
             } catch (error) {
                 // ignore storage failures
             }
+            const hero = document.getElementById("hero");
+            if (hero) hero.scrollIntoView({ behavior: "smooth" });
         };
         const onHashChange = () => scrollToHash();
         window.addEventListener("hashchange", onHashChange);

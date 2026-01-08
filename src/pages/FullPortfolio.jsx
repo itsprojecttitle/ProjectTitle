@@ -66,7 +66,7 @@ const FullPortfolio = ({ titleText = "Gallary" }) => {
                         <br />
                         Lets find yours.
                     </div>
-                    <div className="full-portfolio-socials full-portfolio-socials--title social-float">
+                    <div className="full-portfolio-socials full-portfolio-socials--title">
                         <a href="/facebook.html" aria-label="Facebook">
                             <i className="bi bi-facebook"></i>
                         </a>

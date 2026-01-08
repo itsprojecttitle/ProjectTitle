@@ -563,10 +563,36 @@ body{ padding-top: 0; }
 @media (max-width: 900px){
   .portfolio-mosaic{
     grid-template-columns: 1fr;
+    max-height: none;
   }
 
   .portfolio-mosaic-card--hero{
-    min-height: 60vh;
+    order: 1;
+  }
+
+  .portfolio-mosaic-card--plain{
+    order: 2;
+  }
+
+  .portfolio-mosaic-card--summary{
+    order: 3;
+  }
+
+  .portfolio-mosaic-card--hero{
+    min-height: 52vh;
+    max-height: none;
+  }
+
+  .portfolio-mosaic-left{
+    height: auto;
+  }
+
+  .portfolio-mosaic-card--plain{
+    min-height: 220px;
+  }
+
+  .portfolio-mosaic-card--summary{
+    min-height: 200px;
   }
 }
 

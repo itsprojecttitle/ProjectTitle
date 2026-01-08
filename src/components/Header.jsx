@@ -7,6 +7,12 @@ const Header = ({
     homeHref = "/#hero",
     portfolioHref = "/#portfolio",
 }) => {
+    const triggerHeaderHide = () => {
+        const header = document.getElementById("main-header");
+        if (!header) return;
+        header.classList.add("is-transitioning");
+        window.setTimeout(() => header.classList.remove("is-transitioning"), 700);
+    };
     const handleNavClick = (event, id, href) => {
         if (href && href.startsWith("#") && onNavigate) {
             onNavigate(event, id);
@@ -47,7 +53,10 @@ const Header = ({
                 <a
                     className="header-links"
                     href={homeHref}
-                    onClick={(event) => handleNavClick(event, "hero", homeHref)}
+                    onClick={(event) => {
+                        triggerHeaderHide();
+                        handleNavClick(event, "hero", homeHref);
+                    }}
                 >
                     Home
                 </a>
@@ -55,15 +64,18 @@ const Header = ({
                     className="header-links"
                     href={portfolioHref}
                     onClick={(event) =>
-                        handleNavClick(event, "portfolio", portfolioHref)
+                        (() => {
+                            triggerHeaderHide();
+                            handleNavClick(event, "portfolio", portfolioHref);
+                        })()
                     }
                 >
                     Portfolio
                 </a>
-                <a className="header-links" href="">
+                <a className="header-links" href="" onClick={triggerHeaderHide}>
                     Donate
                 </a>
-                <a className="header-links" href="">
+                <a className="header-links" href="" onClick={triggerHeaderHide}>
                     Contact
                 </a>
             </nav>
@@ -73,6 +85,7 @@ const Header = ({
                     href="https://tally.so/r/woO0Kx"
                     aria-label="signup"
                     className="tw-flex tw-h-[40px] tw-place-items-center tw-gap-2 tw-bg-secondary tw-p-1 tw-px-4 tw-text-black tw-mt-1 tw-transition-colors tw-duration-[0.5s] hover:tw-bg-black hover:tw-text-white"
+                    onClick={triggerHeaderHide}
                 >
                     <span>Book Now</span>
                 </a>
@@ -83,6 +96,7 @@ const Header = ({
                     href="https://tally.so/r/woO0Kx"
                     aria-label="signup"
                     className="tw-flex tw-h-[40px] tw-place-items-center tw-gap-2 tw-bg-secondary tw-p-1 tw-px-4 tw-text-black tw-mt-1 tw-transition-colors tw-duration-[0.5s] hover:tw-bg-black hover:tw-text-white"
+                    onClick={triggerHeaderHide}
                 >
                     <span>Book Now</span>
                 </a>

@@ -1,8 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 
 const Hero = () => {
     const videoRef = useRef(null);
-    const [isMuted, setIsMuted] = useState(true);
 
     useEffect(() => {
         if (!videoRef.current) return;
@@ -11,9 +10,6 @@ const Hero = () => {
         });
     }, []);
 
-    const toggleMute = () => {
-        setIsMuted((prev) => !prev);
-    };
 
     return (
         <section
@@ -64,23 +60,9 @@ const Hero = () => {
                             ref={videoRef}
                             className="hero-carousel-frame hero-video-frame is-ready tw-relative tw-flex tw-min-w-[350px] tw-max-w-[650px] tw-overflow-hidden tw-border-2 tw-border-solid tw-border-secondary tw-p-0 max-lg:tw-w-[320px] max-lg:tw-min-w-[320px]"
                         >
-                            <div className="hero-video-embed">
-                                <video
-                                    className="hero-video-media"
-                                    src="/assets/videos/hero.webm"
-                                    autoPlay
-                                    loop
-                                    muted={isMuted}
-                                    playsInline
-                                />
+                            <div className="hero-video-embed hero-video-placeholder">
+                                Showreel
                             </div>
-                            <button
-                                type="button"
-                                className="hero-video-audio"
-                                onClick={toggleMute}
-                            >
-                                {isMuted ? "Unmute" : "Mute"}
-                            </button>
                         </div>
                     </div>
                 </div>

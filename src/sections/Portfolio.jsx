@@ -69,8 +69,20 @@ const Portfolio = () => {
                 </div>
                 {portfolioItems[2] ? (
                     <article className="portfolio-mosaic-card portfolio-mosaic-card--hero reveal-up">
-                    <div className="portfolio-mosaic-hero-frame portfolio-mosaic-hero-placeholder">
-                        Showreel
+                    <div className="portfolio-mosaic-hero-frame">
+                        <video
+                            className="portfolio-mosaic-hero-video"
+                            autoPlay
+                            loop
+                            muted
+                            controls
+                            playsInline
+                        >
+                            <source
+                                src="/assets/videos/hero.mp4"
+                                type="video/mp4"
+                            />
+                        </video>
                     </div>
                         <div className="portfolio-mosaic-hero-caption portfolio-mosaic-hero-caption--left">
                             <a href="" className="portfolio-mosaic-link portfolio-mosaic-hero-cta">

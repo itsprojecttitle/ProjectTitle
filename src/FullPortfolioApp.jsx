@@ -28,6 +28,13 @@ const FullPortfolioApp = () => {
         }
     };
 
+    const triggerHeaderHide = () => {
+        const header = document.getElementById("main-header");
+        if (!header) return;
+        header.classList.add("is-transitioning");
+        window.setTimeout(() => header.classList.remove("is-transitioning"), 700);
+    };
+
     return (
         <div
             id="burger-root"
@@ -41,16 +48,16 @@ const FullPortfolioApp = () => {
                     aria-label="Mobile menu"
                     onClick={() => setBurgerOpen(false)}
                 >
-                    <a className="bm-menu-item" href="/#hero">
+                    <a className="bm-menu-item" href="/#hero" onClick={triggerHeaderHide}>
                         Home
                     </a>
-                    <a className="bm-menu-item" href="/#portfolio">
+                    <a className="bm-menu-item" href="/#portfolio" onClick={triggerHeaderHide}>
                         Portfolio
                     </a>
-                    <a className="bm-menu-item" href="">
+                    <a className="bm-menu-item" href="" onClick={triggerHeaderHide}>
                         Donate
                     </a>
-                    <a className="bm-menu-item" href="">
+                    <a className="bm-menu-item" href="" onClick={triggerHeaderHide}>
                         Contact
                     </a>
                 </nav>
@@ -72,6 +79,15 @@ const FullPortfolioApp = () => {
                     <main>
                         <FullPortfolio />
                     </main>
+                    <button
+                        type="button"
+                        className="back-to-top"
+                        onClick={() =>
+                            window.scrollTo({ top: 0, behavior: "smooth" })
+                        }
+                    >
+                        Top
+                    </button>
                     <hr className="tw-mt-4" />
                     <Footer />
                 </div>

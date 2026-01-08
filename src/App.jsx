@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
 import Hero from "./sections/Hero.jsx";
@@ -25,10 +27,8 @@ const App = () => {
     }, []);
 
     useEffect(() => {
-        if (!window.gsap || !window.ScrollTrigger) return;
-
-        const { gsap, ScrollTrigger } = window;
         gsap.registerPlugin(ScrollTrigger);
+        ScrollTrigger.config({ ignoreMobileResize: true });
 
         gsap.set(".reveal-hero-text, .reveal-up", { opacity: 0, y: 18 });
 
@@ -86,7 +86,17 @@ const App = () => {
             });
         });
 
+        const refresh = () => {
+            ScrollTrigger.refresh();
+        };
+        window.addEventListener("load", refresh);
+        window.addEventListener("resize", refresh);
+        window.addEventListener("orientationchange", refresh);
+
         return () => {
+            window.removeEventListener("load", refresh);
+            window.removeEventListener("resize", refresh);
+            window.removeEventListener("orientationchange", refresh);
             ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
         };
     }, []);

@@ -79,6 +79,11 @@ const Portfolio = () => {
                             playsInline
                         >
                             <source
+                                src="/assets/videos/hero-mobile.mp4"
+                                type="video/mp4"
+                                media="(max-width: 900px)"
+                            />
+                            <source
                                 src="/assets/videos/hero.mp4"
                                 type="video/mp4"
                             />

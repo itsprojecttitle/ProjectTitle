@@ -82,6 +82,21 @@ header{
   transition: opacity 2400ms ease;
 }
 
+.hero-cta-button{
+  border: 2px solid #000;
+  background: #fff;
+  color: #000;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: transform 220ms ease, box-shadow 220ms ease, background 220ms ease;
+  animation: portfolioCtaFloat 3.2s ease-in-out infinite;
+}
+
+.hero-cta-button:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.25);
+}
 
 
 .hero-video-embed{
@@ -442,75 +457,15 @@ body{ padding-top: 0; }
     max-height: 240px;
   }
 
-#upcoming-events .event-card-media img{
-  height: 100%;
-}
-
-#upcoming-events .event-card-content{
-  flex: 1 1 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-}
-
-.events-list{
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  gap: 18px;
-}
-
-.event-card--polaroid{
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  width: 240px;
-  min-height: 0;
-  border: 2px solid #000;
-  background: #fff;
-  padding: 14px 14px 22px;
-}
-
-.event-card--polaroid .event-card-media{
-  height: 180px;
-  width: 100%;
-  overflow: hidden;
-}
-
-.event-card--polaroid .event-card-media-img{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.event-card--polaroid .event-card-content{
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.event-card--polaroid h3{
-  font-size: 1rem;
-  font-weight: 600;
-}
-
-.event-card--polaroid .event-card-description{
-  font-size: 0.85rem;
-  color: #1b1b1b;
-}
-
-@media (max-width: 900px){
-  .events-list{
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    padding: 12px 12vw;
+  #upcoming-events .event-card-media img{
+    height: 100%;
   }
 
-  .event-card--polaroid{
-    scroll-snap-align: center;
-    flex: 0 0 auto;
+  #upcoming-events .event-card-content{
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
   }
 }
 .portfolio-mosaic{
@@ -687,7 +642,6 @@ body{ padding-top: 0; }
   text-transform: uppercase;
   letter-spacing: 0.06em;
   background: #fff;
-  font-size: 0.8rem;
   animation: portfolioCtaFloat 3.2s ease-in-out infinite;
 }
 
@@ -719,7 +673,6 @@ body{ padding-top: 0; }
   object-fit: cover;
   display: block;
 }
-
 
 .portfolio-mosaic-hero-caption{
   padding: 18px 36px 32px;

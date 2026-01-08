@@ -945,8 +945,7 @@ header > .collapsible-header{
   transform: translateY(0);
   background: #000;
   transition: transform 220ms ease, background 200ms ease, box-shadow 200ms ease, backdrop-filter 200ms ease;
-  padding-top: env(safe-area-inset-top);
-  height: calc(60px + env(safe-area-inset-top));
+  height: 60px;
 }
 
 /* makes white text readable even when transparent */
@@ -1444,7 +1443,7 @@ body{ padding-top: 0; }
 
 .ember-burger-menu .bm-content{
   min-height: 100vh;
-  padding-top: calc(60px + env(safe-area-inset-top));
+  padding-top: 60px;
 }
 
 .ember-burger-menu.is-open > .bm-outlet{

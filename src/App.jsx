@@ -93,9 +93,9 @@ const App = () => {
 
     const handleNavigate = (event, id) => {
         if (!id) return;
-        event.preventDefault();
         const target = document.getElementById(id);
         if (target) {
+            event.preventDefault();
             target.scrollIntoView({ behavior: "smooth" });
         }
     };
@@ -113,7 +113,7 @@ const App = () => {
                     aria-label="Mobile menu"
                     onClick={() => setBurgerOpen(false)}
                 >
-                    <a className="bm-menu-item" href="/">
+                    <a className="bm-menu-item" href="/#hero">
                         Home
                     </a>
                     <a
@@ -145,6 +145,8 @@ const App = () => {
                         isMenuOpen={burgerOpen}
                         onToggleMenu={() => setBurgerOpen((open) => !open)}
                         onNavigate={handleNavigate}
+                        homeHref="/#hero"
+                        portfolioHref="/#portfolio"
                     />
                     <main>
                         <Hero />

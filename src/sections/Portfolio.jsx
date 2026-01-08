@@ -44,11 +44,14 @@ const Portfolio = () => {
                                     alt={portfolioItems[0].title}
                                 />
                             </div>
-                            <div className="portfolio-mosaic-plain-overlay">
-                                <button type="button" className="portfolio-mosaic-plain-cta">
-                                    More Photos <i className="bi bi-arrow-right"></i>
-                                </button>
-                            </div>
+                        <div className="portfolio-mosaic-plain-overlay">
+                            <a
+                                href="/full-portfolio.html"
+                                className="portfolio-mosaic-plain-cta"
+                            >
+                                More Photos <i className="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
                         </article>
                     ) : null}
                     <article className="portfolio-mosaic-card portfolio-mosaic-card--summary reveal-up">
@@ -66,16 +69,9 @@ const Portfolio = () => {
                 </div>
                 {portfolioItems[2] ? (
                     <article className="portfolio-mosaic-card portfolio-mosaic-card--hero reveal-up">
-                        <div className="portfolio-mosaic-hero-frame">
-                            <iframe
-                                className="portfolio-mosaic-hero-embed"
-                                src="https://www.youtube.com/embed/CCtifwUJvm4?autoplay=1&mute=1&loop=1&playlist=CCtifwUJvm4&controls=1&playsinline=1"
-                                title="Video portfolio"
-                                frameBorder="0"
-                                allow="autoplay; encrypted-media; picture-in-picture"
-                                allowFullScreen
-                            ></iframe>
-                        </div>
+                    <div className="portfolio-mosaic-hero-frame portfolio-mosaic-hero-placeholder">
+                        Showreel
+                    </div>
                         <div className="portfolio-mosaic-hero-caption portfolio-mosaic-hero-caption--left">
                             <a href="" className="portfolio-mosaic-link portfolio-mosaic-hero-cta">
                                 More Videos <i className="bi bi-arrow-right"></i>

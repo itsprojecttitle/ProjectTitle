@@ -1,7 +1,8 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 const Hero = () => {
     const videoRef = useRef(null);
+    const [isMuted, setIsMuted] = useState(true);
 
     useEffect(() => {
         if (!videoRef.current) return;
@@ -10,8 +11,15 @@ const Hero = () => {
         });
     }, []);
 
+    const toggleMute = () => {
+        setIsMuted((prev) => !prev);
+    };
+
     return (
-        <section className="tw-relative tw-flex tw-min-h-[100vh] tw-w-full tw-max-w-[100vw] tw-flex-col tw-bg-primary tw-text-white max-lg:tw-p-4 pt-[60px]">
+        <section
+            id="hero"
+            className="tw-relative tw-flex tw-min-h-[100vh] tw-w-full tw-max-w-[100vw] tw-flex-col tw-bg-primary tw-text-white max-lg:tw-p-4 pt-[60px]"
+        >
             <div className="hero-layout tw-flex tw-h-full tw-min-h-[100vh] tw-w-full tw-justify-between tw-gap-6 tw-p-[5%] max-xl:tw-place-items-center max-lg:tw-flex-col max-lg:tw-items-start">
                 <div className="tw-flex tw-flex-col tw-place-content-center max-lg:tw-items-start max-lg:tw-text-left">
                     <div className="tw-flex tw-flex-wrap tw-text-7xl tw-font-semibold tw-uppercase tw-leading-[85px] max-lg:tw-text-4xl max-md:tw-leading-snug">
@@ -57,13 +65,22 @@ const Hero = () => {
                             className="hero-carousel-frame hero-video-frame is-ready tw-relative tw-flex tw-min-w-[350px] tw-max-w-[650px] tw-overflow-hidden tw-border-2 tw-border-solid tw-border-secondary tw-p-0 max-lg:tw-w-[320px] max-lg:tw-min-w-[320px]"
                         >
                             <div className="hero-video-embed">
-                                <iframe
-                                    src="https://www.youtube.com/embed/tSm_peUgQ1o?autoplay=1&mute=1&playsinline=1&rel=0"
-                                    title="ProjectTitle video"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                    allowFullScreen
-                                ></iframe>
+                                <video
+                                    className="hero-video-media"
+                                    src="/assets/videos/hero.webm"
+                                    autoPlay
+                                    loop
+                                    muted={isMuted}
+                                    playsInline
+                                />
                             </div>
+                            <button
+                                type="button"
+                                className="hero-video-audio"
+                                onClick={toggleMute}
+                            >
+                                {isMuted ? "Unmute" : "Mute"}
+                            </button>
                         </div>
                     </div>
                 </div>

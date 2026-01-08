@@ -1,6 +1,17 @@
 import React, { useEffect } from "react";
 
-const Header = ({ isMenuOpen, onToggleMenu, onNavigate }) => {
+const Header = ({
+    isMenuOpen,
+    onToggleMenu,
+    onNavigate,
+    homeHref = "/#hero",
+    portfolioHref = "/#portfolio",
+}) => {
+    const handleNavClick = (event, id, href) => {
+        if (href && href.startsWith("#") && onNavigate) {
+            onNavigate(event, id);
+        }
+    };
     useEffect(() => {
         const header = document.getElementById("main-header");
         if (!header) return;
@@ -24,7 +35,7 @@ const Header = ({ isMenuOpen, onToggleMenu, onNavigate }) => {
             className="tw-fixed tw-top-0 tw-z-20 tw-flex tw-h-[60px] tw-w-full tw-px-[5%] tw-text-white max-lg:tw-px-2 tw-justify-between lg:tw-justify-around tw-items-center tw-transition-transform tw-duration-300"
             style={{ top: 0, width: "100%", zIndex: 100 }}
         >
-            <a href="/" aria-label="Project Title home">
+            <a href={homeHref} aria-label="Project Title home">
                 <img
                     src="/assets/logo.png"
                     alt="logo"
@@ -33,13 +44,19 @@ const Header = ({ isMenuOpen, onToggleMenu, onNavigate }) => {
             </a>
 
             <nav className="tw-flex tw-gap-6 max-lg:tw-hidden desktop-only">
-                <a className="header-links" href="">
+                <a
+                    className="header-links"
+                    href={homeHref}
+                    onClick={(event) => handleNavClick(event, "hero", homeHref)}
+                >
                     Home
                 </a>
                 <a
                     className="header-links"
-                    href="#portfolio"
-                    onClick={(event) => onNavigate(event, "portfolio")}
+                    href={portfolioHref}
+                    onClick={(event) =>
+                        handleNavClick(event, "portfolio", portfolioHref)
+                    }
                 >
                     Portfolio
                 </a>

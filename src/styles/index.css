@@ -760,6 +760,20 @@ header > .collapsible-header{
   position: relative;
   display: inline-flex;
   align-items: center;
+  padding-right: 40px;
+  padding-bottom: 18px;
+  margin-bottom: -18px;
+}
+
+.header-dropdown::after{
+  content: "";
+  position: absolute;
+  top: -8px;
+  right: -40px;
+  width: 40px;
+  height: calc(100% + 24px);
+  background: transparent;
+  pointer-events: auto;
 }
 
 .header-dropdown-menu{
@@ -774,11 +788,23 @@ header > .collapsible-header{
   flex-direction: column;
   gap: 6px;
   min-width: 160px;
-  margin-top: 10px;
+  align-items: flex-start;
+  margin-top: 0;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
   transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.header-dropdown-menu::before{
+  content: "";
+  position: absolute;
+  top: -12px;
+  left: 0;
+  right: 0;
+  height: 12px;
+  background: transparent;
+  pointer-events: auto;
 }
 
 .header-dropdown-link{
@@ -787,6 +813,7 @@ header > .collapsible-header{
   letter-spacing: 0.06em;
   font-size: 0.75rem;
   padding: 6px 8px;
+  text-align: left;
 }
 
 .header-dropdown-link:hover{
@@ -796,7 +823,7 @@ header > .collapsible-header{
 @media (min-width: 1025px){
   .header-dropdown:hover .header-dropdown-menu,
   .header-dropdown-menu:hover,
-  #main-header:hover .header-dropdown-menu{
+  .header-dropdown-menu:hover::before{
     opacity: 1;
     visibility: visible;
     pointer-events: auto;

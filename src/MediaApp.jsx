@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
 import Media from "./pages/Media.jsx";
+import { initScrollAnimations } from "./utils/scrollAnimations.js";
 
 const MediaApp = () => {
     const [burgerOpen, setBurgerOpen] = useState(false);
@@ -23,6 +24,8 @@ const MediaApp = () => {
         window.addEventListener("keydown", onKeyDown);
         return () => window.removeEventListener("keydown", onKeyDown);
     }, []);
+
+    useEffect(() => initScrollAnimations(), []);
 
     useEffect(() => {
         if (!window.gsap || !window.ScrollTrigger) return;
@@ -125,8 +128,8 @@ const MediaApp = () => {
                     <a className="bm-menu-item" href="">
                         Contact
                     </a>
-                    <a className="bm-menu-item bm-menu-cta" href="https://tally.so/r/woO0Kx">
-                        Book Now
+                    <a className="bm-menu-item bm-menu-cta" href="https://www.youtube.com/@ProjectTitle">
+                        YouTube
                     </a>
                 </nav>
             </div>

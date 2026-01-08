@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
-import Hero from "./sections/Hero.jsx";
-import Portfolio from "./sections/Portfolio.jsx";
-import Events from "./sections/Events.jsx";
-import Articles from "./sections/Articles.jsx";
+import Services from "./sections/Services.jsx";
+import Mission from "./sections/Mission.jsx";
 import { initScrollAnimations } from "./utils/scrollAnimations.js";
 
-const App = () => {
+const BookingApp = () => {
     const [burgerOpen, setBurgerOpen] = useState(false);
 
     useEffect(() => {
@@ -23,38 +21,7 @@ const App = () => {
         return () => window.removeEventListener("keydown", onKeyDown);
     }, []);
 
-    useEffect(() => {
-        const scrollToHash = () => {
-            const hash = window.location.hash;
-            if (!hash) return;
-            const target = document.querySelector(hash);
-            if (target) {
-                target.scrollIntoView({ behavior: "smooth" });
-            }
-        };
-        const onHashChange = () => scrollToHash();
-        window.addEventListener("hashchange", onHashChange);
-        requestAnimationFrame(scrollToHash);
-        return () => window.removeEventListener("hashchange", onHashChange);
-    }, []);
-
     useEffect(() => initScrollAnimations(), []);
-
-    const handleNavigate = (event, id) => {
-        if (!id) return;
-        const target = document.getElementById(id);
-        if (target) {
-            event.preventDefault();
-            target.scrollIntoView({ behavior: "smooth" });
-        }
-    };
-
-    const triggerHeaderHide = () => {
-        const header = document.getElementById("main-header");
-        if (!header) return;
-        header.classList.add("is-transitioning");
-        window.setTimeout(() => header.classList.remove("is-transitioning"), 700);
-    };
 
     return (
         <div
@@ -69,38 +36,23 @@ const App = () => {
                     aria-label="Mobile menu"
                     onClick={() => setBurgerOpen(false)}
                 >
-                    <a className="bm-menu-item" href="/#hero" onClick={triggerHeaderHide}>
+                    <a className="bm-menu-item" href="/#hero">
                         Home
                     </a>
-                    <a
-                        className="bm-menu-item"
-                        href="#portfolio"
-                        onClick={(event) => {
-                            triggerHeaderHide();
-                            handleNavigate(event, "portfolio");
-                            setBurgerOpen(false);
-                        }}
-                    >
+                    <a className="bm-menu-item" href="/#portfolio">
                         Portfolio
                     </a>
-                    <a className="bm-menu-item" href="/full-portfolio.html" onClick={triggerHeaderHide}>
+                    <a className="bm-menu-item" href="/full-portfolio.html">
                         Gallery
                     </a>
-                    <a className="bm-menu-item" href="/media.html" onClick={triggerHeaderHide}>
+                    <a className="bm-menu-item" href="/media.html">
                         Media
                     </a>
-                    <a className="bm-menu-item" href="" onClick={triggerHeaderHide}>
+                    <a className="bm-menu-item" href="">
                         Donate
                     </a>
-                    <a className="bm-menu-item" href="" onClick={triggerHeaderHide}>
+                    <a className="bm-menu-item" href="">
                         Contact
-                    </a>
-                    <a
-                        className="bm-menu-item bm-menu-cta"
-                        href="https://www.youtube.com/@ProjectTitle"
-                        onClick={triggerHeaderHide}
-                    >
-                        YouTube
                     </a>
                 </nav>
             </div>
@@ -114,15 +66,12 @@ const App = () => {
                     <Header
                         isMenuOpen={burgerOpen}
                         onToggleMenu={() => setBurgerOpen((open) => !open)}
-                        onNavigate={handleNavigate}
                         homeHref="/#hero"
                         portfolioHref="/#portfolio"
                     />
                     <main>
-                        <Hero />
-                        <Portfolio />
-                        <Events />
-                        <Articles />
+                        <Services />
+                        <Mission />
                     </main>
                     <button
                         type="button"
@@ -141,4 +90,4 @@ const App = () => {
     );
 };
 
-export default App;
+export default BookingApp;

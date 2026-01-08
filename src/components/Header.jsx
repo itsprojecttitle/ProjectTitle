@@ -82,17 +82,30 @@ const Header = ({
                 >
                     Portfolio
                 </a>
+                <a className="header-links" href="/full-portfolio.html" onClick={triggerHeaderHide}>
+                    Gallery
+                </a>
+                <a className="header-links" href="/media.html" onClick={triggerHeaderHide}>
+                    Media
+                </a>
                 <a className="header-links" href="" onClick={triggerHeaderHide}>
                     Donate
                 </a>
                 <a className="header-links" href="" onClick={triggerHeaderHide}>
                     Contact
                 </a>
+                <a
+                    className="header-links"
+                    href="https://www.youtube.com/@ProjectTitle"
+                    onClick={triggerHeaderHide}
+                >
+                    YouTube
+                </a>
             </nav>
 
             <div className="tw-flex tw-place-items-center tw-gap-4 max-lg:tw-hidden desktop-only">
                 <a
-                    href="https://tally.so/r/woO0Kx"
+                    href="/booking.html"
                     aria-label="signup"
                     className="header-cta tw-flex tw-h-[40px] tw-place-items-center tw-gap-2 tw-bg-secondary tw-p-1 tw-px-4 tw-text-black tw-mt-1 tw-transition-colors tw-duration-[0.5s] hover:tw-bg-black hover:tw-text-white"
                     onClick={triggerHeaderHide}
@@ -103,7 +116,7 @@ const Header = ({
 
             <div className="tw-flex tw-items-center tw-gap-4 lg:tw-hidden mobile-only">
                 <a
-                    href="https://tally.so/r/woO0Kx"
+                    href="/booking.html"
                     aria-label="signup"
                     className="header-cta tw-flex tw-h-[40px] tw-place-items-center tw-gap-2 tw-bg-secondary tw-p-1 tw-px-4 tw-text-black tw-mt-1 tw-transition-colors tw-duration-[0.5s] hover:tw-bg-black hover:tw-text-white"
                     onClick={triggerHeaderHide}

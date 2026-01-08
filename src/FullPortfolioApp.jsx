@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
 import FullPortfolio from "./pages/FullPortfolio.jsx";
+import { initScrollAnimations } from "./utils/scrollAnimations.js";
 
 const FullPortfolioApp = () => {
     const [burgerOpen, setBurgerOpen] = useState(false);
@@ -18,6 +19,8 @@ const FullPortfolioApp = () => {
         window.addEventListener("keydown", onKeyDown);
         return () => window.removeEventListener("keydown", onKeyDown);
     }, []);
+
+    useEffect(() => initScrollAnimations(), []);
 
     useEffect(() => {
         if (!window.gsap || !window.ScrollTrigger) return;
@@ -144,10 +147,10 @@ const FullPortfolioApp = () => {
                     </a>
                     <a
                         className="bm-menu-item bm-menu-cta"
-                        href="https://tally.so/r/woO0Kx"
+                        href="https://www.youtube.com/@ProjectTitle"
                         onClick={triggerHeaderHide}
                     >
-                        Book Now
+                        YouTube
                     </a>
                 </nav>
             </div>

@@ -43,17 +43,6 @@ const Footer = () => (
             </div>
             <div className="tw-h-[1px] tw-w-[100%] tw-bg-white"></div>
 
-            <div className="tw-mt-2 tw-flex tw-gap-3 tw-text-base">
-                <a href="/facebook.html" aria-label="Facebook">
-                    <i className="bi bi-facebook"></i>
-                </a>
-                <a href="https://x.com/ItsProjectTitle" aria-label="X">
-                    <i className="bi bi-twitter-x"></i>
-                </a>
-                <a href="https://instagram.com/" aria-label="Instagram">
-                    <i className="bi bi-instagram"></i>
-                </a>
-            </div>
         </div>
     </footer>
 );

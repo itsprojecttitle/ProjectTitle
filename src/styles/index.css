@@ -50,6 +50,11 @@ header{
 #portfolio{
     background: #ffe353;
     color: #000;
+    scroll-margin-top: 80px;
+}
+
+#news-events{
+  scroll-margin-top: 80px;
 }
 
 .full-portfolio{
@@ -1119,11 +1124,11 @@ body{ padding-top: 0; }
 }
 
 @media (min-width: 1024px){
-  #upcoming-events .events-title{
+  #news-events .events-title{
     flex: 0 0 30%;
   }
 
-  #upcoming-events .events-list{
+  #news-events .events-list{
     flex: 1 1 auto;
     width: auto;
     max-width: 100%;
@@ -1133,7 +1138,7 @@ body{ padding-top: 0; }
     padding-right: 12px;
   }
 
-  #upcoming-events .event-card{
+  #news-events .event-card{
     flex-direction: row;
     align-items: stretch;
     gap: 24px;
@@ -1141,17 +1146,17 @@ body{ padding-top: 0; }
     min-height: 220px;
   }
 
-  #upcoming-events .event-card-media{
+  #news-events .event-card-media{
     flex: 0 0 40%;
     height: auto;
     max-height: 240px;
   }
 
-  #upcoming-events .event-card-media img{
+  #news-events .event-card-media img{
     height: 100%;
   }
 
-  #upcoming-events .event-card-content{
+  #news-events .event-card-content{
     flex: 1 1 auto;
     display: flex;
     flex-direction: column;

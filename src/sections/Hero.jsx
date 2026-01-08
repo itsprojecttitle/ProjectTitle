@@ -28,7 +28,7 @@ const Hero = () => {
                         Lets find yours.
                     </div>
                     <div className="reveal-hero-text social-float tw-mt-2 tw-flex tw-max-w-[450px] tw-gap-3 tw-p-2 tw-text-xl max-lg:tw-max-w-full">
-                        <a href="">
+                        <a href="/facebook.html">
                             <i className="bi bi-facebook"></i>
                         </a>
                         <a href="https://www.instagram.com/projecttitle/">
@@ -47,11 +47,11 @@ const Hero = () => {
 
                     <div className="reveal-hero-text tw-mt-4 tw-flex tw-place-items-center tw-gap-4 tw-overflow-hidden tw-p-2">
                         <a
-                            href="#upcoming-events"
+                            href="#news-events"
                             aria-label="signup"
                             className="tw-flex tw-h-[40px] tw-place-items-center tw-gap-2 tw-bg-secondary tw-p-1 tw-p-2 tw-px-4 tw-pl-4 tw-text-black tw-transition-colors tw-duration-[0.5s] hover:tw-bg-black hover:tw-text-white"
                         >
-                            <span>Upcoming Events</span>
+                            <span>News &amp; Events</span>
                             <i className="bi bi-arrow-up-right"></i>
                         </a>
                     </div>

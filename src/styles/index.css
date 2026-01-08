@@ -50,7 +50,7 @@ header{
 #portfolio{
     background: #ffe353;
     color: #000;
-    scroll-margin-top: 80px;
+    scroll-margin-top: 70px;
 }
 
 #news-events{
@@ -80,7 +80,7 @@ header{
 
 .media-page-section{
   background: #ffe353;
-  padding: 120px 0 80px;
+  padding: 160px 0 80px;
   display: flex;
   justify-content: center;
 }
@@ -552,7 +552,7 @@ header{
   }
 
   .media-page-section{
-    padding: 100px 0 60px;
+    padding: 140px 0 60px;
   }
 
   .media-page-title{

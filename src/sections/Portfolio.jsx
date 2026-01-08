@@ -20,31 +20,37 @@ const Portfolio = () => (
                                 alt={portfolioItems[0].title}
                             />
                         </div>
+                        <div className="portfolio-mosaic-plain-overlay">
+                            <button type="button" className="portfolio-mosaic-plain-cta">
+                                More Videos <i className="bi bi-arrow-right"></i>
+                            </button>
+                        </div>
                     </article>
                 ) : null}
                 {portfolioItems[1] ? (
                     <article className="portfolio-mosaic-card portfolio-mosaic-card--summary reveal-up">
                         <h5>{portfolioItems[1].title}</h5>
                         <p>{portfolioItems[1].description}</p>
-                        <a href="" className="portfolio-mosaic-link">
-                            Read more <i className="bi bi-arrow-right"></i>
-                        </a>
                     </article>
                 ) : null}
             </div>
             {portfolioItems[2] ? (
                 <article className="portfolio-mosaic-card portfolio-mosaic-card--hero reveal-up">
                     <div className="portfolio-mosaic-hero-frame">
-                        <img
-                            src={portfolioItems[2].image}
-                            alt={portfolioItems[2].title}
+                        <video
+                            className="portfolio-mosaic-hero-video"
+                            src="/assets/videos/big.mp4"
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            controls
                         />
                     </div>
-                    <div className="portfolio-mosaic-hero-caption">
-                        <span className="portfolio-mosaic-hero-title">
-                            {portfolioItems[2].title}
-                        </span>
-                        <p>{portfolioItems[2].description}</p>
+                    <div className="portfolio-mosaic-hero-caption portfolio-mosaic-hero-caption--right">
+                        <a href="" className="portfolio-mosaic-link portfolio-mosaic-hero-cta">
+                            More Videos <i className="bi bi-arrow-right"></i>
+                        </a>
                     </div>
                 </article>
             ) : null}

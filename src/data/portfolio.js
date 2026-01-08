@@ -1,6 +1,6 @@
 export const portfolioItems = [
     {
-        title: "Music Videos",
+        title: "Photos",
         description:
             "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae, vero.",
         image: "/assets/images/home/women.jpg",
@@ -12,7 +12,7 @@ export const portfolioItems = [
         image: "/assets/images/home/wildlife.jpg",
     },
     {
-        title: "Photos",
+        title: "Videos",
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut dolorem, optio totam perspiciatis.",
         image: "/assets/images/home/schools.jpg",

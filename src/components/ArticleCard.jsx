@@ -1,7 +1,7 @@
 import React from "react";
 
 const ArticleCard = ({ title, date, image }) => (
-    <div className="reveal-up tw-flex tw-h-[400px] tw-w-[350px] tw-flex-col tw-gap-4 tw-overflow-clip tw-rounded-lg tw-p-4 max-lg:tw-w-[300px]">
+    <div className="article-card reveal-up tw-flex tw-h-[400px] tw-w-[350px] tw-flex-col tw-gap-4 tw-overflow-clip tw-rounded-lg tw-p-4 max-lg:tw-w-[300px]">
         <div className="tw-h-[200px] tw-w-full tw-overflow-hidden">
             <img
                 src={image}

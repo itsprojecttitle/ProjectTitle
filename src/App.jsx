@@ -54,6 +54,38 @@ const App = () => {
             );
         });
 
+        const textTargets = gsap.utils.toArray(
+            "main h1, main h2, main h3, main h4, main p, main a, main i, main span, main button"
+        );
+        textTargets.forEach((target) => {
+            gsap.to(target, {
+                yPercent: -6,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: target,
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: 0.6,
+                },
+            });
+        });
+
+        const boxTargets = gsap.utils.toArray(
+            ".portfolio-mosaic-card, .event-card, .article-card, .media-card"
+        );
+        boxTargets.forEach((target) => {
+            gsap.to(target, {
+                yPercent: -4,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: target,
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: 0.7,
+                },
+            });
+        });
+
         return () => {
             ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
         };

@@ -14,7 +14,7 @@ const MediaCard = ({
 
     return (
         <div
-            className={`reveal-up ${className} tw-flex tw-h-fit tw-w-[450px] tw-break-inside-avoid tw-flex-col tw-gap-2 tw-rounded-lg ${baseClass} tw-p-4 tw-shadow-lg max-lg:tw-w-full max-lg:tw-max-w-[400px]`}
+            className={`media-card reveal-up ${className} tw-flex tw-h-fit tw-w-[450px] tw-break-inside-avoid tw-flex-col tw-gap-2 tw-rounded-lg ${baseClass} tw-p-4 tw-shadow-lg max-lg:tw-w-full max-lg:tw-max-w-[400px]`}
         >
             <div className="tw-flex tw-place-items-center tw-gap-3">
                 <div className="tw-h-[300px] tw-w-full tw-overflow-hidden tw-rounded-lg">

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-const Header = ({ isMenuOpen, onToggleMenu }) => {
+const Header = ({ isMenuOpen, onToggleMenu, onNavigate }) => {
     useEffect(() => {
         const header = document.getElementById("main-header");
         if (!header) return;
@@ -36,7 +36,11 @@ const Header = ({ isMenuOpen, onToggleMenu }) => {
                 <a className="header-links" href="">
                     Home
                 </a>
-                <a className="header-links" href="#portfolio">
+                <a
+                    className="header-links"
+                    href="#portfolio"
+                    onClick={(event) => onNavigate(event, "portfolio")}
+                >
                     Portfolio
                 </a>
                 <a className="header-links" href="">

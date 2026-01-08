@@ -1,5 +1,4 @@
 import React from "react";
-import MediaCard from "../components/MediaCard.jsx";
 import { portfolioItems } from "../data/portfolio.js";
 
 const Portfolio = () => (
@@ -11,10 +10,44 @@ const Portfolio = () => (
             Portfolio
         </h3>
         <div className="reveal-up tw-my-4 tw-h-[1px] tw-w-[80%] tw-bg-black"></div>
-        <div className="portfolio-scroll tw-mt-8 tw-gap-10 tw-space-y-8 max-md:tw-columns-1 lg:tw-columns-2 xl:tw-columns-3">
-            {portfolioItems.map((item) => (
-                <MediaCard key={item.title} {...item} className="portfolio-card" />
-            ))}
+        <div className="portfolio-mosaic tw-mt-8 tw-w-full tw-max-w-[1100px]">
+            <div className="portfolio-mosaic-left">
+                {portfolioItems[0] ? (
+                    <article className="portfolio-mosaic-card portfolio-mosaic-card--plain reveal-up">
+                        <div className="portfolio-mosaic-plain-media">
+                            <img
+                                src={portfolioItems[0].image}
+                                alt={portfolioItems[0].title}
+                            />
+                        </div>
+                    </article>
+                ) : null}
+                {portfolioItems[1] ? (
+                    <article className="portfolio-mosaic-card portfolio-mosaic-card--summary reveal-up">
+                        <h5>{portfolioItems[1].title}</h5>
+                        <p>{portfolioItems[1].description}</p>
+                        <a href="" className="portfolio-mosaic-link">
+                            Read more <i className="bi bi-arrow-right"></i>
+                        </a>
+                    </article>
+                ) : null}
+            </div>
+            {portfolioItems[2] ? (
+                <article className="portfolio-mosaic-card portfolio-mosaic-card--hero reveal-up">
+                    <div className="portfolio-mosaic-hero-frame">
+                        <img
+                            src={portfolioItems[2].image}
+                            alt={portfolioItems[2].title}
+                        />
+                    </div>
+                    <div className="portfolio-mosaic-hero-caption">
+                        <span className="portfolio-mosaic-hero-title">
+                            {portfolioItems[2].title}
+                        </span>
+                        <p>{portfolioItems[2].description}</p>
+                    </div>
+                </article>
+            ) : null}
         </div>
     </section>
 );

@@ -59,6 +59,15 @@ const App = () => {
         };
     }, []);
 
+    const handleNavigate = (event, id) => {
+        if (!id) return;
+        event.preventDefault();
+        const target = document.getElementById(id);
+        if (target) {
+            target.scrollIntoView({ behavior: "smooth" });
+        }
+    };
+
     return (
         <div
             id="burger-root"
@@ -75,7 +84,14 @@ const App = () => {
                     <a className="bm-menu-item" href="/">
                         Home
                     </a>
-                    <a className="bm-menu-item" href="#portfolio">
+                    <a
+                        className="bm-menu-item"
+                        href="#portfolio"
+                        onClick={(event) => {
+                            handleNavigate(event, "portfolio");
+                            setBurgerOpen(false);
+                        }}
+                    >
                         Portfolio
                     </a>
                     <a className="bm-menu-item" href="">
@@ -96,6 +112,7 @@ const App = () => {
                     <Header
                         isMenuOpen={burgerOpen}
                         onToggleMenu={() => setBurgerOpen((open) => !open)}
+                        onNavigate={handleNavigate}
                     />
                     <main>
                         <Hero />

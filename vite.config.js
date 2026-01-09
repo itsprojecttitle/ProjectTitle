@@ -10,7 +10,6 @@ export default defineConfig({
                 fullPortfolio: "Gallery.html",
                 media: "media.html",
                 booking: "BookNow.html",
-                newsEvents: "newsandevenrts.html",
                 facebook: "facebook.html",
             },
         },

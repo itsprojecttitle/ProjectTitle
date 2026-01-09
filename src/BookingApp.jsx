@@ -50,6 +50,9 @@ const BookingApp = () => {
                     <a className="bm-menu-item" href="/media.html">
                         Media
                     </a>
+                    <a className="bm-menu-item" href="/#newsevents">
+                        News &amp; Events
+                    </a>
                     <a className="bm-menu-item" href="">
                         Donate
                     </a>

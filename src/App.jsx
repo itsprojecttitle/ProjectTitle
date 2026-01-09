@@ -3,7 +3,6 @@ import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
 import Hero from "./sections/Hero.jsx";
 import Portfolio from "./sections/Portfolio.jsx";
-import Events from "./sections/Events.jsx";
 import Articles from "./sections/Articles.jsx";
 import { initScrollAnimations } from "./utils/scrollAnimations.js";
 import { initLinkTargets } from "./utils/linkTargets.js";
@@ -138,7 +137,6 @@ const App = () => {
                     <main>
                         <Hero />
                         <Portfolio />
-                        <Events />
                         <Articles />
                     </main>
                     <button

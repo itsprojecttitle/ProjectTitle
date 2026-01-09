@@ -67,19 +67,42 @@ const FullPortfolio = ({ titleText = "Gallary" }) => {
                         Lets find yours.
                     </div>
                     <div className="full-portfolio-socials full-portfolio-socials--title">
-                        <a href="/facebook.html" aria-label="Facebook">
+                        <a
+                            href="/facebook.html"
+                            aria-label="Facebook"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
                             <i className="bi bi-facebook"></i>
                         </a>
-                        <a href="https://www.instagram.com/projecttitle/">
+                        <a
+                            href="https://www.instagram.com/projecttitle/"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
                             <i className="bi bi-instagram"></i>
                         </a>
-                        <a href="https://x.com/ItsProjectTitle" aria-label="X">
+                        <a
+                            href="https://x.com/ItsProjectTitle"
+                            aria-label="X"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
                             <i className="bi bi-twitter-x"></i>
                         </a>
-                        <a href="https://www.tiktok.com/@projecttitle">
+                        <a
+                            href="https://www.tiktok.com/@projecttitle"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
                             <i className="bi bi-tiktok"></i>
                         </a>
-                        <a href="https://www.youtube.com/@ProjectTitle" aria-label="YouTube">
+                        <a
+                            href="https://www.youtube.com/@ProjectTitle"
+                            aria-label="YouTube"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
                             <i className="bi bi-youtube"></i>
                         </a>
                     </div>

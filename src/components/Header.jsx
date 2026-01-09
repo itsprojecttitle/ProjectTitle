@@ -14,6 +14,15 @@ const Header = ({
         header.classList.add("is-transitioning");
         window.setTimeout(() => header.classList.remove("is-transitioning"), 700);
     };
+    const showHeaderInstant = () => {
+        const header = document.getElementById("main-header");
+        if (!header) return;
+        header.classList.add("is-instant");
+        header.classList.remove("is-hidden");
+        header.classList.add("is-peek");
+        window.setTimeout(() => header.classList.remove("is-instant"), 0);
+        window.setTimeout(() => header.classList.remove("is-peek"), 5000);
+    };
     const isHomePath = () => {
         const path = window.location.pathname;
         return path === "/" || path.endsWith("/index.html") || path.endsWith("/Home.html");
@@ -114,12 +123,11 @@ const Header = ({
                     <a
                         className="header-links"
                         href={portfolioHref}
-                        onClick={(event) =>
-                            (() => {
-                                triggerHeaderHide();
-                                handleNavClick(event, "portfolio", portfolioHref);
-                            })()
-                        }
+                        onClick={(event) => {
+                            showHeaderInstant();
+                            triggerHeaderHide();
+                            handleNavClick(event, "portfolio", portfolioHref);
+                        }}
                     >
                         Portfolio
                     </a>
@@ -128,6 +136,13 @@ const Header = ({
                     </a>
                     <a className="header-links" href="/media.html" onClick={triggerHeaderHide}>
                         Media
+                    </a>
+                    <a
+                        className="header-links"
+                        href="/#newsevents"
+                        onClick={triggerHeaderHide}
+                    >
+                        News
                     </a>
                 </nav>
                 <a
@@ -167,19 +182,42 @@ const Header = ({
             </header>
             {!isHomePath() ? (
                 <div className="social-float" aria-label="Social links">
-                    <a href="/facebook.html" aria-label="Facebook">
+                    <a
+                        href="/facebook.html"
+                        aria-label="Facebook"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
                         <i className="bi bi-facebook"></i>
                     </a>
-                    <a href="https://www.instagram.com/projecttitle/">
+                    <a
+                        href="https://www.instagram.com/projecttitle/"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
                         <i className="bi bi-instagram"></i>
                     </a>
-                    <a href="https://x.com/ItsProjectTitle" aria-label="X">
+                    <a
+                        href="https://x.com/ItsProjectTitle"
+                        aria-label="X"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
                         <i className="bi bi-twitter-x"></i>
                     </a>
-                    <a href="https://www.tiktok.com/@projecttitle">
+                    <a
+                        href="https://www.tiktok.com/@projecttitle"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
                         <i className="bi bi-tiktok"></i>
                     </a>
-                    <a href="https://www.youtube.com/@ProjectTitle" aria-label="YouTube">
+                    <a
+                        href="https://www.youtube.com/@ProjectTitle"
+                        aria-label="YouTube"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
                         <i className="bi bi-youtube"></i>
                     </a>
                 </div>

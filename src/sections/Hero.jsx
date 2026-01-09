@@ -28,47 +28,88 @@ const Hero = () => {
                         Lets find yours.
                     </div>
                     <div className="reveal-hero-text tw-mt-2 tw-flex tw-max-w-[450px] tw-gap-3 tw-p-2 tw-text-xl max-lg:tw-max-w-full">
-                        <a href="/facebook.html">
+                        <a href="/facebook.html" target="_blank" rel="noreferrer">
                             <i className="bi bi-facebook"></i>
                         </a>
-                        <a href="https://www.instagram.com/projecttitle/">
+                        <a
+                            href="https://www.instagram.com/projecttitle/"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
                             <i className="bi bi-instagram"></i>
                         </a>
-                        <a href="https://x.com/ItsProjectTitle" aria-label="X">
+                        <a
+                            href="https://x.com/ItsProjectTitle"
+                            aria-label="X"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
                             <i className="bi bi-twitter-x"></i>
                         </a>
-                        <a href="https://www.tiktok.com/@projecttitle">
+                        <a
+                            href="https://www.tiktok.com/@projecttitle"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
                             <i className="bi bi-tiktok"></i>
                         </a>
-                        <a href="https://www.youtube.com/@ProjectTitle" aria-label="YouTube">
+                        <a
+                            href="https://www.youtube.com/@ProjectTitle"
+                            aria-label="YouTube"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
                             <i className="bi bi-youtube"></i>
                         </a>
                     </div>
                     <div className="social-float">
-                        <a href="/facebook.html" aria-label="Facebook">
+                        <a
+                            href="/facebook.html"
+                            aria-label="Facebook"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
                             <i className="bi bi-facebook"></i>
                         </a>
-                        <a href="https://www.instagram.com/projecttitle/">
+                        <a
+                            href="https://www.instagram.com/projecttitle/"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
                             <i className="bi bi-instagram"></i>
                         </a>
-                        <a href="https://x.com/ItsProjectTitle" aria-label="X">
+                        <a
+                            href="https://x.com/ItsProjectTitle"
+                            aria-label="X"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
                             <i className="bi bi-twitter-x"></i>
                         </a>
-                        <a href="https://www.tiktok.com/@projecttitle">
+                        <a
+                            href="https://www.tiktok.com/@projecttitle"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
                             <i className="bi bi-tiktok"></i>
                         </a>
-                        <a href="https://www.youtube.com/@ProjectTitle" aria-label="YouTube">
+                        <a
+                            href="https://www.youtube.com/@ProjectTitle"
+                            aria-label="YouTube"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
                             <i className="bi bi-youtube"></i>
                         </a>
                     </div>
 
                     <div className="reveal-hero-text tw-mt-4 tw-flex tw-place-items-center tw-gap-4 tw-overflow-hidden tw-p-2">
                         <a
-                            href="#news-events"
+                            href="/#newsevents"
                             aria-label="signup"
                             className="tw-flex tw-h-[40px] tw-place-items-center tw-gap-2 tw-bg-secondary tw-p-1 tw-p-2 tw-px-4 tw-pl-4 tw-text-black tw-transition-colors tw-duration-[0.5s] hover:tw-bg-black hover:tw-text-white"
                         >
-                            <span>News &amp; Events</span>
+                            <span>News</span>
                             <i className="bi bi-arrow-up-right"></i>
                         </a>
                     </div>

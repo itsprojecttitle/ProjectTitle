@@ -124,6 +124,9 @@ const MediaApp = () => {
                     <a className="bm-menu-item" href="/media.html">
                         Media
                     </a>
+                    <a className="bm-menu-item" href="/#newsevents">
+                        News &amp; Events
+                    </a>
                 </nav>
             </div>
             <div

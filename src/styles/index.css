@@ -1129,6 +1129,17 @@ header > .collapsible-header{
   height: 60px;
 }
 
+.header-ghost-bar{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background: #000;
+  z-index: 10;
+  pointer-events: none;
+}
+
 /* makes white text readable even when transparent */
 #main-header::before{
   content:"";

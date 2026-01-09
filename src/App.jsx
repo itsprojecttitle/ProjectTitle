@@ -111,6 +111,17 @@ const App = () => {
                     onClick={() => setBurgerOpen(false)}
                 >
                     <a
+                        className="bm-menu-item bm-menu-cta tw-bg-secondary tw-text-black"
+                        href="/BookNow.html"
+                        onClick={() => {
+                            peekHeader();
+                            triggerHeaderHide();
+                        }}
+                        style={{ color: "#000" }}
+                    >
+                        Book Now
+                    </a>
+                    <a
                         className="bm-menu-item"
                         href="/#hero"
                         onClick={() => {

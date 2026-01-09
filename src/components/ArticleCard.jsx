@@ -24,9 +24,6 @@ const ArticleCard = ({ box, title, date, image }) => (
         </div>
         <div className="tw-h-[2px] tw-w-full tw-bg-white"></div>
         {box ? (
-            <div className="tw-text-xs tw-uppercase tw-tracking-[0.2em] tw-text-gray-300">
-                Box {box}
-            </div>
         ) : null}
         <h3 className="tw-mt-3 tw-text-2xl tw-font-medium max-md:tw-text-xl">
             {title}

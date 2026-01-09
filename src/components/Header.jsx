@@ -11,18 +11,21 @@ const Header = ({
     const triggerHeaderHide = () => {
         const header = document.getElementById("main-header");
         if (!header) return;
+        if (header.classList.contains("is-peek")) return;
         header.classList.add("is-transitioning");
         window.setTimeout(() => header.classList.remove("is-transitioning"), 700);
     };
-    const showHeaderInstant = () => {
+    const showHeaderInstant = (duration = 3000) => {
         const header = document.getElementById("main-header");
         if (!header) return;
         header.classList.add("is-instant");
+        header.classList.remove("is-transitioning");
         header.classList.remove("is-hidden");
         header.classList.add("is-peek");
         window.setTimeout(() => header.classList.remove("is-instant"), 0);
-        window.setTimeout(() => header.classList.remove("is-peek"), 5000);
+        window.setTimeout(() => header.classList.remove("is-peek"), duration);
     };
+    const peekHeader = () => showHeaderInstant(3000);
     const isHomePath = () => {
         const path = window.location.pathname;
         return path === "/" || path.endsWith("/index.html") || path.endsWith("/Home.html");
@@ -66,6 +69,11 @@ const Header = ({
         const onScroll = () => {
             const y = window.scrollY;
             header.classList.toggle("is-scrolled", y > 20);
+            if (header.classList.contains("is-peek")) {
+                header.classList.remove("is-hidden");
+                lastY = y;
+                return;
+            }
             if (y > lastY && y > 80) header.classList.add("is-hidden");
             else header.classList.remove("is-hidden");
             lastY = y;
@@ -113,6 +121,7 @@ const Header = ({
                         className="header-links"
                         href={homeHref}
                         onClick={(event) => {
+                            peekHeader();
                             triggerHeaderHide();
                             handleLogoClick(event);
                         }}
@@ -123,20 +132,41 @@ const Header = ({
                         className="header-links"
                         href={portfolioHref}
                         onClick={(event) => {
-                            showHeaderInstant();
+                            peekHeader();
                             triggerHeaderHide();
                             handleNavClick(event, "portfolio", portfolioHref);
                         }}
                     >
                         Portfolio
                     </a>
-                    <a className="header-links" href="/Gallery.html" onClick={triggerHeaderHide}>
+                    <a
+                        className="header-links"
+                        href="/Gallery.html"
+                        onClick={() => {
+                            peekHeader();
+                            triggerHeaderHide();
+                        }}
+                    >
                         Gallery
                     </a>
-                    <a className="header-links" href="/media.html" onClick={triggerHeaderHide}>
+                    <a
+                        className="header-links"
+                        href="/media.html"
+                        onClick={() => {
+                            peekHeader();
+                            triggerHeaderHide();
+                        }}
+                    >
                         Media
                     </a>
-                    <a className="header-links" href="/#news" onClick={triggerHeaderHide}>
+                    <a
+                        className="header-links"
+                        href="/#news"
+                        onClick={() => {
+                            peekHeader();
+                            triggerHeaderHide();
+                        }}
+                    >
                         News
                     </a>
                 </nav>
@@ -144,7 +174,10 @@ const Header = ({
                     href={isBookNowPage ? "/" : "/BookNow.html"}
                     aria-label="signup"
                     className="header-cta tw-flex tw-h-[40px] tw-place-items-center tw-gap-2 tw-bg-secondary tw-p-1 tw-px-4 tw-text-black tw-mt-1 tw-transition-colors tw-duration-[0.5s] hover:tw-bg-black hover:tw-text-white"
-                    onClick={triggerHeaderHide}
+                    onClick={() => {
+                        peekHeader();
+                        triggerHeaderHide();
+                    }}
                 >
                     <span>{isBookNowPage ? "Home" : "Book Now"}</span>
                 </a>
@@ -155,7 +188,10 @@ const Header = ({
                     href={isBookNowPage ? "/" : "/BookNow.html"}
                     aria-label="signup"
                     className="header-cta tw-flex tw-h-[40px] tw-place-items-center tw-gap-2 tw-bg-secondary tw-p-1 tw-px-4 tw-text-black tw-mt-1 tw-transition-colors tw-duration-[0.5s] hover:tw-bg-black hover:tw-text-white"
-                    onClick={triggerHeaderHide}
+                    onClick={() => {
+                        peekHeader();
+                        triggerHeaderHide();
+                    }}
                 >
                     <span>{isBookNowPage ? "Home" : "Book Now"}</span>
                 </a>
@@ -166,6 +202,7 @@ const Header = ({
                     aria-expanded={isMenuOpen ? "true" : "false"}
                     onClick={(event) => {
                         event.stopPropagation();
+                        peekHeader();
                         onToggleMenu();
                     }}
                 >

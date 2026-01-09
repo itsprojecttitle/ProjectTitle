@@ -81,9 +81,21 @@ const App = () => {
     const triggerHeaderHide = () => {
         const header = document.getElementById("main-header");
         if (!header) return;
+        if (header.classList.contains("is-peek")) return;
         header.classList.add("is-transitioning");
         window.setTimeout(() => header.classList.remove("is-transitioning"), 700);
     };
+    const showHeaderInstant = (duration = 3000) => {
+        const header = document.getElementById("main-header");
+        if (!header) return;
+        header.classList.add("is-instant");
+        header.classList.remove("is-transitioning");
+        header.classList.remove("is-hidden");
+        header.classList.add("is-peek");
+        window.setTimeout(() => header.classList.remove("is-instant"), 0);
+        window.setTimeout(() => header.classList.remove("is-peek"), duration);
+    };
+    const peekHeader = () => showHeaderInstant(3000);
 
     return (
         <div
@@ -98,13 +110,21 @@ const App = () => {
                     aria-label="Mobile menu"
                     onClick={() => setBurgerOpen(false)}
                 >
-                    <a className="bm-menu-item" href="/#hero" onClick={triggerHeaderHide}>
+                    <a
+                        className="bm-menu-item"
+                        href="/#hero"
+                        onClick={() => {
+                            peekHeader();
+                            triggerHeaderHide();
+                        }}
+                    >
                         Home
                     </a>
                     <a
                         className="bm-menu-item"
                         href="#portfolio"
                         onClick={(event) => {
+                            peekHeader();
                             triggerHeaderHide();
                             handleNavigate(event, "portfolio");
                             setBurgerOpen(false);
@@ -112,13 +132,34 @@ const App = () => {
                     >
                         Portfolio
                     </a>
-                    <a className="bm-menu-item" href="/Gallery.html" onClick={triggerHeaderHide}>
+                    <a
+                        className="bm-menu-item"
+                        href="/Gallery.html"
+                        onClick={() => {
+                            peekHeader();
+                            triggerHeaderHide();
+                        }}
+                    >
                         Gallery
                     </a>
-                    <a className="bm-menu-item" href="/media.html" onClick={triggerHeaderHide}>
+                    <a
+                        className="bm-menu-item"
+                        href="/media.html"
+                        onClick={() => {
+                            peekHeader();
+                            triggerHeaderHide();
+                        }}
+                    >
                         Media
                     </a>
-                    <a className="bm-menu-item" href="/#news" onClick={triggerHeaderHide}>
+                    <a
+                        className="bm-menu-item"
+                        href="/#news"
+                        onClick={() => {
+                            peekHeader();
+                            triggerHeaderHide();
+                        }}
+                    >
                         News
                     </a>
                 </nav>

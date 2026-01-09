@@ -1176,7 +1176,7 @@ header > .collapsible-header{
 }
 
 #main-header.is-peek{
-  transform: translateY(0);
+  transform: translateY(0) !important;
 }
 
 #main-header.is-transitioning{
@@ -1186,6 +1186,29 @@ header > .collapsible-header{
 }
 
 body{ padding-top: 0; }
+
+#hero .hero-layout{
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+#hero .hero-copy{
+  align-items: center !important;
+  text-align: center !important;
+}
+
+#hero .hero-copy .reveal-hero-text{
+  text-align: center !important;
+}
+
+#hero .hero-copy .reveal-hero-text.tw-flex{
+  justify-content: center !important;
+}
+
+#hero .hero-carousel-column{
+  justify-content: center !important;
+  align-items: center !important;
+}
 
 .back-to-top{
   position: fixed;
@@ -1212,7 +1235,59 @@ body{ padding-top: 0; }
 
 @media (max-width: 1024px){
   #hero{
-    min-height: 915px !important;
+    min-height: 738px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  #hero .hero-layout{
+    margin-top: -20px;
+    position: relative;
+    top: -20px;
+  }
+
+  #hero .hero-copy{
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  #hero .hero-copy .reveal-hero-text{
+    text-align: center !important;
+  }
+
+  #hero .hero-copy .reveal-hero-text.tw-flex{
+    justify-content: center !important;
+  }
+
+  #hero .hero-video-stack{
+    margin-top: 50px !important;
+    align-items: center !important;
+  }
+
+  #hero .hero-carousel-column{
+    width: 100%;
+    justify-content: center !important;
+    align-items: center !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
+  #hero .hero-layout{
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    position: relative;
+    top: -20px;
+  }
+}
+
+@media (max-width: 1024px){
+  .hero-mobile-links{
+    margin-top: 75px !important;
   }
 }
 
@@ -1647,6 +1722,41 @@ body{ padding-top: 0; }
   padding: 10px 14px;
   border-radius: 4px;
   width: fit-content;
+}
+
+.news-carousel{
+  width: min(1200px, 92vw);
+  margin-top: 24px;
+  overflow: hidden;
+}
+
+.news-carousel-track{
+  display: flex;
+  gap: 18px;
+  overflow-x: auto;
+  padding: 6px 4px 14px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  scroll-padding-left: calc(50% - 160px);
+  scroll-padding-right: calc(50% - 160px);
+}
+
+@media (min-width: 1025px){
+  .news-carousel-track{
+    padding-left: calc(50% - 160px);
+    padding-right: calc(50% - 160px);
+  }
+}
+
+.news-carousel-track::-webkit-scrollbar{
+  height: 0;
+}
+
+.article-card{
+  flex: 0 0 320px;
+  scroll-snap-align: start;
+  background: #0b0b0b;
 }
 
 .ember-burger-menu.is-open .bm-menu-item{

@@ -7,10 +7,12 @@ const Articles = () => (
         <h3 id="news" className="tw-text-center tw-text-4xl tw-font-medium max-md:tw-text-2xl">
             News
         </h3>
-        <div className="tw-mt-10 tw-flex tw-flex-wrap tw-place-content-center tw-gap-10 max-lg:tw-flex-col">
-            {articleItems.map((item) => (
-                <ArticleCard key={item.title} {...item} />
-            ))}
+        <div className="news-carousel" aria-label="News carousel">
+            <div className="news-carousel-track">
+                {articleItems.map((item) => (
+                    <ArticleCard key={item.title} {...item} />
+                ))}
+            </div>
         </div>
     </section>
 );

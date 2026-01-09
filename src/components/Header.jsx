@@ -140,7 +140,10 @@ const Header = ({
                     <a
                         className="header-links"
                         href="/#newsevents"
-                        onClick={triggerHeaderHide}
+                        onClick={(event) => {
+                            triggerHeaderHide();
+                            handleNavClick(event, "newsevents", "/#newsevents");
+                        }}
                     >
                         News
                     </a>

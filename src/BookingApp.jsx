@@ -51,7 +51,7 @@ const BookingApp = () => {
                         Media
                     </a>
                     <a className="bm-menu-item" href="/#newsevents">
-                        News &amp; Events
+                        News
                     </a>
                     <a className="bm-menu-item" href="">
                         Donate

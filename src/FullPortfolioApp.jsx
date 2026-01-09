@@ -146,7 +146,7 @@ const FullPortfolioApp = () => {
                         href="/#newsevents"
                         onClick={triggerHeaderHide}
                     >
-                        News &amp; Events
+                        News
                     </a>
                 </nav>
             </div>

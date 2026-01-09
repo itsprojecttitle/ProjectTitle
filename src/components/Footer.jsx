@@ -1,14 +1,14 @@
 import React from "react";
 
 const Footer = () => (
-    <footer className="tw-relative tw-flex tw-w-full tw-min-h-[90px] tw-place-content-around tw-gap-3 tw-bg-primary tw-px-[6%] tw-pb-2 tw-pt-4 tw-text-white">
+    <footer className="tw-relative tw-flex tw-w-full tw-min-h-[45px] tw-place-content-around tw-gap-3 tw-bg-primary tw-px-[6%] tw-pb-1 tw-pt-2 tw-text-white">
         <div className="tw-relative tw-flex tw-h-full tw-w-full tw-flex-col tw-gap-2">
             <div className="tw-my-1 tw-flex tw-w-full tw-place-content-around tw-gap-3 max-md:tw-flex-col">
                 <div className="tw-flex tw-h-full tw-w-[200px] tw-flex-col tw-place-items-center tw-gap-2 max-md:tw-w-full">
                     <img
                         src="/assets/logo.png"
                         alt="logo"
-                        className="tw-w-[90px]"
+                        className="tw-w-[22px]"
                     />
                     <div className="tw-text-xs">
                         London,

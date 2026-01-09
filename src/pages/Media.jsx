@@ -9,63 +9,69 @@ const Media = () => {
         const makeThumb = (id) => (id ? `https://img.youtube.com/vi/${id}/hqdefault.jpg` : null);
         return [
             {
+                id: "media-placeholder-10",
+                label: "VhwKddvwxAk",
+                title: "EHSI - Y.B (feat. Brooklyn Lodovico & Ceebo)",
+                youtubeId: "VhwKddvwxAk",
+            },
+            {
                 id: "media-placeholder-0",
                 label: "lINkDzNWKIs",
-                title: "Song title",
+                title: "PROJECTTITlE | ELZ LAURENT",
                 youtubeId: "lINkDzNWKIs",
             },
             {
                 id: "media-placeholder-1",
                 label: "YvkWl7kLLEA",
-                title: "Song title",
+                title: "Hawsa - DOUBLE AGENT / AMAZON (Dir. ProjectTitle)",
                 youtubeId: "YvkWl7kLLEA",
             },
             {
                 id: "media-placeholder-2",
                 label: "DhI3eWrMNLI",
-                title: "Song title",
+                title: "Reekz - INCH vs MILE (Dir. ProjectTitle)",
                 youtubeId: "DhI3eWrMNLI",
             },
             {
                 id: "media-placeholder-3",
                 label: "nNdP0E6SGG8",
-                title: "Song title",
+                title: "18k.Santana - New Foreign (OFFICIAL MUSIC VIDEO)",
                 youtubeId: "nNdP0E6SGG8",
             },
             {
                 id: "media-placeholder-4",
                 label: "FiCyTmv6XRI",
-                title: "Song title",
+                title: "DON'T STUTTER | PASSIVE",
                 youtubeId: "FiCyTmv6XRI",
             },
             {
                 id: "media-placeholder-5",
                 label: "ydjeCVvDOO0",
-                title: "Song title",
+                title: "SYST7M | DON'T STUTTER",
                 youtubeId: "ydjeCVvDOO0",
             },
             {
                 id: "media-placeholder-6",
                 label: "s5Z0xc2Dtak",
-                title: "Song title",
+                title: "RINSA MALONE x BAKEZ x KRXZE x YS - CAUGHT IN THE MIX (PROD by KLEO)",
                 youtubeId: "s5Z0xc2Dtak",
             },
             {
                 id: "media-placeholder-7",
                 label: "WIX7eP3in0M",
-                title: "Song title",
+                title: "PROJECTTITLE | KEKOTO",
                 youtubeId: "WIX7eP3in0M",
             },
             {
                 id: "media-placeholder-8",
                 label: "2UmsNEwMaQ4",
-                title: "Song title",
+                title: "PROJECTTITLE | 2BITFLAWLESS",
                 youtubeId: "2UmsNEwMaQ4",
             },
             {
                 id: "media-placeholder-9",
                 label: "c7l0qwc1lhQ",
-                title: "Song title",
+                title: "raychi - jane norman music video",
                 youtubeId: "c7l0qwc1lhQ",
             },
         ].map((item) => ({
@@ -179,6 +185,7 @@ const Media = () => {
                                         <div className="media-thumb-empty">{item.label}</div>
                                     )}
                                 </div>
+                                <div className="media-thumb-title">{item.title || item.label}</div>
                             </button>
                         ))}
                     </div>

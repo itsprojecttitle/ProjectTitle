@@ -805,6 +805,9 @@ header > .collapsible-header{
 .header-cta{
     transition: transform 220ms ease, box-shadow 220ms ease;
     will-change: transform;
+    min-width: 120px;
+    justify-content: center;
+    border-radius: 4px;
 }
 
 .header-cta:hover{
@@ -1205,6 +1208,12 @@ body{ padding-top: 0; }
 
 @media (min-width: 1025px){
   .mobile-only{ display: none !important; }
+}
+
+@media (max-width: 1024px){
+  #hero{
+    min-height: 915px !important;
+  }
 }
 
 @media (min-width: 1024px){

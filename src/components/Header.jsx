@@ -115,7 +115,6 @@ const Header = ({
                         onClick={(event) => {
                             triggerHeaderHide();
                             handleLogoClick(event);
-                            handleNavClick(event, "hero", homeHref);
                         }}
                     >
                         Home

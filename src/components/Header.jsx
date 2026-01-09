@@ -165,6 +165,25 @@ const Header = ({
                 </button>
             </div>
             </header>
+            {!isHomePath() ? (
+                <div className="social-float" aria-label="Social links">
+                    <a href="/facebook.html" aria-label="Facebook">
+                        <i className="bi bi-facebook"></i>
+                    </a>
+                    <a href="https://www.instagram.com/projecttitle/">
+                        <i className="bi bi-instagram"></i>
+                    </a>
+                    <a href="https://x.com/ItsProjectTitle" aria-label="X">
+                        <i className="bi bi-twitter-x"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@projecttitle">
+                        <i className="bi bi-tiktok"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@ProjectTitle" aria-label="YouTube">
+                        <i className="bi bi-youtube"></i>
+                    </a>
+                </div>
+            ) : null}
         </>
     );
 };

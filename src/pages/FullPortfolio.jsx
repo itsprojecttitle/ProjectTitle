@@ -120,12 +120,7 @@ const FullPortfolio = ({ titleText = "Gallary" }) => {
                         </article>
                     ))}
                 </div>
-                <div className="full-portfolio-footer-text reveal-up">
-                    <p>
-                        Text here text hereText here text hereText here text hereText
-                        here text hereText here text hereText here text here.
-                    </p>
-                </div>
+                <div className="full-portfolio-footer-text reveal-up" />
             </div>
             {activeImage ? (
                 <div

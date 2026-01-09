@@ -3,23 +3,15 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>ProjectTitle | Video Gallery</title>
+        <title>Gallery</title>
         <meta name="description" content="" />
-        <link
-            rel="shortcut icon"
-            href="./assets/logo.png"
-            type="image/x-icon"
-        />
+        <link rel="shortcut icon" href="/assets/logo.png" type="image/x-icon" />
 
-        <!-- Open Graph / Facebook -->
-        <meta property="og:title" content="ProjectTitle Video Gallery" />
+        <meta property="og:title" content="Gallery" />
         <meta property="og:description" content="" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://projecttitle.co.uk" />
+        <meta property="og:url" content="https://projecttitle.co.uk/Gallery.html" />
         <meta property="og:image" content="" />
-
-        <link rel="stylesheet" href="tailwind-runtime.css?v=20260107-1" />
-        <link rel="stylesheet" href="css/index.css?v=20260107-1" />
 
         <link
             rel="stylesheet"
@@ -32,210 +24,21 @@
             crossorigin="anonymous"
             referrerpolicy="no-referrer"
         />
-        <script>
-            if ("scrollRestoration" in history) {
-                history.scrollRestoration = "manual";
-            }
-            if (location.hash) {
-                history.replaceState(null, "", location.pathname + location.search);
-            }
-            window.addEventListener("pageshow", () => {
-                window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-            });
-        </script>
     </head>
-    <body class="gallery-page">
-        <div
-            id="burger-root"
-            class="ember-burger-menu right bm--push bm-item--stack translucent-overlay"
-        >
-            <div class="bm-menu-container">
-                <nav class="bm-menu" aria-label="Mobile menu">
-                    <a class="bm-menu-item" href="/">Home</a>
-                    <a class="bm-menu-item" href="/#portfolio">Portfolio</a>
-                    <a class="bm-menu-item" href="">Donate</a>
-                    <a class="bm-menu-item" href="">Contact</a>
-                </nav>
-            </div>
-            <div class="bm-outlet">
-                <div class="bm-content">
-                    <header
-                        id="main-header"
-                        class="tw-fixed tw-top-0 tw-z-20 tw-flex tw-h-[60px] tw-w-full tw-px-[5%] tw-text-white max-lg:tw-px-2 tw-justify-between lg:tw-justify-around tw-items-center tw-transition-transform tw-duration-300"
-                        style="top:0;width:100%;z-index:100;"
-                    >
-                        <a
-                            href="/"
-                            aria-label="Project Title home"
-                            onclick="window.location.reload(); return false;"
-                        >
-                            <img
-                                src="./assets/logo.png"
-                                alt="logo"
-                                class="tw-h-[40px] tw-object-contain"
-                            />
-                        </a>
-
-                        <nav class="tw-flex tw-gap-6 max-lg:tw-hidden">
-                            <a class="header-links" href="/#portfolio">
-                                Portfolio
-                            </a>
-                            <a class="header-links" href="">Donate</a>
-                            <a class="header-links" href="">Contact</a>
-                        </nav>
-
-                        <button
-                            id="burger-btn"
-                            class="burger tw-relative tw-hidden tw-h-[40px] tw-w-[40px] tw-flex-col tw-place-content-center tw-place-items-center tw-rounded-lg tw-bg-secondary tw-text-black max-lg:tw-flex"
-                            aria-label="Toggle navigation"
-                        >
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </button>
-                    </header>
-
-                    <section
-                        class="gallery-section tw-relative tw-flex tw-min-h-[100vh] tw-w-full tw-max-w-[100vw] tw-flex-col tw-place-items-center tw-px-[6%] pt-[90px] tw-pb-[6%]"
-                    >
-                        <div class="tw-w-full tw-max-w-[1200px] tw-flex tw-flex-col tw-gap-4">
-                            <div class="tw-flex tw-flex-col tw-gap-2">
-                                <span class="gallery-kicker">Video</span>
-                                <h1 class="tw-text-6xl tw-font-semibold max-lg:tw-text-4xl">
-                                    Video Gallery
-                                </h1>
-                                <p class="tw-text-lg tw-text-gray-600 tw-max-w-[650px]">
-                                    A curated grid of motion stories, performances,
-                                    and cinematic work. Tap any frame to dive in.
-                                </p>
-                            </div>
-
-                            <div class="gallery-grid tw-mt-6">
-                                <div class="gallery-card gallery-span-7 gallery-row-4">
-                                    <img
-                                        src="./assets/images/home/london.jpg"
-                                        alt="Night street performance"
-                                    />
-                                    <span class="gallery-label">Live Session</span>
-                                </div>
-                                <div class="gallery-card gallery-span-5 gallery-row-3">
-                                    <img
-                                        src="./assets/images/home/children.jpg"
-                                        alt="Backstage portraits"
-                                    />
-                                    <span class="gallery-label">BTS</span>
-                                </div>
-                                <div class="gallery-card gallery-span-4 gallery-row-4">
-                                    <img
-                                        src="./assets/images/home/paris.jpg"
-                                        alt="City lights sequence"
-                                    />
-                                    <span class="gallery-label">City Run</span>
-                                </div>
-                                <div class="gallery-card gallery-span-8 gallery-row-3">
-                                    <img
-                                        src="./assets/images/home/women.jpg"
-                                        alt="Studio spotlight"
-                                    />
-                                    <span class="gallery-label">Studio Cut</span>
-                                </div>
-                                <div class="gallery-card gallery-span-5 gallery-row-4">
-                                    <img
-                                        src="./assets/images/home/wildlife.jpg"
-                                        alt="Outdoor shoot"
-                                    />
-                                    <span class="gallery-label">Outdoors</span>
-                                </div>
-                                <div class="gallery-card gallery-span-7 gallery-row-3">
-                                    <img
-                                        src="./assets/images/home/solar.jpg"
-                                        alt="Golden hour performance"
-                                    />
-                                    <span class="gallery-label">Golden Hour</span>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <hr class="tw-mt-4" />
-
-                    <footer
-                        class="tw-relative tw-flex tw-w-full tw-place-content-around tw-gap-3 tw-bg-primary tw-px-[10%] tw-pb-4 tw-pt-[5%] tw-text-white"
-                    >
-                        <div
-                            class="tw-relative tw-flex tw-h-full tw-w-full tw-flex-col tw-gap-2"
-                        >
-                            <div
-                                class="tw-my-2 tw-flex tw-w-full tw-place-content-around tw-gap-3 max-md:tw-flex-col"
-                            >
-                                <div
-                                    class="tw-flex tw-h-full tw-w-[250px] tw-flex-col tw-place-items-center tw-gap-6 max-md:tw-w-full"
-                                >
-                                    <img
-                                        src="./assets/logo.png"
-                                        alt="logo"
-                                        class="tw-w-[150px]"
-                                    />
-                                    <div>
-                                        London,
-                                        <br />
-                                        Great Britain,
-                                        <br />
-                                        United Kingdom
-                                    </div>
-                                </div>
-                                <div
-                                    class="tw-flex tw-h-full tw-w-[250px] tw-flex-col tw-gap-4"
-                                >
-                                    <div
-                                        class="tw-flex tw-flex-col tw-gap-3 max-md:tw-text-sm"
-                                    >
-                                        <a href="" class="footer-link">About us</a>
-                                        <a href="" class="footer-link">Contacts/FAQ</a>
-                                        <a href="" class="footer-link">Studio Location’s</a>
-                                        <a href="" class="footer-link">Policy</a>
-                                        <a href="" class="footer-link">Equipment</a>
-                                        <a href="" class="footer-link">Terms & Condition</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tw-h-[1px] tw-w-[100%] tw-bg-white"></div>
-
-                            <div class="tw-mt-3 tw-flex tw-gap-4 tw-text-xl">
-                                <a href="" aria-label="Facebook">
-                                    <i class="bi bi-facebook"></i>
-                                </a>
-                                <a
-                                    href="https://x.com/ItsProjectTitle"
-                                    aria-label="X"
-                                >
-                                    <i class="bi bi-twitter-x"></i>
-                                </a>
-                                <a
-                                    href="https://instagram.com/"
-                                    aria-label="Instagram"
-                                >
-                                    <i class="bi bi-instagram"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </footer>
-                </div>
-            </div>
-        </div>
+    <body>
+        <div id="root"></div>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/gsap.min.js"
+            integrity="sha512-B1lby8cGcAUU3GR+Fd809/ZxgHbfwJMp0jLTVfHiArTuUt++VqSlJpaJvhNtRf3NERaxDNmmxkdx2o+aHd4bvw=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        ></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/ScrollTrigger.min.js"
+            integrity="sha512-AY2+JxnBETJ0wcXnLPCcZJIJx0eimyhz3OJ55k2Jx4RtYC+XdIi2VtJQ+tP3BaTst4otlGG1TtPJ9fKrAUnRdQ=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        ></script>
+        <script type="module" src="/src/full-portfolio.jsx"></script>
     </body>
-
-    <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/gsap.min.js"
-        integrity="sha512-B1lby8cGcAUU3GR+Fd809/ZxgHbfwJMp0jLTVfHiArTuUt++VqSlJpaJvhNtRf3NERaxDNmmxkdx2o+aHd4bvw=="
-        crossorigin="anonymous"
-        referrerpolicy="no-referrer"
-    ></script>
-    <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/ScrollTrigger.min.js"
-        integrity="sha512-AY2+JxnBETJ0wcXnLPCcZJIJx0eimyhz3OJ55k2Jx4RtYC+XdIi2VtJQ+tP3BaTst4otlGG1TtPJ9fKrAUnRdQ=="
-        crossorigin="anonymous"
-        referrerpolicy="no-referrer"
-    ></script>
-    <script src="./index.js"></script>
 </html>

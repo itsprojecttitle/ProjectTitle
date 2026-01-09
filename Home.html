@@ -3,14 +3,14 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Full Portfolio</title>
+        <title>Home</title>
         <meta name="description" content="" />
         <link rel="shortcut icon" href="/assets/logo.png" type="image/x-icon" />
 
-        <meta property="og:title" content="Full Portfolio" />
+        <meta property="og:title" content="Home" />
         <meta property="og:description" content="" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://projecttitle.co.uk/full-portfolio.html" />
+        <meta property="og:url" content="https://projecttitle.co.uk/Home.html" />
         <meta property="og:image" content="" />
 
         <link
@@ -24,9 +24,15 @@
             crossorigin="anonymous"
             referrerpolicy="no-referrer"
         />
+        <script>
+            if ("scrollRestoration" in history) {
+                history.scrollRestoration = "manual";
+            }
+        </script>
     </head>
     <body>
         <div id="root"></div>
+
         <script
             src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/gsap.min.js"
             integrity="sha512-B1lby8cGcAUU3GR+Fd809/ZxgHbfwJMp0jLTVfHiArTuUt++VqSlJpaJvhNtRf3NERaxDNmmxkdx2o+aHd4bvw=="
@@ -39,6 +45,6 @@
             crossorigin="anonymous"
             referrerpolicy="no-referrer"
         ></script>
-        <script type="module" src="/src/full-portfolio.jsx"></script>
+        <script type="module" src="/src/main.jsx"></script>
     </body>
 </html>

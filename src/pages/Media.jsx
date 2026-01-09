@@ -1,37 +1,191 @@
-import React from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 
-const placeholders = Array.from({ length: 6 }, (_, index) => ({
-    id: `media-placeholder-${index}`,
-}));
+const Media = () => {
+    const videos = useMemo(() => {
+        const makeEmbed = (id) =>
+            id
+                ? `https://www.youtube-nocookie.com/embed/${id}?rel=0&autoplay=1&mute=1`
+                : null;
+        const makeThumb = (id) => (id ? `https://img.youtube.com/vi/${id}/hqdefault.jpg` : null);
+        return [
+            {
+                id: "media-placeholder-0",
+                label: "lINkDzNWKIs",
+                title: "Song title",
+                youtubeId: "lINkDzNWKIs",
+            },
+            {
+                id: "media-placeholder-1",
+                label: "YvkWl7kLLEA",
+                title: "Song title",
+                youtubeId: "YvkWl7kLLEA",
+            },
+            {
+                id: "media-placeholder-2",
+                label: "DhI3eWrMNLI",
+                title: "Song title",
+                youtubeId: "DhI3eWrMNLI",
+            },
+            {
+                id: "media-placeholder-3",
+                label: "nNdP0E6SGG8",
+                title: "Song title",
+                youtubeId: "nNdP0E6SGG8",
+            },
+            {
+                id: "media-placeholder-4",
+                label: "FiCyTmv6XRI",
+                title: "Song title",
+                youtubeId: "FiCyTmv6XRI",
+            },
+            {
+                id: "media-placeholder-5",
+                label: "ydjeCVvDOO0",
+                title: "Song title",
+                youtubeId: "ydjeCVvDOO0",
+            },
+            {
+                id: "media-placeholder-6",
+                label: "s5Z0xc2Dtak",
+                title: "Song title",
+                youtubeId: "s5Z0xc2Dtak",
+            },
+            {
+                id: "media-placeholder-7",
+                label: "WIX7eP3in0M",
+                title: "Song title",
+                youtubeId: "WIX7eP3in0M",
+            },
+            {
+                id: "media-placeholder-8",
+                label: "2UmsNEwMaQ4",
+                title: "Song title",
+                youtubeId: "2UmsNEwMaQ4",
+            },
+            {
+                id: "media-placeholder-9",
+                label: "c7l0qwc1lhQ",
+                title: "Song title",
+                youtubeId: "c7l0qwc1lhQ",
+            },
+        ].map((item) => ({
+            ...item,
+            url: makeEmbed(item.youtubeId),
+            thumb: makeThumb(item.youtubeId),
+        }));
+    }, []);
+    const [activeId, setActiveId] = useState(videos[0]?.id);
+    const activeVideo = videos.find((item) => item.id === activeId) || videos[0];
+    const trackRef = useRef(null);
+    const baseWidthRef = useRef(0);
 
-const Media = () => (
-    <section className="media-page-section">
-        <div className="media-page-inner">
-            <header className="media-page-header">
-                <h3 className="media-page-title reveal-up">Media</h3>
-                <p className="media-page-subtitle reveal-up">
-                    ProjectTitle video highlights and recent work.
-                </p>
-            </header>
-            <div className="media-player">
-                <div className="media-player-frame">
-                    <div className="media-player-empty">Main Video</div>
-                </div>
-            </div>
-            <div className="media-carousel" aria-label="Video carousel">
-                <div className="media-carousel-track">
-                    {placeholders.map((item) => (
-                        <div key={item.id} className="media-thumb is-placeholder">
-                            <div className="media-thumb-image">
-                                <div className="media-thumb-empty">Video</div>
+    const updateBaseWidth = () => {
+        const track = trackRef.current;
+        if (!track) return;
+        const baseWidth = track.scrollWidth / 3;
+        baseWidthRef.current = baseWidth;
+        if (track.scrollLeft < baseWidth * 0.25) {
+            track.scrollLeft = baseWidth;
+        }
+    };
+
+    useEffect(() => {
+        updateBaseWidth();
+        window.addEventListener("resize", updateBaseWidth);
+        return () => window.removeEventListener("resize", updateBaseWidth);
+    }, [videos]);
+
+    const jumpTo = (track, value) => {
+        const previous = track.style.scrollBehavior;
+        track.style.scrollBehavior = "auto";
+        track.scrollLeft = value;
+        requestAnimationFrame(() => {
+            track.style.scrollBehavior = previous || "";
+        });
+    };
+
+    const handleCarouselScroll = () => {
+        const track = trackRef.current;
+        if (!track) return;
+        const baseWidth = baseWidthRef.current;
+        if (!baseWidth) return;
+        if (track.scrollLeft <= baseWidth * 0.1) {
+            jumpTo(track, track.scrollLeft + baseWidth);
+        } else if (track.scrollLeft >= baseWidth * 1.9) {
+            jumpTo(track, track.scrollLeft - baseWidth);
+        }
+    };
+
+    return (
+        <section className="media-page-section">
+            <div className="media-page-inner">
+                <header className="media-page-header">
+                    <h3 className="media-page-title reveal-up">Media</h3>
+                    <p className="media-page-subtitle reveal-up">
+                        ProjectTitle video highlights and recent work.
+                    </p>
+                    <div className="full-portfolio-socials full-portfolio-socials--title">
+                        <a href="/facebook.html" aria-label="Facebook">
+                            <i className="bi bi-facebook"></i>
+                        </a>
+                        <a href="https://www.instagram.com/projecttitle/">
+                            <i className="bi bi-instagram"></i>
+                        </a>
+                        <a href="https://x.com/ItsProjectTitle" aria-label="X">
+                            <i className="bi bi-twitter-x"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@projecttitle">
+                            <i className="bi bi-tiktok"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@ProjectTitle" aria-label="YouTube">
+                            <i className="bi bi-youtube"></i>
+                        </a>
+                    </div>
+                </header>
+                <div className="media-player">
+                    <div className="media-player-frame">
+                        {activeVideo?.url ? (
+                            <iframe
+                                src={activeVideo.url}
+                                title={activeVideo.title || activeVideo.label}
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                referrerPolicy="strict-origin-when-cross-origin"
+                                allowFullScreen
+                            />
+                        ) : (
+                            <div className="media-player-empty">
+                                {activeVideo?.title || activeVideo?.label || "Main Video"}
                             </div>
-                            <div className="media-thumb-title">Coming soon</div>
-                        </div>
-                    ))}
+                        )}
+                    </div>
+                </div>
+                <div className="media-carousel" aria-label="Video selections">
+                    <div
+                        className="media-carousel-track"
+                        ref={trackRef}
+                        onScroll={handleCarouselScroll}
+                    >
+                        {[...videos, ...videos, ...videos].map((item, index) => (
+                            <button
+                                key={`${item.id}-${index}`}
+                                type="button"
+                                className={`media-tile${item.id === activeId ? " is-active" : ""}`}
+                                onClick={() => setActiveId(item.id)}
+                            >
+                                <div className="media-thumb-image">
+                                    {item.thumb ? (
+                                        <img src={item.thumb} alt={item.label} />
+                                    ) : (
+                                        <div className="media-thumb-empty">{item.label}</div>
+                                    )}
+                                </div>
+                            </button>
+                        ))}
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-);
+        </section>
+    );
+};
 
 export default Media;

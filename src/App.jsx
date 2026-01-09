@@ -130,7 +130,6 @@ const App = () => {
                 }}
             >
                 <div className="bm-content">
-                    <div className="header-ghost-bar" aria-hidden="true" />
                     <Header
                         isMenuOpen={burgerOpen}
                         onToggleMenu={() => setBurgerOpen((open) => !open)}

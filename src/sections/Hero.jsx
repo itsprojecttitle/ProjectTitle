@@ -123,7 +123,7 @@ const Hero = () => {
                         >
                             <div className="hero-video-embed hero-video-placeholder">
                                 <iframe
-                                    src="https://www.youtube-nocookie.com/embed/gu8DQp_Pcys?rel=0"
+                                    src="https://www.youtube-nocookie.com/embed/gu8DQp_Pcys?rel=0&autoplay=1&mute=1&playsinline=1"
                                     title="Showreel"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                     allowFullScreen

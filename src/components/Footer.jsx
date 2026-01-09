@@ -1,9 +1,9 @@
 import React from "react";
 
 const Footer = () => (
-    <footer className="tw-relative tw-flex tw-w-full tw-min-h-[45px] tw-place-content-around tw-gap-3 tw-bg-primary tw-px-[6%] tw-pb-1 tw-pt-2 tw-text-white">
-        <div className="tw-relative tw-flex tw-h-full tw-w-full tw-flex-col tw-gap-2">
-            <div className="tw-my-1 tw-flex tw-w-full tw-place-content-around tw-gap-3 max-md:tw-flex-col">
+    <footer className="tw-relative tw-flex tw-h-[18px] tw-w-full tw-min-h-[18px] tw-place-content-around tw-items-center tw-gap-1 tw-overflow-hidden tw-bg-primary tw-px-[6%] tw-py-0 tw-text-[8px] tw-text-white">
+        <div className="tw-relative tw-flex tw-h-full tw-w-full tw-flex-col tw-gap-2" style={{ transform: "scale(0.5)", transformOrigin: "center" }}>
+            <div className="tw-my-1 tw-flex tw-w-full tw-place-content-around tw-gap-3">
                 <div className="tw-flex tw-h-full tw-w-[200px] tw-flex-col tw-place-items-center tw-gap-2 max-md:tw-w-full">
                     <img
                         src="/assets/logo.png"

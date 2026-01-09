@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
 import Services from "./sections/Services.jsx";
-import Mission from "./sections/Mission.jsx";
 import { initScrollAnimations } from "./utils/scrollAnimations.js";
 import { initLinkTargets } from "./utils/linkTargets.js";
 
@@ -24,6 +23,18 @@ const BookingApp = () => {
 
     useEffect(() => initScrollAnimations(), []);
     useEffect(() => initLinkTargets(), []);
+    useEffect(() => {
+        const toggleFloating = () => {
+            const y = window.scrollY;
+            const shouldHide = y < 80;
+            document.querySelectorAll(".back-to-top, .social-float").forEach((el) => {
+                el.classList.toggle("is-hidden", shouldHide);
+            });
+        };
+        toggleFloating();
+        window.addEventListener("scroll", toggleFloating, { passive: true });
+        return () => window.removeEventListener("scroll", toggleFloating);
+    }, []);
 
     return (
         <div
@@ -38,7 +49,7 @@ const BookingApp = () => {
                     aria-label="Mobile menu"
                     onClick={() => setBurgerOpen(false)}
                 >
-                    <a className="bm-menu-item" href="/#hero">
+                    <a className="bm-menu-item bm-menu-cta tw-bg-secondary tw-text-black" href="/#hero">
                         Home
                     </a>
                     <a className="bm-menu-item" href="/#portfolio">
@@ -53,11 +64,8 @@ const BookingApp = () => {
                     <a className="bm-menu-item" href="/#news">
                         News
                     </a>
-                    <a className="bm-menu-item" href="">
-                        Donate
-                    </a>
-                    <a className="bm-menu-item" href="">
-                        Contact
+                    <a className="bm-menu-item" href="/Contact.html">
+                        More
                     </a>
                 </nav>
             </div>
@@ -76,7 +84,6 @@ const BookingApp = () => {
                     />
                     <main>
                         <Services />
-                        <Mission />
                     </main>
                     <button
                         type="button"

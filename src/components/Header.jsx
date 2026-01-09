@@ -6,6 +6,7 @@ const Header = ({
     onNavigate,
     homeHref = "/#hero",
     portfolioHref = "/#portfolio",
+    showBookNow = true,
 }) => {
     const [isPeek, setIsPeek] = useState(false);
     const triggerHeaderHide = () => {
@@ -84,6 +85,27 @@ const Header = ({
     }, []);
 
     const isBookNowPage = window.location.pathname.endsWith("/BookNow.html");
+    const primaryNav =
+        isHomePath() || isBookNowPage
+            ? {
+                  label: "Home",
+                  href: homeHref,
+                  className: "header-links",
+                  onClick: (event) => {
+                      peekHeader();
+                      triggerHeaderHide();
+                      handleLogoClick(event);
+                  },
+              }
+            : {
+                  label: "Book Now",
+                  href: "/BookNow.html",
+                  className: "header-links header-links--booknow",
+                  onClick: () => {
+                      peekHeader();
+                      triggerHeaderHide();
+                  },
+              };
 
     return (
         <>
@@ -117,16 +139,8 @@ const Header = ({
 
             <div className="header-cta-wrap tw-flex tw-place-items-center tw-gap-6 max-lg:tw-hidden desktop-only">
                 <nav className="header-nav-center tw-flex tw-gap-6">
-                    <a
-                        className="header-links"
-                        href={homeHref}
-                        onClick={(event) => {
-                            peekHeader();
-                            triggerHeaderHide();
-                            handleLogoClick(event);
-                        }}
-                    >
-                        Home
+                    <a className={primaryNav.className} href={primaryNav.href} onClick={primaryNav.onClick}>
+                        {primaryNav.label}
                     </a>
                     <a
                         className="header-links"
@@ -169,32 +183,46 @@ const Header = ({
                     >
                         News
                     </a>
+                    <a
+                        className="header-links"
+                        href="/Contact.html"
+                        onClick={() => {
+                            peekHeader();
+                            triggerHeaderHide();
+                        }}
+                    >
+                        More
+                    </a>
                 </nav>
-                <a
-                    href={isBookNowPage ? "/" : "/BookNow.html"}
-                    aria-label="signup"
-                    className="header-cta tw-flex tw-h-[40px] tw-place-items-center tw-gap-2 tw-bg-secondary tw-p-1 tw-px-4 tw-text-black tw-mt-1 tw-transition-colors tw-duration-[0.5s] hover:tw-bg-black hover:tw-text-white"
-                    onClick={() => {
-                        peekHeader();
-                        triggerHeaderHide();
-                    }}
-                >
-                    <span>{isBookNowPage ? "Home" : "Book Now"}</span>
-                </a>
+                {showBookNow ? (
+                    <a
+                        href={isBookNowPage ? "/" : "/BookNow.html"}
+                        aria-label="signup"
+                        className="header-cta tw-flex tw-h-[40px] tw-place-items-center tw-gap-2 tw-bg-secondary tw-p-1 tw-px-4 tw-text-black tw-mt-1 tw-transition-colors tw-duration-[0.5s] hover:tw-bg-black hover:tw-text-white"
+                        onClick={() => {
+                            peekHeader();
+                            triggerHeaderHide();
+                        }}
+                    >
+                        <span>{isBookNowPage ? "Home" : "Book Now"}</span>
+                    </a>
+                ) : null}
             </div>
 
             <div className="tw-flex tw-items-center tw-gap-4 lg:tw-hidden mobile-only">
-                <a
-                    href={isBookNowPage ? "/" : "/BookNow.html"}
-                    aria-label="signup"
-                    className="header-cta tw-flex tw-h-[40px] tw-place-items-center tw-gap-2 tw-bg-secondary tw-p-1 tw-px-4 tw-text-black tw-mt-1 tw-transition-colors tw-duration-[0.5s] hover:tw-bg-black hover:tw-text-white"
-                    onClick={() => {
-                        peekHeader();
-                        triggerHeaderHide();
-                    }}
-                >
-                    <span>{isBookNowPage ? "Home" : "Book Now"}</span>
-                </a>
+                {showBookNow ? (
+                    <a
+                        href={isBookNowPage ? "/" : "/BookNow.html"}
+                        aria-label="signup"
+                        className="header-cta tw-flex tw-h-[40px] tw-place-items-center tw-gap-2 tw-bg-secondary tw-p-1 tw-px-4 tw-text-black tw-mt-1 tw-transition-colors tw-duration-[0.5s] hover:tw-bg-black hover:tw-text-white"
+                        onClick={() => {
+                            peekHeader();
+                            triggerHeaderHide();
+                        }}
+                    >
+                        <span>{isBookNowPage ? "Home" : "Book Now"}</span>
+                    </a>
+                ) : null}
                 <button
                     id="burger-toggle"
                     className={`hamburger-button ${isMenuOpen ? "is-open" : ""}`}

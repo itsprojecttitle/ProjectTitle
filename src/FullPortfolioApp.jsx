@@ -23,6 +23,18 @@ const FullPortfolioApp = () => {
 
     useEffect(() => initScrollAnimations(), []);
     useEffect(() => initLinkTargets(), []);
+    useEffect(() => {
+        const toggleFloating = () => {
+            const y = window.scrollY;
+            const shouldHide = y < 80;
+            document.querySelectorAll(".back-to-top, .social-float").forEach((el) => {
+                el.classList.toggle("is-hidden", shouldHide);
+            });
+        };
+        toggleFloating();
+        window.addEventListener("scroll", toggleFloating, { passive: true });
+        return () => window.removeEventListener("scroll", toggleFloating);
+    }, []);
 
     useEffect(() => {
         if (!window.gsap || !window.ScrollTrigger) return;
@@ -129,8 +141,12 @@ const FullPortfolioApp = () => {
                     aria-label="Mobile menu"
                     onClick={() => setBurgerOpen(false)}
                 >
-                    <a className="bm-menu-item" href="/#hero" onClick={triggerHeaderHide}>
-                        Home
+                    <a
+                        className="bm-menu-item bm-menu-cta tw-bg-secondary tw-text-black"
+                        href="/BookNow.html"
+                        onClick={triggerHeaderHide}
+                    >
+                        Book Now
                     </a>
                     <a className="bm-menu-item" href="/#portfolio" onClick={triggerHeaderHide}>
                         Portfolio
@@ -143,6 +159,9 @@ const FullPortfolioApp = () => {
                     </a>
                     <a className="bm-menu-item" href="/#news" onClick={triggerHeaderHide}>
                         News
+                    </a>
+                    <a className="bm-menu-item" href="/Contact.html" onClick={triggerHeaderHide}>
+                        More
                     </a>
                 </nav>
             </div>

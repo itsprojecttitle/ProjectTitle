@@ -19,6 +19,22 @@ html {
 
 body{
     background: #000;
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+}
+
+body::before{
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: env(safe-area-inset-top);
+    background: #000;
+    z-index: 9999;
+    pointer-events: none;
 }
 
 header{
@@ -808,6 +824,7 @@ header > .collapsible-header{
     min-width: 120px;
     justify-content: center;
     border-radius: 4px;
+    color: #000;
 }
 
 .header-cta:hover{
@@ -821,6 +838,16 @@ header > .collapsible-header{
 .header-links:hover {
     color: var(--header-link-hover);
     transform: translateY(-2px);
+}
+
+.header-links--booknow{
+    background: #ffe353;
+    color: #000 !important;
+    border-radius: 4px;
+}
+
+.header-links--booknow:hover{
+    color: #000 !important;
 }
 
 @media (min-width: 1025px){
@@ -1137,6 +1164,122 @@ a.btn:hover{
   color: var(--footer-link-hover);
 }
 
+.contact-section{
+  background: #000;
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 6% 140px;
+}
+
+.contact-inner{
+  width: min(920px, 92vw);
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.contact-heading{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contact-eyebrow{
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.95rem;
+  color: #ffe353;
+}
+
+.contact-title{
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.contact-form{
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  max-width: 720px;
+}
+
+.contact-field{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contact-label{
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.contact-required{
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+}
+
+.contact-grid{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.contact-input,
+.contact-textarea{
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #333;
+  background: #111;
+  color: #fff;
+  font-size: 0.95rem;
+}
+
+.contact-input:focus,
+.contact-textarea:focus{
+  outline: none;
+  border-color: #ffe353;
+  box-shadow: 0 0 0 2px rgba(255, 227, 83, 0.25);
+}
+
+.contact-input::placeholder,
+.contact-textarea::placeholder{
+  color: #bfbfbf;
+}
+
+.contact-submit{
+  width: fit-content;
+  padding: 12px 18px;
+  background: #ffe353;
+  color: #111;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.85rem;
+  border: 0;
+  cursor: pointer;
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.contact-submit:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 10px 18px rgba(0,0,0,0.2);
+}
+
+@media (max-width: 768px){
+  .contact-section{
+    padding: 100px 6% 120px;
+  }
+
+  .contact-grid{
+    grid-template-columns: 1fr;
+  }
+}
+
 
 .review-container {
     position: relative;
@@ -1308,6 +1451,17 @@ body{ padding-top: 0; }
   letter-spacing: 0.08em;
   font-size: 0.75rem;
   box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  transition: transform 220ms ease, box-shadow 220ms ease, opacity 220ms ease;
+}
+ .social-float{
+  transition: transform 220ms ease, box-shadow 220ms ease, opacity 220ms ease;
+}
+
+.back-to-top.is-hidden,
+.social-float.is-hidden{
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
 }
 
 @media (max-width: 1024px){
@@ -1813,12 +1967,21 @@ body{ padding-top: 0; }
   padding: 10px 14px;
   border-radius: 4px;
   width: fit-content;
+  color: #000;
+}
+
+.ember-burger-menu .bm-menu-cta:hover{
+  color: #000;
 }
 
 .news-carousel{
   width: min(1200px, 92vw);
   margin-top: 24px;
   overflow: hidden;
+}
+
+.news-carousel{
+  padding-bottom: 170px !important;
 }
 
 .news-carousel-track{
@@ -1848,6 +2011,25 @@ body{ padding-top: 0; }
   flex: 0 0 320px;
   scroll-snap-align: start;
   background: #0b0b0b;
+}
+
+@media (max-width: 768px){
+  .article-card{
+    flex: 0 0 100%;
+    width: 100%;
+  }
+}
+
+.article-card-media{
+  width: 100%;
+  aspect-ratio: 64 / 45;
+  overflow: hidden;
+}
+
+.article-card-media img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .ember-burger-menu.is-open .bm-menu-item{

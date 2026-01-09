@@ -67,6 +67,18 @@ const App = () => {
 
     useEffect(() => initScrollAnimations(), []);
     useEffect(() => initLinkTargets(), []);
+    useEffect(() => {
+        const toggleFloating = () => {
+            const y = window.scrollY;
+            const shouldHide = y < 80;
+            document.querySelectorAll(".back-to-top, .social-float").forEach((el) => {
+                el.classList.toggle("is-hidden", shouldHide);
+            });
+        };
+        toggleFloating();
+        window.addEventListener("scroll", toggleFloating, { passive: true });
+        return () => window.removeEventListener("scroll", toggleFloating);
+    }, []);
 
     const handleNavigate = (event, id) => {
         if (!id) return;
@@ -123,16 +135,6 @@ const App = () => {
                     </a>
                     <a
                         className="bm-menu-item"
-                        href="/#hero"
-                        onClick={() => {
-                            peekHeader();
-                            triggerHeaderHide();
-                        }}
-                    >
-                        Home
-                    </a>
-                    <a
-                        className="bm-menu-item"
                         href="#portfolio"
                         onClick={(event) => {
                             peekHeader();
@@ -172,6 +174,16 @@ const App = () => {
                         }}
                     >
                         News
+                    </a>
+                    <a
+                        className="bm-menu-item"
+                        href="/Contact.html"
+                        onClick={() => {
+                            peekHeader();
+                            triggerHeaderHide();
+                        }}
+                    >
+                        More
                     </a>
                 </nav>
             </div>

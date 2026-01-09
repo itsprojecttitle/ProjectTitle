@@ -2,7 +2,7 @@ import React from "react";
 
 const ArticleCard = ({ box, title, date, image }) => (
     <div className="article-card tw-flex tw-h-[400px] tw-w-[350px] tw-flex-col tw-gap-4 tw-overflow-clip tw-rounded-lg tw-p-4 max-lg:tw-w-[300px] tw-text-white">
-        <div className="tw-h-[200px] tw-w-full tw-overflow-hidden">
+        <div className="article-card-media" style={{ aspectRatio: "64 / 45" }}>
             <img
                 src={image}
                 alt={title}
@@ -23,8 +23,6 @@ const ArticleCard = ({ box, title, date, image }) => (
             </a>
         </div>
         <div className="tw-h-[2px] tw-w-full tw-bg-white"></div>
-        {box ? (
-        ) : null}
         <h3 className="tw-mt-3 tw-text-2xl tw-font-medium max-md:tw-text-xl">
             {title}
         </h3>

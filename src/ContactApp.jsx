@@ -1,22 +1,17 @@
 import React, { useEffect, useState } from "react";
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
-import Media from "./pages/Media.jsx";
+import ContactSection from "./sections/Contact.jsx";
 import { initScrollAnimations } from "./utils/scrollAnimations.js";
 import { initLinkTargets } from "./utils/linkTargets.js";
 
-const MediaApp = () => {
+const ContactApp = () => {
     const [burgerOpen, setBurgerOpen] = useState(false);
 
     useEffect(() => {
         document.body.classList.toggle("bm-open", burgerOpen);
         return () => document.body.classList.remove("bm-open");
     }, [burgerOpen]);
-
-    useEffect(() => {
-        document.body.classList.add("media-page");
-        return () => document.body.classList.remove("media-page");
-    }, []);
 
     useEffect(() => {
         const onKeyDown = (event) => {
@@ -41,76 +36,6 @@ const MediaApp = () => {
         return () => window.removeEventListener("scroll", toggleFloating);
     }, []);
 
-    useEffect(() => {
-        if (!window.gsap || !window.ScrollTrigger) return;
-
-        const { gsap, ScrollTrigger } = window;
-        gsap.registerPlugin(ScrollTrigger);
-
-        const title = document.querySelector(".full-portfolio-title");
-        if (title) {
-            gsap.fromTo(
-                title,
-                { autoAlpha: 0, y: 18 },
-                { autoAlpha: 1, y: 0, duration: 0.7, ease: "power3.out" }
-            );
-        }
-
-        const mainPhoto = document.querySelector(
-            ".full-portfolio-main .full-portfolio-photo"
-        );
-        if (mainPhoto) {
-            gsap.fromTo(
-                mainPhoto,
-                { autoAlpha: 0, y: 20 },
-                {
-                    autoAlpha: 1,
-                    y: 0,
-                    duration: 0.8,
-                    ease: "power3.out",
-                    scrollTrigger: {
-                        trigger: mainPhoto,
-                        start: "top 85%",
-                        toggleActions: "play reverse play reverse",
-                    },
-                }
-            );
-        }
-
-        const cards = gsap.utils.toArray(".full-portfolio-card");
-        cards.forEach((card, index) => {
-            const offset = index % 2 === 0 ? -70 : 70;
-            gsap.fromTo(
-                card,
-                { autoAlpha: 0, x: offset },
-                {
-                    autoAlpha: 1,
-                    x: 0,
-                    duration: 0.9,
-                    ease: "power3.out",
-                    scrollTrigger: {
-                        trigger: card,
-                        start: "top 85%",
-                        toggleActions: "play reverse play reverse",
-                    },
-                }
-            );
-        });
-
-        return () => {
-            ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-        };
-    }, []);
-
-    const handleNavigate = (event, id) => {
-        if (!id) return;
-        const target = document.getElementById(id);
-        if (target) {
-            event.preventDefault();
-            target.scrollIntoView({ behavior: "smooth" });
-        }
-    };
-
     return (
         <div
             id="burger-root"
@@ -127,6 +52,9 @@ const MediaApp = () => {
                     <a className="bm-menu-item bm-menu-cta tw-bg-secondary tw-text-black" href="/BookNow.html">
                         Book Now
                     </a>
+                    <a className="bm-menu-item" href="/#hero">
+                        Home
+                    </a>
                     <a className="bm-menu-item" href="/#portfolio">
                         Portfolio
                     </a>
@@ -140,7 +68,7 @@ const MediaApp = () => {
                         News
                     </a>
                     <a className="bm-menu-item" href="/Contact.html">
-                        More
+                        Contact
                     </a>
                 </nav>
             </div>
@@ -154,12 +82,11 @@ const MediaApp = () => {
                     <Header
                         isMenuOpen={burgerOpen}
                         onToggleMenu={() => setBurgerOpen((open) => !open)}
-                        onNavigate={handleNavigate}
                         homeHref="/#hero"
                         portfolioHref="/#portfolio"
                     />
                     <main>
-                        <Media />
+                        <ContactSection />
                     </main>
                     <button
                         type="button"
@@ -178,4 +105,4 @@ const MediaApp = () => {
     );
 };
 
-export default MediaApp;
+export default ContactApp;

@@ -1235,7 +1235,7 @@ body{ padding-top: 0; }
 
 @media (max-width: 1024px){
   #hero{
-    min-height: 868px !important;
+    min-height: 738px !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;

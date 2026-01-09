@@ -105,7 +105,7 @@ const Hero = () => {
 
                     <div className="reveal-hero-text tw-mt-4 tw-flex tw-place-items-center tw-gap-4 tw-overflow-hidden tw-p-2">
                         <a
-                            href="/#newsevents"
+                            href="/#news"
                             aria-label="signup"
                             className="tw-flex tw-h-[40px] tw-place-items-center tw-gap-2 tw-bg-secondary tw-p-1 tw-p-2 tw-px-4 tw-pl-4 tw-text-black tw-transition-colors tw-duration-[0.5s] hover:tw-bg-black hover:tw-text-white"
                         >
@@ -122,7 +122,12 @@ const Hero = () => {
                             className="hero-carousel-frame hero-video-frame is-ready tw-relative tw-flex tw-min-w-[350px] tw-max-w-[650px] tw-overflow-hidden tw-border-2 tw-border-solid tw-border-secondary tw-p-0 max-lg:tw-w-[320px] max-lg:tw-min-w-[320px]"
                         >
                             <div className="hero-video-embed hero-video-placeholder">
-                                Showreel
+                                <iframe
+                                    src="https://www.youtube-nocookie.com/embed/gu8DQp_Pcys?rel=0"
+                                    title="Showreel"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowFullScreen
+                                />
                             </div>
                         </div>
                     </div>

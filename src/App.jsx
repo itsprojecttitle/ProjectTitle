@@ -118,6 +118,9 @@ const App = () => {
                     <a className="bm-menu-item" href="/media.html" onClick={triggerHeaderHide}>
                         Media
                     </a>
+                    <a className="bm-menu-item" href="/#news" onClick={triggerHeaderHide}>
+                        News
+                    </a>
                 </nav>
             </div>
             <div

@@ -141,11 +141,7 @@ const FullPortfolioApp = () => {
                     <a className="bm-menu-item" href="/media.html" onClick={triggerHeaderHide}>
                         Media
                     </a>
-                    <a
-                        className="bm-menu-item"
-                        href="/#newsevents"
-                        onClick={triggerHeaderHide}
-                    >
+                    <a className="bm-menu-item" href="/#news" onClick={triggerHeaderHide}>
                         News
                     </a>
                 </nav>

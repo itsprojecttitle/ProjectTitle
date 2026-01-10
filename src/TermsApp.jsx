@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
-import ContactSection from "./sections/Contact.jsx";
-import AboutUs from "./sections/AboutUs.jsx";
-import FAQ from "./sections/FAQ.jsx";
+import TermsSection from "./sections/Terms.jsx";
 import { initScrollAnimations } from "./utils/scrollAnimations.js";
 import { initLinkTargets } from "./utils/linkTargets.js";
 
-const ContactApp = () => {
+const TermsApp = () => {
     const [burgerOpen, setBurgerOpen] = useState(false);
 
     useEffect(() => {
@@ -25,18 +23,6 @@ const ContactApp = () => {
 
     useEffect(() => initScrollAnimations(), []);
     useEffect(() => initLinkTargets(), []);
-    useEffect(() => {
-        const toggleFloating = () => {
-            const y = window.scrollY;
-            const shouldHide = y < 80;
-            document.querySelectorAll(".back-to-top, .social-float").forEach((el) => {
-                el.classList.toggle("is-hidden", shouldHide);
-            });
-        };
-        toggleFloating();
-        window.addEventListener("scroll", toggleFloating, { passive: true });
-        return () => window.removeEventListener("scroll", toggleFloating);
-    }, []);
 
     return (
         <div
@@ -93,9 +79,7 @@ const ContactApp = () => {
                         portfolioHref="/#portfolio"
                     />
                     <main>
-                        <ContactSection />
-                        <AboutUs />
-                        <FAQ />
+                        <TermsSection />
                     </main>
                     <button
                         type="button"
@@ -114,4 +98,4 @@ const ContactApp = () => {
     );
 };
 
-export default ContactApp;
+export default TermsApp;

@@ -1,14 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
-import ContactSection from "./sections/Contact.jsx";
-import AboutUs from "./sections/AboutUs.jsx";
-import FAQ from "./sections/FAQ.jsx";
+import ServiceDetail from "./sections/ServiceDetail.jsx";
 import { initScrollAnimations } from "./utils/scrollAnimations.js";
 import { initLinkTargets } from "./utils/linkTargets.js";
+import { serviceDetails } from "./data/serviceDetails.js";
 
-const ContactApp = () => {
+const ServiceDetailApp = () => {
     const [burgerOpen, setBurgerOpen] = useState(false);
+    const serviceKey = useMemo(
+        () => document.body.dataset.service || "videography",
+        []
+    );
+    const service = serviceDetails[serviceKey];
 
     useEffect(() => {
         document.body.classList.toggle("bm-open", burgerOpen);
@@ -25,18 +29,6 @@ const ContactApp = () => {
 
     useEffect(() => initScrollAnimations(), []);
     useEffect(() => initLinkTargets(), []);
-    useEffect(() => {
-        const toggleFloating = () => {
-            const y = window.scrollY;
-            const shouldHide = y < 80;
-            document.querySelectorAll(".back-to-top, .social-float").forEach((el) => {
-                el.classList.toggle("is-hidden", shouldHide);
-            });
-        };
-        toggleFloating();
-        window.addEventListener("scroll", toggleFloating, { passive: true });
-        return () => window.removeEventListener("scroll", toggleFloating);
-    }, []);
 
     return (
         <div
@@ -73,7 +65,10 @@ const ContactApp = () => {
                         <a className="bm-menu-item" href="/Contact.html">
                             Contact us
                         </a>
-                        <a className="bm-menu-item bm-menu-cta tw-bg-secondary tw-text-black" href="/BookNow.html">
+                        <a
+                            className="bm-menu-item bm-menu-cta tw-bg-secondary tw-text-black"
+                            href="/BookNow.html"
+                        >
                             Book Now
                         </a>
                     </div>
@@ -93,9 +88,7 @@ const ContactApp = () => {
                         portfolioHref="/#portfolio"
                     />
                     <main>
-                        <ContactSection />
-                        <AboutUs />
-                        <FAQ />
+                        <ServiceDetail service={service} />
                     </main>
                     <button
                         type="button"
@@ -114,4 +107,4 @@ const ContactApp = () => {
     );
 };
 
-export default ContactApp;
+export default ServiceDetailApp;

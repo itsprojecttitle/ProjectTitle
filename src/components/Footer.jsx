@@ -50,11 +50,12 @@ const Footer = () => (
                 <a href="" className="footer-link">
                     Policy
                 </a>
-                <a href="" className="footer-link">
+                <a href="/Terms.html" className="footer-link">
                     Terms & Condition
                 </a>
             </div>
-            <div className="footer-copy">London, Great Britain, United Kingdom</div>
+            <div className="footer-copy">Copyright ©2026 ProjectTitle</div>
+            <div className="footer-copy">Email: itsprojecttitle@gmail.com</div>
         </div>
     </footer>
 );

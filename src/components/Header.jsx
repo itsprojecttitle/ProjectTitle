@@ -85,27 +85,16 @@ const Header = ({
     }, []);
 
     const isBookNowPage = window.location.pathname.endsWith("/BookNow.html");
-    const primaryNav =
-        isHomePath() || isBookNowPage
-            ? {
-                  label: "Home",
-                  href: homeHref,
-                  className: "header-links",
-                  onClick: (event) => {
-                      peekHeader();
-                      triggerHeaderHide();
-                      handleLogoClick(event);
-                  },
-              }
-            : {
-                  label: "Book Now",
-                  href: "/BookNow.html",
-                  className: "header-links header-links--booknow",
-                  onClick: () => {
-                      peekHeader();
-                      triggerHeaderHide();
-                  },
-              };
+    const primaryNav = {
+        label: "Home",
+        href: homeHref,
+        className: "header-links",
+        onClick: (event) => {
+            peekHeader();
+            triggerHeaderHide();
+            handleLogoClick(event);
+        },
+    };
 
     return (
         <>
@@ -155,26 +144,6 @@ const Header = ({
                     </a>
                     <a
                         className="header-links"
-                        href="/Gallery.html"
-                        onClick={() => {
-                            peekHeader();
-                            triggerHeaderHide();
-                        }}
-                    >
-                        Gallery
-                    </a>
-                    <a
-                        className="header-links"
-                        href="/media.html"
-                        onClick={() => {
-                            peekHeader();
-                            triggerHeaderHide();
-                        }}
-                    >
-                        Media
-                    </a>
-                    <a
-                        className="header-links"
                         href="/#news"
                         onClick={() => {
                             peekHeader();
@@ -191,23 +160,33 @@ const Header = ({
                             triggerHeaderHide();
                         }}
                     >
-                        More
+                        Contact us
                     </a>
-                </nav>
-                {showBookNow ? (
                     <a
-                        href={isBookNowPage ? "/" : "/BookNow.html"}
-                        aria-label="signup"
-                        className="header-cta tw-flex tw-h-[40px] tw-place-items-center tw-gap-2 tw-bg-secondary tw-p-1 tw-px-4 tw-text-black tw-mt-1 tw-transition-colors tw-duration-[0.5s] hover:tw-bg-black hover:tw-text-white"
+                        className="header-links"
+                        href="/Terms.html"
                         onClick={() => {
                             peekHeader();
                             triggerHeaderHide();
                         }}
                     >
-                        <span>{isBookNowPage ? "Home" : "Book Now"}</span>
+                        Terms &amp; Conditions
                     </a>
-                ) : null}
+                </nav>
             </div>
+            {showBookNow ? (
+                <a
+                    href={isBookNowPage ? "/" : "/BookNow.html"}
+                    aria-label="signup"
+                    className="header-cta header-cta-desktop tw-flex tw-h-[40px] tw-place-items-center tw-gap-2 tw-bg-secondary tw-p-1 tw-px-4 tw-text-black tw-mt-1 tw-transition-colors tw-duration-[0.5s] hover:tw-bg-black hover:tw-text-white max-lg:tw-hidden desktop-only"
+                    onClick={() => {
+                        peekHeader();
+                        triggerHeaderHide();
+                    }}
+                >
+                    <span>{isBookNowPage ? "Home" : "Book Now"}</span>
+                </a>
+            ) : null}
 
             <div className="tw-flex tw-items-center tw-gap-4 lg:tw-hidden mobile-only">
                 {showBookNow ? (

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
-import Services from "./sections/Services.jsx";
+import BookingServices from "./sections/BookingServices.jsx";
 import { initScrollAnimations } from "./utils/scrollAnimations.js";
 import { initLinkTargets } from "./utils/linkTargets.js";
 
@@ -49,7 +49,7 @@ const BookingApp = () => {
                     aria-label="Mobile menu"
                     onClick={() => setBurgerOpen(false)}
                 >
-                    <a className="bm-menu-item bm-menu-cta tw-bg-secondary tw-text-black" href="/#hero">
+                    <a className="bm-menu-item" href="/#hero">
                         Home
                     </a>
                     <a className="bm-menu-item" href="/#portfolio">
@@ -64,9 +64,17 @@ const BookingApp = () => {
                     <a className="bm-menu-item" href="/#news">
                         News
                     </a>
-                    <a className="bm-menu-item" href="/Contact.html">
-                        More
-                    </a>
+                    <div className="bm-menu-footer">
+                        <a className="bm-menu-item" href="/Terms.html">
+                            Terms & Conditions
+                        </a>
+                        <a className="bm-menu-item" href="/Contact.html">
+                            Contact us
+                        </a>
+                        <a className="bm-menu-item bm-menu-cta tw-bg-secondary tw-text-black" href="/BookNow.html">
+                            Book Now
+                        </a>
+                    </div>
                 </nav>
             </div>
             <div
@@ -83,7 +91,7 @@ const BookingApp = () => {
                         portfolioHref="/#portfolio"
                     />
                     <main>
-                        <Services />
+                        <BookingServices />
                     </main>
                     <button
                         type="button"

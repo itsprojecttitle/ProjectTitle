@@ -1,13 +1,14 @@
 export const articleItems = [
     {
         box: 1,
-        title: "Building hospitals in remote villages",
-        date: "Jan, 2, 2024",
-        image: "/assets/images/home/hospital.jpg",
+        title: "Upcoming Events",
+        date: "Jan, 3, 2026",
+        image: "/assets/news/EssDeKid Templates-Recovered.png",
+        link: "https://www.instagram.com/projecttitle/p/DTDC8i2glzp/",
     },
     {
         box: 2,
-        title: "Conservation if wildlife",
+        title: "Conservation of wildlife",
         date: "Jan, 30, 2024",
         image: "/assets/images/home/wildlife.jpg",
     },

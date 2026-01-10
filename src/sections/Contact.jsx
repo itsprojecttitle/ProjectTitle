@@ -4,10 +4,17 @@ const ContactSection = () => (
     <section className="contact-section">
         <div className="contact-inner">
             <div className="contact-heading">
-                <p className="contact-eyebrow">Any Questions/Queries?</p>
-                <h1 className="contact-title">Let Us Know.</h1>
+                <p className="contact-eyebrow reveal-up">
+                    <span>Collaborate ?</span>
+                    <span>Question ?</span>
+                    <span>Call ?</span>
+                </p>
+                <h1 className="contact-title reveal-up">Leave Your Details.</h1>
+                <p className="contact-subtitle reveal-up">
+                    We aim to get back to you within 24 Hours.
+                </p>
             </div>
-            <form className="contact-form" method="post" action="">
+            <form className="contact-form reveal-up" method="post" action="">
                 <div className="contact-field">
                     <label className="contact-label" htmlFor="firstName">
                         Name <span className="contact-required">(required)</span>
@@ -60,6 +67,7 @@ const ContactSection = () => (
                         </option>
                         <option value="Collaborations">Collaborations</option>
                         <option value="Queries">Queries</option>
+                        <option value="Phone Call">Phone Call</option>
                         <option value="More">More</option>
                     </select>
                 </div>

@@ -1,38 +1,38 @@
 export const serviceItems = [
     {
-        title: "Empowering women",
-        description:
-            "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae, vero.",
+        title: "Videography",
+        description: "Short-form, cinematic, and event coverage packages.",
+        href: "/Videography.html",
         image: "/assets/images/home/women.jpg",
     },
     {
-        title: "Wildlife protection",
-        description:
-            "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum dolorum unde voluptatibus fuga soluta consequuntur!",
+        title: "Photography",
+        description: "Portraits, promo, and campaign-ready stills.",
+        href: "/Photography.html",
         image: "/assets/images/home/wildlife.jpg",
     },
     {
-        title: "Building schools",
-        description:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut dolorem, optio totam perspiciatis.",
+        title: "Studio",
+        description: "Book studio time with lighting and crew options.",
+        href: "/Studio.html",
         image: "/assets/images/home/schools.jpg",
     },
     {
-        title: "Vaccination Drive",
-        description:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, tempora.",
+        title: "Promotion",
+        description: "Launch support and rollout strategy for releases.",
+        href: "/Promotion.html",
         image: "/assets/images/home/vaccination.jpg",
     },
     {
-        title: "Building clinics",
-        description:
-            "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit, voluptates.",
+        title: "Campaign Development",
+        description: "Targeted campaigns built for measurable growth.",
+        href: "/CampaignDevelopment.html",
         image: "/assets/images/home/hospital.jpg",
     },
     {
-        title: "Electrifying Africa",
-        description:
-            "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit, voluptates.",
+        title: "Digital Course",
+        description: "Learn the workflow from concept to delivery.",
+        href: "/DigitalCourse.html",
         image: "/assets/images/home/solar.jpg",
     },
 ];

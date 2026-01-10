@@ -17,7 +17,7 @@ const Media = () => {
             {
                 id: "media-placeholder-0",
                 label: "lINkDzNWKIs",
-                title: "PROJECTTITlE | ELZ LAURENT",
+                title: "PROJECTTITLE | ELZ LAURENT",
                 youtubeId: "lINkDzNWKIs",
             },
             {
@@ -130,7 +130,7 @@ const Media = () => {
                     <p className="media-page-subtitle reveal-up">
                         ProjectTitle video highlights and recent work.
                     </p>
-                    <div className="full-portfolio-socials full-portfolio-socials--title">
+                    <div className="full-portfolio-socials full-portfolio-socials--title reveal-up">
                         <a
                             href="/facebook.html"
                             aria-label="Facebook"
@@ -171,7 +171,7 @@ const Media = () => {
                         </a>
                     </div>
                 </header>
-                <div className="media-player">
+                <div className="media-player reveal-up">
                     <div className="media-player-frame">
                         {activeVideo?.url ? (
                             <iframe
@@ -188,7 +188,7 @@ const Media = () => {
                         )}
                     </div>
                 </div>
-                <div className="media-carousel" aria-label="Video selections">
+                <div className="media-carousel reveal-up" aria-label="Video selections">
                     <div
                         className="media-carousel-track"
                         ref={trackRef}

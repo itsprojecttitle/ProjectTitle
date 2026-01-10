@@ -123,15 +123,14 @@ const App = () => {
                     onClick={() => setBurgerOpen(false)}
                 >
                     <a
-                        className="bm-menu-item bm-menu-cta tw-bg-secondary tw-text-black"
-                        href="/BookNow.html"
+                        className="bm-menu-item"
+                        href="/#hero"
                         onClick={() => {
                             peekHeader();
                             triggerHeaderHide();
                         }}
-                        style={{ color: "#000" }}
                     >
-                        Book Now
+                        Home
                     </a>
                     <a
                         className="bm-menu-item"
@@ -175,16 +174,25 @@ const App = () => {
                     >
                         News
                     </a>
-                    <a
-                        className="bm-menu-item"
-                        href="/Contact.html"
-                        onClick={() => {
-                            peekHeader();
-                            triggerHeaderHide();
-                        }}
-                    >
-                        More
-                    </a>
+                    <div className="bm-menu-footer">
+                        <a className="bm-menu-item" href="/Terms.html">
+                            Terms & Conditions
+                        </a>
+                        <a className="bm-menu-item" href="/Contact.html">
+                            Contact us
+                        </a>
+                        <a
+                            className="bm-menu-item bm-menu-cta tw-bg-secondary tw-text-black"
+                            href="/BookNow.html"
+                            onClick={() => {
+                                peekHeader();
+                                triggerHeaderHide();
+                            }}
+                            style={{ color: "#000" }}
+                        >
+                            Book Now
+                        </a>
+                    </div>
                 </nav>
             </div>
             <div

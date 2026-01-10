@@ -9,7 +9,7 @@ const tiles = [
     { image: portfolioItems[2]?.image, className: "full-portfolio-tile--f" },
 ].filter((item) => item.image);
 
-const FullPortfolio = ({ titleText = "Gallary" }) => {
+const FullPortfolio = ({ titleText = "Gallery" }) => {
     const [activeIndex, setActiveIndex] = useState(null);
     const touchStart = useRef(null);
 
@@ -64,7 +64,7 @@ const FullPortfolio = ({ titleText = "Gallary" }) => {
                     <div className="full-portfolio-subtitle">
                         Every story starts with a "ProjectTitle"
                         <br />
-                        Lets find yours.
+                        Let's find yours.
                     </div>
                     <div className="full-portfolio-socials full-portfolio-socials--title">
                         <a

@@ -124,8 +124,8 @@ const MediaApp = () => {
                     aria-label="Mobile menu"
                     onClick={() => setBurgerOpen(false)}
                 >
-                    <a className="bm-menu-item bm-menu-cta tw-bg-secondary tw-text-black" href="/BookNow.html">
-                        Book Now
+                    <a className="bm-menu-item" href="/#hero">
+                        Home
                     </a>
                     <a className="bm-menu-item" href="/#portfolio">
                         Portfolio
@@ -139,9 +139,17 @@ const MediaApp = () => {
                     <a className="bm-menu-item" href="/#news">
                         News
                     </a>
-                    <a className="bm-menu-item" href="/Contact.html">
-                        More
-                    </a>
+                    <div className="bm-menu-footer">
+                        <a className="bm-menu-item" href="/Terms.html">
+                            Terms & Conditions
+                        </a>
+                        <a className="bm-menu-item" href="/Contact.html">
+                            Contact us
+                        </a>
+                        <a className="bm-menu-item bm-menu-cta tw-bg-secondary tw-text-black" href="/BookNow.html">
+                            Book Now
+                        </a>
+                    </div>
                 </nav>
             </div>
             <div

@@ -25,7 +25,7 @@ const Hero = () => {
                     <div className="reveal-hero-text tw-mt-2 tw-max-w-[450px] tw-p-2 tw-text-justify max-lg:tw-max-w-full max-lg:tw-text-center">
                         Every story starts with a "ProjectTitle"
                         <br />
-                        Lets find yours.
+                        Let's find yours.
                     </div>
                     <div className="reveal-hero-text tw-mt-2 tw-flex tw-max-w-[450px] tw-gap-3 tw-p-2 tw-text-xl max-lg:tw-max-w-full max-lg:tw-justify-center">
                         <a href="/facebook.html" target="_blank" rel="noreferrer">

@@ -1,12 +1,12 @@
 import React, { useEffect, useMemo, useState } from "react";
-import Header from "./components/Header.jsx";
-import Footer from "./components/Footer.jsx";
-import ServiceDetail from "./sections/ServiceDetail.jsx";
-import { initScrollAnimations } from "./utils/scrollAnimations.js";
-import { initLinkTargets } from "./utils/linkTargets.js";
-import { serviceDetails } from "./data/serviceDetails.js";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import ServicePackages from "./sections/ServicePackages";
+import { serviceDetails } from "./data/serviceDetails";
+import { initScrollAnimations } from "./utils/scrollAnimations";
+import { initLinkTargets } from "./utils/linkTargets";
 
-const ServiceDetailApp = () => {
+const ServicePackagesApp = () => {
     const [burgerOpen, setBurgerOpen] = useState(false);
     const serviceKey = useMemo(
         () => document.body.dataset.service || "videography",
@@ -65,10 +65,7 @@ const ServiceDetailApp = () => {
                         <a className="bm-menu-item" href="/Contact.html">
                             Contact us
                         </a>
-                        <a
-                            className="bm-menu-item bm-menu-cta tw-bg-secondary tw-text-black"
-                            href="/BookNow.html"
-                        >
+                        <a className="bm-menu-item bm-menu-cta tw-bg-secondary tw-text-black" href="/BookNow.html">
                             Book Now
                         </a>
                     </div>
@@ -88,7 +85,7 @@ const ServiceDetailApp = () => {
                         portfolioHref="/#portfolio"
                     />
                     <main>
-                        <ServiceDetail service={service} serviceKey={serviceKey} />
+                        <ServicePackages service={service} serviceKey={serviceKey} />
                     </main>
                     <button
                         type="button"
@@ -107,4 +104,4 @@ const ServiceDetailApp = () => {
     );
 };
 
-export default ServiceDetailApp;
+export default ServicePackagesApp;

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-
 const Header = ({
     isMenuOpen,
     onToggleMenu,
@@ -7,6 +6,7 @@ const Header = ({
     homeHref = "/#hero",
     portfolioHref = "/#portfolio",
     showBookNow = true,
+    ctaLabel = "Book Now",
 }) => {
     const [isPeek, setIsPeek] = useState(false);
     const triggerHeaderHide = () => {
@@ -95,6 +95,7 @@ const Header = ({
             handleLogoClick(event);
         },
     };
+    const ctaText = isBookNowPage ? "Home" : ctaLabel;
 
     return (
         <>
@@ -144,6 +145,26 @@ const Header = ({
                     </a>
                     <a
                         className="header-links"
+                        href="/Gallery.html"
+                        onClick={() => {
+                            peekHeader();
+                            triggerHeaderHide();
+                        }}
+                    >
+                        Gallery
+                    </a>
+                    <a
+                        className="header-links"
+                        href="/media.html"
+                        onClick={() => {
+                            peekHeader();
+                            triggerHeaderHide();
+                        }}
+                    >
+                        Media
+                    </a>
+                    <a
+                        className="header-links"
                         href="/#news"
                         onClick={() => {
                             peekHeader();
@@ -184,7 +205,7 @@ const Header = ({
                         triggerHeaderHide();
                     }}
                 >
-                    <span>{isBookNowPage ? "Home" : "Book Now"}</span>
+                    <span>{ctaText}</span>
                 </a>
             ) : null}
 
@@ -199,7 +220,7 @@ const Header = ({
                             triggerHeaderHide();
                         }}
                     >
-                        <span>{isBookNowPage ? "Home" : "Book Now"}</span>
+                        <span>{ctaText}</span>
                     </a>
                 ) : null}
                 <button

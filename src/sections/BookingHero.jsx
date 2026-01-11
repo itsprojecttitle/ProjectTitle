@@ -10,7 +10,7 @@ const BookingHero = () => (
                 <p className="booking-subtitle reveal-up">
                     Curated production services and creative support built for bold stories.
                 </p>
-                <a href="#booking-services" className="booking-cta reveal-up">
+                <a href="#Services" className="booking-cta reveal-up">
                     Explore Services
                 </a>
             </div>

@@ -9,7 +9,7 @@ const ContactSection = () => (
                     <span>Question ?</span>
                     <span>Call ?</span>
                 </p>
-                <h1 className="contact-title reveal-up">Leave Your Details.</h1>
+                <h1 className="contact-title reveal-up">Leave a Message.</h1>
                 <p className="contact-subtitle reveal-up">
                     We aim to get back to you within 24 Hours.
                 </p>

@@ -2541,7 +2541,18 @@ a.btn:hover{
 }
 
 #main-header::after{
-  content: none;
+  content:"";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--safe-top);
+  background: rgba(0,0,0,0.35);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 1;
 }
 
 #main-header > *{

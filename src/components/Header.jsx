@@ -107,7 +107,7 @@ const Header = ({
             />
             <header
                 id="main-header"
-                className={`tw-fixed tw-top-0 tw-z-20 tw-flex tw-h-[60px] tw-w-full tw-px-[5%] tw-text-white max-lg:tw-px-2 tw-justify-between lg:tw-justify-around tw-items-center tw-transition-transform tw-duration-300 ${
+                className={`tw-sticky tw-top-0 tw-z-20 tw-flex tw-h-[60px] tw-w-full tw-px-[5%] tw-text-white max-lg:tw-px-2 tw-justify-between lg:tw-justify-around tw-items-center tw-transition-transform tw-duration-300 ${
                     isPeek ? "is-peek" : ""
                 }`}
                 style={{ top: 0, width: "100%", zIndex: 100 }}

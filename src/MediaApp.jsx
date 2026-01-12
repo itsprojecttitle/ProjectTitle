@@ -29,15 +29,12 @@ const MediaApp = () => {
     useEffect(() => initScrollAnimations(), []);
     useEffect(() => initLinkTargets(), []);
     useEffect(() => {
-        let lastY = window.scrollY;
         const toggleFloating = () => {
             const y = window.scrollY;
-            const scrollingDown = y > lastY;
-            const shouldHide = y < 80 || (scrollingDown && y > 80);
+            const shouldHide = y < 80;
             document.querySelectorAll(".back-to-top, .social-float").forEach((el) => {
                 el.classList.toggle("is-hidden", shouldHide);
             });
-            lastY = y;
         };
         toggleFloating();
         window.addEventListener("scroll", toggleFloating, { passive: true });

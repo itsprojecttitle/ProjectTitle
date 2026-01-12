@@ -18,19 +18,10 @@
 html {
     scroll-behavior: smooth;
     font-family: "Roboto", sans-serif;
-    /*
-    Source - https://stackoverflow.com/a
-    Posted by Andrew
-    Retrieved 1/12/2026, License - CC BY-SA 4.0
-    */
-    overflow: hidden;
-    height: 100%;
 }
 
 body{
     background: #000;
-    overflow: auto;
-    height: 100%;
     padding-top: calc(var(--header-h) + var(--safe-top));
     padding-bottom: 0;
     padding-left: env(safe-area-inset-left);
@@ -44,7 +35,7 @@ body::before{
     left: 0;
     right: 0;
     height: var(--safe-top);
-    background: #000;
+    background: transparent;
     z-index: 9999;
     pointer-events: none;
 }
@@ -2544,9 +2535,13 @@ a.btn:hover{
   left: 0;
   width: 100%;
   height: var(--safe-top);
-  background: #000;
+  background: rgba(0,0,0,0.35);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
   pointer-events: none;
   z-index: 0;
+  opacity: 0;
+  transition: opacity 200ms ease;
 }
 
 #main-header > *{
@@ -2564,6 +2559,10 @@ a.btn:hover{
 
 #main-header.is-scrolled::before{
   opacity: 0;
+}
+
+#main-header.is-scrolled::after{
+  opacity: 1;
 }
 
 #main-header.is-hidden{

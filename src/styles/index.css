@@ -2659,9 +2659,9 @@ body{ padding-top: calc(var(--header-h) + var(--safe-top)); }
   }
 
   #hero .hero-layout{
-    margin-top: calc(-20px + var(--safe-top));
+    margin-top: -20px;
     position: relative;
-    top: calc(-20px + var(--safe-top));
+    top: -20px;
   }
 
   #hero .hero-copy{
@@ -2698,7 +2698,7 @@ body{ padding-top: calc(var(--header-h) + var(--safe-top)); }
     justify-content: center !important;
     width: 100% !important;
     position: relative;
-    top: calc(-20px + var(--safe-top));
+    top: -20px;
   }
 }
 

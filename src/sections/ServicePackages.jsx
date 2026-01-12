@@ -33,7 +33,6 @@ const ServicePackages = ({ service, serviceKey }) => {
                             onClick={() => handleTierSelect(tier)}
                         >
                             <h3>{tier.title}</h3>
-                            <p>{tier.copy}</p>
                             <div className="service-tier-photo">
                                 <img
                                     src={service.images[index % service.images.length]}

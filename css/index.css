@@ -592,12 +592,11 @@ body.bm-open{
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  opacity: 1;
-  pointer-events: auto;
 }
 
-.back-to-top.is-hidden{
-  opacity: 1 !important;
-  transform: none !important;
-  pointer-events: auto !important;
+.back-to-top.is-hidden,
+.social-float.is-hidden{
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
 }

@@ -24,11 +24,15 @@ const FullPortfolioApp = () => {
     useEffect(() => initScrollAnimations(), []);
     useEffect(() => initLinkTargets(), []);
     useEffect(() => {
+        let lastY = window.scrollY;
         const toggleFloating = () => {
-            const shouldHide = false;
-            document.querySelectorAll(".back-to-top").forEach((el) => {
+            const y = window.scrollY;
+            const scrollingDown = y > lastY;
+            const shouldHide = y > 80 && scrollingDown;
+            document.querySelectorAll(".back-to-top, .social-float").forEach((el) => {
                 el.classList.toggle("is-hidden", shouldHide);
             });
+            lastY = y;
         };
         toggleFloating();
         window.addEventListener("scroll", toggleFloating, { passive: true });

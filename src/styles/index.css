@@ -660,8 +660,8 @@ header{
   }
 }
 
-.reveal-hero-text,
-.reveal-up{
+.has-gsap .reveal-hero-text,
+.has-gsap .reveal-up{
     opacity: 0;
     transform: translateY(18px);
     will-change: opacity;

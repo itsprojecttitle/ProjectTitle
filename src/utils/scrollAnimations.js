@@ -3,6 +3,7 @@ export const initScrollAnimations = () => {
 
     const { gsap, ScrollTrigger } = window;
     gsap.registerPlugin(ScrollTrigger);
+    document.documentElement.classList.add("has-gsap");
 
     gsap.set(".reveal-hero-text, .reveal-up", { opacity: 0, y: 18 });
 

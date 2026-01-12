@@ -68,11 +68,10 @@ header{
     color: #000;
 }
 
-.has-gsap .reveal-hero-text,
-.has-gsap .reveal-up{
-    opacity: 0;
-    transform: translateY(18px);
-    will-change: opacity;
+.reveal-hero-text,
+.reveal-up{
+    opacity: 1;
+    transform: none;
 }
 
 .hero-carousel-frame{

@@ -77,6 +77,8 @@ const Portfolio = () => {
                             muted
                             controls
                             playsInline
+                            preload="metadata"
+                            poster="/assets/images/home/newyork.jpg"
                         >
                             <source
                                 src="/assets/videos/hero-mobile.mp4"
@@ -86,6 +88,10 @@ const Portfolio = () => {
                             <source
                                 src="/assets/videos/hero.mp4"
                                 type="video/mp4"
+                            />
+                            <source
+                                src="/assets/videos/hero.webm"
+                                type="video/webm"
                             />
                         </video>
                     </div>

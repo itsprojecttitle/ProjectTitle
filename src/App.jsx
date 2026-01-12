@@ -69,8 +69,7 @@ const App = () => {
     useEffect(() => initLinkTargets(), []);
     useEffect(() => {
         const toggleFloating = () => {
-            const y = window.scrollY;
-            const shouldHide = y < 80;
+            const shouldHide = false;
             document.querySelectorAll(".back-to-top").forEach((el) => {
                 el.classList.toggle("is-hidden", shouldHide);
             });

@@ -2624,6 +2624,8 @@ body{ padding-top: calc(var(--header-h) + var(--safe-top)); }
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  opacity: 1;
+  pointer-events: auto;
 }
  .social-float{
   transition: transform 220ms ease, box-shadow 220ms ease, opacity 220ms ease;
@@ -2631,9 +2633,9 @@ body{ padding-top: calc(var(--header-h) + var(--safe-top)); }
 
 .back-to-top.is-hidden,
 .social-float.is-hidden{
-  opacity: 1;
-  transform: none;
-  pointer-events: auto;
+  opacity: 1 !important;
+  transform: none !important;
+  pointer-events: auto !important;
 }
 
 @media (max-width: 1024px){

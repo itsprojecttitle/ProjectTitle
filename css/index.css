@@ -574,3 +574,30 @@ body.bm-open{
     transform: translate3d(-25vw, 0, 0);
   }
 }
+
+.back-to-top{
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 120;
+  border: 2px solid #000;
+  background: #fff;
+  color: #000;
+  padding: 10px 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  transition: transform 220ms ease, box-shadow 220ms ease, opacity 220ms ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.back-to-top.is-hidden{
+  opacity: 1 !important;
+  transform: none !important;
+  pointer-events: auto !important;
+}

@@ -664,6 +664,7 @@ header{
 .reveal-up{
     opacity: 1;
     transform: none;
+    visibility: visible !important;
 }
 
 .hero-carousel-frame{

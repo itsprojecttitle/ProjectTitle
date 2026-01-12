@@ -99,6 +99,7 @@ const Header = ({
 
     return (
         <>
+            <div className="safe-area-top" aria-hidden="true" />
             <div
                 className="header-hover-zone"
                 onMouseEnter={() => setIsPeek(true)}

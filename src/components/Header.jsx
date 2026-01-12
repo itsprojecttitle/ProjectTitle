@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { getScrollRoot, getScrollTop } from "../utils/scrollRoot.js";
 const Header = ({
     isMenuOpen,
     onToggleMenu,
@@ -66,9 +67,11 @@ const Header = ({
         const header = document.getElementById("main-header");
         if (!header) return;
 
-        let lastY = window.scrollY;
+        const scrollRoot = getScrollRoot();
+        if (!scrollRoot) return;
+        let lastY = getScrollTop();
         const onScroll = () => {
-            const y = window.scrollY;
+            const y = getScrollTop();
             header.classList.toggle("is-scrolled", y > 20);
             if (header.classList.contains("is-peek")) {
                 header.classList.remove("is-hidden");
@@ -80,8 +83,8 @@ const Header = ({
             lastY = y;
         };
 
-        window.addEventListener("scroll", onScroll, { passive: true });
-        return () => window.removeEventListener("scroll", onScroll);
+        scrollRoot.addEventListener("scroll", onScroll, { passive: true });
+        return () => scrollRoot.removeEventListener("scroll", onScroll);
     }, []);
 
     const isBookNowPage = window.location.pathname.endsWith("/BookNow.html");

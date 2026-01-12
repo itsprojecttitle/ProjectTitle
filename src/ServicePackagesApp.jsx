@@ -5,6 +5,7 @@ import ServicePackages from "./sections/ServicePackages";
 import { serviceDetails } from "./data/serviceDetails";
 import { initScrollAnimations } from "./utils/scrollAnimations";
 import { initLinkTargets } from "./utils/linkTargets";
+import { getScrollRoot, getScrollTop } from "./utils/scrollRoot.js";
 
 const ServicePackagesApp = () => {
     const [burgerOpen, setBurgerOpen] = useState(false);
@@ -30,9 +31,11 @@ const ServicePackagesApp = () => {
     useEffect(() => initScrollAnimations(), []);
     useEffect(() => initLinkTargets(), []);
     useEffect(() => {
-        let lastY = window.scrollY;
+        const scrollRoot = getScrollRoot();
+        if (!scrollRoot) return;
+        let lastY = getScrollTop();
         const toggleFloating = () => {
-            const y = window.scrollY;
+            const y = getScrollTop();
             const scrollingDown = y > lastY;
             const shouldHide = y > 80 && scrollingDown;
             document.querySelectorAll(".back-to-top, .social-float").forEach((el) => {
@@ -41,8 +44,8 @@ const ServicePackagesApp = () => {
             lastY = y;
         };
         toggleFloating();
-        window.addEventListener("scroll", toggleFloating, { passive: true });
-        return () => window.removeEventListener("scroll", toggleFloating);
+        scrollRoot.addEventListener("scroll", toggleFloating, { passive: true });
+        return () => scrollRoot.removeEventListener("scroll", toggleFloating);
     }, []);
 
     return (

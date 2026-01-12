@@ -28,6 +28,18 @@ body{
     padding-right: env(safe-area-inset-right);
 }
 
+body::after{
+    content: "";
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 48px;
+    background: linear-gradient(to top, rgba(0,0,0,0.65), rgba(0,0,0,0));
+    pointer-events: none;
+    z-index: 9998;
+}
+
 header{
     color: #fff;
 }

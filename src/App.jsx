@@ -71,7 +71,7 @@ const App = () => {
         const toggleFloating = () => {
             const y = window.scrollY;
             const shouldHide = y < 80;
-            document.querySelectorAll(".back-to-top, .social-float").forEach((el) => {
+            document.querySelectorAll(".back-to-top").forEach((el) => {
                 el.classList.toggle("is-hidden", shouldHide);
             });
         };

@@ -3,9 +3,6 @@ import ReactDOM from "react-dom/client";
 import FullPortfolioApp from "./FullPortfolioApp.jsx";
 import "./styles/tailwind-runtime.css";
 import "./styles/index.css";
-import applyBodyLock from "./utils/applyBodyLock.js";
-
-applyBodyLock();
 
 ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>

@@ -6,7 +6,7 @@
     --btn-bg: #0d0d0d;/* button bg color*/
 
     --header-h: 60px;
-    --safe-top: env(safe-area-inset-top, 0px);
+    --safe-top: env(safe-area-max-inset-top, env(safe-area-inset-top, 0px));
 
     --primary-text-color: #000;
     --header-link-hover: #fff;
@@ -19,12 +19,6 @@ html {
     scroll-behavior: smooth;
     font-family: "Roboto", sans-serif;
     background: #000;
-}
-
-@supports (height: env(safe-area-max-inset-top)) {
-    :root{
-        --safe-top: env(safe-area-max-inset-top);
-    }
 }
 
 html::before{

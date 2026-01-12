@@ -28,18 +28,6 @@ body{
     padding-right: env(safe-area-inset-right);
 }
 
-body::before{
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: var(--safe-top);
-    background: #000;
-    z-index: 9999;
-    pointer-events: none;
-}
-
 body::after{
     content: "";
     position: fixed;
@@ -414,7 +402,8 @@ header > .collapsible-header{
   backdrop-filter: blur(12px);
   pointer-events: none;
   z-index: 0;
-  opacity: 1;
+  opacity: 0;
+  transition: opacity 200ms ease;
 }
 
 #main-header > *{
@@ -433,6 +422,9 @@ header > .collapsible-header{
   opacity: 0;
 }
 
+#main-header.is-scrolled::after{
+  opacity: 1;
+}
 
 #main-header.is-hidden{
   transform: translateY(-110%);

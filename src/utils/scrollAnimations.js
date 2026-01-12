@@ -1,9 +1,14 @@
 export const initScrollAnimations = () => {
     if (!window.gsap || !window.ScrollTrigger) return () => {};
 
+    const isSmallScreen = window.matchMedia("(max-width: 900px)").matches;
+    const prefersReducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+    ).matches;
+    if (isSmallScreen || prefersReducedMotion) return () => {};
+
     const { gsap, ScrollTrigger } = window;
     gsap.registerPlugin(ScrollTrigger);
-    document.documentElement.classList.add("has-gsap");
 
     gsap.set(".reveal-hero-text, .reveal-up", { opacity: 0, y: 18 });
 

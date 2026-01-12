@@ -3,7 +3,7 @@ export const portfolioItems = [
         title: "Photos",
         description:
             "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae, vero.",
-        image: "/assets/images/home/newyork.jpg",
+        image: "/assets/images/home/dsc00279.jpg",
     },
     {
         title: "Entertainment",

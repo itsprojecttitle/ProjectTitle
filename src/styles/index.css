@@ -35,7 +35,7 @@ body::before{
     left: 0;
     right: 0;
     height: var(--safe-top);
-    background: transparent;
+    background: #000;
     z-index: 9999;
     pointer-events: none;
 }
@@ -2552,8 +2552,7 @@ a.btn:hover{
   backdrop-filter: blur(12px);
   pointer-events: none;
   z-index: 0;
-  opacity: 0;
-  transition: opacity 200ms ease;
+  opacity: 1;
 }
 
 #main-header > *{
@@ -2573,9 +2572,6 @@ a.btn:hover{
   opacity: 0;
 }
 
-#main-header.is-scrolled::after{
-  opacity: 1;
-}
 
 #main-header.is-hidden{
   transform: translateY(-110%);

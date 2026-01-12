@@ -4,7 +4,7 @@ import Footer from "./components/Footer.jsx";
 import Media from "./pages/Media.jsx";
 import { initScrollAnimations } from "./utils/scrollAnimations.js";
 import { initLinkTargets } from "./utils/linkTargets.js";
-import { getScrollRoot, getScrollTop } from "./utils/scrollRoot.js";
+import { addScrollListener, getScrollTop } from "./utils/scrollRoot.js";
 
 const MediaApp = () => {
     const [burgerOpen, setBurgerOpen] = useState(false);
@@ -30,8 +30,6 @@ const MediaApp = () => {
     useEffect(() => initScrollAnimations(), []);
     useEffect(() => initLinkTargets(), []);
     useEffect(() => {
-        const scrollRoot = getScrollRoot();
-        if (!scrollRoot) return;
         let lastY = getScrollTop();
         const toggleFloating = () => {
             const y = getScrollTop();
@@ -43,8 +41,8 @@ const MediaApp = () => {
             lastY = y;
         };
         toggleFloating();
-        scrollRoot.addEventListener("scroll", toggleFloating, { passive: true });
-        return () => scrollRoot.removeEventListener("scroll", toggleFloating);
+        const cleanup = addScrollListener(toggleFloating);
+        return cleanup;
     }, []);
 
     useEffect(() => {

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getScrollRoot, getScrollTop } from "../utils/scrollRoot.js";
+import { addScrollListener, getScrollTop } from "../utils/scrollRoot.js";
 const Header = ({
     isMenuOpen,
     onToggleMenu,
@@ -67,8 +67,6 @@ const Header = ({
         const header = document.getElementById("main-header");
         if (!header) return;
 
-        const scrollRoot = getScrollRoot();
-        if (!scrollRoot) return;
         let lastY = getScrollTop();
         const onScroll = () => {
             const y = getScrollTop();
@@ -83,8 +81,8 @@ const Header = ({
             lastY = y;
         };
 
-        scrollRoot.addEventListener("scroll", onScroll, { passive: true });
-        return () => scrollRoot.removeEventListener("scroll", onScroll);
+        const cleanup = addScrollListener(onScroll);
+        return cleanup;
     }, []);
 
     const isBookNowPage = window.location.pathname.endsWith("/BookNow.html");

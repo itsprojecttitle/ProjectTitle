@@ -5,7 +5,7 @@ import ServicePackages from "./sections/ServicePackages";
 import { serviceDetails } from "./data/serviceDetails";
 import { initScrollAnimations } from "./utils/scrollAnimations";
 import { initLinkTargets } from "./utils/linkTargets";
-import { getScrollRoot, getScrollTop } from "./utils/scrollRoot.js";
+import { addScrollListener, getScrollTop } from "./utils/scrollRoot.js";
 
 const ServicePackagesApp = () => {
     const [burgerOpen, setBurgerOpen] = useState(false);
@@ -31,8 +31,6 @@ const ServicePackagesApp = () => {
     useEffect(() => initScrollAnimations(), []);
     useEffect(() => initLinkTargets(), []);
     useEffect(() => {
-        const scrollRoot = getScrollRoot();
-        if (!scrollRoot) return;
         let lastY = getScrollTop();
         const toggleFloating = () => {
             const y = getScrollTop();
@@ -44,8 +42,8 @@ const ServicePackagesApp = () => {
             lastY = y;
         };
         toggleFloating();
-        scrollRoot.addEventListener("scroll", toggleFloating, { passive: true });
-        return () => scrollRoot.removeEventListener("scroll", toggleFloating);
+        const cleanup = addScrollListener(toggleFloating);
+        return cleanup;
     }, []);
 
     return (

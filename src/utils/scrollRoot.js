@@ -21,3 +21,21 @@ export const getScrollTop = () => {
     const root = getScrollRoot();
     return root ? root.scrollTop : 0;
 };
+
+export const addScrollListener = (handler) => {
+    if (typeof window === "undefined") return () => {};
+    const root = getScrollRoot();
+    const listener = () => handler(getScrollTop());
+
+    window.addEventListener("scroll", listener, { passive: true });
+    if (root && root !== window && root !== document.documentElement) {
+        root.addEventListener("scroll", listener, { passive: true });
+    }
+
+    return () => {
+        window.removeEventListener("scroll", listener);
+        if (root && root !== window && root !== document.documentElement) {
+            root.removeEventListener("scroll", listener);
+        }
+    };
+};

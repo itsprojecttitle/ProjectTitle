@@ -6,7 +6,7 @@ import AboutUs from "./sections/AboutUs.jsx";
 import FAQ from "./sections/FAQ.jsx";
 import { initScrollAnimations } from "./utils/scrollAnimations.js";
 import { initLinkTargets } from "./utils/linkTargets.js";
-import { getScrollRoot, getScrollTop } from "./utils/scrollRoot.js";
+import { addScrollListener, getScrollTop } from "./utils/scrollRoot.js";
 
 const ContactApp = () => {
     const [burgerOpen, setBurgerOpen] = useState(false);
@@ -27,8 +27,6 @@ const ContactApp = () => {
     useEffect(() => initScrollAnimations(), []);
     useEffect(() => initLinkTargets(), []);
     useEffect(() => {
-        const scrollRoot = getScrollRoot();
-        if (!scrollRoot) return;
         let lastY = getScrollTop();
         const toggleFloating = () => {
             const y = getScrollTop();
@@ -40,8 +38,8 @@ const ContactApp = () => {
             lastY = y;
         };
         toggleFloating();
-        scrollRoot.addEventListener("scroll", toggleFloating, { passive: true });
-        return () => scrollRoot.removeEventListener("scroll", toggleFloating);
+        const cleanup = addScrollListener(toggleFloating);
+        return cleanup;
     }, []);
 
     return (

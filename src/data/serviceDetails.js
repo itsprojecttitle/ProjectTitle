@@ -64,7 +64,7 @@ const makeService = (title, summary, detailHref, packagesHref) => ({
             stripeLink: "",
         },
         {
-            title: "Industry Standard Project",
+            title: "Industry Standard",
             copy: "Premium output aligned with benchmarks.",
             details:
                 "High-end production with strategic planning, polished visuals, and rollout support.",
@@ -161,7 +161,7 @@ setSimplybookLinks(serviceDetails.videography, {
         "https://projecttitle.simplybook.it/v2/#book/category/1/service/41/count/1/",
     Professional:
         "https://projecttitle.simplybook.it/v2/#book/category/1/service/42/count/1/",
-    "Industry Standard Project":
+    "Industry Standard":
         "https://projecttitle.simplybook.it/v2/#book/category/1/service/43/count/1/",
 });
 
@@ -174,7 +174,7 @@ setSimplybookLinks(serviceDetails.photography, {
         "https://projecttitle.simplybook.it/v2/#book/category/9/service/46/count/1/",
     Professional:
         "https://projecttitle.simplybook.it/v2/#book/category/9/service/45/count/1/",
-    "Industry Standard Project":
+    "Industry Standard":
         "https://projecttitle.simplybook.it/v2/#book/category/9/service/44/count/1/",
 });
 
@@ -185,7 +185,7 @@ setSimplybookLinks(serviceDetails.studio, {
         "https://projecttitle.simplybook.it/v2/#book/category/10/service/51/count/1/",
     Professional:
         "https://projecttitle.simplybook.it/v2/#book/category/10/service/52/count/1/",
-    "Industry Standard Project":
+    "Industry Standard":
         "https://projecttitle.simplybook.it/v2/#book/category/10/service/53/count/1/",
 });
 
@@ -196,7 +196,7 @@ setSimplybookLinks(serviceDetails.bundles, {
         "https://projecttitle.simplybook.it/v2/#book/category/12/service/57/count/1/",
     Professional:
         "https://projecttitle.simplybook.it/v2/#book/category/12/service/56/count/1/",
-    "Industry Standard Project":
+    "Industry Standard":
         "https://projecttitle.simplybook.it/v2/#book/category/12/service/58/count/1/",
 });
 

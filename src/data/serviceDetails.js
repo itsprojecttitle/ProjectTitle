@@ -24,7 +24,7 @@ const makeService = (title, summary, detailHref, packagesHref) => ({
     images: baseImages,
     tiers: [
         {
-            title: "Starter",
+            title: "Standard",
             copy: "Lean setup for quick turnarounds and tight budgets.",
             details:
                 "Lightweight production focused on essentials, ideal for fast delivery and minimal crew.",
@@ -34,7 +34,7 @@ const makeService = (title, summary, detailHref, packagesHref) => ({
             stripeLink: "",
         },
         {
-            title: "Signature",
+            title: "Advanced",
             copy: "Balanced package with creative direction and polish.",
             details:
                 "Creative direction plus full production support, built for high‑quality releases.",
@@ -44,7 +44,7 @@ const makeService = (title, summary, detailHref, packagesHref) => ({
             stripeLink: "",
         },
         {
-            title: "Elite",
+            title: "Professional",
             copy: "Full‑scale production built for premium campaigns.",
             details:
                 "Full‑scale package with elevated visuals, expanded crew, and full rollout assets.",
@@ -94,6 +94,19 @@ export const serviceDetails = {
         "/ServicePackages-DigitalCourse.html"
     ),
 };
+
+serviceDetails.promotion.tiers = [
+    {
+        title: "Campaign",
+        copy: "Targeted promotion built for measurable growth.",
+        details:
+            "Campaign support with creative direction, rollout planning, and launch execution.",
+        info: ["Turnaround: 3 weeks", "Crew size: 3–6", "Deliverables: campaign suite"],
+        extras: ["Release strategy", "Content calendar", "2 rounds of notes"],
+        policy: ["50% deposit to book", "2 revisions included", "Delivery in 21 days"],
+        stripeLink: "",
+    },
+];
 
 export const serviceKeys = Object.keys(serviceDetails);
 

@@ -28,11 +28,15 @@ export const serviceItems = [
         description: "Targeted campaigns built for measurable growth.",
         href: "/ServicePackages-CampaignDevelopment.html",
         image: "/assets/images/home/hospital.jpg",
+        disabled: true,
+        statusLabel: "Coming soon",
     },
     {
         title: "Digital Course",
         description: "Learn the workflow from concept to delivery.",
         href: "/ServicePackages-DigitalCourse.html",
         image: "/assets/images/home/solar.jpg",
+        disabled: true,
+        statusLabel: "Coming soon",
     },
 ];

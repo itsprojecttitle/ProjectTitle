@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
 import BookingServices from "./sections/BookingServices.jsx";
+import FloatingWidget from "./components/FloatingWidget.jsx";
 import { initScrollAnimations } from "./utils/scrollAnimations.js";
 import { initLinkTargets } from "./utils/linkTargets.js";
 import { addScrollListener, getScrollTop } from "./utils/scrollRoot.js";
@@ -75,9 +76,6 @@ const BookingApp = () => {
                         <a className="bm-menu-item" href="/Contact.html">
                             Contact us
                         </a>
-                        <a className="bm-menu-item bm-menu-cta tw-bg-secondary tw-text-black" href="/BookNow.html">
-                            Book Now
-                        </a>
                     </div>
                 </nav>
             </div>
@@ -97,6 +95,7 @@ const BookingApp = () => {
                     <main>
                         <BookingServices />
                     </main>
+                    <FloatingWidget />
                     <button
                         type="button"
                         className="back-to-top"

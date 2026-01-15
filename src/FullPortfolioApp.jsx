@@ -5,6 +5,7 @@ import FullPortfolio from "./pages/FullPortfolio.jsx";
 import { initScrollAnimations } from "./utils/scrollAnimations.js";
 import { initLinkTargets } from "./utils/linkTargets.js";
 import { addScrollListener, getScrollTop } from "./utils/scrollRoot.js";
+import FloatingWidget from "./components/FloatingWidget.jsx";
 
 const FullPortfolioApp = () => {
     const [burgerOpen, setBurgerOpen] = useState(false);
@@ -167,13 +168,6 @@ const FullPortfolioApp = () => {
                         <a className="bm-menu-item" href="/Contact.html" onClick={triggerHeaderHide}>
                             Contact us
                         </a>
-                        <a
-                            className="bm-menu-item bm-menu-cta tw-bg-secondary tw-text-black"
-                            href="/BookNow.html"
-                            onClick={triggerHeaderHide}
-                        >
-                            Book Now
-                        </a>
                     </div>
                 </nav>
             </div>
@@ -194,6 +188,7 @@ const FullPortfolioApp = () => {
                     <main>
                         <FullPortfolio />
                     </main>
+                    <FloatingWidget />
                     <button
                         type="button"
                         className="back-to-top"

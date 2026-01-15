@@ -4,6 +4,9 @@ const MediaCard = ({
     title,
     description,
     image,
+    href = "#",
+    statusLabel = "Learn more",
+    disabled = false,
     variant = "default",
     className = "",
 }) => {
@@ -11,11 +14,14 @@ const MediaCard = ({
         variant === "inverse"
             ? "portfolio-card-inverse"
             : "tw-bg-[#f3f3f3b4]";
+    const statusText = disabled
+        ? statusLabel || "Launching soon"
+        : statusLabel;
 
     return (
         <div
-            className={`media-card reveal-up ${className} tw-flex tw-h-fit tw-w-[450px] tw-break-inside-avoid tw-flex-col tw-gap-2 tw-rounded-lg ${baseClass} tw-p-4 tw-shadow-lg max-lg:tw-w-full max-lg:tw-max-w-[400px]`}
-        >
+        className={`media-card reveal-up ${className} tw-flex tw-h-fit tw-w-[450px] tw-break-inside-avoid tw-flex-col tw-gap-2 tw-rounded-lg ${baseClass} tw-p-4 tw-shadow-lg max-lg:tw-w-full max-lg:tw-max-w-[400px] ${disabled ? "media-card--disabled" : ""}`}
+    >
             <div className="tw-flex tw-place-items-center tw-gap-3">
                 <div className="tw-h-[300px] tw-w-full tw-overflow-hidden tw-rounded-lg">
                     <img
@@ -30,9 +36,17 @@ const MediaCard = ({
                 <p className={variant === "inverse" ? "" : "tw-text-gray-600"}>
                     {description}
                 </p>
-                <a href="http://" className="tw-mt-4">
-                    <span>Learn more</span>
-                    <i className="bi bi-arrow-right"></i>
+                <a
+                    href={disabled ? undefined : href}
+                    className={`tw-mt-4 tw-inline-flex tw-items-center tw-gap-2 tw-text-sm tw-font-semibold ${
+                        disabled ? "tw-text-gray-400" : "tw-text-black"
+                    }`}
+                    aria-disabled={disabled ? "true" : "false"}
+                >
+                    <span>{statusText}</span>
+                    {!disabled && (
+                        <i className="bi bi-arrow-right tw-text-base"></i>
+                    )}
                 </a>
             </div>
         </div>

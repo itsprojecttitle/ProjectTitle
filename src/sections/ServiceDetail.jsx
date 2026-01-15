@@ -19,6 +19,9 @@ const ServiceDetail = ({ service, serviceKey }) => {
     return (
         <section className="service-detail-section">
             <div className="service-detail-inner">
+                <a className="service-detail-back" href="/BookNow.html">
+                    ← &nbsp;Back
+                </a>
                 <header className="service-detail-header">
                     <h1 className="service-detail-title reveal-up">
                         {activeTier?.title}

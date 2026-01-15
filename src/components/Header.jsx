@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { addScrollListener, getScrollTop } from "../utils/scrollRoot.js";
+import React, { useState } from "react";
 const Header = ({
     isMenuOpen,
     onToggleMenu,
@@ -63,28 +62,6 @@ const Header = ({
             window.scrollTo({ top: 0, behavior: "smooth" });
         }
     };
-    useEffect(() => {
-        const header = document.getElementById("main-header");
-        if (!header) return;
-
-        let lastY = getScrollTop();
-        const onScroll = () => {
-            const y = getScrollTop();
-            header.classList.toggle("is-scrolled", y > 20);
-            if (header.classList.contains("is-peek")) {
-                header.classList.remove("is-hidden");
-                lastY = y;
-                return;
-            }
-            if (y > lastY && y > 80) header.classList.add("is-hidden");
-            else header.classList.remove("is-hidden");
-            lastY = y;
-        };
-
-        const cleanup = addScrollListener(onScroll);
-        return cleanup;
-    }, []);
-
     const isBookNowPage = window.location.pathname.endsWith("/BookNow.html");
     const primaryNav = {
         label: "Home",
@@ -97,21 +74,14 @@ const Header = ({
         },
     };
     const ctaText = isBookNowPage ? "Home" : ctaLabel;
-
     return (
         <>
-            <div
-                className="header-hover-zone"
-                onMouseEnter={() => setIsPeek(true)}
-                onMouseLeave={() => setIsPeek(false)}
-                aria-hidden="true"
-            />
             <header
                 id="main-header"
-                className={`tw-fixed tw-top-0 tw-z-20 tw-flex tw-h-[60px] tw-w-full tw-px-[5%] tw-text-white max-lg:tw-px-2 tw-justify-between lg:tw-justify-around tw-items-center tw-transition-transform tw-duration-300 ${
+                className={`tw-z-20 tw-flex tw-h-[60px] tw-w-full tw-px-[5%] tw-text-white max-lg:tw-px-2 tw-justify-between lg:tw-justify-around tw-items-center tw-transition-transform tw-duration-300 ${
                     isPeek ? "is-peek" : ""
                 }`}
-                style={{ top: 0, width: "100%", zIndex: 100 }}
+                style={{ width: "100%", zIndex: 100 }}
                 onMouseEnter={() => setIsPeek(true)}
                 onMouseLeave={() => setIsPeek(false)}
             >
@@ -197,25 +167,11 @@ const Header = ({
                 </nav>
             </div>
             {showBookNow ? (
-                <a
-                    href={isBookNowPage ? "/" : "/BookNow.html"}
-                    aria-label="signup"
-                    className="header-cta header-cta-desktop tw-flex tw-h-[40px] tw-place-items-center tw-gap-2 tw-bg-secondary tw-p-1 tw-px-4 tw-text-black tw-mt-1 tw-transition-colors tw-duration-[0.5s] hover:tw-bg-black hover:tw-text-white max-lg:tw-hidden desktop-only"
-                    onClick={() => {
-                        peekHeader();
-                        triggerHeaderHide();
-                    }}
-                >
-                    <span>{ctaText}</span>
-                </a>
-            ) : null}
-
-            <div className="tw-flex tw-items-center tw-gap-4 lg:tw-hidden mobile-only">
-                {showBookNow ? (
+                <div className="header-cta-stack max-lg:tw-hidden desktop-only">
                     <a
                         href={isBookNowPage ? "/" : "/BookNow.html"}
                         aria-label="signup"
-                        className="header-cta tw-flex tw-h-[40px] tw-place-items-center tw-gap-2 tw-bg-secondary tw-p-1 tw-px-4 tw-text-black tw-mt-1 tw-transition-colors tw-duration-[0.5s] hover:tw-bg-black hover:tw-text-white"
+                        className="header-cta header-cta-desktop tw-flex tw-h-[40px] tw-place-items-center tw-gap-2 tw-bg-secondary tw-p-1 tw-px-4 tw-text-black tw-mt-1 tw-transition-colors tw-duration-[0.5s] hover:tw-bg-black hover:tw-text-white"
                         onClick={() => {
                             peekHeader();
                             triggerHeaderHide();
@@ -223,6 +179,23 @@ const Header = ({
                     >
                         <span>{ctaText}</span>
                     </a>
+                </div>
+            ) : null}
+            <div className="tw-flex tw-items-center tw-gap-4 lg:tw-hidden mobile-only">
+                {showBookNow ? (
+                    <div className="header-cta-stack">
+                        <a
+                            href={isBookNowPage ? "/" : "/BookNow.html"}
+                            aria-label="signup"
+                            className="header-cta tw-flex tw-h-[40px] tw-place-items-center tw-gap-2 tw-bg-secondary tw-p-1 tw-px-4 tw-text-black tw-mt-1 tw-transition-colors tw-duration-[0.5s] hover:tw-bg-black hover:tw-text-white"
+                            onClick={() => {
+                                peekHeader();
+                                triggerHeaderHide();
+                            }}
+                        >
+                            <span>{ctaText}</span>
+                        </a>
+                    </div>
                 ) : null}
                 <button
                     id="burger-toggle"

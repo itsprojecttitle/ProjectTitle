@@ -6,6 +6,7 @@ import { serviceDetails } from "./data/serviceDetails";
 import { initScrollAnimations } from "./utils/scrollAnimations";
 import { initLinkTargets } from "./utils/linkTargets";
 import { addScrollListener, getScrollTop } from "./utils/scrollRoot.js";
+import FloatingWidget from "./components/FloatingWidget.jsx";
 
 const ServicePackagesApp = () => {
     const [burgerOpen, setBurgerOpen] = useState(false);
@@ -81,9 +82,6 @@ const ServicePackagesApp = () => {
                         <a className="bm-menu-item" href="/Contact.html">
                             Contact us
                         </a>
-                        <a className="bm-menu-item bm-menu-cta tw-bg-secondary tw-text-black" href="/BookNow.html">
-                            Book Now
-                        </a>
                     </div>
                 </nav>
             </div>
@@ -103,6 +101,7 @@ const ServicePackagesApp = () => {
                     <main>
                         <ServicePackages service={service} serviceKey={serviceKey} />
                     </main>
+                    <FloatingWidget />
                     <button
                         type="button"
                         className="back-to-top"

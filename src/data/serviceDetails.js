@@ -96,3 +96,17 @@ export const serviceDetails = {
 };
 
 export const serviceKeys = Object.keys(serviceDetails);
+
+serviceDetails.videography.tiers[0].simplybookLink =
+    "https://projecttitle.simplybook.it/v2/#book/category/1/service/10/count/1/provider/2/";
+serviceDetails.videography.tiers[1].simplybookLink =
+    "https://projecttitle.simplybook.it/v2/#book/category/1/service/41/count/1/";
+serviceDetails.videography.tiers[2].simplybookLink =
+    "https://projecttitle.simplybook.it/v2/#book/category/1/service/42/count/1/";
+
+serviceDetails.photography.tiers[0].simplybookLink =
+    "https://projecttitle.simplybook.it/v2/#book/category/9/service/47/count/1/";
+serviceDetails.photography.tiers[1].simplybookLink =
+    "https://projecttitle.simplybook.it/v2/#book/category/9/service/46/count/1/";
+serviceDetails.photography.tiers[2].simplybookLink =
+    "https://projecttitle.simplybook.it/v2/#book/category/9/service/45/count/1/";

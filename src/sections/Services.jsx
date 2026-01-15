@@ -10,7 +10,13 @@ const Services = () => (
         <div className="portfolio-inverse-divider reveal-up tw-my-4 tw-h-[1px] tw-w-[80%]"></div>
         <div className="tw-mt-8 tw-gap-10 tw-space-y-8 max-md:tw-columns-1 lg:tw-columns-2 xl:tw-columns-3">
             {serviceItems.map((item) => (
-                <MediaCard key={item.title} {...item} variant="inverse" />
+                <MediaCard
+                    key={item.title}
+                    {...item}
+                    variant="inverse"
+                    statusLabel={item.statusLabel || "Learn more"}
+                    disabled={item.disabled}
+                />
             ))}
         </div>
     </section>

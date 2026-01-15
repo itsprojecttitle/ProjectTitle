@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { portfolioItems } from "../data/portfolio.js";
 
 const testimonials = [
@@ -18,6 +18,22 @@ const testimonials = [
 
 const Portfolio = () => {
     const [testimonialIndex, setTestimonialIndex] = useState(0);
+    const [galleryIndex, setGalleryIndex] = useState(0);
+    const galleryItems = useMemo(() => {
+        const images = import.meta.glob(
+            "/assets/images/Photos/EVENTS/*.{jpg,jpeg,png,webp}",
+            { eager: true, import: "default" }
+        );
+        const imageList = Object.values(images);
+        if (!imageList.length) {
+            return portfolioItems.filter((item) => item?.image).map((item) => item.image);
+        }
+        for (let i = imageList.length - 1; i > 0; i -= 1) {
+            const swapIndex = Math.floor(Math.random() * (i + 1));
+            [imageList[i], imageList[swapIndex]] = [imageList[swapIndex], imageList[i]];
+        }
+        return imageList;
+    }, []);
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -25,6 +41,14 @@ const Portfolio = () => {
         }, 3800);
         return () => clearInterval(interval);
     }, []);
+
+    useEffect(() => {
+        if (galleryItems.length <= 1) return undefined;
+        const interval = setInterval(() => {
+            setGalleryIndex((prev) => (prev + 1) % galleryItems.length);
+        }, 4200);
+        return () => clearInterval(interval);
+    }, [galleryItems.length]);
 
     return (
         <section
@@ -45,8 +69,8 @@ const Portfolio = () => {
                         <article className="portfolio-mosaic-card portfolio-mosaic-card--plain reveal-up">
                             <div className="portfolio-mosaic-plain-media">
                                 <img
-                                    src={portfolioItems[0].image}
-                                    alt={portfolioItems[0].title}
+                                    src={galleryItems[galleryIndex] || portfolioItems[0].image}
+                                    alt="Portfolio gallery"
                                 />
                             </div>
                         <div className="portfolio-mosaic-plain-overlay">

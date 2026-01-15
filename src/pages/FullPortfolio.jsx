@@ -1,15 +1,71 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useMemo, useState, useRef } from "react";
 import { portfolioItems } from "../data/portfolio.js";
 
-const tiles = [
-    { image: portfolioItems[0]?.image, className: "full-portfolio-tile--a" },
-    { image: portfolioItems[2]?.image, className: "full-portfolio-tile--b" },
-    { image: portfolioItems[1]?.image, className: "full-portfolio-tile--c" },
-    { image: portfolioItems[1]?.image, className: "full-portfolio-tile--h" },
-    { image: portfolioItems[2]?.image, className: "full-portfolio-tile--f" },
-].filter((item) => item.image);
+const galleryImages = [
+    "/assets/images/Photos/EVENTS/DSC00315.jpg",
+    "/assets/images/Photos/EVENTS/DSC00355.jpg",
+    "/assets/images/Photos/EVENTS/DSC00352.jpg",
+    "/assets/images/Photos/EVENTS/DSC00351.jpg",
+    "/assets/images/Photos/EVENTS/DSC00335.jpg",
+    "/assets/images/Photos/EVENTS/DSC00326.jpg",
+    "/assets/images/Photos/EVENTS/DSC00323.jpg",
+    "/assets/images/Photos/EVENTS/DSC00322.jpg",
+    "/assets/images/Photos/EVENTS/DSC00309.jpg",
+    "/assets/images/Photos/EVENTS/DSC00308.jpg",
+    "/assets/images/Photos/EVENTS/DSC00306.jpg",
+    "/assets/images/Photos/EVENTS/DSC00307.jpg",
+    "/assets/images/Photos/EVENTS/DSC00303.jpg",
+    "/assets/images/Photos/EVENTS/DSC00302.jpg",
+    "/assets/images/Photos/EVENTS/DSC00285.jpg",
+    "/assets/images/Photos/EVENTS/DSC00278.jpg",
+    "/assets/images/Photos/EVENTS/DSC00272.jpg",
+    "/assets/images/Photos/EVENTS/DSC00265.jpg",
+    "/assets/images/Photos/EVENTS/DSC00263.jpg",
+    "/assets/images/Photos/EVENTS/DSC00251.jpg",
+    "/assets/images/Photos/EVENTS/DSC00245.jpg",
+    "/assets/images/Photos/EVENTS/DSC00244.jpg",
+    "/assets/images/Photos/EVENTS/DSC00241.jpg",
+    "/assets/images/Photos/EVENTS/DSC00237.jpg",
+    "/assets/images/Photos/EVENTS/DSC00226.jpg",
+    "/assets/images/Photos/EVENTS/DSC00225.jpg",
+    "/assets/images/Photos/EVENTS/DSC00216.jpg",
+    "/assets/images/Photos/EVENTS/DSC00215.jpg",
+    "/assets/images/Photos/EVENTS/DSC00204.jpg",
+    "/assets/images/Photos/EVENTS/DSC00198.jpg",
+    "/assets/images/Photos/EVENTS/DSC00197.jpg",
+    "/assets/images/Photos/EVENTS/DSC00193.jpg",
+    "/assets/images/Photos/EVENTS/DSC00184-2.jpg",
+    "/assets/images/Photos/EVENTS/DSC00184.jpg",
+    "/assets/images/Photos/EVENTS/DSC00187.jpg",
+    "/assets/images/Photos/EVENTS/DSC00176.jpg",
+    "/assets/images/Photos/EVENTS/DSC00167.jpg",
+    "/assets/images/Photos/EVENTS/DSC00166.jpg",
+    "/assets/images/Photos/EVENTS/DSC00165.jpg",
+    "/assets/images/Photos/EVENTS/DSC00155.jpg",
+    "/assets/images/Photos/EVENTS/DSC00151.jpg",
+    "/assets/images/Photos/EVENTS/DSC00148.jpg",
+    "/assets/images/Photos/EVENTS/DSC00147.jpg",
+];
+
+const tileClasses = [
+    "full-portfolio-tile--a",
+    "full-portfolio-tile--b",
+    "full-portfolio-tile--c",
+    "full-portfolio-tile--d",
+    "full-portfolio-tile--e",
+    "full-portfolio-tile--f",
+    "full-portfolio-tile--h",
+];
 
 const FullPortfolio = ({ titleText = "Gallery" }) => {
+    const tiles = useMemo(
+        () =>
+            galleryImages.map((image, index) => ({
+                image,
+                className: tileClasses[index % tileClasses.length],
+            })),
+        []
+    );
     const [activeIndex, setActiveIndex] = useState(null);
     const touchStart = useRef(null);
 
@@ -108,7 +164,7 @@ const FullPortfolio = ({ titleText = "Gallery" }) => {
                     </div>
                 </div>
                 <div className="full-portfolio-main">
-                {portfolioItems[0] ? (
+                {tiles[0] ? (
                     <button
                         type="button"
                         className="full-portfolio-photo full-portfolio-photo--main portfolio-mosaic-card portfolio-mosaic-card--plain"
@@ -117,8 +173,8 @@ const FullPortfolio = ({ titleText = "Gallery" }) => {
                     >
                             <div className="portfolio-mosaic-plain-media">
                                 <img
-                                    src={portfolioItems[0].image}
-                                    alt={portfolioItems[0].title}
+                                    src={tiles[0].image}
+                                    alt="Gallery item"
                                 />
                             </div>
                         </button>

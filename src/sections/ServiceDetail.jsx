@@ -50,7 +50,23 @@ const ServiceDetail = ({ service, serviceKey }) => {
                         </ul>
                     </div>
                 </div>
+                <div className="service-detail-policy reveal-up">
+                    <h3>Policy</h3>
+                    <ul>
+                        {activeTier.policy.map((item) => (
+                            <li key={item}>{item}</li>
+                        ))}
+                    </ul>
+                </div>
                 <div className="service-detail-grid service-detail-grid--pair">
+                    <div className="service-detail-block reveal-up">
+                        <h3>Pricing</h3>
+                        <ul>
+                            {activeTier.info.map((item) => (
+                                <li key={`${item}-dup`}>{item}</li>
+                            ))}
+                        </ul>
+                    </div>
                     <a
                         className="service-detail-block service-detail-block--select reveal-up"
                         href={selectHref}
@@ -60,23 +76,18 @@ const ServiceDetail = ({ service, serviceKey }) => {
                     >
                         <h3>Select</h3>
                     </a>
-                    <div className="service-detail-block reveal-up">
-                        <h3>Pricing</h3>
-                        <ul>
-                            {activeTier.info.map((item) => (
-                                <li key={`${item}-dup`}>{item}</li>
-                            ))}
-                        </ul>
+                </div>
+                {serviceKey === "videography" ? (
+                    <div className="service-detail-video reveal-up">
+                        <h3>Showreel</h3>
+                        <div className="service-detail-video-frame">
+                            <video controls preload="metadata" poster="/assets/images/home/women.jpg">
+                                <source src="/assets/videos/hero.mp4" type="video/mp4" />
+                                <source src="/assets/videos/hero.webm" type="video/webm" />
+                            </video>
+                        </div>
                     </div>
-                </div>
-                <div className="service-detail-policy reveal-up">
-                    <h3>Policy</h3>
-                    <ul>
-                        {activeTier.policy.map((item) => (
-                            <li key={item}>{item}</li>
-                        ))}
-                    </ul>
-                </div>
+                ) : null}
             </div>
         </section>
     );

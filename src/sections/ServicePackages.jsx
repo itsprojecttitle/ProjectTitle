@@ -1,9 +1,14 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 
 const ServicePackages = ({ service, serviceKey }) => {
     if (!service) return null;
     const [activeTier, setActiveTier] = useState(service.tiers[0]);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const activeImage = useMemo(() => {
+        const index = service.tiers.findIndex((tier) => tier.title === activeTier.title);
+        const imageIndex = index === -1 ? 0 : index % service.images.length;
+        return service.images[imageIndex];
+    }, [activeTier, service.images, service.tiers]);
     const selectHref = activeTier?.simplybookLink || activeTier?.stripeLink || "#";
     const handleSelectClick = (event) => {
         if (selectHref === "#") return;
@@ -23,22 +28,28 @@ const ServicePackages = ({ service, serviceKey }) => {
     };
 
     return (
-        <section className="service-packages-section">
-            <div className="service-packages-inner">
-                <header className="service-packages-header">
-                    <p className="service-packages-eyebrow">PricePlan</p>
-                    <h1 className="service-packages-title">{service.title}</h1>
-                    <div className="service-packages-subline">
-                        <a
-                            className="service-detail-back service-detail-back--inline"
-                            href="/BookNow.html"
-                        >
-                            ← &nbsp;Back
-                        </a>
-                        <p className="service-packages-subtitle">Pick One Below</p>
-                    </div>
+        <section className="media-page-section service-packages-section">
+            <div className="media-page-inner service-packages-inner">
+                <header className="media-page-header service-packages-header">
+                    <a className="service-detail-back" href="/BookNow.html">
+                        ← &nbsp;Back
+                    </a>
+                    <h3 className="media-page-title reveal-up">{service.title}</h3>
+                    <p className="media-page-subtitle reveal-up">{service.summary}</p>
                 </header>
-                <div className="service-tier-grid">
+                <div className="media-player reveal-up">
+                    <div className="media-player-frame">
+                        {serviceKey === "videography" ? (
+                            <div className="showreel-placeholder">ShowReel</div>
+                        ) : (
+                            <img
+                                src={activeImage}
+                                alt={`${service.title} ${activeTier.title}`}
+                            />
+                        )}
+                    </div>
+                </div>
+                <div className="service-tier-row reveal-up" aria-label="Package selections">
                     {service.tiers.map((tier, index) => {
                         const isRaised =
                             tier.title === "Run & Gun" ||

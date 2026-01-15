@@ -31,9 +31,14 @@ const Portfolio = () => {
             id="portfolio"
             className="tw-relative tw-flex tw-min-h-[100vh] tw-w-full tw-max-w-[100vw] tw-flex-col tw-place-items-start tw-overflow-hidden tw-p-6 tw-py-5"
         >
-            <h3 className="reveal-up tw-text-7xl tw-font-semibold tw-uppercase tw-leading-[85px] max-lg:tw-text-4xl max-md:tw-leading-snug">
-                Portfolio
-            </h3>
+            <div className="tw-flex tw-flex-col tw-gap-2">
+                <h3 className="reveal-up tw-text-7xl tw-font-semibold tw-uppercase tw-leading-[85px] max-lg:tw-text-4xl max-md:tw-leading-snug">
+                    Portfolio
+                </h3>
+                <p className="reveal-up tw-text-lg tw-uppercase tw-tracking-[0.12em] max-lg:tw-text-sm">
+                    More available upon request.
+                </p>
+            </div>
             <div className="portfolio-mosaic tw-mt-8 tw-w-full tw-max-w-[1100px]">
                 <div className="portfolio-mosaic-left">
                     {portfolioItems[0] ? (

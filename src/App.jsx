@@ -127,6 +127,14 @@ const App = () => {
                     aria-label="Mobile menu"
                     onClick={() => setBurgerOpen(false)}
                 >
+
+                                        <a
+                                            className="bm-menu-item bm-menu-cta tw-bg-secondary"
+                                            href="/BookNow.html"
+                                        >
+                                            Book Now
+                                        </a>
+
                     <a
                         className="bm-menu-item"
                         href="/#hero"
@@ -179,14 +187,14 @@ const App = () => {
                     >
                         News
                     </a>
-                    <div className="bm-menu-footer">
+
                         <a className="bm-menu-item" href="/Terms.html">
                             Terms & Conditions
                         </a>
                         <a className="bm-menu-item" href="/Contact.html">
                             Contact us
                         </a>
-                    </div>
+
                 </nav>
             </div>
             <div

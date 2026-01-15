@@ -146,6 +146,9 @@ const FullPortfolioApp = () => {
                     aria-label="Mobile menu"
                     onClick={() => setBurgerOpen(false)}
                 >
+                    <a className="bm-menu-item bm-menu-cta tw-bg-secondary" href="/BookNow.html">
+                        Book Now
+                    </a>
                     <a className="bm-menu-item" href="/#hero" onClick={triggerHeaderHide}>
                         Home
                     </a>
@@ -161,14 +164,14 @@ const FullPortfolioApp = () => {
                     <a className="bm-menu-item" href="/#news" onClick={triggerHeaderHide}>
                         News
                     </a>
-                    <div className="bm-menu-footer">
+
                         <a className="bm-menu-item" href="/Terms.html" onClick={triggerHeaderHide}>
                             Terms & Conditions
                         </a>
                         <a className="bm-menu-item" href="/Contact.html" onClick={triggerHeaderHide}>
                             Contact us
                         </a>
-                    </div>
+
                 </nav>
             </div>
             <div

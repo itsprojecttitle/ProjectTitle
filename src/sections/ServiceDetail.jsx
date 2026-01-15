@@ -3,6 +3,12 @@ import React, { useEffect, useState } from "react";
 const ServiceDetail = ({ service, serviceKey }) => {
     if (!service) return null;
     const [activeTier, setActiveTier] = useState(service.tiers[0]);
+    const selectHref = activeTier?.simplybookLink || activeTier?.stripeLink || "#";
+    const handleSelectClick = (event) => {
+        if (selectHref === "#") return;
+        event.preventDefault();
+        window.open(selectHref, "_blank", "noopener,noreferrer");
+    };
     useEffect(() => {
         const storageKey = serviceKey ? `serviceTier:${serviceKey}` : "serviceTier";
         let nextTier = service.tiers[0];
@@ -45,12 +51,15 @@ const ServiceDetail = ({ service, serviceKey }) => {
                     </div>
                 </div>
                 <div className="service-detail-grid service-detail-grid--pair">
-                    <button
-                        type="button"
+                    <a
                         className="service-detail-block service-detail-block--select reveal-up"
+                        href={selectHref}
+                        target="_blank"
+                        rel="noreferrer"
+                        onClick={handleSelectClick}
                     >
                         <h3>Select</h3>
-                    </button>
+                    </a>
                     <div className="service-detail-block reveal-up">
                         <h3>Pricing</h3>
                         <ul>

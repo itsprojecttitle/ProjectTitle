@@ -4,6 +4,12 @@ const ServicePackages = ({ service, serviceKey }) => {
     if (!service) return null;
     const [activeTier, setActiveTier] = useState(service.tiers[0]);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const selectHref = activeTier?.simplybookLink || activeTier?.stripeLink || "#";
+    const handleSelectClick = (event) => {
+        if (selectHref === "#") return;
+        event.preventDefault();
+        window.open(selectHref, "_blank", "noopener,noreferrer");
+    };
 
     const handleTierSelect = (tier) => {
         try {
@@ -19,20 +25,37 @@ const ServicePackages = ({ service, serviceKey }) => {
     return (
         <section className="service-packages-section">
             <div className="service-packages-inner">
-                <a className="service-detail-back" href="/BookNow.html">
-                    ← &nbsp;Back
-                </a>
                 <header className="service-packages-header">
                     <p className="service-packages-eyebrow">PricePlan</p>
                     <h1 className="service-packages-title">{service.title}</h1>
-                    <p className="service-packages-subtitle">Pick One Below</p>
+                    <div className="service-packages-subline">
+                        <a
+                            className="service-detail-back service-detail-back--inline"
+                            href="/BookNow.html"
+                        >
+                            ← &nbsp;Back
+                        </a>
+                        <p className="service-packages-subtitle">Pick One Below</p>
+                    </div>
                 </header>
                 <div className="service-tier-grid">
-                    {service.tiers.map((tier, index) => (
+                    {service.tiers.map((tier, index) => {
+                        const isRaised =
+                            tier.title === "Run & Gun" ||
+                            tier.title === "Industry Standard Project";
+                        const isStudioInline =
+                            serviceKey === "studio" &&
+                            tier.title === "Industry Standard Project";
+
+                        return (
                         <button
                             key={tier.title}
                             type="button"
-                            className="service-tier-card service-tier-card--link reveal-up"
+                            className={`service-tier-card service-tier-card--link reveal-up ${
+                                isRaised ? "service-tier-card--raised" : ""
+                            } ${
+                                isStudioInline ? "service-tier-card--studio-inline" : ""
+                            }`}
                             onClick={() => handleTierSelect(tier)}
                         >
                             <div className="service-tier-copy">
@@ -46,7 +69,8 @@ const ServicePackages = ({ service, serviceKey }) => {
                                 />
                             </div>
                         </button>
-                    ))}
+                        );
+                    })}
                 </div>
                 {isModalOpen ? (
                     <div
@@ -98,7 +122,10 @@ const ServicePackages = ({ service, serviceKey }) => {
                                 </div>
                                 <a
                                     className="service-packages-select"
-                                    href={activeTier.stripeLink || "#"}
+                                    href={selectHref}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    onClick={handleSelectClick}
                                 >
                                     Select
                                 </a>

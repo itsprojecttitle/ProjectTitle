@@ -3,6 +3,9 @@ import { serviceItems } from "../data/services.js";
 
 const BookingServices = () => (
     <section id="Services" className="booking-services">
+        <a className="service-detail-back" href="/#hero">
+            ← &nbsp;Back
+        </a>
         <div className="booking-section-title reveal-up">
             <h2 className="reveal-up">Services</h2>
             <span></span>
@@ -19,7 +22,7 @@ const BookingServices = () => (
                         href={isDisabled ? undefined : item.href}
                         className={`booking-service-card booking-service-link reveal-up ${
                             isDisabled ? "booking-service-card--disabled" : ""
-                        }`}
+                        } ${item.className || ""}`}
                         aria-disabled={isDisabled ? "true" : "false"}
                         onClick={(event) => {
                             if (isDisabled) {

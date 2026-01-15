@@ -42,7 +42,7 @@ const ServicePackagesApp = () => {
             const y = getScrollTop();
             const scrollingDown = y > lastY;
             const shouldHide = y > 80 && scrollingDown;
-            document.querySelectorAll(".back-to-top, .social-float").forEach((el) => {
+            document.querySelectorAll(".back-to-top, .social-float, #sb_ai_widget, .sb_ai_widget-v2, #sb_ai_widget iframe, .sb_ai_widget-v2 iframe").forEach((el) => {
                 el.classList.toggle("is-hidden", shouldHide);
             });
             lastY = y;

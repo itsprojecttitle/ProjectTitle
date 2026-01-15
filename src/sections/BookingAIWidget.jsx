@@ -43,32 +43,39 @@ const BookingAIWidget = () => {
             "https://widget.simplybook.it/react-chat-widget/public/app.css"
         );
 
-        Promise.all([
-            loadScriptOnce(
-                "simplybook-ai-widget-runtime",
-                "https://widget.simplybook.it/react-chat-widget/public/runtime.js"
-            ),
-            loadScriptOnce(
-                "simplybook-ai-widget-app",
-                "https://widget.simplybook.it/react-chat-widget/public/app.js"
-            ),
-        ])
-            .then(() => {
-                if (window.__sbAIWidgetInitDone) return;
-                const container = document.getElementById("sb_ai_widget");
-                if (!container) return;
-                window.__sbAIWidgetInitDone = true;
+        const initWidget = () => {
+            if (window.__sbAIWidgetInitDone) return;
+            const container = document.getElementById("sb_ai_widget");
+            if (!container) return;
+            window.__sbAIWidgetInitDone = true;
+            if (
+                document.readyState === "complete" ||
+                document.readyState === "interactive"
+            ) {
+                document.dispatchEvent(new Event("DOMContentLoaded"));
+            }
+        };
 
-                if (
-                    document.readyState === "complete" ||
-                    document.readyState === "interactive"
-                ) {
-                    document.dispatchEvent(new Event("DOMContentLoaded"));
-                }
-            })
-            .catch(() => {
-                // ignore widget load errors
-            });
+        const ensureWidget = () => {
+            Promise.all([
+                loadScriptOnce(
+                    "simplybook-ai-widget-runtime",
+                    "https://widget.simplybook.it/react-chat-widget/public/runtime.js"
+                ),
+                loadScriptOnce(
+                    "simplybook-ai-widget-app",
+                    "https://widget.simplybook.it/react-chat-widget/public/app.js"
+                ),
+            ])
+                .then(() => {
+                    initWidget();
+                })
+                .catch(() => {
+                    // ignore widget load errors
+                });
+        };
+
+        ensureWidget();
     }, []);
 
     return (

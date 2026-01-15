@@ -8,7 +8,7 @@ const Services = () => (
             Services
         </h3>
         <div className="portfolio-inverse-divider reveal-up tw-my-4 tw-h-[1px] tw-w-[80%]"></div>
-        <div className="tw-mt-8 tw-gap-10 tw-space-y-8 max-md:tw-columns-1 lg:tw-columns-2 xl:tw-columns-3">
+        <div className="service-card-grid tw-mt-8 tw-gap-10">
             {serviceItems.map((item) => (
                 <MediaCard
                     key={item.title}

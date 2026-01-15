@@ -12,10 +12,10 @@ export const serviceItems = [
         image: "/assets/images/home/wildlife.jpg",
     },
     {
-        title: "Studio",
-        description: "Book studio time with lighting and crew options.",
-        href: "/ServicePackages-Studio.html",
-        image: "/assets/images/home/schools.jpg",
+        title: "Bundles & Packages",
+        description: "Short-form, cinematic, and event coverage packages.",
+        href: "/ServicePackages-Bundles.html",
+        image: "/assets/images/home/women.jpg",
     },
     {
         title: "Promotion",
@@ -24,19 +24,9 @@ export const serviceItems = [
         image: "/assets/images/home/vaccination.jpg",
     },
     {
-        title: "Campaign Development",
-        description: "Targeted campaigns built for measurable growth.",
-        href: "/ServicePackages-CampaignDevelopment.html",
-        image: "/assets/images/home/hospital.jpg",
-        disabled: true,
-        statusLabel: "Coming soon",
-    },
-    {
-        title: "Digital Course",
-        description: "Learn the workflow from concept to delivery.",
-        href: "/ServicePackages-DigitalCourse.html",
-        image: "/assets/images/home/solar.jpg",
-        disabled: true,
-        statusLabel: "Coming soon",
+        title: "Studio",
+        description: "Book studio time with lighting and crew options.",
+        href: "/ServicePackages-Studio.html",
+        image: "/assets/images/home/schools.jpg",
     },
 ];

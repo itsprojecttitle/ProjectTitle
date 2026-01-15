@@ -22,6 +22,11 @@ const ServiceDetailApp = () => {
     }, [burgerOpen]);
 
     useEffect(() => {
+        document.body.classList.add("service-page");
+        return () => document.body.classList.remove("service-page");
+    }, []);
+
+    useEffect(() => {
         const onKeyDown = (event) => {
             if (event.key === "Escape") setBurgerOpen(false);
         };

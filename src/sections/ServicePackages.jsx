@@ -19,6 +19,9 @@ const ServicePackages = ({ service, serviceKey }) => {
     return (
         <section className="service-packages-section">
             <div className="service-packages-inner">
+                <a className="service-detail-back" href="/BookNow.html">
+                    ← &nbsp;Back
+                </a>
                 <header className="service-packages-header">
                     <p className="service-packages-eyebrow">PricePlan</p>
                     <h1 className="service-packages-title">{service.title}</h1>

@@ -41,6 +41,14 @@ body{
     padding-right: env(safe-area-inset-right);
 }
 
+body.service-page{
+    --page-bg: #000;
+    --page-bg-soft: #000;
+    --page-bg-gradient: #000;
+    --safe-area-fade: linear-gradient(to bottom, rgba(0,0,0,0.92), rgba(0,0,0,0));
+    background: #000;
+}
+
 body::before{
     content: "";
     position: fixed;
@@ -2266,6 +2274,12 @@ a.btn:hover{
   margin-bottom: 18px;
   text-decoration: none;
   align-self: flex-start;
+  transition: transform 200ms ease, color 200ms ease;
+}
+
+.service-detail-back:hover{
+  transform: translateX(-4px);
+  color: #ffe353;
 }
 
 .service-detail-block{

@@ -122,7 +122,7 @@ const ServicePackages = ({ service, serviceKey }) => {
                                     </ul>
                                 </div>
                             </div>
-                            <div className="service-packages-modal-grid">
+                            <div className="service-packages-modal-grid service-packages-modal-grid--select">
                                 <div className="service-packages-modal-block">
                                     <h3>Pricing</h3>
                                     <ul>
@@ -141,7 +141,7 @@ const ServicePackages = ({ service, serviceKey }) => {
                                     Select
                                 </a>
                             </div>
-                            <div className="service-packages-modal-block">
+                            <div className="service-packages-modal-block service-packages-modal-block--policy">
                                 <h3>Policy</h3>
                                 <ul>
                                     {activeTier.policy.map((item) => (

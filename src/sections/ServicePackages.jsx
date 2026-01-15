@@ -7,6 +7,9 @@ const ServicePackages = ({ service, serviceKey }) => {
     const activeImage = useMemo(() => {
         const index = service.tiers.findIndex((tier) => tier.title === activeTier.title);
         const imageIndex = index === -1 ? 0 : index % service.images.length;
+        if (serviceKey === "photography") {
+            return "/assets/images/Photos/EVENTS/DSC00335.jpg";
+        }
         return service.images[imageIndex];
     }, [activeTier, service.images, service.tiers]);
     const selectHref = activeTier?.simplybookLink || activeTier?.stripeLink || "#";
@@ -50,13 +53,30 @@ const ServicePackages = ({ service, serviceKey }) => {
                     </div>
                 </div>
                 <div className="service-tier-row reveal-up" aria-label="Package selections">
-                    {service.tiers.map((tier, index) => {
+                    {service.tiers
+                        .slice()
+                        .sort((a, b) => {
+                            const order = [
+                                "Run & Gun",
+                                "Standard",
+                                "Advanced",
+                                "Professional",
+                                "Industry Standard",
+                            ];
+                            const aIndex = order.indexOf(a.title);
+                            const bIndex = order.indexOf(b.title);
+                            if (aIndex === -1 && bIndex === -1) return 0;
+                            if (aIndex === -1) return 1;
+                            if (bIndex === -1) return -1;
+                            return aIndex - bIndex;
+                        })
+                        .map((tier, index) => {
                         const isRaised =
                             tier.title === "Run & Gun" ||
-                            tier.title === "Industry Standard Project";
+                            tier.title === "Industry Standard";
                         const isStudioInline =
                             serviceKey === "studio" &&
-                            tier.title === "Industry Standard Project";
+                            tier.title === "Industry Standard";
 
                         return (
                         <button

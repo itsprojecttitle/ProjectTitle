@@ -4,6 +4,7 @@ const MediaCard = ({
     title,
     description,
     image,
+    video,
     href = "#",
     statusLabel = "Learn more",
     disabled = false,
@@ -24,11 +25,23 @@ const MediaCard = ({
     >
             <div className="tw-flex tw-place-items-center tw-gap-3">
                 <div className="tw-h-[300px] tw-w-full tw-overflow-hidden tw-rounded-lg">
-                    <img
-                        src={image}
-                        className="tw-h-full tw-w-full tw-object-cover"
-                        alt={title}
-                    />
+                    {video ? (
+                        <video
+                            src={video}
+                            className="tw-h-full tw-w-full tw-object-cover"
+                            muted
+                            loop
+                            playsInline
+                            autoPlay
+                            preload="metadata"
+                        />
+                    ) : (
+                        <img
+                            src={image}
+                            className="tw-h-full tw-w-full tw-object-cover"
+                            alt={title}
+                        />
+                    )}
                 </div>
             </div>
             <div className="tw-flex tw-flex-col tw-gap-2">

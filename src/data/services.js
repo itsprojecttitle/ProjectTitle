@@ -4,12 +4,13 @@ export const serviceItems = [
         description: "Short-form, cinematic, and event coverage packages.",
         href: "/ServicePackages-Videography.html",
         image: "/assets/images/home/women.jpg",
+        video: "/assets/images/Videos/PROJECTTITlE ｜ ELZ LAURENT_converted.mp4",
     },
     {
         title: "Photography",
         description: "Portraits, promo, and campaign-ready stills.",
         href: "/ServicePackages-Photography.html",
-        image: "/assets/images/home/wildlife.jpg",
+        image: "/assets/images/Photos/EVENTS/DSC00335.jpg",
     },
     {
         title: "Bundles & Packages",

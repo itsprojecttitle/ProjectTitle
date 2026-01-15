@@ -31,7 +31,18 @@ const BookingServices = () => (
                         }}
                     >
                         <div className="booking-service-media">
-                            <img src={item.image} alt={item.title} />
+                            {item.video ? (
+                                <video
+                                    src={item.video}
+                                    muted
+                                    loop
+                                    playsInline
+                                    autoPlay
+                                    preload="metadata"
+                                />
+                            ) : (
+                                <img src={item.image} alt={item.title} />
+                            )}
                         </div>
                         <h3>{item.title}</h3>
                         <p>{item.description}</p>

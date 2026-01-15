@@ -89,12 +89,22 @@ export const serviceDetails = {
         "/Videography.html",
         "/ServicePackages-Bundles.html"
     ),
-    photography: makeService(
-        "Photography",
-        "Portrait, promo, and campaign stills with studio‑grade polish.",
-        "/Photography.html",
-        "/ServicePackages-Photography.html"
-    ),
+    photography: {
+        ...makeService(
+            "Photography",
+            "Portrait, promo, and campaign stills with studio‑grade polish.",
+            "/Photography.html",
+            "/ServicePackages-Photography.html"
+        ),
+        images: [
+            "/assets/images/Photos/SHOOTS/DSC00636.jpg",
+            "/assets/images/Photos/SHOOTS/DSC00517.jpg",
+            "/assets/images/Photos/SHOOTS/DSC00367.jpg",
+            "/assets/images/Photos/SHOOTS/DSC09425.jpg",
+            "/assets/images/Photos/SHOOTS/DSC09411.jpg",
+            "/assets/images/Photos/SHOOTS/DSC09492.jpg",
+        ],
+    },
     studio: makeService(
         "Studio",
         "Book studio space with lighting, crew, and set support.",

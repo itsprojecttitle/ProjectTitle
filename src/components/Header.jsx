@@ -92,7 +92,7 @@ const Header = ({
                 className="header-logo"
             >
                 <img
-                    src="/assets/Red-Square4.svg"
+                    src="/assets/logo.png"
                     alt="logo"
                     className="site-logo tw-object-contain"
                 />

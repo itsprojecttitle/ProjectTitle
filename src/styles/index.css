@@ -1000,7 +1000,11 @@ header > .collapsible-header{
 .site-logo{
     transition: transform 220ms ease, filter 220ms ease;
     will-change: transform;
+    width: 30px;
+    height: 30px;
+    display: block;
 }
+
 
 .site-logo:hover{
     transform: scale(1.04);

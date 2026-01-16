@@ -3,7 +3,7 @@ import { portfolioItems } from "../data/portfolio.js";
 
 const galleryImages = [
     "/assets/images/Photos/EVENTS/DSC00315.jpg",
-    "/assets/images/Photos/EVENTS/dsc00279.jpg",
+    "/assets/images/Photos/EVENTS/DSC00279.jpg",
     "/assets/images/Photos/EVENTS/DSC00322.jpg",
     "/assets/images/Photos/EVENTS/DSC00335.jpg",
     "/assets/images/Photos/EVENTS/DSC00323.jpg",

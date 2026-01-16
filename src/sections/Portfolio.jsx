@@ -13,7 +13,7 @@ const galleryImages = [
     "/assets/images/Photos/EVENTS/DSC00241.jpg",
     "/assets/images/Photos/EVENTS/DSC00226.jpg",
     "/assets/images/Photos/EVENTS/DSC00197.jpg",
-    "/assets/images/Photos/EVENTS/dsc00279.jpg",
+    "/assets/images/Photos/EVENTS/DSC00279.jpg",
 ];
 
 const testimonials = [

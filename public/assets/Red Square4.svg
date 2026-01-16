@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 505 505">
+  <defs>
+    <style>
+      .cls-1 {
+        isolation: isolate;
+      }
+
+      .cls-2 {
+        fill: #a52116;
+      }
+
+      .cls-3 {
+        fill: #030000;
+        stroke: #000;
+        stroke-miterlimit: 10;
+        stroke-width: 5px;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g id="Red_Square4" data-name="Red Square4">
+      <g>
+        <rect class="cls-3" x="2.5" y="2.5" width="500" height="500" rx="9" ry="9"/>
+        <g class="cls-1">
+          <g class="cls-1">
+            <path class="cls-2" d="M135.47,82.1h169.9c45.5,0,65.8,19.73,65.8,73.45v94.01c0,62.95-18.33,82.26-65.8,82.26h-66.13v91.07h-103.77V82.1ZM239.24,158.91v95.69h13.75c10.8,0,14.4-7.55,14.4-24.34v-46.59c0-16.79-3.6-24.76-14.08-24.76h-14.08.01Z"/>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,120 +1,120 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 
 const faqItems = [
     {
         question: "Who are you?",
         answer:
-            "We are an anonymous British media team and creative collective focused on amplifying culture, sharpening attention, and advancing UK creative scenes.",
+            "Yes, we are an anonymous British media team and creative collective focused on amplifying culture, sharpening attention, and advancing UK creative scenes.",
     },
     {
         question: "What do you do?",
         answer:
-            "We cover and create across the UK underground, including music videos, photography, audio recording, audio engineering, mastering, campaigns, social content, live coverage, and distribution.",
+            "Yes, we cover and create across the UK underground, including music videos, photography, audio recording, audio engineering, mastering, campaigns, social content, live coverage, and distribution.",
     },
     {
         question: "Which genres do you work with?",
         answer:
-            "We have worked across grime, rap, drill, alternative, Christian rap, and more. We are open to all styles and scenes.",
+            "Yes, we have worked across grime, rap, drill, alternative, Christian rap, and more. We are open to all styles and scenes.",
     },
     {
         question: "Do you only work within the UK underground?",
         answer:
-            "Our roots are in the underground, but we are open to working across all sounds and styles.",
+            "No, our roots are in the underground, but we are open to working across all sounds and styles.",
     },
     {
         question: "Do you offer packages or one-off services?",
         answer:
-            "Both. You may book a single service or build a full package around your project.",
+            "Yes, both. You may book a single service or build a full package around your project.",
     },
     {
         question: "Do you help with creative direction or just execution?",
         answer:
-            "Both. You are welcome to bring ideas, but most clients prefer us to structure and shape the final vision.",
+            "Yes, both. You are welcome to bring ideas, but most clients prefer us to structure and shape the final vision.",
     },
     {
         question: "Who do you work with?",
         answer:
-            "Established artists, emerging talent building momentum, and anyone working toward that level.",
+            "Yes, we work with established artists, emerging talent building momentum, and anyone working toward that level.",
     },
     {
         question: "Do you work with brands and businesses?",
         answer:
-            "Yes. We approach brands slightly differently, but the aim is the same: strong ideas, clean execution, and measurable results. We are actively looking to work with more brands, events, and businesses this year.",
+            "Yes, we work with brands and businesses. We approach brands slightly differently, but the aim is the same: strong ideas, clean execution, and measurable results. We are actively looking to work with more brands, events, and businesses this year.",
     },
     {
         question: "How do I book or get in touch?",
         answer:
-            "DM, email, the website contact form, or the booking system.",
+            "Yes, you can book or get in touch via DM, email, the website contact form, or the booking system.",
     },
     {
         question: "Are you London-based or UK-wide?",
         answer:
-            "UK-wide. We travel.",
+            "Yes, we are UK-wide and travel as required.",
     },
     {
         question: "Are prices public?",
         answer:
-            "Yes. Pricing is clear and upfront.",
+            "Yes, pricing is clear and upfront.",
     },
     {
         question: "Do you require a deposit?",
         answer:
-            "No. We require full payment only.",
+            "No, we require full payment only.",
     },
     {
         question: "How long does a project take?",
         answer:
-            "Up to two weeks at most, though we typically aim for under five days. Faster turnarounds can be arranged.",
+            "Yes, most projects are completed within two weeks at most, and we typically aim for under five days. Faster turnarounds can be arranged.",
     },
     {
         question: "Do you offer revisions?",
         answer:
-            "Yes. Up to three revisions.",
+            "Yes, up to three revisions.",
     },
     {
         question: "What formats do you deliver in?",
         answer:
-            "4K video, vertical and horizontal formats, social media-ready edits, WAV files, stems, and more.",
+            "Yes, we deliver 4K video, vertical and horizontal formats, social media-ready edits, WAV files, stems, and more.",
     },
     {
         question: "Do clients receive raw files?",
         answer:
-            "Final edits only for video. Raw files for audio, unless requested otherwise.",
+            "Yes, final edits only for video. Raw files for audio, unless requested otherwise.",
     },
     {
-        question: "Do you help artists who don’t know what they want yet?",
+        question: "Do you help artists who don't know what they want yet?",
         answer:
-            "Yes. That is part of the process.",
+            "Yes, that is part of the process.",
     },
     {
         question: "Do you do last-minute bookings?",
         answer:
-            "Yes.",
+            "Yes, we do last-minute bookings.",
     },
     {
         question: "Do you travel for shoots or sessions?",
         answer:
-            "Yes.",
+            "Yes, we travel for shoots or sessions.",
     },
     {
         question: "Is content kept confidential before release?",
         answer:
-            "Always.",
+            "Yes, content is kept confidential before release.",
     },
     {
         question: "Do you help with distribution?",
         answer:
-            "Yes. We do not only create content; we also help it reach the right audiences.",
+            "Yes, we do not only create content; we also help it reach the right audiences.",
     },
     {
         question: "Do you offer refunds?",
         answer:
-            "Partial refunds are available within 24 hours of purchase. If a project is cancelled or delayed, a full refund is issued.",
+            "Yes, partial refunds are available within 24 hours of purchase. If a project is cancelled or delayed, a full refund is issued.",
     },
     {
         question: "Can other creatives collaborate with or join the team?",
         answer:
-            "Yes. We collaborate and are open to new creatives joining.",
+            "Yes, we collaborate and are open to new creatives joining.",
     },
     {
         question: "Do you accept unpaid projects?",
@@ -124,7 +124,7 @@ const faqItems = [
     {
         question: "Who owns the content?",
         answer:
-            "The client owns the content.",
+            "Yes, the client owns the content.",
     },
     {
         question: "Can you use the content for your own promotion?",
@@ -134,19 +134,20 @@ const faqItems = [
     {
         question: "Do you offer long-term partnerships?",
         answer:
-            "Yes. We offer ongoing support and long-term collaborations.",
+            "Yes, we offer ongoing support and long-term collaborations.",
     },
     {
         question: "What should I know before booking?",
         answer:
-            "Please arrive with clear aims, the right mindset, and positive energy. If you require same-day delivery, bring a memory stick.",
+            "Yes, please arrive with clear aims, the right mindset, and positive energy. If you require same-day delivery, bring a memory stick.",
     },
 ];
 
 const FAQ = () => {
-    const [activeItem, setActiveItem] = useState(null);
+    const [activeIndex, setActiveIndex] = useState(null);
     const [showAll, setShowAll] = useState(false);
     const [featuredItems, setFeaturedItems] = useState([]);
+    const touchStart = useRef(null);
 
     const pickRandom = useMemo(
         () => (items, count) => {
@@ -168,8 +169,40 @@ const FAQ = () => {
         return () => clearInterval(interval);
     }, [pickRandom]);
 
+    const openAt = (item) => {
+        const index = faqItems.findIndex((faq) => faq.question === item.question);
+        setActiveIndex(index >= 0 ? index : 0);
+    };
+
+    const close = () => setActiveIndex(null);
+    const hasActive = activeIndex !== null;
+    const activeItem = hasActive ? faqItems[activeIndex] : null;
+
+    const next = () => {
+        if (!hasActive) return;
+        setActiveIndex((prev) => (prev + 1) % faqItems.length);
+    };
+
+    const prev = () => {
+        if (!hasActive) return;
+        setActiveIndex((prev) => (prev - 1 + faqItems.length) % faqItems.length);
+    };
+
+    const onTouchStart = (event) => {
+        touchStart.current = event.touches[0].clientX;
+    };
+
+    const onTouchEnd = (event) => {
+        if (touchStart.current === null) return;
+        const delta = event.changedTouches[0].clientX - touchStart.current;
+        touchStart.current = null;
+        if (Math.abs(delta) < 40) return;
+        if (delta < 0) next();
+        else prev();
+    };
+
     return (
-        <section className="faq-section">
+        <section className="faq-section" id="faq">
             <div className="faq-inner">
                 <h2 className="faq-title reveal-up">FAQ</h2>
                 <div className="faq-grid">
@@ -178,7 +211,7 @@ const FAQ = () => {
                             key={item.question}
                             type="button"
                             className="faq-item reveal-up"
-                            onClick={() => setActiveItem(item)}
+                            onClick={() => openAt(item)}
                         >
                             <h3>{item.question}</h3>
                             <p>{item.answer}</p>
@@ -197,17 +230,29 @@ const FAQ = () => {
             </div>
 
             {activeItem ? (
-                <div className="faq-modal" onClick={() => setActiveItem(null)}>
-                    <div className="faq-modal-card" onClick={(event) => event.stopPropagation()}>
+                <div
+                    className="faq-modal"
+                    onClick={close}
+                    onTouchStart={onTouchStart}
+                    onTouchEnd={onTouchEnd}
+                >
+                    <div
+                        className="faq-modal-card faq-modal-card--fullscreen"
+                        onClick={(event) => event.stopPropagation()}
+                    >
                         <h3>{activeItem.question}</h3>
                         <p>{activeItem.answer}</p>
-                        <button
-                            type="button"
-                            className="faq-modal-close"
-                            onClick={() => setActiveItem(null)}
-                        >
-                            Close
-                        </button>
+                        <div className="faq-modal-controls">
+                            <button type="button" className="faq-modal-nav" onClick={prev}>
+                                Prev
+                            </button>
+                            <button type="button" className="faq-modal-close" onClick={close}>
+                                Close
+                            </button>
+                            <button type="button" className="faq-modal-nav" onClick={next}>
+                                Next
+                            </button>
+                        </div>
                     </div>
                 </div>
             ) : null}

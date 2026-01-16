@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 const Header = ({
     isMenuOpen,
     onToggleMenu,
@@ -9,6 +9,8 @@ const Header = ({
     ctaLabel = "Book Now",
 }) => {
     const [isPeek, setIsPeek] = useState(false);
+    const [isSearchOpen, setIsSearchOpen] = useState(false);
+    const [searchQuery, setSearchQuery] = useState("");
     const triggerHeaderHide = () => {
         const header = document.getElementById("main-header");
         if (!header) return;
@@ -74,6 +76,35 @@ const Header = ({
         },
     };
     const ctaText = isBookNowPage ? "Home" : ctaLabel;
+    const searchItems = useMemo(
+        () => [
+            { label: "FAQs", href: "/#faq" },
+            { label: "Forums", href: "/forums.html" },
+            { label: "Terms & Conditions", href: "/Terms.html" },
+            { label: "News", href: "/#news" },
+            { label: "About Us", href: "/#about" },
+            { label: "Contact", href: "/Contact.html" },
+            { label: "Media", href: "/media.html" },
+            { label: "Gallery", href: "/Gallery.html" },
+            { label: "Book Now", href: "/BookNow.html" },
+            { label: "Videography", href: "/Videography.html" },
+            { label: "Photography", href: "/Photography.html" },
+            { label: "Studio", href: "/Studio.html" },
+            { label: "Promotion", href: "/Promotion.html" },
+            { label: "Campaign Development", href: "/CampaignDevelopment.html" },
+            { label: "Digital Course", href: "/DigitalCourse.html" },
+            { label: "Service Packages", href: "/ServicePackages-Bundles.html" },
+        ],
+        []
+    );
+    const filteredSearchItems = useMemo(() => {
+        const query = searchQuery.trim().toLowerCase();
+        if (!query) return searchItems;
+        return searchItems.filter((item) =>
+            item.label.toLowerCase().includes(query)
+        );
+    }, [searchItems, searchQuery]);
+
     return (
         <>
             <header
@@ -166,21 +197,31 @@ const Header = ({
                     </a>
                 </nav>
             </div>
-            {showBookNow ? (
-                <div className="header-cta-stack max-lg:tw-hidden desktop-only">
-                    <a
-                        href={isBookNowPage ? "/" : "/BookNow.html"}
-                        aria-label="signup"
-                        className="header-cta header-cta-desktop tw-flex tw-h-[40px] tw-place-items-center tw-gap-2 tw-bg-secondary tw-p-1 tw-px-4 tw-text-black tw-mt-1 tw-transition-colors tw-duration-[0.5s] hover:tw-bg-black hover:tw-text-white"
-                        onClick={() => {
-                            peekHeader();
-                            triggerHeaderHide();
-                        }}
-                    >
-                        <span>{ctaText}</span>
-                    </a>
-                </div>
-            ) : null}
+            <div className="header-cta-row max-lg:tw-hidden desktop-only">
+                <button
+                    type="button"
+                    className="header-search-icon"
+                    aria-label="Search"
+                    onClick={() => setIsSearchOpen(true)}
+                >
+                    <i className="bi bi-search"></i>
+                </button>
+                {showBookNow ? (
+                    <div className="header-cta-stack">
+                        <a
+                            href={isBookNowPage ? "/" : "/BookNow.html"}
+                            aria-label="signup"
+                            className="header-cta header-cta-desktop tw-flex tw-h-[40px] tw-place-items-center tw-gap-2 tw-bg-secondary tw-p-1 tw-px-4 tw-text-black tw-mt-1 tw-transition-colors tw-duration-[0.5s] hover:tw-bg-black hover:tw-text-white"
+                            onClick={() => {
+                                peekHeader();
+                                triggerHeaderHide();
+                            }}
+                        >
+                            <span>{ctaText}</span>
+                        </a>
+                    </div>
+                ) : null}
+            </div>
             <div className="tw-flex tw-items-center tw-gap-4 lg:tw-hidden mobile-only">
                 {showBookNow ? (
                     <div className="header-cta-stack">
@@ -214,6 +255,44 @@ const Header = ({
                 </button>
             </div>
             </header>
+            {isSearchOpen ? (
+                <div className="header-search-modal" onClick={() => setIsSearchOpen(false)}>
+                    <div
+                        className="header-search-card"
+                        onClick={(event) => event.stopPropagation()}
+                    >
+                        <div className="header-search-header">
+                            <h3>Search</h3>
+                            <button
+                                type="button"
+                                className="header-search-close"
+                                onClick={() => setIsSearchOpen(false)}
+                            >
+                                Close
+                            </button>
+                        </div>
+                        <input
+                            type="search"
+                            className="header-search-input"
+                            placeholder="Search site..."
+                            value={searchQuery}
+                            onChange={(event) => setSearchQuery(event.target.value)}
+                        />
+                        <div className="header-search-results">
+                            {filteredSearchItems.map((item) => (
+                                <a
+                                    key={item.label}
+                                    className="header-search-result"
+                                    href={item.href}
+                                    onClick={() => setIsSearchOpen(false)}
+                                >
+                                    {item.label}
+                                </a>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            ) : null}
             {!isHomePath() ? (
                 <div className="social-float" aria-label="Social links">
                     <a

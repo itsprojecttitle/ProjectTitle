@@ -991,6 +991,29 @@ header > .collapsible-header{
   gap: 24px;
 }
 
+.header-cta-row{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-search-icon{
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.3);
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border-radius: 999px;
+}
+
+.header-search-icon:hover{
+  border-color: rgba(255,227,83,0.6);
+  color: #ffe353;
+}
+
 .header-nav-center{
   display: flex;
   align-items: center;
@@ -1041,6 +1064,73 @@ header > .collapsible-header{
 
 .header-links--booknow:hover{
     color: #000 !important;
+}
+
+.header-search-modal{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.82);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  padding: 30px 6%;
+}
+
+.header-search-card{
+  background: #111;
+  border: 1px solid rgba(255,255,255,0.15);
+  width: min(720px, 92vw);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.header-search-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-search-close{
+  background: #ffe353;
+  color: #111;
+  border: 0;
+  padding: 8px 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+}
+
+.header-search-input{
+  background: #0b0b0b;
+  border: 1px solid rgba(255,255,255,0.15);
+  color: #fff;
+  padding: 12px;
+  font-size: 1rem;
+}
+
+.header-search-results{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+}
+
+.header-search-result{
+  background: #141414;
+  border: 1px solid rgba(255,255,255,0.08);
+  color: #fff;
+  padding: 10px 12px;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.85rem;
+}
+
+.header-search-result:hover{
+  border-color: rgba(255,227,83,0.6);
+  color: #ffe353;
 }
 
 @media (min-width: 1025px){
@@ -1650,6 +1740,33 @@ a.btn:hover{
 .faq-modal-card--full{
   width: min(860px, 92vw);
   max-height: min(80vh, 720px);
+}
+
+.faq-modal-card--fullscreen{
+  width: min(720px, 90vw);
+  max-height: 90vh;
+}
+
+.faq-modal-controls{
+  margin-top: auto;
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.faq-modal-nav{
+  background: #1b1b1b;
+  color: #ffe353;
+  border: 1px solid rgba(255,255,255,0.15);
+  padding: 10px 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+}
+
+.faq-modal-nav:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 10px 18px rgba(0,0,0,0.25);
 }
 
 .faq-modal-list{

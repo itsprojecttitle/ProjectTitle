@@ -137,7 +137,7 @@ const Hero = () => {
                                     className="hero-video-link"
                                     href={link.href}
                                     target="_blank"
-                                    rel="noreferrer"
+                                    rel="noreferrer noopener"
                                 >
                                     <span className="hero-video-thumb">
                                         <img src={link.thumb} alt={link.title} />

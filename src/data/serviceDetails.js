@@ -1,7 +1,7 @@
 const baseImages = [
-    "/assets/images/home/women.jpg",
-    "/assets/images/home/wildlife.jpg",
-    "/assets/images/home/solar.jpg",
+    "/assets/images/Photos/EVENTS/DSC00355.jpg",
+    "/assets/images/Photos/EVENTS/DSC00352.jpg",
+    "/assets/images/Photos/EVENTS/DSC00335.jpg",
 ];
 
 const baseInfo = [

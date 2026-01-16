@@ -10,24 +10,24 @@ export const articleItems = [
         box: 2,
         title: "Conservation of wildlife",
         date: "Jan, 30, 2024",
-        image: "/assets/images/home/wildlife.jpg",
+        image: "/assets/images/Photos/EVENTS/DSC00335.jpg",
     },
     {
         box: 3,
         title: "Building schools in remote villages",
         date: "Feb, 21, 2024",
-        image: "/assets/images/home/schools.jpg",
+        image: "/assets/images/Photos/EVENTS/DSC00241.jpg",
     },
     {
         box: 4,
         title: "Campaign highlights",
         date: "Mar, 14, 2024",
-        image: "/assets/images/home/solar.jpg",
+        image: "/assets/images/Photos/EVENTS/DSC00355.jpg",
     },
     {
         box: 5,
         title: "Behind the scenes",
         date: "Apr, 8, 2024",
-        image: "/assets/images/home/vaccination.jpg",
+        image: "/assets/images/Photos/EVENTS/DSC00285.jpg",
     },
 ];

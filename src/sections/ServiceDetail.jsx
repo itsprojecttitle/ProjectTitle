@@ -81,7 +81,11 @@ const ServiceDetail = ({ service, serviceKey }) => {
                     <div className="service-detail-video reveal-up">
                         <h3>Showreel</h3>
                         <div className="service-detail-video-frame">
-                            <video controls preload="metadata" poster="/assets/images/home/women.jpg">
+                            <video
+                                controls
+                                preload="metadata"
+                                poster="/assets/images/Photos/EVENTS/DSC00355.jpg"
+                            >
                                 <source src="/assets/videos/hero.mp4" type="video/mp4" />
                                 <source src="/assets/videos/hero.webm" type="video/webm" />
                             </video>

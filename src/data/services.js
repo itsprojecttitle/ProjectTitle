@@ -3,7 +3,7 @@ export const serviceItems = [
         title: "Videography",
         description: "Short-form, cinematic, and event coverage packages.",
         href: "/ServicePackages-Videography.html",
-        image: "/assets/images/home/women.jpg",
+        image: "/assets/images/Photos/EVENTS/DSC00355.jpg",
         video: "https://www.youtube-nocookie.com/embed/lINkDzNWKIs?rel=0&autoplay=1&mute=1&playsinline=1",
     },
     {

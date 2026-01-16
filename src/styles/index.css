@@ -1660,10 +1660,21 @@ a.btn:hover{
   padding-right: 6px;
 }
 
+.faq-modal-item{
+  padding: 12px;
+  border-radius: 8px;
+  background: #141414;
+}
+
+.faq-modal-item:nth-child(even){
+  background: #0c0c0c;
+}
+
 .faq-modal-item h4{
   text-transform: uppercase;
   letter-spacing: 0.08em;
   font-size: 0.9rem;
+  color: #ffe353;
 }
 
 .faq-modal-item p{

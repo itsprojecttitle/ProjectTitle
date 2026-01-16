@@ -4,47 +4,47 @@ const faqItems = [
     {
         question: "Who are you?",
         answer:
-            "We're an anonymous British media team and creative collective. A group of creatives focused on making noise, creating focus, and pushing UK culture forward.",
+            "We are an anonymous British media team and creative collective focused on amplifying culture, sharpening attention, and advancing UK creative scenes.",
     },
     {
         question: "What do you do?",
         answer:
-            "We cover and create across the UK underground. Music videos, photography, audio recording, audio engineering, mastering, campaigns, social content, live coverage, and distribution.",
+            "We cover and create across the UK underground, including music videos, photography, audio recording, audio engineering, mastering, campaigns, social content, live coverage, and distribution.",
     },
     {
         question: "Which genres do you work with?",
         answer:
-            "We've worked across grime, rap, drill, alt, Christian rap, and more. We're open to all styles of music and scenes.",
+            "We have worked across grime, rap, drill, alternative, Christian rap, and more. We are open to all styles and scenes.",
     },
     {
         question: "Do you only work within the UK underground?",
         answer:
-            "Our roots are in the underground, but we're open to working across all sounds and styles.",
+            "Our roots are in the underground, but we are open to working across all sounds and styles.",
     },
     {
         question: "Do you offer packages or one-off services?",
         answer:
-            "Both. You can book a single service or build a full package around your project.",
+            "Both. You may book a single service or build a full package around your project.",
     },
     {
         question: "Do you help with creative direction or just execution?",
         answer:
-            "Both. Bring ideas if you have them, but most clients trust us to pattern it and shape the final vision.",
+            "Both. You are welcome to bring ideas, but most clients prefer us to structure and shape the final vision.",
     },
     {
         question: "Who do you work with?",
         answer:
-            "Established artists, people building momentum, and anyone aiming to reach that level.",
+            "Established artists, emerging talent building momentum, and anyone working toward that level.",
     },
     {
         question: "Do you work with brands and businesses?",
         answer:
-            "Yes. We approach brands slightly differently, but the aim is always the same. Strong ideas, clean execution, real results. We're actively looking to work with more brands, events, and businesses this year.",
+            "Yes. We approach brands slightly differently, but the aim is the same: strong ideas, clean execution, and measurable results. We are actively looking to work with more brands, events, and businesses this year.",
     },
     {
         question: "How do I book or get in touch?",
         answer:
-            "DM, email, website contact form, or booking system.",
+            "DM, email, the website contact form, or the booking system.",
     },
     {
         question: "Are you London-based or UK-wide?",
@@ -59,12 +59,12 @@ const faqItems = [
     {
         question: "Do you require a deposit?",
         answer:
-            "No. Full payment only.",
+            "No. We require full payment only.",
     },
     {
         question: "How long does a project take?",
         answer:
-            "Up to two weeks max, but we usually aim for under five days. Faster turnarounds can be arranged.",
+            "Up to two weeks at most, though we typically aim for under five days. Faster turnarounds can be arranged.",
     },
     {
         question: "Do you offer revisions?",
@@ -84,7 +84,7 @@ const faqItems = [
     {
         question: "Do you help artists who don’t know what they want yet?",
         answer:
-            "Yes. That's part of the process.",
+            "Yes. That is part of the process.",
     },
     {
         question: "Do you do last-minute bookings?",
@@ -104,7 +104,7 @@ const faqItems = [
     {
         question: "Do you help with distribution?",
         answer:
-            "Yes. We don't just create content, we help get it seen.",
+            "Yes. We do not only create content; we also help it reach the right audiences.",
     },
     {
         question: "Do you offer refunds?",
@@ -114,12 +114,12 @@ const faqItems = [
     {
         question: "Can other creatives collaborate with or join the team?",
         answer:
-            "Yes. We collaborate and we're open to new creatives joining.",
+            "Yes. We collaborate and are open to new creatives joining.",
     },
     {
         question: "Do you accept unpaid projects?",
         answer:
-            "Sometimes, depending on the cause and the cultural value.",
+            "Sometimes, depending on the cause and cultural value.",
     },
     {
         question: "Who owns the content?",
@@ -139,7 +139,7 @@ const faqItems = [
     {
         question: "What should I know before booking?",
         answer:
-            "Come with the right mindset, clear aims and goals, and good energy. If you want your project taken home the same day, bring a memory stick.",
+            "Please arrive with clear aims, the right mindset, and positive energy. If you require same-day delivery, bring a memory stick.",
     },
 ];
 
@@ -164,7 +164,7 @@ const FAQ = () => {
         setFeaturedItems(pickRandom(faqItems, 4));
         const interval = setInterval(() => {
             setFeaturedItems(pickRandom(faqItems, 4));
-        }, 12000);
+        }, 20000);
         return () => clearInterval(interval);
     }, [pickRandom]);
 

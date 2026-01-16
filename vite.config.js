@@ -27,6 +27,7 @@ export default defineConfig({
                 digitalCourse: "DigitalCourse.html",
                 servicePackagesVideography: "ServicePackages-Videography.html",
                 servicePackagesPhotography: "ServicePackages-Photography.html",
+                servicePackagesBundles: "ServicePackages-Bundles.html",
                 servicePackagesStudio: "ServicePackages-Studio.html",
                 servicePackagesPromotion: "ServicePackages-Promotion.html",
                 servicePackagesCampaign: "ServicePackages-CampaignDevelopment.html",

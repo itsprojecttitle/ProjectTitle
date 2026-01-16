@@ -14,80 +14,76 @@ const ContactSection = () => (
                     We aim to get back to you within 24 Hours.
                 </p>
             </div>
-            <form className="contact-form reveal-up" method="post" action="">
+            <form
+                className="contact-form reveal-up"
+                action="https://formspree.io/f/xkooojlw"
+                method="POST"
+            >
                 <div className="contact-field">
-                    <label className="contact-label" htmlFor="firstName">
-                        Name <span className="contact-required">(required)</span>
-                    </label>
-                    <div className="contact-grid">
-                        <input
-                            id="firstName"
-                            name="firstName"
-                            type="text"
-                            placeholder="First Name"
-                            className="contact-input"
-                            required
-                        />
-                        <input
-                            id="lastName"
-                            name="lastName"
-                            type="text"
-                            placeholder="Last Name"
-                            className="contact-input"
-                            required
-                        />
-                    </div>
-                </div>
-                <div className="contact-field">
-                    <label className="contact-label" htmlFor="email">
-                        Email <span className="contact-required">(required)</span>
+                    <label className="contact-label" htmlFor="name">
+                        Name:
                     </label>
                     <input
-                        id="email"
-                        name="email"
-                        type="email"
-                        placeholder="Email"
                         className="contact-input"
+                        type="text"
+                        id="name"
+                        name="name"
                         required
                     />
                 </div>
+
                 <div className="contact-field">
-                    <label className="contact-label" htmlFor="subject">
-                        Subject <span className="contact-required">(required)</span>
+                    <label className="contact-label" htmlFor="email">
+                        Email:
                     </label>
-                    <select
-                        id="subject"
-                        name="subject"
+                    <input
                         className="contact-input"
+                        type="email"
+                        id="email"
+                        name="email"
                         required
-                        defaultValue=""
-                    >
-                        <option value="" disabled>
-                            Select a subject
-                        </option>
-                        <option value="Collaborations">Collaborations</option>
-                        <option value="Queries">Queries</option>
-                        <option value="Phone Call">Phone Call</option>
-                        <option value="More">More</option>
-                    </select>
+                    />
                 </div>
+
                 <div className="contact-field">
                     <label className="contact-label" htmlFor="message">
-                        Message <span className="contact-required">(required)</span>
+                        Message:
                     </label>
                     <textarea
+                        className="contact-textarea"
                         id="message"
                         name="message"
-                        placeholder="Message"
-                        className="contact-textarea"
                         rows="5"
                         required
                     ></textarea>
                 </div>
+
                 <button type="submit" className="contact-submit">
-                    Submit
+                    Send Message
                 </button>
             </form>
+            <div className="contact-field contact-socials">
+                <p className="contact-label contact-label--center">Or contact us at</p>
+                <div className="contact-socials-center">
+                    <div className="social-float contact-social-float">
+                        <a href="/facebook.html" aria-label="Facebook" target="_blank" rel="noreferrer">
+                            <i className="bi bi-facebook"></i>
+                        </a>
+                        <a href="https://www.instagram.com/projecttitle/" aria-label="Instagram" target="_blank" rel="noreferrer">
+                            <i className="bi bi-instagram"></i>
+                        </a>
+                        <a href="https://x.com/ItsProjectTitle" aria-label="X" target="_blank" rel="noreferrer">
+                            <i className="bi bi-twitter-x"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@projecttitle" aria-label="TikTok" target="_blank" rel="noreferrer">
+                            <i className="bi bi-tiktok"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@ProjectTitle" aria-label="YouTube" target="_blank" rel="noreferrer">
+                            <i className="bi bi-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 );

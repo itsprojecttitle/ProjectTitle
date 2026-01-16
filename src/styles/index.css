@@ -3690,6 +3690,22 @@ body{ padding-top: calc(var(--header-h) + var(--safe-top)); }
   align-items: center;
 }
 
+.contact-socials-center{
+  display: flex;
+  justify-content: center;
+}
+
+.contact-label--center{
+  text-align: center;
+}
+
+.contact-social-float{
+  position: static;
+  left: auto;
+  bottom: auto;
+  margin: 0 auto;
+}
+
 .ember-burger-menu .bm-menu-sub{
   margin-left: 18px;
   display: flex;

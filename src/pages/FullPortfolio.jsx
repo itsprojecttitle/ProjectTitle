@@ -3,7 +3,7 @@ import { portfolioItems } from "../data/portfolio.js";
 
 const galleryImages = [
     "/assets/images/Photos/EVENTS/DSC00315.jpg",
-    "/assets/images/Photos/EVENTS/DSC00352.jpg",
+    "/assets/images/Photos/EVENTS/DSC00322.jpg",
     "/assets/images/Photos/EVENTS/DSC00335.jpg",
     "/assets/images/Photos/EVENTS/DSC00323.jpg",
     "/assets/images/Photos/EVENTS/DSC00309.jpg",
@@ -93,6 +93,9 @@ const FullPortfolio = ({ titleText = "Gallery" }) => {
         <section className="full-portfolio">
             <div className="full-portfolio-panel">
                 <div className="full-portfolio-intro">
+                    <a className="service-detail-back" href="/#hero">
+                        ← &nbsp;Back
+                    </a>
                     <h3 className="full-portfolio-title reveal-up tw-text-7xl tw-font-semibold tw-uppercase tw-leading-[85px] max-lg:tw-text-4xl max-md:tw-leading-snug">
                     {titleText}
                 </h3>
@@ -141,6 +144,7 @@ const FullPortfolio = ({ titleText = "Gallery" }) => {
                             <i className="bi bi-youtube"></i>
                         </a>
                     </div>
+                    <p className="service-packages-cta-subtitle reveal-up">Recognise anyone?</p>
                 </div>
                 <div className="full-portfolio-main">
                 {tiles[0] ? (

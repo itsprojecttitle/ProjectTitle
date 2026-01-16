@@ -126,6 +126,9 @@ const Media = () => {
         <section className="media-page-section">
             <div className="media-page-inner">
                 <header className="media-page-header">
+                    <a className="service-detail-back" href="/#hero">
+                        ← &nbsp;Back
+                    </a>
                     <h3 className="media-page-title reveal-up">Media</h3>
                     <p className="media-page-subtitle reveal-up">
                         ProjectTitle video highlights and recent work.
@@ -170,6 +173,7 @@ const Media = () => {
                             <i className="bi bi-youtube"></i>
                         </a>
                     </div>
+                    <p className="service-packages-cta-subtitle reveal-up">Pick a video</p>
                 </header>
                 <div className="media-player reveal-up">
                     <div className="media-player-frame">

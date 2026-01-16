@@ -2,6 +2,23 @@ import React, { useEffect, useRef } from "react";
 
 const Hero = () => {
     const videoRef = useRef(null);
+    const heroLinks = [
+        {
+            title: "PROJECTTITLE | ELZ LAURENT",
+            thumb: "https://img.youtube.com/vi/lINkDzNWKIs/hqdefault.jpg",
+            href: "https://www.youtube.com/watch?v=lINkDzNWKIs",
+        },
+        {
+            title: "Reekz - INCH vs MILE (Dir. ProjectTitle)",
+            thumb: "https://img.youtube.com/vi/DhI3eWrMNLI/hqdefault.jpg",
+            href: "https://www.youtube.com/watch?v=DhI3eWrMNLI",
+        },
+        {
+            title: "DON'T STUTTER | PASSIVE",
+            thumb: "https://img.youtube.com/vi/FiCyTmv6XRI/hqdefault.jpg",
+            href: "https://www.youtube.com/watch?v=FiCyTmv6XRI",
+        },
+    ];
 
     useEffect(() => {
         if (!videoRef.current) return;
@@ -97,7 +114,7 @@ const Hero = () => {
                 </div>
 
                 <div className="hero-carousel-column tw-flex tw-w-full tw-place-content-center tw-place-items-center tw-overflow-hidden max-lg:tw-max-w-[unset] max-lg:tw-justify-center">
-                    <div className="hero-video-stack tw-flex tw-w-full tw-flex-col tw-gap-3 tw-relative max-lg:tw-mt-[50px]">
+                    <div className="hero-video-stack hero-video-stack--lift tw-flex tw-w-full tw-flex-col tw-gap-3 tw-relative max-lg:tw-mt-[50px]">
                         <div
                             ref={videoRef}
                             className="hero-carousel-frame hero-video-frame is-ready tw-relative tw-flex tw-min-w-[350px] tw-max-w-[650px] tw-overflow-hidden tw-border-2 tw-border-solid tw-border-secondary tw-p-0 max-lg:tw-w-[320px] max-lg:tw-min-w-[320px]"
@@ -110,6 +127,22 @@ const Hero = () => {
                                     allowFullScreen
                                 />
                             </div>
+                        </div>
+                        <div className="hero-video-links">
+                            {heroLinks.map((link) => (
+                                <a
+                                    key={link.href}
+                                    className="hero-video-link"
+                                    href={link.href}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                >
+                                    <span className="hero-video-thumb">
+                                        <img src={link.thumb} alt={link.title} />
+                                    </span>
+                                    <span className="hero-video-text">{link.title}</span>
+                                </a>
+                            ))}
                         </div>
                     </div>
                 </div>

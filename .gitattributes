@@ -2,3 +2,9 @@ public/assets/videos/*.mp4 filter=lfs diff=lfs merge=lfs -text
 public/assets/videos/*.webm filter=lfs diff=lfs merge=lfs -text
 assets/*.webm filter=lfs diff=lfs merge=lfs -text
 public/assets/videos/*-mobile.mp4 filter=lfs diff=lfs merge=lfs -text
+assets/images/Photos/STUDIO/DSC05133.JPG filter=lfs diff=lfs merge=lfs -text
+assets/images/Photos/STUDIO/DSC05159.JPG filter=lfs diff=lfs merge=lfs -text
+assets/images/Photos/STUDIO/DSC05246.JPG filter=lfs diff=lfs merge=lfs -text
+assets/images/Photos/STUDIO/DSC05298-2.JPG filter=lfs diff=lfs merge=lfs -text
+assets/images/Photos/STUDIO/DSC05311.JPG filter=lfs diff=lfs merge=lfs -text
+assets/images/Photos/STUDIO/DSC05372-2.JPG filter=lfs diff=lfs merge=lfs -text

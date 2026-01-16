@@ -29,7 +29,7 @@ const makeService = (title, summary, detailHref, packagesHref) => ({
             details:
                 "Lightweight production focused on essentials, ideal for fast delivery and minimal crew.",
             info: ["Turnaround: 1 week", "Crew size: 2–3", "Deliverables: 1 final edit"],
-            extras: ["Basic edit pass", "Simple color balance", "1 round of notes"],
+            extras: ["Basic edit pass", "Simple colour balance", "1 round of notes"],
             policy: ["50% deposit to book", "1 revision included", "Delivery in 7 days"],
             stripeLink: "",
         },
@@ -83,12 +83,21 @@ export const serviceDetails = {
         "/Videography.html",
         "/ServicePackages-Videography.html"
     ),
-    bundles: makeService(
-        "Bundles & Packages",
-        "Cinematic video services for releases, campaigns, and live moments.",
-        "/Videography.html",
-        "/ServicePackages-Bundles.html"
-    ),
+    bundles: {
+        ...makeService(
+            "Bundles & Packages",
+            "Cinematic video services for releases, campaigns, and live moments.",
+            "/Videography.html",
+            "/ServicePackages-Bundles.html"
+        ),
+        images: [
+            "/assets/images/Photos/STUDIO/DSC05246.JPG",
+            "/assets/images/Photos/STUDIO/DSC05133.JPG",
+            "/assets/images/Photos/STUDIO/DSC05372-2.JPG",
+            "/assets/images/Photos/STUDIO/DSC05298-2.JPG",
+            "/assets/images/Photos/STUDIO/DSC05311.JPG",
+        ],
+    },
     photography: {
         ...makeService(
             "Photography",
@@ -105,24 +114,39 @@ export const serviceDetails = {
             "/assets/images/Photos/SHOOTS/DSC09492.jpg",
         ],
     },
-    studio: makeService(
-        "Studio",
-        "Book studio space with lighting, crew, and set support.",
-        "/Studio.html",
-        "/ServicePackages-Studio.html"
-    ),
+    studio: {
+        ...makeService(
+            "Studio",
+            "Book studio space with lighting, crew, and set support.",
+            "/Studio.html",
+            "/ServicePackages-Studio.html"
+        ),
+        images: [
+            "/assets/images/Photos/STUDIO/DSC05246.JPG",
+            "/assets/images/Photos/STUDIO/DSC05133.JPG",
+            "/assets/images/Photos/STUDIO/DSC05372-2.JPG",
+            "/assets/images/Photos/STUDIO/DSC05298-2.JPG",
+            "/assets/images/Photos/STUDIO/DSC05311.JPG",
+        ],
+    },
     promotion: makeService(
         "Promotion",
         "Rollout strategy and content support for launches.",
         "/Promotion.html",
         "/ServicePackages-Promotion.html"
     ),
-    campaign: makeService(
-        "Campaign Development",
-        "Targeted creative and distribution for measurable growth.",
-        "/CampaignDevelopment.html",
-        "/ServicePackages-CampaignDevelopment.html"
-    ),
+    campaign: {
+        ...makeService(
+            "Campaign Development",
+            "Targeted creative and distribution for measurable growth.",
+            "/CampaignDevelopment.html",
+            "/ServicePackages-CampaignDevelopment.html"
+        ),
+        images: [
+            "/assets/images/Photos/EVENTS/DSC09268.jpg",
+            ...baseImages,
+        ],
+    },
     digitalcourse: makeService(
         "Digital Course",
         "Learn the workflow behind a full ProjectTitle production.",
@@ -142,6 +166,11 @@ serviceDetails.promotion.tiers = [
         policy: ["50% deposit to book", "2 revisions included", "Delivery in 21 days"],
         stripeLink: "",
     },
+];
+
+serviceDetails.promotion.images = [
+    "/assets/images/Photos/EVENTS/DSC09268.jpg",
+    ...serviceDetails.promotion.images,
 ];
 
 serviceDetails.studio.tiers = serviceDetails.studio.tiers.filter(
@@ -203,9 +232,9 @@ setSimplybookLinks(serviceDetails.bundles, {
     Standard:
         "https://projecttitle.simplybook.it/v2/#book/category/12/service/55/count/1/",
     Advanced:
-        "https://projecttitle.simplybook.it/v2/#book/category/12/service/57/count/1/",
-    Professional:
         "https://projecttitle.simplybook.it/v2/#book/category/12/service/56/count/1/",
+    Professional:
+        "https://projecttitle.simplybook.it/v2/#book/category/12/service/57/count/1/",
     "Industry Standard":
         "https://projecttitle.simplybook.it/v2/#book/category/12/service/58/count/1/",
 });

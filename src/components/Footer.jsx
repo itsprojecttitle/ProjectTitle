@@ -51,7 +51,7 @@ const Footer = () => (
                     Policy
                 </a>
                 <a href="/Terms.html" className="footer-link">
-                    Terms & Condition
+                    Terms & Conditions
                 </a>
             </div>
             <div className="footer-copy">Copyright ©2026 ProjectTitle</div>

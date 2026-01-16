@@ -4,14 +4,20 @@ const ServicePackages = ({ service, serviceKey }) => {
     if (!service) return null;
     const [activeTier, setActiveTier] = useState(service.tiers[0]);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const tierImages = useMemo(() => {
+        if (serviceKey === "bundles") {
+            return service.images.slice(0, service.tiers.length);
+        }
+        return service.images;
+    }, [service.images, service.tiers.length, serviceKey]);
     const activeImage = useMemo(() => {
-        const index = service.tiers.findIndex((tier) => tier.title === activeTier.title);
-        const imageIndex = index === -1 ? 0 : index % service.images.length;
         if (serviceKey === "photography") {
             return "/assets/images/Photos/EVENTS/DSC00335.jpg";
         }
+        const index = service.tiers.findIndex((tier) => tier.title === activeTier.title);
+        const imageIndex = index === -1 ? 0 : index % service.images.length;
         return service.images[imageIndex];
-    }, [activeTier, service.images, service.tiers]);
+    }, [activeTier, service.images, service.tiers, serviceKey]);
     const selectHref = activeTier?.simplybookLink || activeTier?.stripeLink || "#";
     const handleSelectClick = (event) => {
         if (selectHref === "#") return;
@@ -30,6 +36,7 @@ const ServicePackages = ({ service, serviceKey }) => {
         setIsModalOpen(true);
     };
 
+
     return (
         <section className="media-page-section service-packages-section">
             <div className="media-page-inner service-packages-inner">
@@ -39,19 +46,37 @@ const ServicePackages = ({ service, serviceKey }) => {
                     </a>
                     <h3 className="media-page-title reveal-up">{service.title}</h3>
                     <p className="media-page-subtitle reveal-up">{service.summary}</p>
+                    <p className="service-packages-cta-subtitle reveal-up">
+                        BOOK NOW, PICK YOUR CLASS*
+                    </p>
                 </header>
-                <div className="media-player reveal-up">
-                    <div className="media-player-frame">
-                        {serviceKey === "videography" ? (
-                            <div className="showreel-placeholder">ShowReel</div>
-                        ) : (
-                            <img
-                                src={activeImage}
-                                alt={`${service.title} ${activeTier.title}`}
-                            />
-                        )}
+                {serviceKey !== "promotion" && serviceKey !== "bundles" ? (
+                    <div className="media-player reveal-up">
+                        <div className="media-player-frame">
+                            {serviceKey === "videography" ? (
+                                <div className="showreel-placeholder">ShowReel</div>
+                            ) : serviceKey === "studio" ? (
+                                <div className="service-packages-embed">
+                                    <iframe
+                                        src="https://www.youtube-nocookie.com/embed/cFUIeQgP0mo?rel=0"
+                                        title="Studio showreel"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowFullScreen
+                                    />
+                                    <p className="service-packages-embed-caption">
+                                        Songs mixed by us
+                                    </p>
+                                </div>
+                            ) : (
+                                <img
+                                    key={activeImage}
+                                    src={activeImage}
+                                    alt={`${service.title} ${activeTier.title}`}
+                                />
+                            )}
+                        </div>
                     </div>
-                </div>
+                ) : null}
                 <div className="service-tier-row reveal-up" aria-label="Package selections">
                     {service.tiers
                         .slice()
@@ -95,7 +120,7 @@ const ServicePackages = ({ service, serviceKey }) => {
                             </div>
                             <div className="service-tier-photo">
                                 <img
-                                    src={service.images[index % service.images.length]}
+                                    src={tierImages[index % tierImages.length]}
                                     alt={`${service.title} ${tier.title}`}
                                 />
                             </div>

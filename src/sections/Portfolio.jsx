@@ -1,6 +1,21 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { portfolioItems } from "../data/portfolio.js";
 
+const galleryImages = [
+    "/assets/images/Photos/EVENTS/DSC00355.jpg",
+    "/assets/images/Photos/EVENTS/DSC00352.jpg",
+    "/assets/images/Photos/EVENTS/DSC00335.jpg",
+    "/assets/images/Photos/EVENTS/DSC00323.jpg",
+    "/assets/images/Photos/EVENTS/DSC00315.jpg",
+    "/assets/images/Photos/EVENTS/DSC00309.jpg",
+    "/assets/images/Photos/EVENTS/DSC00285.jpg",
+    "/assets/images/Photos/EVENTS/DSC00263.jpg",
+    "/assets/images/Photos/EVENTS/DSC00241.jpg",
+    "/assets/images/Photos/EVENTS/DSC00226.jpg",
+    "/assets/images/Photos/EVENTS/DSC00197.jpg",
+    "/assets/images/Photos/EVENTS/dsc00279.jpg",
+];
+
 const testimonials = [
     {
         text: "ProjectTitle delivered a clean, cinematic brand refresh that feels premium.",
@@ -20,11 +35,7 @@ const Portfolio = () => {
     const [testimonialIndex, setTestimonialIndex] = useState(0);
     const [galleryIndex, setGalleryIndex] = useState(0);
     const galleryItems = useMemo(() => {
-        const images = import.meta.glob(
-            "/assets/images/Photos/EVENTS/*.{jpg,jpeg,png,webp}",
-            { eager: true, import: "default" }
-        );
-        const imageList = Object.values(images);
+        const imageList = galleryImages.slice();
         if (!imageList.length) {
             return portfolioItems.filter((item) => item?.image).map((item) => item.image);
         }

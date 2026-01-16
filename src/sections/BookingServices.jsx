@@ -38,6 +38,9 @@ const BookingServices = () => {
                         item.title === "Photography"
                             ? photographySlides[photoIndex]
                             : item.image;
+                    const isYouTubeVideo =
+                        typeof item.video === "string" &&
+                        item.video.includes("youtube");
 
                     return (
                         <Tag
@@ -60,7 +63,7 @@ const BookingServices = () => {
                                         : ""
                                 }`}
                             >
-                                {item.video ? (
+                                {item.video && !isYouTubeVideo ? (
                                     <video
                                         src={item.video}
                                         muted
@@ -68,6 +71,13 @@ const BookingServices = () => {
                                         playsInline
                                         autoPlay
                                         preload="metadata"
+                                    />
+                                ) : isYouTubeVideo ? (
+                                    <iframe
+                                        src={item.video}
+                                        title={`${item.title} video`}
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowFullScreen
                                     />
                                 ) : (
                                     <img

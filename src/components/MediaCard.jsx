@@ -26,15 +26,25 @@ const MediaCard = ({
             <div className="tw-flex tw-place-items-center tw-gap-3">
                 <div className="tw-h-[300px] tw-w-full tw-overflow-hidden tw-rounded-lg">
                     {video ? (
-                        <video
-                            src={video}
-                            className="tw-h-full tw-w-full tw-object-cover"
-                            muted
-                            loop
-                            playsInline
-                            autoPlay
-                            preload="metadata"
-                        />
+                        video.includes("youtube") ? (
+                            <iframe
+                                src={video}
+                                title={title}
+                                className="tw-h-full tw-w-full"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                            />
+                        ) : (
+                            <video
+                                src={video}
+                                className="tw-h-full tw-w-full tw-object-cover"
+                                muted
+                                loop
+                                playsInline
+                                autoPlay
+                                preload="metadata"
+                            />
+                        )
                     ) : (
                         <img
                             src={image}

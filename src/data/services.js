@@ -4,7 +4,7 @@ export const serviceItems = [
         description: "Short-form, cinematic, and event coverage packages.",
         href: "/ServicePackages-Videography.html",
         image: "/assets/images/home/women.jpg",
-        video: "/assets/images/Videos/PROJECTTITlE ｜ ELZ LAURENT_converted.mp4",
+        video: "https://www.youtube-nocookie.com/embed/lINkDzNWKIs?rel=0&autoplay=1&mute=1&playsinline=1",
     },
     {
         title: "Photography",

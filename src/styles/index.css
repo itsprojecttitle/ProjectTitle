@@ -774,6 +774,7 @@ header{
 
 .hero-video-stack--lift{
   margin-top: -300px;
+  align-items: center;
 }
 
 .hero-video-links{
@@ -782,6 +783,7 @@ header{
   gap: 12px;
   margin-top: 18px;
   width: min(650px, 100%);
+  align-items: center;
 }
 
 .hero-video-link{
@@ -796,6 +798,7 @@ header{
   color: #fff;
   text-decoration: none;
   transition: transform 200ms ease, border-color 200ms ease, background 200ms ease;
+  width: min(520px, 100%);
 }
 
 .hero-video-link:hover{
@@ -892,6 +895,8 @@ header{
 .hero-carousel-column{
   flex: 0 0 50%;
   max-width: 50%;
+  overflow: visible;
+  align-self: center;
 }
 
 @media (max-width: 1024px){

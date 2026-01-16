@@ -3,6 +3,7 @@ import { portfolioItems } from "../data/portfolio.js";
 
 const galleryImages = [
     "/assets/images/Photos/EVENTS/DSC00315.jpg",
+    "/assets/images/Photos/EVENTS/dsc00279.jpg",
     "/assets/images/Photos/EVENTS/DSC00322.jpg",
     "/assets/images/Photos/EVENTS/DSC00335.jpg",
     "/assets/images/Photos/EVENTS/DSC00323.jpg",
@@ -164,15 +165,15 @@ const FullPortfolio = ({ titleText = "Gallery" }) => {
                     ) : null}
                 </div>
                 <div className="full-portfolio-grid">
-                    {tiles.map((item, index) => (
+                    {tiles.slice(1).map((item, index) => (
                         <article
                             className={`full-portfolio-card ${item.className}`}
-                            key={`full-portfolio-${index}`}
+                            key={`full-portfolio-${index + 1}`}
                         >
                             <button
                                 type="button"
                                 className="full-portfolio-photo portfolio-mosaic-card portfolio-mosaic-card--plain"
-                                onClick={() => openAt(index)}
+                                onClick={() => openAt(index + 1)}
                                 aria-label="Open photo"
                             >
                                 <div className="portfolio-mosaic-plain-media">

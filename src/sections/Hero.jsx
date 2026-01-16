@@ -65,6 +65,8 @@ const Hero = () => {
                         <a
                             href="/#news"
                             aria-label="signup"
+                            target="_blank"
+                            rel="noreferrer"
                             className="tw-flex tw-h-[40px] tw-place-items-center tw-gap-2 tw-bg-secondary tw-p-1 tw-p-2 tw-px-4 tw-pl-4 tw-text-black tw-transition-colors tw-duration-[0.5s] hover:tw-bg-black hover:tw-text-white"
                         >
                             <span>News</span>

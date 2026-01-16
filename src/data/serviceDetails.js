@@ -77,12 +77,21 @@ const makeService = (title, summary, detailHref, packagesHref) => ({
 });
 
 export const serviceDetails = {
-    videography: makeService(
-        "Videography",
-        "Cinematic video services for releases, campaigns, and live moments.",
-        "/Videography.html",
-        "/ServicePackages-Videography.html"
-    ),
+    videography: {
+        ...makeService(
+            "Videography",
+            "Cinematic video services for releases, campaigns, and live moments.",
+            "/Videography.html",
+            "/ServicePackages-Videography.html"
+        ),
+        images: [
+            "/assets/images/Photos/EVENTS/DSC00355.jpg",
+            "/assets/images/Photos/EVENTS/DSC00352.jpg",
+            "/assets/images/Photos/EVENTS/DSC00335.jpg",
+            "/assets/images/Photos/EVENTS/DSC00323.jpg",
+            "/assets/images/Photos/EVENTS/DSC00315.jpg",
+        ],
+    },
     bundles: {
         ...makeService(
             "Bundles & Packages",

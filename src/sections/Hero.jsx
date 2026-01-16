@@ -33,8 +33,8 @@ const Hero = () => {
             id="hero"
             className="hero-section tw-relative tw-flex tw-min-h-[120vh] tw-w-full tw-max-w-[100vw] tw-flex-col tw-bg-primary tw-text-white max-lg:tw-min-h-[265px] max-lg:tw-p-4 pt-[60px]"
         >
-            <div className="hero-layout tw-flex tw-h-full tw-min-h-[100vh] tw-w-full tw-justify-between tw-gap-6 tw-px-[5%] tw-pt-[5%] tw-pb-[12%] max-xl:tw-place-items-center max-lg:tw-flex-col max-lg:tw-items-center">
-                <div className="hero-copy tw-flex tw-flex-col tw-place-content-center max-lg:tw-items-center max-lg:tw-text-center">
+            <div className="hero-layout tw-flex tw-h-full tw-min-h-[100vh] tw-w-full tw-items-center tw-justify-between tw-gap-6 tw-px-[5%] tw-pt-[5%] tw-pb-[12%] max-xl:tw-place-items-center max-lg:tw-flex-col max-lg:tw-items-center">
+                <div className="hero-copy tw-flex tw-flex-col tw-self-start tw-place-content-center max-lg:tw-items-center max-lg:tw-text-center">
                     <div className="tw-flex tw-flex-wrap tw-text-7xl tw-font-semibold tw-uppercase tw-leading-[85px] max-lg:tw-text-4xl max-md:tw-leading-snug">
                         <span className="reveal-hero-text">Project</span>
                         <span className="reveal-hero-text"> Title</span>

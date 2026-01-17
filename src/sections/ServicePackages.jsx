@@ -36,17 +36,52 @@ const ServicePackages = ({ service, serviceKey }) => {
         setIsModalOpen(true);
     };
 
-    const policyTitle = useMemo(() => {
-        if (serviceKey === "studio") return "Policy";
-        if (serviceKey === "promotion") return "Promotion Policy";
-        return "Filming & Media Production Policy";
-    }, [serviceKey]);
+    const policyTitle =
+        serviceKey === "studio" ? "Audio Mixing & Producing Policy" : "POLICY";
     const policyItems = useMemo(() => {
         if (serviceKey === "studio") {
-            return activeTier.policy.map((item) => ({
-                title: item,
-                copy: "",
-            }));
+            return [
+                {
+                    title: "Booking & Confirmation",
+                    copy:
+                        "Sessions are confirmed after full payment. Same-day bookings are subject to a +50% fee.",
+                },
+                {
+                    title: "Communication",
+                    copy:
+                        "All communication is via WhatsApp, email, or DMs. Calls must be scheduled.",
+                },
+                {
+                    title: "Session Prep",
+                    copy:
+                        "Come with a clear idea and aim for the session. Bring a memory stick or drive if you want files the same day.",
+                },
+                {
+                    title: "Start Times & Lateness",
+                    copy:
+                        "Sessions start at the booked time. Late arrival reduces session time.",
+                },
+                {
+                    title: "Turnaround Time",
+                    copy:
+                        "Standard turnaround is up to 2 weeks, though we aim for less than half that time where possible. Rush requests may incur extra fees.",
+                },
+                {
+                    title: "Revisions",
+                    copy:
+                        "A set number of revisions are included. Additional revisions may be chargeable.",
+                },
+                {
+                    title: "File Delivery",
+                    copy:
+                        "Final audio is delivered digitally unless otherwise agreed. Same-day file collection is available if requested.",
+                },
+                {
+                    title: "More Info",
+                    copy:
+                        "Refer to our Terms & Conditions for full details, or DM us / use the contact form for questions.",
+                },
+            ];
         }
         if (serviceKey === "promotion") {
             return [
@@ -128,7 +163,7 @@ const ServicePackages = ({ service, serviceKey }) => {
                     "Refer to our Terms & Conditions for full details, or DM us / use the contact form for any questions.",
             },
         ];
-    }, [activeTier.policy, serviceKey]);
+    }, [serviceKey]);
     const [activePolicy, setActivePolicy] = useState(null);
 
 
@@ -151,17 +186,13 @@ const ServicePackages = ({ service, serviceKey }) => {
                             {serviceKey === "videography" ? (
                                 <div className="showreel-placeholder">ShowReel</div>
                             ) : serviceKey === "studio" ? (
-                                <div className="service-packages-embed">
-                                    <iframe
-                                        src="https://www.youtube-nocookie.com/embed/cFUIeQgP0mo?rel=0"
-                                        title="Studio showreel"
-                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                        allowFullScreen
-                                    />
-                                    <p className="service-packages-embed-caption">
-                                        Songs mixed by us
-                                    </p>
-                                </div>
+                                <iframe
+                                    className="service-packages-embed-frame"
+                                    src="https://www.youtube-nocookie.com/embed/cFUIeQgP0mo?rel=0"
+                                    title="Studio showreel"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowFullScreen
+                                />
                             ) : (
                                 <img
                                     key={activeImage}
@@ -170,6 +201,11 @@ const ServicePackages = ({ service, serviceKey }) => {
                                 />
                             )}
                         </div>
+                        {serviceKey === "studio" ? (
+                            <p className="service-packages-embed-caption">
+                                Songs mixed by us
+                            </p>
+                        ) : null}
                     </div>
                 ) : null}
                 <div className="service-tier-row reveal-up" aria-label="Package selections">

@@ -131,11 +131,10 @@ export const serviceDetails = {
             "/ServicePackages-Studio.html"
         ),
         images: [
-            "/assets/images/Photos/STUDIO/DSC05246.JPG",
-            "/assets/images/Photos/STUDIO/DSC05133.JPG",
-            "/assets/images/Photos/STUDIO/DSC05372-2.JPG",
-            "/assets/images/Photos/STUDIO/DSC05298-2.JPG",
-            "/assets/images/Photos/STUDIO/DSC05311.JPG",
+            "/assets/images/Photos/STUDIO/DSC00396.jpg",
+            "/assets/images/Photos/STUDIO/DSC00424.jpg",
+            "/assets/images/Photos/STUDIO/DSC00428-2.jpg",
+            "/assets/images/Photos/STUDIO/DSC00408.jpg",
         ],
     },
     promotion: makeService(

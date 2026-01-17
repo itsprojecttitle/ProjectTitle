@@ -4349,7 +4349,7 @@ body{ padding-top: 0; }
 
 .ember-burger-menu .bm-content{
   min-height: 100vh;
-  padding-top: 60px;
+  padding-top: 0;
 }
 
 .ember-burger-menu.is-open > .bm-outlet{

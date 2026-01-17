@@ -1,7 +1,9 @@
 import React from "react";
+import FAQ from "../sections/FAQ.jsx";
 
 const Footer = () => (
     <footer className="site-footer">
+        <FAQ />
         <div className="footer-inner">
             <div className="footer-social" aria-label="ProjectTitle social links">
                 <a href="/facebook.html" aria-label="Facebook" target="_blank" rel="noreferrer">

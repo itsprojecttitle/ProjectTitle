@@ -200,6 +200,14 @@ const setSimplybookLinks = (service, links) => {
     });
 };
 
+const setTierPrices = (service, prices) => {
+    if (!service?.tiers) return;
+    service.tiers.forEach((tier) => {
+        const price = prices[tier.title];
+        if (price) tier.price = price;
+    });
+};
+
 setSimplybookLinks(serviceDetails.videography, {
     "Run & Gun":
         "https://projecttitle.simplybook.it/v2/#book/category/1/service/48/count/1/",
@@ -211,6 +219,29 @@ setSimplybookLinks(serviceDetails.videography, {
         "https://projecttitle.simplybook.it/v2/#book/category/1/service/42/count/1/",
     "Industry Standard":
         "https://projecttitle.simplybook.it/v2/#book/category/1/service/43/count/1/",
+});
+
+setTierPrices(serviceDetails.videography, {
+    "Industry Standard": "1200.00",
+    Professional: "850.00",
+    Advanced: "550.00",
+    Standard: "350.00",
+    "Run & Gun": "200.00",
+});
+
+setTierPrices(serviceDetails.photography, {
+    "Industry Standard": "1200.00",
+    Professional: "850.00",
+    Advanced: "550.00",
+    Standard: "350.00",
+    "Run & Gun": "200.00",
+});
+
+setTierPrices(serviceDetails.studio, {
+    "Industry Standard": "1200.00",
+    Professional: "850.00",
+    Advanced: "550.00",
+    Standard: "200.00",
 });
 
 setSimplybookLinks(serviceDetails.photography, {
@@ -248,6 +279,17 @@ setSimplybookLinks(serviceDetails.bundles, {
         "https://projecttitle.simplybook.it/v2/#book/category/12/service/58/count/1/",
 });
 
+setTierPrices(serviceDetails.bundles, {
+    "Industry Standard": "1200.00",
+    Professional: "850.00",
+    Advanced: "550.00",
+    Standard: "350.00",
+});
+
 setSimplybookLinks(serviceDetails.promotion, {
     Campaign: "https://projecttitle.simplybook.it/v2/#book/category/11/count/1/",
+});
+
+setTierPrices(serviceDetails.promotion, {
+    Campaign: "500.00",
 });

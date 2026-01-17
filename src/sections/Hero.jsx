@@ -138,6 +138,10 @@ const Hero = () => {
                                     href={link.href}
                                     target="_blank"
                                     rel="noreferrer noopener"
+                                    onClick={(event) => {
+                                        event.preventDefault();
+                                        window.open(link.href, "_blank", "noopener,noreferrer");
+                                    }}
                                 >
                                     <span className="hero-video-thumb">
                                         <img src={link.thumb} alt={link.title} />

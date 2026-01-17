@@ -162,9 +162,9 @@ const FAQ = () => {
     );
 
     useEffect(() => {
-        setFeaturedItems(pickRandom(faqItems, 4));
+        setFeaturedItems(pickRandom(faqItems, 2));
         const interval = setInterval(() => {
-            setFeaturedItems(pickRandom(faqItems, 4));
+            setFeaturedItems(pickRandom(faqItems, 2));
         }, 20000);
         return () => clearInterval(interval);
     }, [pickRandom]);

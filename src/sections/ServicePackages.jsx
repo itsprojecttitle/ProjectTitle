@@ -36,6 +36,101 @@ const ServicePackages = ({ service, serviceKey }) => {
         setIsModalOpen(true);
     };
 
+    const policyTitle = useMemo(() => {
+        if (serviceKey === "studio") return "Policy";
+        if (serviceKey === "promotion") return "Promotion Policy";
+        return "Filming & Media Production Policy";
+    }, [serviceKey]);
+    const policyItems = useMemo(() => {
+        if (serviceKey === "studio") {
+            return activeTier.policy.map((item) => ({
+                title: item,
+                copy: "",
+            }));
+        }
+        if (serviceKey === "promotion") {
+            return [
+                {
+                    title: "Agreement & Scope",
+                    copy:
+                        "All promotion work is agreed on a call, then clearly outlined, reviewed, and confirmed in the invoice before execution.",
+                },
+                {
+                    title: "Booking & Confirmation",
+                    copy: "Campaigns are confirmed after full payment is received.",
+                },
+                {
+                    title: "Campaign Duration",
+                    copy:
+                        "Promotion runs for 3 months, including 1 month for revisions and alterations where required.",
+                },
+                {
+                    title: "Communication & Updates",
+                    copy:
+                        "Updates are provided once per week to track progress and direction.",
+                },
+                {
+                    title: "Consultancy Calls",
+                    copy:
+                        "Consultancy and strategy calls are scheduled separately and handled via call.",
+                },
+                {
+                    title: "Execution",
+                    copy:
+                        "Work begins only after payment and written confirmation of the agreed scope.",
+                },
+                {
+                    title: "More Info",
+                    copy:
+                        "Refer to our Terms & Conditions for full details, or DM us / use the contact form for questions.",
+                },
+            ];
+        }
+        return [
+            {
+                title: "Booking & Confirmation",
+                copy:
+                    "Filming is confirmed after full payment. Same-day or short-notice bookings are subject to a +50% fee.",
+            },
+            {
+                title: "Communication",
+                copy:
+                    "All communication is handled via WhatsApp, email, or DMs. Calls must be scheduled in advance.",
+            },
+            {
+                title: "Start Times & Lateness",
+                copy:
+                    "Shoots start at the agreed time. Late arrival may reduce shoot time and affect delivery.",
+            },
+            {
+                title: "Turnaround Time",
+                copy:
+                    "Standard turnaround is up to 2 weeks, though we aim for less than half that time where possible. Rush delivery may incur extra fees.",
+            },
+            {
+                title: "Revisions",
+                copy:
+                    "A set number of revisions are included. Additional revisions may be chargeable.",
+            },
+            {
+                title: "File Delivery",
+                copy:
+                    "Final videos are delivered digitally in 4K quality, including horizontal and vertical formats where agreed.",
+            },
+            {
+                title: "Usage & Approval",
+                copy:
+                    "Final delivery is considered approved unless issues are raised within the agreed review window.",
+            },
+            {
+                title: "More Info",
+                copy:
+                    "Refer to our Terms & Conditions for full details, or DM us / use the contact form for any questions.",
+            },
+        ];
+    }, [activeTier.policy, serviceKey]);
+    const [activePolicy, setActivePolicy] = useState(null);
+
 
     return (
         <section className="media-page-section service-packages-section">
@@ -128,6 +223,54 @@ const ServicePackages = ({ service, serviceKey }) => {
                         );
                     })}
                 </div>
+                <div className="service-packages-policy reveal-up">
+                    <h4>{policyTitle}</h4>
+                    <ul>
+                        {policyItems.map((item) => (
+                            <li
+                                key={item.title}
+                                role="button"
+                                tabIndex={0}
+                                onClick={() => setActivePolicy(item)}
+                                onKeyDown={(event) => {
+                                    if (event.key === "Enter" || event.key === " ") {
+                                        event.preventDefault();
+                                        setActivePolicy(item);
+                                    }
+                                }}
+                            >
+                                <span className="policy-title">{item.title}</span>
+                                {item.copy ? (
+                                    <span className="policy-copy">{item.copy}</span>
+                                ) : null}
+                            </li>
+                        ))}
+                    </ul>
+                    <a className="service-packages-policy-link" href="/Terms.html">
+                        View Terms &amp; Conditions
+                    </a>
+                </div>
+                {activePolicy ? (
+                    <div
+                        className="policy-modal"
+                        onClick={() => setActivePolicy(null)}
+                    >
+                        <div
+                            className="policy-modal-panel"
+                            onClick={(event) => event.stopPropagation()}
+                        >
+                            <button
+                                type="button"
+                                className="policy-modal-close"
+                                onClick={() => setActivePolicy(null)}
+                            >
+                                ×
+                            </button>
+                            <h3>{activePolicy.title}</h3>
+                            {activePolicy.copy ? <p>{activePolicy.copy}</p> : null}
+                        </div>
+                    </div>
+                ) : null}
                 {isModalOpen ? (
                     <div
                         className="service-packages-modal"
@@ -171,9 +314,19 @@ const ServicePackages = ({ service, serviceKey }) => {
                                 <div className="service-packages-modal-block">
                                     <h3>Pricing</h3>
                                     <ul>
-                                        {activeTier.info.map((item) => (
-                                            <li key={`${item}-price`}>{item}</li>
-                                        ))}
+                                        <li>
+                                            {activeTier.price ? (
+                                                `Price: ${activeTier.price}`
+                                            ) : (
+                                                <a
+                                                    href={selectHref}
+                                                    target="_blank"
+                                                    rel="noreferrer"
+                                                >
+                                                    View pricing
+                                                </a>
+                                            )}
+                                        </li>
                                     </ul>
                                 </div>
                                 <a
@@ -185,14 +338,6 @@ const ServicePackages = ({ service, serviceKey }) => {
                                 >
                                     Select
                                 </a>
-                            </div>
-                            <div className="service-packages-modal-block service-packages-modal-block--policy">
-                                <h3>Policy</h3>
-                                <ul>
-                                    {activeTier.policy.map((item) => (
-                                        <li key={item}>{item}</li>
-                                    ))}
-                                </ul>
                             </div>
                         </div>
                     </div>

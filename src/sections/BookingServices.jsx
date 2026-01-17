@@ -20,7 +20,7 @@ const BookingServices = () => {
     }, [photographySlides.length]);
 
     return (
-        <section id="Services" className="booking-services">
+        <section id="Services" className="booking-services back-anchor">
             <a className="service-detail-back" href="/#hero">
                 ← &nbsp;Back
             </a>

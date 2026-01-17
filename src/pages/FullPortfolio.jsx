@@ -93,7 +93,7 @@ const FullPortfolio = ({ titleText = "Gallery" }) => {
     return (
         <section className="full-portfolio">
             <div className="full-portfolio-panel">
-                <div className="full-portfolio-intro">
+                <div className="full-portfolio-intro back-anchor">
                     <a className="service-detail-back" href="/#hero">
                         ← &nbsp;Back
                     </a>

@@ -125,7 +125,7 @@ const Media = () => {
     return (
         <section className="media-page-section">
             <div className="media-page-inner">
-                <header className="media-page-header">
+                <header className="media-page-header back-anchor">
                     <a className="service-detail-back" href="/#hero">
                         ← &nbsp;Back
                     </a>

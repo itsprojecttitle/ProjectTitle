@@ -2,7 +2,10 @@ import React from "react";
 
 const ContactSection = () => (
     <section className="contact-section">
-        <div className="contact-inner">
+        <div className="contact-inner back-anchor">
+            <a className="service-detail-back" href="/#hero">
+                ← &nbsp;Back
+            </a>
             <div className="contact-heading">
                 <p className="contact-eyebrow reveal-up">
                     <span>Collaborate ?</span>

@@ -205,7 +205,7 @@ const FAQ = () => {
         <section className="faq-section" id="faq">
             <div className="faq-inner">
                 <h2 className="faq-title reveal-up">FAQ</h2>
-                <div className="faq-grid">
+                <div className="faq-grid" key={featuredItems.map((item) => item.question).join("|")}>
                     {featuredItems.map((item) => (
                         <button
                             key={item.question}

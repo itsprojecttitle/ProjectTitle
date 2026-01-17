@@ -78,7 +78,10 @@ const TermsSection = () => {
 
     return (
         <section className="terms-section">
-            <div className="terms-inner">
+            <div className="terms-inner back-anchor">
+                <a className="service-detail-back" href="/#hero">
+                    ← &nbsp;Back
+                </a>
                 <h1 className="terms-title reveal-hero-text">Terms &amp; Conditions</h1>
                 <p className="terms-intro reveal-hero-text">
                     Below is a copy of our current Terms &amp; Conditions, outlining

@@ -214,7 +214,14 @@ const Header = ({
             </div>
             <div className="header-cta-row max-lg:tw-hidden desktop-only">
                 <div className="header-search-bar">
-                    <i className="bi bi-search" aria-hidden="true"></i>
+                    <button
+                        type="button"
+                        className="header-search-submit"
+                        aria-label="Search"
+                        onClick={handleSearchSubmit}
+                    >
+                        <i className="bi bi-search" aria-hidden="true"></i>
+                    </button>
                     <input
                         type="search"
                         placeholder="Search..."

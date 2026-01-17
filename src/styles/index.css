@@ -1003,8 +1003,21 @@ header > .collapsible-header{
   background: rgba(0,0,0,0.35);
 }
 
-.header-search-bar i{
+.header-search-submit{
+  border: 0;
+  background: transparent;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.header-search-submit i{
   color: rgba(255,255,255,0.7);
+}
+
+.header-search-submit:hover i{
+  color: #ffe353;
 }
 
 .header-search-bar input{

@@ -6,7 +6,7 @@
     --btn-bg: #0d0d0d;/* button bg color*/
 
     --header-h: 60px;
-    --safe-top: env(safe-area-inset-top, 0px);
+    --safe-top: 0px;
     --page-bg: #0b0b0c;
     --page-bg-soft: #151518;
     --page-bg-gradient: linear-gradient(to bottom, #0b0b0c 0%, #151518 45%, #0b0b0c 100%);
@@ -35,10 +35,10 @@ body{
     background: var(--page-bg-gradient);
     overflow: visible;
     min-height: 100%;
-    padding-top: calc(var(--header-h) + var(--safe-top));
+    padding-top: 0;
     padding-bottom: 0;
-    padding-left: env(safe-area-inset-left);
-    padding-right: env(safe-area-inset-right);
+    padding-left: 0;
+    padding-right: 0;
 }
 
 body.service-page{
@@ -55,9 +55,9 @@ body::before{
     top: 0;
     left: 0;
     right: 0;
-    height: var(--safe-top);
-    background: var(--page-bg-gradient);
-    z-index: 9999;
+    height: 0;
+    background: transparent;
+    z-index: 0;
     pointer-events: none;
 }
 
@@ -1159,7 +1159,7 @@ header > .collapsible-header{
   top: 0;
   left: 0;
   right: 0;
-  height: calc(22px + var(--safe-top));
+  height: 22px;
   background: transparent;
   z-index: 150;
   display: none;
@@ -3415,10 +3415,14 @@ a.btn:hover{
 }
 #main-header{
   transform: translateY(0);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   background: #000;
   transition: transform 220ms ease, background 200ms ease, box-shadow 200ms ease, backdrop-filter 200ms ease;
-  height: calc(var(--header-h) + var(--safe-top));
-  padding-top: var(--safe-top);
+  height: var(--header-h);
+  padding-top: 0;
   box-sizing: border-box;
 }
 
@@ -3439,8 +3443,8 @@ a.btn:hover{
   top: 0;
   left: 0;
   width: 100%;
-  height: var(--safe-top);
-  background: var(--page-bg-gradient);
+  height: 0;
+  background: transparent;
   pointer-events: none;
   z-index: 0;
 }
@@ -3501,7 +3505,7 @@ a.btn:hover{
 }
 
 
-body{ padding-top: calc(var(--header-h) + var(--safe-top)); }
+body{ padding-top: 0; }
 
 @media (max-width: 1024px){
   #hero .hero-layout{

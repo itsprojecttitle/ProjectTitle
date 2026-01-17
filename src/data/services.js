@@ -14,7 +14,7 @@ export const serviceItems = [
     },
     {
         title: "Bundles & Packages",
-        description: "A Combination of two services! (You're Choice).",
+        description: "A Combination of two services! (Your Choice*).",
         href: "/ServicePackages-Bundles.html",
         image: "/assets/images/Photos/STUDIO/DSC05159.JPG",
     },

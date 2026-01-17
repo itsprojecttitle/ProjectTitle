@@ -4,7 +4,7 @@ const ArticleCard = React.forwardRef(
     ({ box, title, date, image, link, isCenter, onActivate }, ref) => (
         <div
             ref={ref}
-            className={`article-card tw-flex tw-w-[350px] tw-flex-col tw-gap-4 tw-overflow-clip tw-rounded-lg tw-p-4 max-lg:tw-w-[300px] tw-text-white${
+            className={`article-card tw-flex tw-flex-col tw-gap-4 tw-overflow-clip tw-rounded-lg tw-p-4 tw-text-white${
                 box === 1 ? " article-card--featured" : ""
             }${isCenter ? " is-center" : ""}`}
             onMouseEnter={onActivate}

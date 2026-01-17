@@ -382,7 +382,7 @@ serviceDetails.promotion.tiers = [
     {
         title: "Campaign Packaging",
         copy:
-            "A 6-week, strategy-led campaign designed to grow personal or brand presence through planned conten",
+            "A 6-week, strategy-led campaign designed to grow personal or brand presence through planned contain",
         details:
             "This package includes social media management, content creation, and guerrilla and SEO marketing, all designed to strengthen brand PR and support the growth of your personal or brand community.",
         info: [

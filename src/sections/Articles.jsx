@@ -46,19 +46,6 @@ const Articles = () => {
                 News
             </h3>
             <div className="news-carousel" aria-label="News carousel">
-                <button
-                    type="button"
-                    className="news-carousel-arrow news-carousel-arrow--left"
-                    aria-label="Scroll left"
-                    onClick={() => {
-                        if (trackRef.current) {
-                            trackRef.current.scrollBy({
-                                left: -trackRef.current.clientWidth * 0.8,
-                                behavior: "smooth",
-                            });
-                        }
-                    }}
-                />
                 <div className="news-carousel-track" ref={trackRef}>
                     {articleItems.map((item, index) => (
                         <ArticleCard
@@ -72,19 +59,6 @@ const Articles = () => {
                         />
                     ))}
                 </div>
-                <button
-                    type="button"
-                    className="news-carousel-arrow news-carousel-arrow--right"
-                    aria-label="Scroll right"
-                    onClick={() => {
-                        if (trackRef.current) {
-                            trackRef.current.scrollBy({
-                                left: trackRef.current.clientWidth * 0.8,
-                                behavior: "smooth",
-                            });
-                        }
-                    }}
-                />
             </div>
         </section>
     );

@@ -14,7 +14,7 @@ export const portfolioItems = [
     {
         title: "Videos",
         description:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut dolorem, optio totam perspiciatis.",
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut dolorem, option totam perspiciatis.",
         image: "/assets/images/Photos/EVENTS/DSC00241.jpg",
     },
     {

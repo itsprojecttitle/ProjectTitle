@@ -204,6 +204,7 @@ const FAQ = () => {
     return (
         <section className="faq-section" id="faq">
             <div className="faq-inner">
+                <div className="faq-divider" aria-hidden="true"></div>
                 <h2 className="faq-title reveal-up">FAQ</h2>
                 <div className="faq-grid" key={featuredItems.map((item) => item.question).join("|")}>
                     {featuredItems.map((item) => (

@@ -226,7 +226,6 @@ const App = () => {
                     >
                         Top
                     </button>
-                    <hr className="tw-mt-4" />
                     <Footer />
                 </div>
             </div>

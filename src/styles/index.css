@@ -2086,6 +2086,11 @@ a.btn:hover{
   position: relative;
 }
 
+.booking-services.back-anchor .service-detail-back{
+  top: 80px !important;
+  left: 6% !important;
+}
+
 .booking-section-title{
   text-align: center;
   margin-bottom: 40px;

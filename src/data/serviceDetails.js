@@ -85,11 +85,11 @@ export const serviceDetails = {
             "/ServicePackages-Videography.html"
         ),
         images: [
-            "/assets/images/Photos/EVENTS/DSC00355.jpg",
-            "/assets/images/Photos/EVENTS/DSC00352.jpg",
-            "/assets/images/Photos/EVENTS/DSC00335.jpg",
-            "/assets/images/Photos/EVENTS/DSC00323.jpg",
-            "/assets/images/Photos/EVENTS/DSC00315.jpg",
+            "/assets/images/Photos/EVENTS/DSC00279.jpg",
+            "/assets/images/Photos/EVENTS/DSC00215.jpg",
+            "/assets/images/Photos/EVENTS/DSC00193.jpg",
+            "/assets/images/Photos/EVENTS/DSC00308.jpg",
+            "/assets/images/Photos/EVENTS/DSC00265.jpg",
         ],
     },
     bundles: {

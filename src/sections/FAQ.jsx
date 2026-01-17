@@ -4,17 +4,17 @@ const faqItems = [
     {
         question: "Who are you?",
         answer:
-            "Yes, we are an anonymous British media team and creative collective focused on amplifying culture, sharpening attention, and advancing UK creative scenes.",
+            "We are an anonymous British media team and creative collective focused on amplifying culture, sharpening attention, and advancing UK creative scenes.",
     },
     {
         question: "What do you do?",
         answer:
-            "Yes, we cover and create across the UK underground, including music videos, photography, audio recording, audio engineering, mastering, campaigns, social content, live coverage, and distribution.",
+            "We cover and create across the UK underground, including music videos, photography, audio recording, audio engineering, mastering, campaigns, social content, live coverage, and distribution.",
     },
     {
         question: "Which genres do you work with?",
         answer:
-            "Yes, we have worked across grime, rap, drill, alternative, Christian rap, and more. We are open to all styles and scenes.",
+            "We have worked across grime, rap, drill, alternative, Christian rap, and more. We are open to all styles and scenes.",
     },
     {
         question: "Do you only work within the UK underground?",
@@ -34,7 +34,7 @@ const faqItems = [
     {
         question: "Who do you work with?",
         answer:
-            "Yes, we work with established artists, emerging talent building momentum, and anyone working toward that level.",
+            "We work with established artists, emerging talent building momentum, and anyone working toward that level.",
     },
     {
         question: "Do you work with brands and businesses?",
@@ -44,7 +44,7 @@ const faqItems = [
     {
         question: "How do I book or get in touch?",
         answer:
-            "Yes, you can book or get in touch via DM, email, the website contact form, or the booking system.",
+            "You can book or get in touch via DM, email, the website contact form, or the booking system.",
     },
     {
         question: "Are you London-based or UK-wide?",
@@ -64,7 +64,7 @@ const faqItems = [
     {
         question: "How long does a project take?",
         answer:
-            "Yes, most projects are completed within two weeks at most, and we typically aim for under five days. Faster turnarounds can be arranged.",
+            "Most projects are completed within two weeks at most, and we typically aim for under five days. Faster turnarounds can be arranged.",
     },
     {
         question: "Do you offer revisions?",
@@ -74,12 +74,12 @@ const faqItems = [
     {
         question: "What formats do you deliver in?",
         answer:
-            "Yes, we deliver 4K video, vertical and horizontal formats, social media-ready edits, WAV files, stems, and more.",
+            "We deliver 4K video, vertical and horizontal formats, social media-ready edits, WAV files, stems, and more.",
     },
     {
         question: "Do clients receive raw files?",
         answer:
-            "Yes, final edits only for video. Raw files for audio, unless requested otherwise.",
+            "No, final edits only for video. Raw files for audio are provided only if requested.",
     },
     {
         question: "Do you help artists who don't know what they want yet?",
@@ -124,7 +124,7 @@ const faqItems = [
     {
         question: "Who owns the content?",
         answer:
-            "Yes, the client owns the content.",
+            "The client owns the content.",
     },
     {
         question: "Can you use the content for your own promotion?",
@@ -139,7 +139,7 @@ const faqItems = [
     {
         question: "What should I know before booking?",
         answer:
-            "Yes, please arrive with clear aims, the right mindset, and positive energy. If you require same-day delivery, bring a memory stick.",
+            "Please arrive with clear aims, the right mindset, and positive energy. If you require same-day delivery, bring a memory stick.",
     },
 ];
 

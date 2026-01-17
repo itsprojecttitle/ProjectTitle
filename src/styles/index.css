@@ -1898,6 +1898,24 @@ a.btn:hover{
   line-height: 1.7;
 }
 
+.terms-about{
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.terms-about-title{
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+}
+
+.terms-about-copy{
+  color: rgba(255,255,255,0.8);
+  line-height: 1.8;
+}
+
 .terms-block{
   border: 1px solid rgba(255,255,255,0.12);
   padding: 18px;

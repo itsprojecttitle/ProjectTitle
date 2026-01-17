@@ -81,8 +81,9 @@ const TermsSection = () => {
             <div className="terms-inner">
                 <h1 className="terms-title reveal-hero-text">Terms &amp; Conditions</h1>
                 <p className="terms-intro reveal-hero-text">
-                    These terms outline how we collaborate, deliver work, and protect
-                    both the client and ProjectTitle.
+                    Below is a copy of our current Terms &amp; Conditions, outlining
+                    how we collaborate, deliver work, and protect both the client and
+                    ProjectTitle.
                 </p>
                 <div className="terms-grid">
                     {termsItems.map((item) => (
@@ -96,6 +97,28 @@ const TermsSection = () => {
                             <p>{item.body}</p>
                         </button>
                     ))}
+                </div>
+                <div className="terms-about">
+                    <h2 className="terms-about-title">About Us</h2>
+                    <p className="terms-about-copy">
+                        We’re a British media platform built for the underground.
+                        Inspired by the energy of old MTV and the mindset of pioneers
+                        like Virgil Abloh, we’re here to bring excitement back into
+                        the UK. Back when music, fashion, and culture felt shared,
+                        loud, and alive. From grime to new underground movements, we
+                        shine a light on what’s really happening before the
+                        mainstream clocks it.
+                    </p>
+                    <p className="terms-about-copy">
+                        Our aim is to bring UK scenes together, recreate that
+                        nostalgic feeling of discovery, and build a properly
+                        connected creative community again. Artists, people, moments,
+                        culture all moving as one.
+                    </p>
+                    <p className="terms-about-copy">
+                        This is for the next wave. For the ones outside. For the
+                        culture. Welcome to the underground.
+                    </p>
                 </div>
             </div>
             {activeItem ? (

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
 import ContactSection from "./sections/Contact.jsx";
-import AboutUs from "./sections/AboutUs.jsx";
 import FAQ from "./sections/FAQ.jsx";
 import { initScrollAnimations } from "./utils/scrollAnimations.js";
 import { initLinkTargets } from "./utils/linkTargets.js";
@@ -99,7 +98,6 @@ const ContactApp = () => {
                     />
                     <main>
                         <ContactSection />
-                        <AboutUs />
                         <FAQ />
                     </main>
                     <FloatingWidget />

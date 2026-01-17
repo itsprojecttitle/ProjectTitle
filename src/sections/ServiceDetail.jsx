@@ -24,7 +24,7 @@ const ServiceDetail = ({ service, serviceKey }) => {
 
     return (
         <section className="service-detail-section">
-            <div className="service-detail-inner">
+            <div className="service-detail-inner back-anchor">
                 <a className="service-detail-back" href="/BookNow.html">
                     ← &nbsp;Back
                 </a>
@@ -32,14 +32,35 @@ const ServiceDetail = ({ service, serviceKey }) => {
                     <h1 className="service-detail-title reveal-up">
                         {activeTier?.title}
                     </h1>
-                    <p className="service-detail-summary reveal-up">
-                        {service.title}
+                    <p
+                        className={`service-detail-summary reveal-up${
+                            serviceKey === "bundles"
+                                ? " service-detail-summary--accent"
+                                : ""
+                        }`}
+                    >
+                        {activeTier?.copy}
                     </p>
                 </header>
                 <div className="service-detail-grid">
                     <div className="service-detail-block reveal-up">
                         <h3>Details</h3>
-                        <p>{activeTier.details}</p>
+                        {serviceKey === "studio" || serviceKey === "bundles" ? (
+                            <ul className="details-list">
+                                {activeTier.details.split("\n").map((line) => {
+                                    const [label, ...rest] = line.split(":");
+                                    const value = rest.join(":").trim();
+                                    return (
+                                        <li key={line}>
+                                            <span className="details-label">{label}:</span>{" "}
+                                            <span>{value}</span>
+                                        </li>
+                                    );
+                                })}
+                            </ul>
+                        ) : (
+                            <p>{activeTier.details}</p>
+                        )}
                     </div>
                     <div className="service-detail-block reveal-up">
                         <h3>Info</h3>
@@ -75,6 +96,86 @@ const ServiceDetail = ({ service, serviceKey }) => {
                         <h3>Select</h3>
                     </a>
                 </div>
+                {serviceKey === "videography" || serviceKey === "photography" ? (
+                    <div className="service-detail-block service-detail-block--notes reveal-up">
+                        <h3>General Notes</h3>
+                        <ul>
+                            <li>All services include a standard level of editing.</li>
+                            <li>Shoots are confirmed after full payment.</li>
+                            <li>
+                                Same-day or short-notice bookings may incur
+                                additional fees.
+                            </li>
+                            <li>
+                                Deliverables, formats, and revisions are agreed on
+                                call.
+                            </li>
+                            <li>
+                                Refer to Terms &amp; Conditions for full details or
+                                DM / use the contact form to book.
+                            </li>
+                        </ul>
+                    </div>
+                ) : serviceKey === "studio" ? (
+                    <div className="service-detail-block service-detail-block--notes reveal-up">
+                        <h3>General Notes</h3>
+                        <ul>
+                            <li>Hours are not fixed and vary depending on the project scope.</li>
+                            <li>
+                                Recording, mixing, and mastering are included across
+                                all packages.
+                            </li>
+                            <li>Stem mixing and mastering included from Advanced upwards.</li>
+                            <li>
+                                A treatment / project discussion is required before
+                                booking.
+                            </li>
+                            <li>
+                                Final delivery, formats, and revisions are agreed
+                                during planning.
+                            </li>
+                            <li>
+                                Refer to Terms &amp; Conditions for full details, or
+                                DM / use the contact form for questions.
+                            </li>
+                        </ul>
+                    </div>
+                ) : serviceKey === "bundles" ? (
+                    <div className="service-detail-block service-detail-block--notes reveal-up">
+                        <h3>General Notes</h3>
+                        <ul>
+                            <li>Hours are not fixed and vary by project.</li>
+                            <li>
+                                Services may include audio, visual, photography, or
+                                combined production.
+                            </li>
+                            <li>
+                                Scope and deliverables are finalised after the
+                                booking call.
+                            </li>
+                            <li>
+                                Refer to Terms &amp; Conditions for full details.
+                            </li>
+                            <li>
+                                For more information, DM us or use the contact form.
+                            </li>
+                        </ul>
+                    </div>
+                ) : serviceKey === "promotion" ? (
+                    <div className="service-detail-block service-detail-block--notes reveal-up">
+                        <h3>General Notes</h3>
+                        <ul>
+                            <li>Campaign Length: 6 weeks</li>
+                            <li>Structure:</li>
+                            <li>Initial planning, organisation, and execution</li>
+                            <li>Ongoing optimisation</li>
+                            <li>
+                                Final 2 weeks for revisions, with changes applied in the
+                                final week
+                            </li>
+                        </ul>
+                    </div>
+                ) : null}
                 {serviceKey === "videography" ? (
                     <div className="service-detail-video reveal-up">
                         <h3>Showreel</h3>

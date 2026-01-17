@@ -14,19 +14,20 @@ export const serviceItems = [
     },
     {
         title: "Bundles & Packages",
-        description: "Short-form, cinematic, and event coverage packages.",
+        description: "A Combination of two services! (You're Choice).",
         href: "/ServicePackages-Bundles.html",
         image: "/assets/images/Photos/STUDIO/DSC05159.JPG",
     },
     {
-        title: "Promotion",
-        description: "Launch support and rollout strategy for releases.",
+        title: "Project Campaign*",
+        description:
+            "Targeted Project Campaigns built for business growth and brand development.",
         href: "/ServicePackages-Promotion.html",
         image: "/assets/images/Photos/EVENTS/DSC00204.jpg",
     },
     {
         title: "Studio",
-        description: "Book studio time with lighting and crew options.",
+        description: "Book studio time with our Audio Engineer & Producer.",
         href: "/ServicePackages-Studio.html",
         image: "/assets/images/Photos/STUDIO/DSC00412.jpg",
     },

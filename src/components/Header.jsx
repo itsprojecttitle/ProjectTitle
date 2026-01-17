@@ -9,7 +9,6 @@ const Header = ({
     ctaLabel = "Book Now",
 }) => {
     const [isPeek, setIsPeek] = useState(false);
-    const [isSearchOpen, setIsSearchOpen] = useState(false);
     const [searchQuery, setSearchQuery] = useState("");
     const triggerHeaderHide = () => {
         const header = document.getElementById("main-header");
@@ -78,32 +77,48 @@ const Header = ({
     const ctaText = isBookNowPage ? "Home" : ctaLabel;
     const searchItems = useMemo(
         () => [
+            { label: "Home", href: "/#hero" },
+            { label: "Portfolio", href: "/#portfolio" },
+            { label: "Gallery", href: "/Gallery.html" },
+            { label: "Media", href: "/media.html" },
+            { label: "News", href: "/#news" },
+            { label: "Contact us", href: "/Contact.html" },
+            { label: "Terms & Conditions", href: "/Terms.html" },
             { label: "FAQs", href: "/#faq" },
             { label: "Forums", href: "/forums.html" },
-            { label: "Terms & Conditions", href: "/Terms.html" },
-            { label: "News", href: "/#news" },
-            { label: "About Us", href: "/#about" },
-            { label: "Contact", href: "/Contact.html" },
-            { label: "Media", href: "/media.html" },
-            { label: "Gallery", href: "/Gallery.html" },
             { label: "Book Now", href: "/BookNow.html" },
             { label: "Videography", href: "/Videography.html" },
             { label: "Photography", href: "/Photography.html" },
             { label: "Studio", href: "/Studio.html" },
-            { label: "Promotion", href: "/Promotion.html" },
-            { label: "Campaign Development", href: "/CampaignDevelopment.html" },
-            { label: "Digital Course", href: "/DigitalCourse.html" },
+            { label: "Project Campaign*", href: "/Promotion.html" },
             { label: "Service Packages", href: "/ServicePackages-Bundles.html" },
         ],
         []
     );
-    const filteredSearchItems = useMemo(() => {
-        const query = searchQuery.trim().toLowerCase();
-        if (!query) return searchItems;
-        return searchItems.filter((item) =>
-            item.label.toLowerCase().includes(query)
+    const findMatch = (query) => {
+        const normalized = query.trim().toLowerCase();
+        if (!normalized) return null;
+        return (
+            searchItems.find((item) => item.label.toLowerCase() === normalized) ||
+            searchItems.find((item) =>
+                item.label.toLowerCase().startsWith(normalized)
+            ) ||
+            searchItems.find((item) =>
+                item.label.toLowerCase().includes(normalized)
+            )
         );
-    }, [searchItems, searchQuery]);
+    };
+    const handleSearchSubmit = () => {
+        const match = findMatch(searchQuery);
+        if (!match) return;
+        if (match.href.startsWith("/#") && isHomePath()) {
+            const id = match.href.replace("/#", "");
+            window.scrollTo({ top: 0, behavior: "smooth" });
+            if (id) onNavigate?.(new Event("click"), id);
+            return;
+        }
+        window.location.assign(match.href);
+    };
 
     return (
         <>
@@ -198,14 +213,28 @@ const Header = ({
                 </nav>
             </div>
             <div className="header-cta-row max-lg:tw-hidden desktop-only">
-                <button
-                    type="button"
-                    className="header-search-icon"
-                    aria-label="Search"
-                    onClick={() => setIsSearchOpen(true)}
-                >
-                    <i className="bi bi-search"></i>
-                </button>
+                <div className="header-search-bar">
+                    <i className="bi bi-search" aria-hidden="true"></i>
+                    <input
+                        type="search"
+                        placeholder="Search..."
+                        aria-label="Search"
+                        list="header-search-options"
+                        value={searchQuery}
+                        onChange={(event) => setSearchQuery(event.target.value)}
+                        onKeyDown={(event) => {
+                            if (event.key === "Enter") {
+                                event.preventDefault();
+                                handleSearchSubmit();
+                            }
+                        }}
+                    />
+                </div>
+                <datalist id="header-search-options">
+                    {searchItems.map((item) => (
+                        <option key={item.href} value={item.label} />
+                    ))}
+                </datalist>
                 {showBookNow ? (
                     <div className="header-cta-stack">
                         <a
@@ -255,44 +284,6 @@ const Header = ({
                 </button>
             </div>
             </header>
-            {isSearchOpen ? (
-                <div className="header-search-modal" onClick={() => setIsSearchOpen(false)}>
-                    <div
-                        className="header-search-card"
-                        onClick={(event) => event.stopPropagation()}
-                    >
-                        <div className="header-search-header">
-                            <h3>Search</h3>
-                            <button
-                                type="button"
-                                className="header-search-close"
-                                onClick={() => setIsSearchOpen(false)}
-                            >
-                                Close
-                            </button>
-                        </div>
-                        <input
-                            type="search"
-                            className="header-search-input"
-                            placeholder="Search site..."
-                            value={searchQuery}
-                            onChange={(event) => setSearchQuery(event.target.value)}
-                        />
-                        <div className="header-search-results">
-                            {filteredSearchItems.map((item) => (
-                                <a
-                                    key={item.label}
-                                    className="header-search-result"
-                                    href={item.href}
-                                    onClick={() => setIsSearchOpen(false)}
-                                >
-                                    {item.label}
-                                </a>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-            ) : null}
             {!isHomePath() ? (
                 <div className="social-float" aria-label="Social links">
                     <a

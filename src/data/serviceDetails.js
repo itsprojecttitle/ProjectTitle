@@ -16,6 +16,216 @@ const baseExtras = [
     "On‑set BTS coverage",
 ];
 
+const videoPhotoTiers = [
+    {
+        title: "Run & Gun",
+        copy:
+            "A fast, efficient shoot focused on capturing raw energy and moments without heavy setup or overplanning.",
+        details:
+            "Camera: Sony A7iii / A7iv\nEditing: Standard editing and processing included\nTurnaround: Up to 1 week\nCrew Size: 1–3 people",
+        info: [
+            "1 hour shoot",
+            "Outdoor or location of the client’s choice",
+            "Minimal setup, quick execution",
+            "Best for street visuals, quick content, simple concepts",
+        ],
+        extras: ["On-location setup", "Single-camera coverage", "1 round of notes"],
+        policy: ["50% deposit to book", "1 revision included", "Delivery in 3 days"],
+        stripeLink: "",
+    },
+    {
+        title: "Standard",
+        copy:
+            "A balanced shoot with enough time to properly explore ideas while keeping production clean and straightforward.",
+        details:
+            "Camera: Sony A7iii / A7iv\nEditing: Standard editing and processing included\nTurnaround: Up to 1 week\nCrew Size: 1–3 people",
+        info: [
+            "3 hour shoot",
+            "Location chosen by the client",
+            "Efficient setup with creative flexibility",
+            "Best for music videos, promo content, social visuals",
+        ],
+        extras: ["Basic edit pass", "Simple colour balance", "1 round of notes"],
+        policy: ["50% deposit to book", "1 revision included", "Delivery in 7 days"],
+        stripeLink: "",
+    },
+    {
+        title: "Advanced",
+        copy:
+            "A more involved production with creative input, location support, and expanded lighting for cinematic results.",
+        details:
+            "Camera: Sony A7iv / FX3 / Blackmagic Pocket Cinema Camera\nEditing: Standard editing and processing included\nTurnaround: Up to 2 weeks\nCrew Size: 1–3 people",
+        info: [
+            "5 hour shoot",
+            "Location finding included",
+            "Wider range of lighting equipment",
+            "Suitable for studio-style shots, blackout setups, night shoots, car movement shots",
+            "Creative direction discussed on call",
+        ],
+        extras: ["Storyboard outline", "Location scouting", "2 rounds of notes"],
+        policy: ["50% deposit to book", "2 revisions included", "Delivery in 14 days"],
+        stripeLink: "",
+    },
+    {
+        title: "Professional",
+        copy:
+            "High-level production focused on image quality, detail, and presentation without moving into full commercial-scale crews.",
+        details:
+            "Camera: Sony A7iv / FX3 / Blackmagic Pocket Cinema Camera\nEditing: Enhanced standard editing and processing included\nTurnaround: Up to 2 weeks\nCrew Size: 1–3 people",
+        info: [
+            "8 hour shoot",
+            "Advanced lighting setups",
+            "Behind-the-scenes footage included",
+            "Higher colour depth and image quality",
+            "Multiple locations and setups available",
+            "Best for: High-quality music videos, YouTube productions, and small-scale adverts.",
+            "Ideal for creators and artists working on major releases.",
+        ],
+        extras: ["Treatment deck", "Multiple setups", "3 rounds of notes"],
+        policy: ["60% deposit to book", "3 revisions included", "Delivery in 21 days"],
+        stripeLink: "",
+    },
+    {
+        title: "Industry Standard",
+        copy:
+            "Full-scale production designed for labels, brands, and companies requiring commercial-ready output.",
+        details:
+            "Camera: Film cameras / FX3–FX6\nSound: Boom mics, field mics\nEditing: Professional editing and processing included\nTurnaround: Up to 1 month\nCrew Size: 3+ people",
+        info: [
+            "8 hour shoot",
+            "Small professional crew",
+            "Director, editor, and supporting crew",
+            "Professional lighting and on-set audio capture",
+            "Built for adverts, campaigns, and brand-led projects",
+        ],
+        extras: ["Brand strategy", "Multi-location shoots", "Dedicated producer"],
+        policy: ["60% deposit to book", "4 revisions included", "Delivery in 28 days"],
+        stripeLink: "",
+    },
+];
+
+const studioTiers = [
+    {
+        title: "Standard",
+        copy:
+            "Essential studio access with professional mixing and mastering for clean, release-ready results.",
+        details:
+            "Recording Environment: Basic studio setup\nMixing & Mastering: Included (project-dependent)\nRevisions: Up to 3 mix revisions\nAudio Quality: Dependent on studio environment\nOutput: WAV or MP3 (WAV ADVISED)",
+        info: [
+            "Basic studio access",
+            "Recording, mixing, and mastering included",
+            "Suitable for simple projects and quick turnarounds",
+            "Treatment discussion required to define scope and goals",
+        ],
+        extras: ["Basic edit pass", "Simple colour balance", "1 round of notes"],
+        policy: ["50% deposit to book", "1 revision included", "Delivery in 7 days"],
+        stripeLink: "",
+    },
+    {
+        title: "Advanced",
+        copy:
+            "A more controlled and detailed production environment designed for higher-quality recordings and mixes.",
+        details:
+            "Recording Environment: Acoustically treated studio\nMixing & Mastering: Included (detailed approach)\nRevisions: Up to 3 mix revisions\nAudio Quality: Higher accuracy and consistency\nOutput: WAV or MP3 (WAV ADVISED)",
+        info: [
+            "Recording in an acoustically measured and treated environment",
+            "Longer sessions and more detailed production approach",
+            "Higher-quality microphones, headphones, and monitoring",
+            "Designed for artists seeking cleaner, more accurate sound",
+        ],
+        extras: ["Storyboard outline", "Location scouting", "2 rounds of notes"],
+        policy: ["50% deposit to book", "2 revisions included", "Delivery in 14 days"],
+        stripeLink: "",
+    },
+    {
+        title: "Professional",
+        copy:
+            "Industry-level production with advanced tools, precision mixing, and professional-grade sound.",
+        details:
+            "Recording Environment: Industry-standard studio\nEquipment: Industry microphones, professional speakers\nMixing & Mastering: Included (high-detail workflow)\nRevisions: Up to 3 mix revisions\nCalibration: Optimised for multiple listening environments\nOutput: WAV or MP3 (WAV ADVISED)",
+        info: [
+            "Recording in an industry-standard studio",
+            "Detailed mixing and mastering process",
+            "Designed for serious releases, projects, and professional artists",
+        ],
+        extras: ["Treatment deck", "Multiple setups", "3 rounds of notes"],
+        policy: ["60% deposit to book", "3 revisions included", "Delivery in 21 days"],
+        stripeLink: "",
+    },
+    {
+        title: "Industry Standard",
+        copy:
+            "Top-tier audio production built for labels, commercial releases, and high-level projects.",
+        details:
+            "Recording Environment: Industry-standard studio\nEquipment: Industry microphones, professional speakers, analogue outboard gear\nMixing & Mastering: Full stem mixing and mastering, precision calibration for multiple playback systems\nRevisions: Up to 3 mix revisions\nAudio Quality: Maximum consistency across platforms\nOutput: WAV or MP3 (WAV ADVISED)",
+        info: [
+            "Full industry-standard recording and production workflow",
+            "Designed for commercial, label, and large-scale projects",
+            "Highest level of control, clarity, and translation",
+        ],
+        extras: ["Brand strategy", "Multi-location shoots", "Dedicated producer"],
+        policy: ["60% deposit to book", "4 revisions included", "Delivery in 28 days"],
+        stripeLink: "",
+    },
+];
+
+const bundlesTiers = [
+    {
+        title: "Standard",
+        copy:
+            "A flexible entry-level package combining core creative services with a structured planning process.",
+        details:
+            "Service Scope: Combination of creative services agreed on call\nScope Defined: Via treatment and invoice\nProcess: Planning call required after booking\nExecution: Based on agreed aims and outcomes\nRevisions: Up to 3 revisions (where applicable)\nOutput: Project-based (varies by service and scope)",
+        info: [
+            "This package offers a basic combination of services, tailored to the project’s needs.",
+            "It can cover audio, visual, photography, or mixed creative work, depending on what’s agreed during the call.",
+            "The focus is on clarity, direction, and efficient execution.",
+        ],
+        extras: ["Treatment deck", "Multiple setups", "3 rounds of notes"],
+        policy: ["60% deposit to book", "3 revisions included", "Delivery in 21 days"],
+        stripeLink: "",
+    },
+    {
+        title: "Advanced",
+        copy:
+            "A more detailed and controlled creative process with higher-quality environments and longer working time.",
+        details:
+            "Environment: Controlled and purpose-selected location\nServices: Recording, mixing, mastering, or visual production (as agreed)\nRevisions: Up to 3 revisions\nStem Mixing: Included where applicable\nOutput: Multiple deliverables possible within the agreed scope",
+        info: [
+            "Designed for projects that require more attention, refinement, and technical control.",
+            "Services may include recording, mixing, visuals, or other creative work, depending on the project plan.",
+        ],
+        extras: ["Storyboard outline", "Location scouting", "2 rounds of notes"],
+        policy: ["50% deposit to book", "2 revisions included", "Delivery in 14 days"],
+        stripeLink: "",
+    },
+    {
+        title: "Professional",
+        copy:
+            "High-level creative production focused on quality, detail, and consistency across platforms.",
+        details:
+            "Environment: Industry-standard setup\nEquipment: Professional microphones, cameras, monitoring, or lighting (project-dependent)\nServices: Detailed production, mixing, mastering, or visual execution\nRevisions: Up to 3 revisions\nCalibration: Optimised for multiple listening or viewing environments\nOutput: Multiple deliverables within the agreed scope",
+        info: [
+            "Built for serious releases, campaigns, and projects requiring professional-grade execution and refinement.",
+        ],
+        extras: ["Treatment deck", "Multiple setups", "3 rounds of notes"],
+        policy: ["60% deposit to book", "3 revisions included", "Delivery in 21 days"],
+        stripeLink: "",
+    },
+    {
+        title: "Industry Standard",
+        copy: "Top-tier production designed for labels, brands, and commercial projects.",
+        details:
+            "Environment: Industry-standard studios or locations\nEquipment: Industry microphones and cameras, professional speakers and lighting, analogue outboard gear (where applicable)\nServices: Full stem mixing and mastering (where relevant), advanced production and post-processing\nRevisions: Up to 3 revisions\nOutput: Project-based, scalable delivery",
+        info: [
+            "A full professional workflow using industry-standard facilities, teams, and equipment, built for high-impact releases and campaigns.",
+        ],
+        extras: ["Brand strategy", "Multi-location shoots", "Dedicated producer"],
+        policy: ["60% deposit to book", "4 revisions included", "Delivery in 28 days"],
+        stripeLink: "",
+    },
+];
+
 const makeService = (title, summary, detailHref, packagesHref) => ({
     title,
     summary,
@@ -80,7 +290,7 @@ export const serviceDetails = {
     videography: {
         ...makeService(
             "Videography",
-            "Cinematic video services for releases, campaigns, and live moments.",
+            "",
             "/Videography.html",
             "/ServicePackages-Videography.html"
         ),
@@ -138,8 +348,8 @@ export const serviceDetails = {
         ],
     },
     promotion: makeService(
-        "Promotion",
-        "Rollout strategy and content support for launches.",
+        "Project Campaign*",
+        "Targeted Project Campaigns built for business growth and brand development.",
         "/Promotion.html",
         "/ServicePackages-Promotion.html"
     ),
@@ -163,13 +373,26 @@ export const serviceDetails = {
     ),
 };
 
+serviceDetails.videography.tiers = videoPhotoTiers;
+serviceDetails.photography.tiers = videoPhotoTiers;
+serviceDetails.studio.tiers = studioTiers;
+serviceDetails.bundles.tiers = bundlesTiers;
+
 serviceDetails.promotion.tiers = [
     {
-        title: "Campaign",
-        copy: "Targeted promotion built for measurable growth.",
+        title: "Campaign Packaging",
+        copy:
+            "A 6-week, strategy-led campaign designed to grow personal or brand presence through planned conten",
         details:
-            "Campaign support with creative direction, rollout planning, and launch execution.",
-        info: ["Turnaround: 3 weeks", "Crew size: 3–6", "Deliverables: campaign suite"],
+            "This package includes social media management, content creation, and guerrilla and SEO marketing, all designed to strengthen brand PR and support the growth of your personal or brand community.",
+        info: [
+            "What’s Included:",
+            "Social programming and content planning",
+            "Persona and brand representation development",
+            "Camera team if required",
+            "Audio, photography, and visual services (project-dependent)",
+            "Guerrilla marketing and alternative outreach methods",
+        ],
         extras: ["Release strategy", "Content calendar", "2 rounds of notes"],
         policy: ["50% deposit to book", "2 revisions included", "Delivery in 21 days"],
         stripeLink: "",
@@ -221,26 +444,26 @@ setSimplybookLinks(serviceDetails.videography, {
 });
 
 setTierPrices(serviceDetails.videography, {
-    "Industry Standard": "1200.00",
-    Professional: "850.00",
-    Advanced: "550.00",
-    Standard: "350.00",
-    "Run & Gun": "200.00",
+    "Industry Standard": "£1,200",
+    Professional: "£850",
+    Advanced: "£550",
+    Standard: "£350",
+    "Run & Gun": "£200",
 });
 
 setTierPrices(serviceDetails.photography, {
-    "Industry Standard": "1200.00",
-    Professional: "850.00",
-    Advanced: "550.00",
-    Standard: "350.00",
-    "Run & Gun": "200.00",
+    "Industry Standard": "£1,200",
+    Professional: "£850",
+    Advanced: "£550",
+    Standard: "£350",
+    "Run & Gun": "£200",
 });
 
 setTierPrices(serviceDetails.studio, {
-    "Industry Standard": "1200.00",
-    Professional: "850.00",
-    Advanced: "550.00",
-    Standard: "200.00",
+    "Industry Standard": "£1,200",
+    Professional: "£850",
+    Advanced: "£550",
+    Standard: "£200",
 });
 
 setSimplybookLinks(serviceDetails.photography, {
@@ -279,16 +502,17 @@ setSimplybookLinks(serviceDetails.bundles, {
 });
 
 setTierPrices(serviceDetails.bundles, {
-    "Industry Standard": "1200.00",
-    Professional: "850.00",
-    Advanced: "550.00",
-    Standard: "350.00",
+    "Industry Standard": "£1,200",
+    Professional: "£850",
+    Advanced: "£550",
+    Standard: "£350",
 });
 
 setSimplybookLinks(serviceDetails.promotion, {
-    Campaign: "https://projecttitle.simplybook.it/v2/#book/category/11/count/1/",
+    "Campaign Packaging":
+        "https://projecttitle.simplybook.it/v2/#book/category/11/count/1/",
 });
 
 setTierPrices(serviceDetails.promotion, {
-    Campaign: "500.00",
+    "Campaign Packaging": "£550",
 });

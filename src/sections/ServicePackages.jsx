@@ -180,6 +180,20 @@ const ServicePackages = ({ service, serviceKey }) => {
                         BOOK NOW, PICK YOUR CLASS*
                     </p>
                 </header>
+                {serviceKey === "bundles" ? (
+                    <div className="service-packages-notes service-packages-notes--center reveal-up">
+                        <h4>Creative / Music Production Packages</h4>
+                        <p>
+                            General Information
+                            <br />
+                            All projects require a call after booking to discuss aims,
+                            scope, and expected outcomes.
+                            <br />
+                            Services and deliverables are agreed during this discussion
+                            to ensure the project is aligned before execution.
+                        </p>
+                    </div>
+                ) : null}
                 {serviceKey !== "promotion" && serviceKey !== "bundles" ? (
                     <div className="media-player reveal-up">
                         <div className="media-player-frame">
@@ -203,7 +217,12 @@ const ServicePackages = ({ service, serviceKey }) => {
                         </div>
                         {serviceKey === "studio" ? (
                             <p className="service-packages-embed-caption">
-                                Songs mixed by us
+                                <span>10 years of experience.</span>
+                                <span>Understanding the science behind sound.</span>
+                                <span>
+                                    With Engineers and Producers who can translate
+                                    your ideas into music.
+                                </span>
                             </p>
                         ) : null}
                     </div>
@@ -286,6 +305,48 @@ const ServicePackages = ({ service, serviceKey }) => {
                         View Terms &amp; Conditions
                     </a>
                 </div>
+                {serviceKey === "videography" || serviceKey === "photography" ? (
+                    <div className="service-packages-notes reveal-up">
+                        <h4>General Notes</h4>
+                        <ul>
+                            <li>All services include a standard level of editing.</li>
+                            <li>Shoots are confirmed after full payment.</li>
+                            <li>
+                                Same-day or short-notice bookings may incur
+                                additional fees.
+                            </li>
+                            <li>
+                                Deliverables, formats, and revisions are agreed on
+                                call.
+                            </li>
+                            <li>
+                                Refer to Terms &amp; Conditions for full details or
+                                DM / use the contact form to book.
+                            </li>
+                        </ul>
+                    </div>
+                ) : serviceKey === "bundles" ? (
+                    <div className="service-packages-notes reveal-up">
+                        <h4>General Notes</h4>
+                        <ul>
+                            <li>Hours are not fixed and vary by project.</li>
+                            <li>
+                                Services may include audio, visual, photography, or
+                                combined production.
+                            </li>
+                            <li>
+                                Scope and deliverables are finalised after the
+                                booking call.
+                            </li>
+                            <li>
+                                Refer to Terms &amp; Conditions for full details.
+                            </li>
+                            <li>
+                                For more information, DM us or use the contact form.
+                            </li>
+                        </ul>
+                    </div>
+                ) : null}
                 {activePolicy ? (
                     <div
                         className="policy-modal"
@@ -329,13 +390,36 @@ const ServicePackages = ({ service, serviceKey }) => {
                             <p className="service-packages-modal-subtitle">
                                 {service.title}
                             </p>
-                            <p className="service-packages-modal-summary">
-                                {activeTier.details}
+                            <p
+                                className={`service-packages-modal-summary${
+                                    serviceKey === "bundles"
+                                        ? " service-packages-modal-summary--accent"
+                                        : ""
+                                }`}
+                            >
+                                {activeTier.copy}
                             </p>
                             <div className="service-packages-modal-grid">
                                 <div className="service-packages-modal-block">
                                     <h3>Details</h3>
-                                    <p>{activeTier.details}</p>
+                                    {serviceKey === "studio" || serviceKey === "bundles" ? (
+                                        <ul className="details-list">
+                                            {activeTier.details.split("\n").map((line) => {
+                                                const [label, ...rest] = line.split(":");
+                                                const value = rest.join(":").trim();
+                                                return (
+                                                    <li key={line}>
+                                                        <span className="details-label">
+                                                            {label}:
+                                                        </span>{" "}
+                                                        <span>{value}</span>
+                                                    </li>
+                                                );
+                                            })}
+                                        </ul>
+                                    ) : (
+                                        <p>{activeTier.details}</p>
+                                    )}
                                 </div>
                                 <div className="service-packages-modal-block">
                                     <h3>Info</h3>
@@ -375,6 +459,87 @@ const ServicePackages = ({ service, serviceKey }) => {
                                     Select
                                 </a>
                             </div>
+                            {serviceKey === "videography" ||
+                            serviceKey === "photography" ? (
+                                <div className="service-packages-modal-block service-packages-modal-block--notes">
+                                    <h3>General Notes</h3>
+                                    <ul>
+                                        <li>All services include a standard level of editing.</li>
+                                        <li>Shoots are confirmed after full payment.</li>
+                                        <li>
+                                            Same-day or short-notice bookings may incur
+                                            additional fees.
+                                        </li>
+                                        <li>
+                                            Deliverables, formats, and revisions are agreed on
+                                            call.
+                                        </li>
+                                        <li>
+                                            Refer to Terms &amp; Conditions for full details or
+                                            DM / use the contact form to book.
+                                        </li>
+                                    </ul>
+                                </div>
+                            ) : serviceKey === "studio" ? (
+                                <div className="service-packages-modal-block service-packages-modal-block--notes">
+                                    <h3>General Notes</h3>
+                                    <ul>
+                                        <li>Hours are not fixed and vary depending on the project scope.</li>
+                                        <li>
+                                            Recording, mixing, and mastering are included across
+                                            all packages.
+                                        </li>
+                                        <li>Stem mixing and mastering included from Advanced upwards.</li>
+                                        <li>
+                                            A treatment / project discussion is required before
+                                            booking.
+                                        </li>
+                                        <li>
+                                            Final delivery, formats, and revisions are agreed
+                                            during planning.
+                                        </li>
+                                        <li>
+                                            Refer to Terms &amp; Conditions for full details, or
+                                            DM / use the contact form for questions.
+                                        </li>
+                                    </ul>
+                                </div>
+                            ) : serviceKey === "bundles" ? (
+                                <div className="service-packages-modal-block service-packages-modal-block--notes">
+                                    <h3>General Notes</h3>
+                                    <ul>
+                                        <li>Hours are not fixed and vary by project.</li>
+                                        <li>
+                                            Services may include audio, visual, photography, or
+                                            combined production.
+                                        </li>
+                                        <li>
+                                            Scope and deliverables are finalised after the
+                                            booking call.
+                                        </li>
+                                        <li>
+                                            Refer to Terms &amp; Conditions for full details.
+                                        </li>
+                                        <li>
+                                            For more information, DM us or use the contact form.
+                                        </li>
+                                    </ul>
+                                </div>
+                            ) : serviceKey === "promotion" ? (
+                                <div className="service-packages-modal-block service-packages-modal-block--notes">
+                                    <h3>General Notes</h3>
+                                    <ul>
+                                        <li>Campaign Length: 6 weeks</li>
+                                        <li>Structure:</li>
+                                        <li>Initial planning, organisation, and execution</li>
+                                        <li>Ongoing optimisation</li>
+                                        <li>
+                                            Final 2 weeks for revisions, with changes applied in the
+                                            final week
+                                        </li>
+                                    </ul>
+                                </div>
+                            ) : null}
                         </div>
                     </div>
                 ) : null}

@@ -4,6 +4,6 @@ export const articleItems = [
         title: "Upcoming Events",
         date: "Jan, 3, 2026",
         image: "/assets/news/essdekid-templates-recovered.png",
-        link: "https://www.instagram.com/projecttitle/p/DTDC8i2glzp/",
+        link: "https://www.instagram.com/p/DTpuIXhgh0d/?img_index=1",
     },
 ];

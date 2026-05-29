@@ -83,7 +83,6 @@ const Header = ({
             { label: "Media", href: "/media.html" },
             { label: "News", href: "/#news" },
             { label: "Contact us", href: "/Contact.html" },
-            { label: "Terms & Conditions", href: "/Terms.html" },
             { label: "FAQs", href: "/#faq" },
             { label: "Forums", href: "/forums.html" },
             { label: "Book Now", href: "/BookNow.html" },
@@ -199,16 +198,6 @@ const Header = ({
                         }}
                     >
                         Contact us
-                    </a>
-                    <a
-                        className="header-links"
-                        href="/Terms.html"
-                        onClick={() => {
-                            peekHeader();
-                            triggerHeaderHide();
-                        }}
-                    >
-                        Terms &amp; Conditions
                     </a>
                 </nav>
             </div>

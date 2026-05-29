@@ -165,9 +165,6 @@ const FullPortfolioApp = () => {
                         News
                     </a>
 
-                        <a className="bm-menu-item" href="/Terms.html" onClick={triggerHeaderHide}>
-                            Terms & Conditions
-                        </a>
                         <a className="bm-menu-item" href="/Contact.html" onClick={triggerHeaderHide}>
                             Contact us
                         </a>

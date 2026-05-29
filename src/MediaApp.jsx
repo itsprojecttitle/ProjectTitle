@@ -148,9 +148,6 @@ const MediaApp = () => {
                         News
                     </a>
 
-                        <a className="bm-menu-item" href="/Terms.html">
-                            Terms & Conditions
-                        </a>
                         <a className="bm-menu-item" href="/Contact.html">
                             Contact us
                         </a>

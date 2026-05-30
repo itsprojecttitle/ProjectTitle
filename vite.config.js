@@ -13,6 +13,7 @@ export default defineConfig({
         rollupOptions: {
             input: {
                 main: "index.html",
+                galleryDemo: "GalleryDemo.html",
                 fullPortfolio: "Gallery.html",
                 media: "media.html",
                 booking: "BookNow.html",

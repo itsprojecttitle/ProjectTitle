@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
 import FullPortfolio from "./pages/FullPortfolio.jsx";
+import { getGalleryCollectionByPath } from "./data/galleryCollections.js";
 import { initScrollAnimations } from "./utils/scrollAnimations.js";
 import { initLinkTargets } from "./utils/linkTargets.js";
 import { addScrollListener, getScrollTop } from "./utils/scrollRoot.js";
@@ -9,6 +10,8 @@ import FloatingWidget from "./components/FloatingWidget.jsx";
 
 const FullPortfolioApp = () => {
     const [burgerOpen, setBurgerOpen] = useState(false);
+    const activeCollection =
+        typeof window !== "undefined" ? getGalleryCollectionByPath(window.location.pathname) : null;
 
     useEffect(() => {
         document.body.classList.toggle("bm-open", burgerOpen);
@@ -186,7 +189,12 @@ const FullPortfolioApp = () => {
                         portfolioHref="/#portfolio"
                     />
                     <main>
-                        <FullPortfolio />
+                        <FullPortfolio
+                            titleText={activeCollection?.title || "Gallery"}
+                            subtitleText={activeCollection?.subtitle || 'Every story starts with a "ProjectTitle"'}
+                            images={activeCollection?.images}
+                            showCollections={!activeCollection}
+                        />
                     </main>
                     <FloatingWidget />
                     <button

@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useState, useRef } from "react";
 import { portfolioItems } from "../data/portfolio.js";
+import { allGalleryImages, galleryCollections } from "../data/galleryCollections.js";
 
 const galleryImages = [
     "/assets/images/Photos/EVENTS/DSC00315.jpg",
@@ -37,14 +38,19 @@ const tileClasses = [
     "full-portfolio-tile--h",
 ];
 
-const FullPortfolio = ({ titleText = "Gallery" }) => {
+const FullPortfolio = ({
+    titleText = "Gallery",
+    subtitleText = 'Every story starts with a "ProjectTitle"',
+    images = galleryImages,
+    showCollections = true,
+}) => {
     const tiles = useMemo(
         () =>
-            galleryImages.map((image, index) => ({
+            (Array.isArray(images) && images.length ? images : allGalleryImages).map((image, index) => ({
                 image,
                 className: tileClasses[index % tileClasses.length],
             })),
-        []
+        [images]
     );
     const [activeIndex, setActiveIndex] = useState(null);
     const touchStart = useRef(null);
@@ -101,10 +107,19 @@ const FullPortfolio = ({ titleText = "Gallery" }) => {
                     {titleText}
                 </h3>
                     <div className="full-portfolio-subtitle">
-                        Every story starts with a "ProjectTitle"
+                        {subtitleText}
                         <br />
                         Let's find yours.
                     </div>
+                    {showCollections ? (
+                        <p className="gallery-subpage-count">
+                            {galleryCollections.length} photo packs
+                        </p>
+                    ) : (
+                        <a className="gallery-subpage-back" href="/Gallery.html">
+                            ← All Galleries
+                        </a>
+                    )}
                     <div className="full-portfolio-socials full-portfolio-socials--title">
                         <a
                             href="/facebook.html"
@@ -147,8 +162,37 @@ const FullPortfolio = ({ titleText = "Gallery" }) => {
                     </div>
                     <p className="service-packages-cta-subtitle reveal-up">Recognise anyone?</p>
                 </div>
-                <div className="full-portfolio-main">
-                {tiles[0] ? (
+                {showCollections ? (
+                    <div className="gallery-collection-grid">
+                        {galleryCollections.map((collection, index) => (
+                            <a
+                                key={collection.slug}
+                                className="gallery-collection-card"
+                                href={collection.href}
+                            >
+                                <div className="gallery-collection-media">
+                                    {collection.images.slice(0, 4).map((image) => (
+                                        <img
+                                            key={image}
+                                            src={image}
+                                            alt=""
+                                            loading={index > 1 ? "lazy" : "eager"}
+                                        />
+                                    ))}
+                                </div>
+                                <div className="gallery-collection-overlay">
+                                    <span>Pack {String(index + 1).padStart(2, "0")}</span>
+                                    <h4>{collection.title}</h4>
+                                    <p>{collection.subtitle}</p>
+                                    <strong>{collection.images.length} photos</strong>
+                                </div>
+                            </a>
+                        ))}
+                    </div>
+                ) : (
+                    <>
+                    <div className="full-portfolio-main">
+                    {tiles[0] ? (
                     <button
                         type="button"
                         className="full-portfolio-photo full-portfolio-photo--main portfolio-mosaic-card portfolio-mosaic-card--plain"
@@ -163,26 +207,28 @@ const FullPortfolio = ({ titleText = "Gallery" }) => {
                             </div>
                         </button>
                     ) : null}
-                </div>
-                <div className="full-portfolio-grid">
-                    {tiles.slice(1).map((item, index) => (
-                        <article
-                            className={`full-portfolio-card ${item.className}`}
-                            key={`full-portfolio-${index + 1}`}
-                        >
-                            <button
-                                type="button"
-                                className="full-portfolio-photo portfolio-mosaic-card portfolio-mosaic-card--plain"
-                                onClick={() => openAt(index + 1)}
-                                aria-label="Open photo"
+                    </div>
+                    <div className="full-portfolio-grid">
+                        {tiles.slice(1).map((item, index) => (
+                            <article
+                                className={`full-portfolio-card ${item.className}`}
+                                key={`full-portfolio-${index + 1}`}
                             >
-                                <div className="portfolio-mosaic-plain-media">
-                                    <img src={item.image} alt="Gallery item" />
-                                </div>
-                            </button>
-                        </article>
-                    ))}
-                </div>
+                                <button
+                                    type="button"
+                                    className="full-portfolio-photo portfolio-mosaic-card portfolio-mosaic-card--plain"
+                                    onClick={() => openAt(index + 1)}
+                                    aria-label="Open photo"
+                                >
+                                    <div className="portfolio-mosaic-plain-media">
+                                        <img src={item.image} alt="Gallery item" />
+                                    </div>
+                                </button>
+                            </article>
+                        ))}
+                    </div>
+                    </>
+                )}
                 <div className="full-portfolio-footer-text reveal-up" />
             </div>
             {activeImage ? (

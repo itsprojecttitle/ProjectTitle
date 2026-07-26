@@ -137,8 +137,8 @@ const Header = ({
                 className="header-logo"
             >
                 <img
-                    src="/assets/Asset-4.png"
-                    alt="logo"
+                    src="/assets/projecttitle-logo-main.png"
+                    alt="Project Title"
                     className="site-logo tw-object-contain"
                 />
             </a>

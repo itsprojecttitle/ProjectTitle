@@ -98,9 +98,9 @@ export const galleryCollections = [
 
     {
         slug: "1life-studiosession",
-        title: "1Life StudioSession @Shotbyaza",
+        title: "1Life studio",
         href: "/Gallery-1Life-StudioSession.html",
-        subtitle: "1Life studio session photographed by @Shotbyaza.",
+        subtitle: "Studio photos photographed by @Shotbyaza.",
         images: [
             "/assets/images/Photos/1LIFE-STUDIOSESSION-SHOTBYAZA/001-52CA482C-7BC2-4665-8082-7BC95697A61A.jpg",
             "/assets/images/Photos/1LIFE-STUDIOSESSION-SHOTBYAZA/002-63E354AA-528E-41B4-B40E-DF63739D864D.jpg",

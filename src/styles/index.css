@@ -647,6 +647,41 @@ header{
   margin-bottom: 36px;
 }
 
+.gallery-folder-groups{
+  width: min(1180px, 100%);
+  margin: 0 auto 48px;
+}
+
+.gallery-folder-group{
+  margin-bottom: 52px;
+}
+
+.gallery-folder-heading{
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 18px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.16);
+}
+
+.gallery-folder-heading h4{
+  margin: 0;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: clamp(1.55rem, 3vw, 2.45rem);
+  line-height: 1;
+}
+
+.gallery-folder-heading span{
+  color: rgba(255,255,255,0.68);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.72rem;
+  white-space: nowrap;
+}
+
 .full-portfolio-grid{
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));

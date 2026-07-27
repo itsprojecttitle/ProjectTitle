@@ -38,6 +38,19 @@ const tileClasses = [
     "full-portfolio-tile--h",
 ];
 
+const getPhotoGroupName = (image = "") => {
+    if (!image.includes("OHMIEN-8OH8-POPUP-SHOTBYAZA") && !image.includes("OHMIEN-8OH8-SHOT-BY-GABRIELLL")) {
+        return null;
+    }
+
+    const fileName = image.split("/").pop() || "";
+    const withoutIndex = fileName.replace(/^\d+-/, "");
+    const match = withoutIndex.match(/^(.+?)-(?:DSC|IMG)/i);
+    if (!match) return null;
+
+    return match[1].replace(/-/g, " ");
+};
+
 const FullPortfolio = ({
     titleText = "Gallery",
     subtitleText = 'Every story starts with a "ProjectTitle"',
@@ -54,6 +67,25 @@ const FullPortfolio = ({
     );
     const [activeIndex, setActiveIndex] = useState(null);
     const touchStart = useRef(null);
+    const groupedTiles = useMemo(() => {
+        const groups = [];
+        const groupMap = new Map();
+
+        tiles.forEach((tile, index) => {
+            const name = getPhotoGroupName(tile.image);
+            if (!name) return;
+
+            if (!groupMap.has(name)) {
+                const group = { name, items: [] };
+                groupMap.set(name, group);
+                groups.push(group);
+            }
+
+            groupMap.get(name).items.push({ ...tile, index });
+        });
+
+        return groups.length > 1 ? groups : null;
+    }, [tiles]);
 
     const openAt = (index) => setActiveIndex(index);
     const close = () => setActiveIndex(null);
@@ -187,6 +219,36 @@ const FullPortfolio = ({
                                     <strong>{collection.images.length} photos</strong>
                                 </div>
                             </a>
+                        ))}
+                    </div>
+                ) : groupedTiles ? (
+                    <div className="gallery-folder-groups">
+                        {groupedTiles.map((group) => (
+                            <section className="gallery-folder-group" key={group.name}>
+                                <div className="gallery-folder-heading">
+                                    <h4>{group.name}</h4>
+                                    <span>{group.items.length} photos</span>
+                                </div>
+                                <div className="full-portfolio-grid">
+                                    {group.items.map((item) => (
+                                        <article
+                                            className={`full-portfolio-card ${item.className}`}
+                                            key={`full-portfolio-${item.index}`}
+                                        >
+                                            <button
+                                                type="button"
+                                                className="full-portfolio-photo portfolio-mosaic-card portfolio-mosaic-card--plain"
+                                                onClick={() => openAt(item.index)}
+                                                aria-label="Open photo"
+                                            >
+                                                <div className="portfolio-mosaic-plain-media">
+                                                    <img src={item.image} alt="Gallery item" />
+                                                </div>
+                                            </button>
+                                        </article>
+                                    ))}
+                                </div>
+                            </section>
                         ))}
                     </div>
                 ) : (

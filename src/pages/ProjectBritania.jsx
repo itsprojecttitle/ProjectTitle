@@ -11,6 +11,8 @@ const participants = [
     "Joutema",
 ];
 
+const unconfirmedParticipants = new Set(["Antz", "Bkaine"]);
+
 const schedule = [
     {
         number: "01",
@@ -66,8 +68,9 @@ const ProjectBritania = () => {
 
     const handleAccess = (event) => {
         event.preventDefault();
-        const participantMatch = participants.some(
-            (participant) => participant.toLowerCase() === accessCode.trim().toLowerCase()
+        const acceptedAccessCodes = [...participants, "Projecttitle"];
+        const participantMatch = acceptedAccessCodes.some(
+            (code) => code.toLowerCase() === accessCode.trim().toLowerCase()
         );
         if (participantMatch) {
             window.sessionStorage.setItem("britania-participant-access", "granted");
@@ -161,7 +164,7 @@ const ProjectBritania = () => {
                     <div><dt>Requirement</dt><dd>2 songs per artist</dd></div>
                     <div><dt>Location</dt><dd>London</dd></div>
                     <div><dt>Date</dt><dd>19 September 2026</dd></div>
-                    <div><dt>References</dt><dd>@ChannelUnlocked<br />@OnleVibez</dd></div>
+                    <div><dt>References</dt><dd>@ChannelUnlocked<br />@OnleVibez<br />STEMS</dd></div>
                     <div><dt>Camera setup</dt><dd>Front + side</dd></div>
                     <div><dt>Artists</dt><dd>8 participants</dd></div>
                 </dl>
@@ -178,7 +181,11 @@ const ProjectBritania = () => {
                         <li key={participant}>
                             <span>{String(index + 1).padStart(2, "0")}</span>
                             <strong>{participant}</strong>
-                            <em>Confirmed participant</em>
+                            <em>
+                                {unconfirmedParticipants.has(participant)
+                                    ? "Awaiting confirmation"
+                                    : "Confirmed participant"}
+                            </em>
                         </li>
                     ))}
                 </ol>

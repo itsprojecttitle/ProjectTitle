@@ -25,6 +25,7 @@ export default defineConfig({
                 galleryOhmien8oh8PopupShotbyaza: "Gallery-Ohmien-8OH8-Popup-Shotbyaza.html",
                 galleryOhmien8oh8ShotByGabrielll: "Gallery-Ohmien-8OH8-Shot-by-Gabrielll.html",
                 media: "media.html",
+                projectBritania: "Project-Britania.html",
                 booking: "BookNow.html",
                 facebook: "facebook.html",
                 contact: "Contact.html",

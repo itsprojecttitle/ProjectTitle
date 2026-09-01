@@ -4,7 +4,7 @@ const participants = [
     "Rez818",
     "Kyrxn",
     "S3l",
-    "Tekortk",
+    "Tekoortk",
     "Antz",
     "Bkaine",
     "Yerki",

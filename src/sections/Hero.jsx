@@ -14,9 +14,9 @@ const Hero = () => {
             href: "https://www.youtube.com/watch?v=DhI3eWrMNLI",
         },
         {
-            title: "DON'T STUTTER | PASSIVE",
-            thumb: "https://img.youtube.com/vi/FiCyTmv6XRI/hqdefault.jpg",
-            href: "https://www.youtube.com/watch?v=FiCyTmv6XRI",
+            title: "PROJECTTITLE | 1LIFE Interview",
+            thumb: "https://img.youtube.com/vi/Qkn_FJuPQrw/hqdefault.jpg",
+            href: "https://www.youtube.com/watch?v=Qkn_FJuPQrw",
         },
     ];
 
@@ -123,8 +123,8 @@ const Hero = () => {
                         >
                             <div className="hero-video-embed hero-video-placeholder">
                                 <iframe
-                                    src="https://www.youtube-nocookie.com/embed/OtI4KEAARe4?start=623&rel=0&autoplay=1&mute=1&playsinline=1"
-                                    title="Showreel"
+                                    src="https://www.youtube-nocookie.com/embed/Qkn_FJuPQrw?rel=0&autoplay=1&mute=1&playsinline=1"
+                                    title="PROJECTTITLE | 1LIFE Interview"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                     allowFullScreen
                                 />

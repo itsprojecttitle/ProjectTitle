@@ -1,20 +1,27 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 const Hero = () => {
     const videoRef = useRef(null);
+    const [activeVideo, setActiveVideo] = useState({
+        id: "OtI4KEAARe4",
+        title: "PROJECTTITLE | 1LIFE Interview",
+    });
     const heroLinks = [
         {
             title: "PROJECTTITLE | ELZ LAURENT",
+            videoId: "lINkDzNWKIs",
             thumb: "https://img.youtube.com/vi/lINkDzNWKIs/hqdefault.jpg",
             href: "https://www.youtube.com/watch?v=lINkDzNWKIs",
         },
         {
             title: "Reekz - INCH vs MILE (Dir. ProjectTitle)",
+            videoId: "DhI3eWrMNLI",
             thumb: "https://img.youtube.com/vi/DhI3eWrMNLI/hqdefault.jpg",
             href: "https://www.youtube.com/watch?v=DhI3eWrMNLI",
         },
         {
             title: "PROJECTTITLE | 1LIFE Interview",
+            videoId: "OtI4KEAARe4",
             thumb: "https://img.youtube.com/vi/OtI4KEAARe4/hqdefault.jpg",
             href: "https://www.youtube.com/watch?v=OtI4KEAARe4",
         },
@@ -123,8 +130,8 @@ const Hero = () => {
                         >
                             <div className="hero-video-embed hero-video-placeholder">
                                 <iframe
-                                    src="https://www.youtube-nocookie.com/embed/OtI4KEAARe4?start=623&rel=0&autoplay=1&mute=1&playsinline=1"
-                                    title="PROJECTTITLE | 1LIFE Interview"
+                                    src={`https://www.youtube-nocookie.com/embed/${activeVideo.id}?${activeVideo.id === "OtI4KEAARe4" ? "start=623&" : ""}rel=0&autoplay=1&mute=1&playsinline=1`}
+                                    title={activeVideo.title}
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                     allowFullScreen
                                 />
@@ -136,11 +143,9 @@ const Hero = () => {
                                     key={link.href}
                                     className="hero-video-link"
                                     href={link.href}
-                                    target="_blank"
-                                    rel="noreferrer noopener"
                                     onClick={(event) => {
                                         event.preventDefault();
-                                        window.open(link.href, "_blank", "noopener,noreferrer");
+                                        setActiveVideo({ id: link.videoId, title: link.title });
                                     }}
                                 >
                                     <span className="hero-video-thumb">

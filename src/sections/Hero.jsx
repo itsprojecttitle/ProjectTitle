@@ -8,6 +8,12 @@ const Hero = () => {
     });
     const heroLinks = [
         {
+            title: "PROJECTTITLE | 1LIFE Interview",
+            videoId: "OtI4KEAARe4",
+            thumb: "https://img.youtube.com/vi/OtI4KEAARe4/hqdefault.jpg",
+            href: "https://www.youtube.com/watch?v=OtI4KEAARe4",
+        },
+        {
             title: "PROJECTTITLE | ELZ LAURENT",
             videoId: "lINkDzNWKIs",
             thumb: "https://img.youtube.com/vi/lINkDzNWKIs/hqdefault.jpg",
@@ -18,12 +24,6 @@ const Hero = () => {
             videoId: "DhI3eWrMNLI",
             thumb: "https://img.youtube.com/vi/DhI3eWrMNLI/hqdefault.jpg",
             href: "https://www.youtube.com/watch?v=DhI3eWrMNLI",
-        },
-        {
-            title: "PROJECTTITLE | 1LIFE Interview",
-            videoId: "OtI4KEAARe4",
-            thumb: "https://img.youtube.com/vi/OtI4KEAARe4/hqdefault.jpg",
-            href: "https://www.youtube.com/watch?v=OtI4KEAARe4",
         },
     ];
 

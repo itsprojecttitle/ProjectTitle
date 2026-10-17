@@ -3,8 +3,8 @@ import React, { useEffect, useRef, useState } from "react";
 const Hero = () => {
     const videoRef = useRef(null);
     const [activeVideo, setActiveVideo] = useState({
-        id: "OtI4KEAARe4",
-        title: "PROJECTTITLE | 1LIFE Interview",
+        id: "Qkn_FJuPQrw",
+        title: "PROJECTTITLE | 1LIFE Cypher",
     });
     const heroLinks = [
         {

@@ -185,7 +185,7 @@ const App = () => {
                             triggerHeaderHide();
                         }}
                     >
-                        Recent Photos
+                        News
                     </a>
 
                     <a className="bm-menu-item" href="/Project-Britania.html">CYPHER</a>

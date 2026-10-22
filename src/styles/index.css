@@ -4662,6 +4662,215 @@ body.britania-body{
   background: #050505;
 }
 
+.cypher-page{
+  min-height: 70vh;
+  padding: clamp(112px, 14vw, 170px) 0 84px;
+  color: #fff;
+  background: #050505;
+}
+
+.cypher-inner{
+  width: min(1120px, 92vw);
+  margin: 0 auto;
+}
+
+.cypher-heading{
+  margin: 0 auto 36px;
+  text-align: center;
+}
+
+.cypher-eyebrow{
+  margin: 0 0 10px;
+  color: #b8b8b8;
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+}
+
+.cypher-heading h1{
+  max-width: 1000px;
+  margin: 0 auto;
+  color: #fff;
+  font-size: clamp(2.2rem, 6.2vw, 5.3rem);
+  font-weight: 800;
+  letter-spacing: .045em;
+  line-height: 1.02;
+}
+
+.cypher-subtitle{
+  margin: 14px 0 0;
+  color: rgba(255,255,255,.68);
+  font-size: clamp(.78rem, 1.6vw, 1rem);
+  letter-spacing: .08em;
+}
+
+.cypher-feature-video{
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #111;
+  border: 1px solid rgba(255,255,255,.16);
+  box-shadow: 0 24px 70px rgba(0,0,0,.42);
+}
+
+.cypher-feature-video iframe{
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.cypher-credits{
+  display: grid;
+  grid-template-columns: minmax(190px, .85fr) minmax(0, 2fr);
+  gap: 28px;
+  margin-top: 30px;
+  padding: 24px 0 28px;
+  border-top: 1px solid rgba(255,255,255,.2);
+  border-bottom: 1px solid rgba(255,255,255,.2);
+}
+
+.cypher-credit-grid{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px 20px;
+}
+
+.cypher-credit-block .cypher-eyebrow{
+  margin-bottom: 7px;
+  font-size: .64rem;
+}
+
+.cypher-credit-block > p:last-child{
+  margin: 0;
+  color: rgba(255,255,255,.9);
+  font-size: .92rem;
+  line-height: 1.5;
+}
+
+.cypher-credit-lineup > p:last-child{
+  font-size: 1.02rem;
+  font-weight: 550;
+  line-height: 1.65;
+}
+
+.cypher-artists{
+  margin-top: clamp(48px, 8vw, 88px);
+}
+
+.cypher-carousel-heading{
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 22px;
+}
+
+.cypher-carousel-heading .cypher-eyebrow{margin-bottom: 8px;}
+
+.cypher-carousel-heading h2{
+  margin: 0;
+  color: #fff;
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: 650;
+  letter-spacing: -.025em;
+}
+
+.cypher-carousel-controls{display:flex;gap:9px;}
+
+.cypher-carousel-controls button{
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(255,255,255,.35);
+  border-radius: 50%;
+  background: transparent;
+  color: white;
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: background .2s ease, color .2s ease;
+}
+
+.cypher-carousel-controls button:hover,
+.cypher-carousel-controls button:focus-visible{background:#fff;color:#050505;}
+
+.cypher-carousel{
+  display: flex;
+  gap: 18px;
+  overflow-x: auto;
+  padding: 2px 2px 14px;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.cypher-carousel::-webkit-scrollbar{display:none;}
+
+.cypher-artist-card{
+  flex: 0 0 clamp(210px, 27vw, 285px);
+  scroll-snap-align: start;
+  animation: cypher-card-arrive .7s cubic-bezier(.2,.75,.25,1) both;
+  transition: transform .35s cubic-bezier(.2,.75,.25,1);
+}
+
+.cypher-artist-card:nth-child(2){animation-delay:.07s;}
+.cypher-artist-card:nth-child(3){animation-delay:.14s;}
+.cypher-artist-card:nth-child(4){animation-delay:.21s;}
+.cypher-artist-card:nth-child(5){animation-delay:.28s;}
+.cypher-artist-card:nth-child(6){animation-delay:.35s;}
+.cypher-artist-card:nth-child(7){animation-delay:.42s;}
+
+@keyframes cypher-card-arrive{
+  from{opacity:0;transform:translate3d(0,20px,0) scale(.985);}
+  to{opacity:1;transform:translate3d(0,0,0) scale(1);}
+}
+
+.cypher-artist-image{
+  aspect-ratio: 1019 / 1350;
+  overflow: hidden;
+  background: #151515;
+}
+
+.cypher-artist-image img{
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .45s ease;
+}
+
+.cypher-artist-card:hover{transform:translateY(-5px);}
+.cypher-artist-image img{will-change:transform;}
+.cypher-artist-card:hover .cypher-artist-image img{transform:scale(1.045);}
+
+.cypher-artist-card h3{
+  margin: 13px 0 0;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+@media (max-width: 600px){
+  .cypher-page{padding-top:110px;padding-bottom:56px;}
+  .cypher-heading{margin-bottom:26px;}
+  .cypher-carousel-heading{align-items:center;}
+  .cypher-artist-card{flex-basis:72vw;}
+}
+
+@media (max-width: 760px){
+  .cypher-credits{grid-template-columns:1fr;gap:22px;}
+  .cypher-credit-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 14px;}
+}
+
+@media (prefers-reduced-motion: reduce){
+  .cypher-artist-card{animation:none;transition:none;}
+  .cypher-artist-image img{transition:none;}
+  .cypher-carousel{scroll-behavior:auto;}
+}
+
 .header-britania-link{
   padding: 7px 12px;
   border: 1px solid #e62b2b;

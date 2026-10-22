@@ -34,7 +34,7 @@ const ProjectBritaniaApp = () => {
                     <a className="bm-menu-item" href="/#portfolio">Portfolio</a>
                     <a className="bm-menu-item" href="/Gallery.html">Gallery</a>
                     <a className="bm-menu-item" href="/media.html">Media</a>
-                    <a className="bm-menu-item" href="/Project-Britania.html">Project Britania</a>
+                    <a className="bm-menu-item" href="/Project-Britania.html">CYPHER</a>
                     <a className="bm-menu-item" href="/Contact.html">Contact us</a>
                 </nav>
             </div>

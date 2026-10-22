@@ -81,7 +81,7 @@ const Header = ({
             { label: "Portfolio", href: "/#portfolio" },
             { label: "Gallery", href: "/Gallery.html" },
             { label: "Media", href: "/media.html" },
-            { label: "Project Britania", href: "/Project-Britania.html" },
+            { label: "CYPHER", href: "/Project-Britania.html" },
             { label: "News", href: "/#news" },
             { label: "Contact us", href: "/Contact.html" },
             { label: "FAQs", href: "/#faq" },
@@ -208,7 +208,7 @@ const Header = ({
                             triggerHeaderHide();
                         }}
                     >
-                        Britania
+                        CYPHER
                     </a>
                 </nav>
             </div>

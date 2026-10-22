@@ -48,7 +48,16 @@ const getPhotoGroupName = (image = "") => {
     const match = withoutIndex.match(/^(.+?)-(?:DSC|IMG)/i);
     if (!match) return null;
 
-    return match[1].replace(/-/g, " ");
+    const groupName = match[1].replace(/-/g, " ");
+    const groupNameOverrides = {
+        "ohmiens friend": "BoothTroopMilitia",
+        "others": "Extras",
+        "daejes friend": "UK UNDERGROUND",
+        "daeje friend": "UK UNDERGROUND",
+        "fixup": "Fixupboy",
+    };
+
+    return groupNameOverrides[groupName.toLowerCase()] || groupName;
 };
 
 const FullPortfolio = ({

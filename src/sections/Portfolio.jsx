@@ -1,20 +1,6 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { portfolioItems } from "../data/portfolio.js";
-
-const galleryImages = [
-    "/assets/images/Photos/EVENTS/DSC00355.jpg",
-    "/assets/images/Photos/EVENTS/DSC00352.jpg",
-    "/assets/images/Photos/EVENTS/DSC00335.jpg",
-    "/assets/images/Photos/EVENTS/DSC00323.jpg",
-    "/assets/images/Photos/EVENTS/DSC00315.jpg",
-    "/assets/images/Photos/EVENTS/DSC00309.jpg",
-    "/assets/images/Photos/EVENTS/DSC00285.jpg",
-    "/assets/images/Photos/EVENTS/DSC00263.jpg",
-    "/assets/images/Photos/EVENTS/DSC00241.jpg",
-    "/assets/images/Photos/EVENTS/DSC00226.jpg",
-    "/assets/images/Photos/EVENTS/DSC00197.jpg",
-    "/assets/images/Photos/EVENTS/DSC00279.jpg",
-];
+import CypherArtistsCarousel from "../components/CypherArtistsCarousel.jsx";
 
 const testimonials = [
     {
@@ -33,33 +19,12 @@ const testimonials = [
 
 const Portfolio = () => {
     const [testimonialIndex, setTestimonialIndex] = useState(0);
-    const [galleryIndex, setGalleryIndex] = useState(0);
-    const galleryItems = useMemo(() => {
-        const imageList = galleryImages.slice();
-        if (!imageList.length) {
-            return portfolioItems.filter((item) => item?.image).map((item) => item.image);
-        }
-        for (let i = imageList.length - 1; i > 0; i -= 1) {
-            const swapIndex = Math.floor(Math.random() * (i + 1));
-            [imageList[i], imageList[swapIndex]] = [imageList[swapIndex], imageList[i]];
-        }
-        return imageList;
-    }, []);
-
     useEffect(() => {
         const interval = setInterval(() => {
             setTestimonialIndex((prev) => (prev + 1) % testimonials.length);
         }, 3800);
         return () => clearInterval(interval);
     }, []);
-
-    useEffect(() => {
-        if (galleryItems.length <= 1) return undefined;
-        const interval = setInterval(() => {
-            setGalleryIndex((prev) => (prev + 1) % galleryItems.length);
-        }, 4200);
-        return () => clearInterval(interval);
-    }, [galleryItems.length]);
 
     return (
         <section
@@ -71,29 +36,14 @@ const Portfolio = () => {
                     Portfolio
                 </h3>
                 <p className="reveal-up tw-text-lg tw-uppercase tw-tracking-[0.12em] max-lg:tw-text-sm">
-                    More available upon request.
+                    Recent photos — British Underground Cypher 2026.
                 </p>
             </div>
+            <div className="portfolio-cypher-carousel tw-w-full tw-max-w-[1100px]">
+                <CypherArtistsCarousel eyebrow="British Underground Cypher 2026" title="Recent photos" />
+            </div>
             <div className="portfolio-mosaic tw-mt-8 tw-w-full tw-max-w-[1100px]">
-                <div className="portfolio-mosaic-left">
-                    {portfolioItems[0] ? (
-                        <article className="portfolio-mosaic-card portfolio-mosaic-card--plain reveal-up">
-                            <div className="portfolio-mosaic-plain-media">
-                                <img
-                                    src={galleryItems[galleryIndex] || portfolioItems[0].image}
-                                    alt="Portfolio gallery"
-                                />
-                            </div>
-                        <div className="portfolio-mosaic-plain-overlay">
-                            <a
-                                href="/Gallery.html"
-                                className="portfolio-mosaic-plain-cta"
-                            >
-                                Gallery <i className="bi bi-arrow-right"></i>
-                            </a>
-                        </div>
-                        </article>
-                    ) : null}
+                <div className="portfolio-mosaic-left portfolio-mosaic-left--testimonial">
                     <article className="portfolio-mosaic-card portfolio-mosaic-card--summary reveal-up">
                         <h5 className="portfolio-testimonial-title">Testimonials</h5>
                         <p
@@ -110,24 +60,14 @@ const Portfolio = () => {
                 {portfolioItems[2] ? (
                     <article className="portfolio-mosaic-card portfolio-mosaic-card--hero reveal-up">
                     <div className="portfolio-mosaic-hero-frame">
-                        <video
-                            className="portfolio-mosaic-hero-video"
-                            autoPlay
-                            loop
-                            muted
-                            controls
-                            playsInline
-                        >
-                            <source
-                                src="/assets/videos/hero-mobile.mp4"
-                                type="video/mp4"
-                                media="(max-width: 900px)"
-                            />
-                            <source
-                                src="/assets/videos/hero.mp4"
-                                type="video/mp4"
-                            />
-                        </video>
+                        <iframe
+                            className="portfolio-mosaic-hero-embed"
+                            src="https://www.youtube-nocookie.com/embed/CCtifwUJvm4?rel=0&autoplay=1&mute=1&playsinline=1"
+                            title="ProjectTitle gallery highlight"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            referrerPolicy="strict-origin-when-cross-origin"
+                            allowFullScreen
+                        />
                     </div>
                         <div className="portfolio-mosaic-hero-caption portfolio-mosaic-hero-caption--left">
                             <a href="/media.html" className="portfolio-mosaic-link portfolio-mosaic-hero-cta">

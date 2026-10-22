@@ -84,6 +84,7 @@ const ServicePackagesApp = () => {
                         News
                     </a>
 
+                    <a className="bm-menu-item" href="/Project-Britania.html">CYPHER</a>
                         <a className="bm-menu-item" href="/Contact.html">
                             Contact us
                         </a>

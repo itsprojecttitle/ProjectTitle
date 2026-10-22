@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { cypherArtists } from "../data/cypherArtists.js";
 
-const CypherArtistsCarousel = ({ eyebrow = "The artists", title = "Meet the lineup" }) => {
+const CypherArtistsCarousel = ({ eyebrow = "The artists", title = "Meet the lineup", sectionId }) => {
     const carouselRef = useRef(null);
 
     const moveCarousel = (direction) => {
@@ -13,7 +13,7 @@ const CypherArtistsCarousel = ({ eyebrow = "The artists", title = "Meet the line
     };
 
     return (
-        <section className="cypher-artists" aria-label="British Underground Cypher 2026 artists">
+        <section id={sectionId} className="cypher-artists" aria-label="British Underground Cypher 2026 artists">
             <div className="cypher-carousel-heading">
                 <div>
                     <p className="cypher-eyebrow">{eyebrow}</p>

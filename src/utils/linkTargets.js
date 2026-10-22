@@ -1,21 +1,12 @@
 export const initLinkTargets = () => {
     const applyTargets = (root = document) => {
-        const anchors = root.querySelectorAll("a[href]");
+        const anchors = [
+            ...(root.matches?.("a[href]") ? [root] : []),
+            ...root.querySelectorAll("a[href]"),
+        ];
         anchors.forEach((anchor) => {
-            const href = anchor.getAttribute("href") || "";
-            const isSocial =
-                href.includes("instagram.com/projecttitle") ||
-                href.includes("x.com/ItsProjectTitle") ||
-                href.includes("tiktok.com/@projecttitle") ||
-                href.includes("youtube.com/@ProjectTitle") ||
-                href.includes("/facebook.html");
-            if (isSocial) {
-                anchor.setAttribute("target", "_blank");
-                anchor.setAttribute("rel", "noreferrer");
-                return;
-            }
-            anchor.removeAttribute("target");
-            anchor.removeAttribute("rel");
+            anchor.setAttribute("target", "_blank");
+            anchor.setAttribute("rel", "noopener noreferrer");
         });
     };
 

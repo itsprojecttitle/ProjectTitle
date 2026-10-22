@@ -121,6 +121,7 @@ const FullPortfolioApp = () => {
     }, []);
 
     const handleNavigate = (event, id) => {
+        if (event?.currentTarget?.target === "_blank") return;
         if (!id) return;
         const target = document.getElementById(id);
         if (target) {
@@ -193,6 +194,7 @@ const FullPortfolioApp = () => {
                             titleText={activeCollection?.title || "Gallery"}
                             subtitleText={activeCollection?.subtitle || 'Every story starts with a "ProjectTitle"'}
                             images={activeCollection?.images}
+                            sections={activeCollection?.sections}
                             showCollections={!activeCollection}
                         />
                     </main>

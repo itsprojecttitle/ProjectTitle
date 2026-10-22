@@ -15,6 +15,7 @@ export default defineConfig({
                 main: "index.html",
                 galleryDemo: "GalleryDemo.html",
                 fullPortfolio: "Gallery.html",
+                galleryBritishUndergroundCypher2026: "Gallery-British-Underground-Cypher-2026.html",
                 gallery2024Photos: "Gallery-2024-Photos.html",
                 gallery8oh8: "Gallery-8OH8.html",
                 galleryStudio: "Gallery-Studio.html",

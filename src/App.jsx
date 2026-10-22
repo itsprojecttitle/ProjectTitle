@@ -3,7 +3,7 @@ import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
 import Hero from "./sections/Hero.jsx";
 import Portfolio from "./sections/Portfolio.jsx";
-import Articles from "./sections/Articles.jsx";
+import CypherArtistsCarousel from "./components/CypherArtistsCarousel.jsx";
 import { initScrollAnimations } from "./utils/scrollAnimations.js";
 import { initLinkTargets } from "./utils/linkTargets.js";
 import { addScrollListener, getScrollTop } from "./utils/scrollRoot.js";
@@ -185,7 +185,7 @@ const App = () => {
                             triggerHeaderHide();
                         }}
                     >
-                        News
+                        Recent Photos
                     </a>
 
                         <a className="bm-menu-item" href="/Contact.html">
@@ -211,7 +211,11 @@ const App = () => {
                     <main>
                         <Hero />
                         <Portfolio />
-                        <Articles />
+                        <CypherArtistsCarousel
+                            sectionId="news"
+                            eyebrow="British Underground Cypher 2026"
+                            title="Recent Projects"
+                        />
                     </main>
                     <FloatingWidget />
                     <button

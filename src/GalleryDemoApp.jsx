@@ -372,6 +372,7 @@ const GalleryDemoApp = () => {
     };
 
     const handleNavigate = (event, id) => {
+        if (event?.currentTarget?.target === "_blank") return;
         if (!id) return;
         const target = document.getElementById(id);
         if (target) {

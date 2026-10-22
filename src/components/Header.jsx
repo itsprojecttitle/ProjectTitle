@@ -5,7 +5,7 @@ const Header = ({
     onNavigate,
     homeHref = "/#hero",
     portfolioHref = "/#portfolio",
-    showBookNow = true,
+    showBookNow = false,
     ctaLabel = "Book Now",
 }) => {
     const [isPeek, setIsPeek] = useState(false);
@@ -35,6 +35,7 @@ const Header = ({
 
     const handleNavClick = (event, id, href) => {
         if (!href) return;
+        if (event?.currentTarget?.target === "_blank") return;
         if (href.startsWith("#") && onNavigate) {
             onNavigate(event, id);
             return;
@@ -54,6 +55,7 @@ const Header = ({
         }
     };
     const handleLogoClick = (event) => {
+        if (event?.currentTarget?.target === "_blank") return;
         const isHomePath =
             window.location.pathname === "/" ||
             window.location.pathname.endsWith("/index.html");
@@ -111,13 +113,7 @@ const Header = ({
     const handleSearchSubmit = () => {
         const match = findMatch(searchQuery);
         if (!match) return;
-        if (match.href.startsWith("/#") && isHomePath()) {
-            const id = match.href.replace("/#", "");
-            window.scrollTo({ top: 0, behavior: "smooth" });
-            if (id) onNavigate?.(new Event("click"), id);
-            return;
-        }
-        window.location.assign(match.href);
+        window.open(match.href, "_blank", "noopener,noreferrer");
     };
 
     return (

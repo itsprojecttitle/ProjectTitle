@@ -64,6 +64,7 @@ const FullPortfolio = ({
     titleText = "Gallery",
     subtitleText = 'Every story starts with a "ProjectTitle"',
     images = galleryImages,
+    sections = null,
     showCollections = true,
 }) => {
     const tiles = useMemo(
@@ -76,6 +77,17 @@ const FullPortfolio = ({
     );
     const [activeIndex, setActiveIndex] = useState(null);
     const touchStart = useRef(null);
+    const photoSections = useMemo(() => {
+        if (!Array.isArray(sections) || !sections.length) return null;
+        let imageIndex = 0;
+        return sections.map((section) => ({
+            name: section.name,
+            items: section.images.map((image) => {
+                const index = imageIndex++;
+                return { image, index, className: tileClasses[index % tileClasses.length] };
+            }),
+        }));
+    }, [sections]);
     const groupedTiles = useMemo(() => {
         const groups = [];
         const groupMap = new Map();
@@ -228,6 +240,36 @@ const FullPortfolio = ({
                                     <strong>{collection.images.length} photos</strong>
                                 </div>
                             </a>
+                        ))}
+                    </div>
+                ) : photoSections ? (
+                    <div className="gallery-folder-groups">
+                        {photoSections.map((group) => (
+                            <section className="gallery-folder-group" key={group.name}>
+                                <div className="gallery-folder-heading">
+                                    <h4>{group.name}</h4>
+                                    <span>{group.items.length} photos</span>
+                                </div>
+                                <div className="full-portfolio-grid">
+                                    {group.items.map((item) => (
+                                        <article
+                                            className={`full-portfolio-card ${item.className}`}
+                                            key={`full-portfolio-${item.index}`}
+                                        >
+                                            <button
+                                                type="button"
+                                                className="full-portfolio-photo portfolio-mosaic-card portfolio-mosaic-card--plain"
+                                                onClick={() => openAt(item.index)}
+                                                aria-label="Open photo"
+                                            >
+                                                <div className="portfolio-mosaic-plain-media">
+                                                    <img src={item.image} alt="Cypher artist" loading="lazy" />
+                                                </div>
+                                            </button>
+                                        </article>
+                                    ))}
+                                </div>
+                            </section>
                         ))}
                     </div>
                 ) : groupedTiles ? (

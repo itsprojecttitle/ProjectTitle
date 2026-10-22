@@ -1,4 +1,37 @@
+const cypherPortraits = [
+    "/assets/cypher/kyrxn.png",
+    "/assets/cypher/tk.png",
+    "/assets/cypher/s3l.png",
+    "/assets/cypher/rez818.png",
+    "/assets/cypher/yerki.png",
+    "/assets/cypher/joutema.png",
+    "/assets/cypher/antzz.png",
+];
+
+const cypherArtistPhotos = [
+    "DSC05028.jpg", "DSC05028(1).jpg", "DSC05030.jpg", "DSC05032.jpg", "DSC05033.jpg",
+    "DSC05038.jpg", "DSC05045.jpg", "DSC05045(1).jpg", "DSC05052.jpg", "DSC05055.jpg",
+    "DSC05059.jpg", "DSC05068.jpg", "DSC05070.jpg", "DSC05096.jpg", "DSC05098.jpg",
+    "DSC05106.jpg", "DSC05108.jpg", "DSC05115.jpg", "DSC05115(1).jpg", "DSC05117.jpg",
+    "DSC05121.jpg", "DSC05122.jpg", "DSC05125.jpg", "DSC05129.jpg", "DSC05132.jpg",
+    "DSC05140.jpg", "DSC05140(1).jpg", "DSC05142.jpg", "DSC05142(1).jpg", "DSC05146.jpg",
+    "DSC05158.jpg", "DSC05161.jpg", "DSC05165.jpg", "DSC05165(1).jpg", "DSC05250.jpg",
+    "DSC05254.jpg", "DSC05264.jpg", "DSC05267.jpg", "DSC05270.jpg", "DSC05278.jpg",
+    "DSC05287.jpg", "DSC05288.jpg", "DSC05297.jpg",
+].map((filename) => `/assets/cypher/artist-photos/${encodeURIComponent(filename)}`);
+
 export const galleryCollections = [
+    {
+        slug: "british-underground-cypher-2026",
+        title: "British Underground Cypher 2026",
+        href: "/Gallery-British-Underground-Cypher-2026.html",
+        subtitle: "The CYPHER artist portraits: S3l, Rez818, Yerki, Joutema, Antzz, Kyrxn, and TkorTeko.",
+        images: [...cypherPortraits, ...cypherArtistPhotos],
+        sections: [
+            { name: "Cypher Lineup", images: cypherPortraits },
+            { name: "Artist Photos", images: cypherArtistPhotos },
+        ],
+    },
     {
         slug: "2024-photos",
         title: "2024 Gallery",
